@@ -62,6 +62,63 @@ public class LinkedList {
 
         }
     }
+	
+	
+    //删除指定位置的结点
+    public static void deleteNodeByIndex(int index){
+        if (index <1 || index > getLength()){
+            System.out.println("删除位置不合法");
+        }
+
+        node temp = head;
+        int len =1;
+        while (temp.next !=null){
+            if (index == len++){
+                temp.next = temp.next.next;
+                temp=temp.next;
+                return;
+
+            }
+            temp =temp.next;
+        }
+    }
+
+    // 单链表倒数第k个结点查找和显示(遍历两次)
+    public static void findKthToTail_1(int k){
+        if (k<1 || k > getLength()){
+            System.out.println("查找的位置不合法");
+        }
+        node temp =head;
+        int len=1;
+        int index = getLength()-k+1;
+        while (temp.next!=null){
+            if (index == len++){
+                System.out.println("倒数第k个结点为:"+temp.next.data);
+            }
+            temp=temp.next;
+        }
+    }
+
+    // 单链表倒数第k个结点查找和显示(遍历一次),两个指针a，b；保持b指针不变，当a从头开始遍历到k时，b开始遍历，当a遍历到结尾时，b刚好遍历到倒数第k个结点。
+    public static void findKthTotial_2(int k){
+        if (k<1 || k > getLength()){
+            System.out.println("查找的位置不合法");
+        }
+
+        node a = head;
+        node b= head;
+        for(int i=1; i<k;i++){
+            a=a.next;
+        }
+
+        while (a.next!=null){
+            a=a.next;
+            b=b.next;
+        }
+
+        System.out.println("倒数第k个结点为:"+b.data);
+    }
+
 
     public static void main(String[] args) {
 
