@@ -21,7 +21,6 @@ class Solution {
         temp.next = newnode;
     }
 
-    // 定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。
     public static node reverseList(node head){
         node reHeadNode = null;
         node curNode = head;
@@ -40,7 +39,7 @@ class Solution {
         return  reHeadNode;
     }
 
-    //tolist 递归法
+    //todo 递归法
 
     public static void main(String[] args) {
         for(int i=0;i< 5;i++){
