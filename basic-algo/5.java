@@ -40,7 +40,15 @@ class Solution {
         }
     }
     //利用递归来实现
+    public static void printListToTail2(node head){
+        if (head != null){
+            if (head.next !=null){
+                printListToTail2(head.next);
+            }
+            System.out.println(""+head.data);
+        }
 
+    }
     public static void main(String[] args) {
         for(int i=0;i< 5;i++){
             addNode(i);

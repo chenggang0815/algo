@@ -20,7 +20,7 @@ class Solution {
 
         temp.next = newnode;
     }
-
+    
     public static node reverseList(node head){
         node reHeadNode = null;
         node curNode = head;
@@ -39,7 +39,7 @@ class Solution {
         return  reHeadNode;
     }
 
-    //todo 递归法
+    //利用递归实现
 
     public static void main(String[] args) {
         for(int i=0;i< 5;i++){
