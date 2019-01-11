@@ -1,17 +1,19 @@
 // 定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。
 class Solution {
     static class node{
-     public    int data;
+        public    int data;
         node next;
 
+        node (){
+        }
         node(int data){
             this.data=data;
         }
     }
 
-    static node head = new node(-1);
+    static node head = new node();
     //往链表里添加结点
-    public static void addNode(int data){
+    public static void addnode(int data){
         node newnode = new node(data);
         node temp = head;
         while (temp.next!=null){
@@ -20,34 +22,67 @@ class Solution {
 
         temp.next = newnode;
     }
-    
-    public static node reverseList(node head){
-        node reHeadNode = null;
-        node curNode = head;
-        node preNode = null;
-        while (curNode !=null){
-            node nextnode = curNode.next;
-            if (curNode.next == null){
-                reHeadNode = curNode;
+
+    // 定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。
+    public static node reverseList2(node head){
+        node reHeadnode = null;
+        node curnode = head;
+        node prenode = null;
+        while (curnode !=null){
+            node nextnode = curnode.next;
+            if (curnode.next == null){
+                reHeadnode = curnode;
             }
 
-            curNode.next = preNode;
-            preNode = curNode;
-            curNode = nextnode;
+            curnode.next = prenode;
+            prenode = curnode;
+            curnode = nextnode;
 
         }
-        return  reHeadNode;
+
+        return  reHeadnode;
     }
 
-    //利用递归实现
+    //递归法
+    private static node reverseList1(node head){
+        if (head ==null || head.next ==null){
+            return head;
+        }
+        node temp = head.next;
+        node newhead =reverseList1(head.next);
+        temp.next =head;
+        head.next =null;
+        return newhead;
+    }
 
-    public static void main(String[] args) {
-        for(int i=0;i< 5;i++){
-            addNode(i);
+    //打印链表
+    public static void printL(node head){
+        if (head==null){
+            System.out.println("链表为空");
+        }
+        node temp = head;
+        while (temp!=null){
+            System.out.println(""+temp.data);
+            temp=temp.next;
         }
 
-        System.out.println(reverseList(head).data+"");
+    }
+
+    public static void main(String[] args) {
+        for(int i=10;i< 15;i++){
+            addnode(i);
+        }
+		
+        printL(head.next);
+        System.out.println("========reverse 1==========");
+        printL(reverseList1(head.next));
+        System.out.println("========reverse 2==========");
+
 
     }
 
 }
+
+
+
+
