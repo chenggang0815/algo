@@ -65,6 +65,26 @@ class Solution {
 
         return newhead;
     }
+	
+	    // 合并链表 递归
+    public static node mergeList2(node head1,node head2){
+        node temp1 = head1;
+        node temp2 = head2;
+        node newhead = new node();
+
+        if (temp1 == null) return temp2;
+        if (temp2 == null) return temp1;
+
+        if (temp1.data < temp2.data){
+            newhead=temp1;
+            newhead.next=mergeList2(temp1.next,temp2);
+        }
+        else {
+            newhead=temp2;
+            newhead.next=mergeList2(temp1,temp2.next);
+        }
+        return newhead;
+    }
 
     public static void main(String[] args) {
 
