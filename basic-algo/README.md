@@ -12,8 +12,8 @@
 | 8    |               查找单链表中的中间结点                |
 | 9    |                合并两个有序的单链表                |
 | 10   |       判断链表是否有环（循环遍历，hash map，快慢指针）       |
-| 11   | todo list（https://www.cnblogs.com/smyhvae/p/4782595.html） |
-|      |                                          |
+| 11   |             删除链表中重复的结点，保留第一个             |
+| 12   | todo list（https://www.cnblogs.com/smyhvae/p/4782595.html） |
 |      |                                          |
 |      |                                          |
 |      |                                          |
