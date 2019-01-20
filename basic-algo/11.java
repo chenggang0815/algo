@@ -1,3 +1,4 @@
+//在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1->2->3->3->4->4->5 处理后为 1->2->5
 import java.util.HashMap;
 
 class Solution {
@@ -39,8 +40,30 @@ class Solution {
     }
 
 
+//在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1->2->3->3->4->4->5 处理后为 1->2->5
+    public static node deleteDuplication1(node firstNode){
+
+        if (firstNode == null || firstNode.next == null) { // 只有0个或1个结点，则返回
+            return firstNode;
+        }
+        if (firstNode.next.data == firstNode.data){
+            node current=firstNode.next;
+            while (current !=null && current.data==firstNode.data){
+                current = current.next;
+            }
+            return deleteDuplication1(current);
+        }
+        else {
+            firstNode.next = deleteDuplication1(firstNode.next);
+
+            return firstNode;
+        }
+    }
+
+
+
     //删除链表中的重复结点，并且保留一个结点，hashmap
-    public static node deleteDuplication(node firstNode){
+    public static node deleteDuplication2(node firstNode){
         HashMap hp =new HashMap();
         node temp =firstNode;
         while (temp.next!=null){
@@ -67,14 +90,14 @@ class Solution {
 
 
 
+
     public static void main(String[] args) {
 
         addnode(head,1);
         addnode(head,2);
-        addnode(head,1);
+        addnode(head,2);
         addnode(head,3);
-        addnode(head,4);
-        printL(deleteDuplication(head.next));
+        printL(deleteDuplication1(head.next));
 
     }
 
