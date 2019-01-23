@@ -16,6 +16,38 @@ class Solution {
             }
         }
     }
+	
+	//插入排序
+	public static void insertSort(int[] arr){
+        int length =arr.length;
+        int target;
+        for (int i = 1;i<length;i++){
+            target =arr[i];
+            int j =i;
+
+            while (j>0 && target<arr[j-1]){
+                arr[j] = arr[j-1];
+                j--;
+            }
+            arr[j] = target;
+        }
+    }
+	
+	   //选择排序
+    public static void selectionSort(int[] arr){
+        int length = arr.length;
+        for (int i =0;i<length;i++){
+            int k =i;
+            for (int j = i;j<length;j++){
+                if (arr[j] > arr[k]){
+                    k=j;
+                }
+            }
+            int temp = arr[i];
+            arr[i] = arr[k];
+            arr[k] = temp;
+        }
+    }
 
 
     public static void main(String[] args) {
