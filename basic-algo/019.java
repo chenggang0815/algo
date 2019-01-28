@@ -35,23 +35,23 @@ class Solution {
         quickSort(arr, low, i-1 );
         quickSort(arr, i+1, high);
     }
-	
-	   private static void mergeSort(int[] arr, int low, int high) {
+	// 归并排序
+    private static void mergeSort(int[] arr, int low, int high) {
 
         int mid = (low+high)/2;
+        if (low < high) {
+            mergeSort(arr, low, mid);
+            mergeSort(arr, mid + 1, high);
 
-        mergeSort(arr,low,mid);
-        mergeSort(arr,mid+1,high);
-
-        merge(arr,low,mid,high);
-
+            merge(arr, low, mid, high);
+        }
     }
 
     private static void merge(int[] arr,int right,int mid,int left){
         int i = right;
         int j = mid+1;
         int t = 0;
-        int[] temp = new int[arr.length];
+        int[] temp = new int[left-right+1];
         while (i<=mid && j <= left){
             if (arr[i] <= arr[j]){
                 temp[t++] = arr[i];
@@ -71,13 +71,10 @@ class Solution {
             temp[t++] = arr[j++];
         }
 
-        System.out.println(Arrays.toString(temp));
-
         for (i =0;i<t;i++){
-            arr[i] = temp[i];
+            arr[i+right] = temp[i];
         }
     }
-
     public static void main(String[] args) {
 
         //int[] array = new int[] {40,2,1,311,2,1};
