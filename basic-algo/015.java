@@ -21,3 +21,49 @@
 
         return clone_head;
     }
+	
+	
+	public static void copyList(Node head){ 
+		Node node = head; 
+		while(node != null){ 
+			Node copyNode = new Node(); 
+			copyNode.value = node.value; 
+			copyNode.next = node.next; 
+			copyNode.sbiling = null; 
+			node.next = copyNode; 
+			node = copyNode.next; 
+		}
+ } 
+    public static void setSbiling(Node head){ 
+		Node node = head; 
+		while(node != null){ 
+			Node copyNode = node.next; 
+			if(node.sbiling != null){ 
+				copyNode.sbiling = node.sbiling.next; 
+			} 
+		node = copyNode.next; 
+		} 
+} 
+	public static Node disConnectList(Node head){ 
+		Node node = head; 
+		Node copyHead = null;
+		Node copyNode = null; 
+		if(node != null){ 
+			copyHead = node.next; 
+			copyNode = node.next; 
+			node.next = copyNode.next; 
+			node = node.next; 
+		} 
+		while(node != null){ 
+			copyNode.next = node.next; 
+			copyNode = copyNode.next; 
+			node.next = copyNode.next; 
+			node = node.next; 
+		} 
+		return copyHead;
+} 
+	public static Node copy(Node head){ 
+		copyList(head); 
+		setSbiling(head); 
+		return disConnectList(head);
+	} 
