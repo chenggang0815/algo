@@ -65,6 +65,7 @@ public class binarySearchTree {
         }
     }
 
+// 删除结点
     public void delete(int data) {
         Node p = tree; // p指向要删除的节点，初始化指向根节点
         Node pp = null; // pp记录的是p的父节点
@@ -98,24 +99,25 @@ public class binarySearchTree {
         else if (pp.left == p) pp.left = child;
         else pp.right = child;
     }
-//
-//    public Node findMin() {
-//        if (tree == null) return null;
-//        Node p = tree;
-//        while (p.left != null) {
-//            p = p.left;
-//        }
-//        return p;
-//    }
-//
-//    public Node findMax() {
-//        if (tree == null) return null;
-//        Node p = tree;
-//        while (p.right != null) {
-//            p = p.right;
-//        }
-//        return p;
-//    }
+
+	//寻找最小的结点
+    public Node findMin() {
+        if (tree == null) return null;
+        Node p = tree;
+        while (p.left != null) {
+            p = p.left;
+        }
+        return p;
+    }
+//寻找最大的结点
+    public Node findMax() {
+        if (tree == null) return null;
+        Node p = tree;
+        while (p.right != null) {
+            p = p.right;
+        }
+        return p;
+    }
 
     //树的节点类
     public static class Node {
