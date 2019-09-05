@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7dd0fdb0-d77d-46e9-bc6c-6b322dd0e6e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/basic-algo/001.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/002.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/003.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/004.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/005.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/006.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/007.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/008.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/009.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/010.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/011.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/012.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/014.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/015.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/018.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/019.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/020.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/022.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/023.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/024.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/025.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/026.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/027.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic-algo/README.md" beforeDir="false" />
-    </list>
+    <list default="true" id="7dd0fdb0-d77d-46e9-bc6c-6b322dd0e6e8" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,46 +13,54 @@
     <session id="418732084">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.1" value="2" />
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="12" />
+          <entry key="iml" value="1" />
+          <entry key="java" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="12" />
+          <entry key="IDEA_MODULE" value="1" />
+          <entry key="JAVA" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="91" />
+          <entry key="java" value="129" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="91" />
+          <entry key="JAVA" value="129" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/nowcoder/_001/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-              <folding>
-                <element signature="e#343#344#0" expanded="true" />
-                <element signature="e#391#392#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="279">
+              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/algo.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -96,6 +79,8 @@
         <option value="$PROJECT_DIR$/basic-algo/001.java" />
         <option value="$PROJECT_DIR$/basic-algo/fib.java" />
         <option value="$PROJECT_DIR$/basic-algo/_001/Solution.java" />
+        <option value="$PROJECT_DIR$/src/com/nowcoder/_001/Solution.java" />
+        <option value="$PROJECT_DIR$/src/com/nowcoder/015.java" />
       </list>
     </option>
   </component>
@@ -132,20 +117,12 @@
               <item name="algo" type="b2602c69:ProjectViewProjectNode" />
               <item name="algo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="algo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="algo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="nowcoder" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="algo" type="b2602c69:ProjectViewProjectNode" />
               <item name="algo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="nowcoder" type="462c0819:PsiDirectoryNode" />
               <item name="_001" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -160,7 +137,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567683279624" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567685018341" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -178,7 +155,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.fib">
+  <component name="RunManager" selected="Application.Solution (1)">
     <configuration name="LinkedList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LinkedList" />
       <module name="algo" />
@@ -188,6 +165,26 @@
     </configuration>
     <configuration name="MyStack" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MyStack" />
+      <module name="algo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.nowcoder._001.Solution" />
+      <module name="algo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.nowcoder._001.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Solution" />
       <module name="algo" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -204,9 +201,13 @@
       <item itemvalue="Application.LinkedList" />
       <item itemvalue="Application.MyStack" />
       <item itemvalue="Application.fib" />
+      <item itemvalue="Application.Solution" />
+      <item itemvalue="Application.Solution (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Solution (1)" />
+        <item itemvalue="Application.Solution" />
         <item itemvalue="Application.fib" />
         <item itemvalue="Application.MyStack" />
         <item itemvalue="Application.LinkedList" />
@@ -227,17 +228,19 @@
       <workItem from="1567681382700" duration="1897000" />
       <workItem from="1567683356589" duration="25000" />
       <workItem from="1567683463966" duration="55000" />
+      <workItem from="1567684366111" duration="47000" />
+      <workItem from="1567684418750" duration="553000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2783000" />
+    <option name="totallyTimeSpent" value="3383000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25985092" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19808307" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -246,16 +249,16 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32897383" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" visible="true" weight="0.17936118" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.17907445" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -273,6 +276,12 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+      <path value="$PROJECT_DIR$/basic-algo" />
+    </ignored-roots>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/basic-algo/003.java" />
     <entry file="file://$PROJECT_DIR$/basic-algo/001/001.java" />
@@ -283,14 +292,31 @@
     <entry file="file://$PROJECT_DIR$/basic-algo/002.java" />
     <entry file="file://$PROJECT_DIR$/basic-algo/_001/Solution.java" />
     <entry file="file://$PROJECT_DIR$/basic-algo/src/com/nowcoder/_001/Solution.java" />
+    <entry file="file://$PROJECT_DIR$/.idea/algo.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nowcoder/015.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2263">
+          <caret line="73" column="1" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nowcoder/003.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nowcoder/_001/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="15" column="1" lean-forward="true" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-          <folding>
-            <element signature="e#343#344#0" expanded="true" />
-            <element signature="e#391#392#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="279">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
         </state>
       </provider>
     </entry>
