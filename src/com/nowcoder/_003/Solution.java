@@ -1,5 +1,6 @@
+package com.nowcoder._003;
 
-public class LinkedList {
+public class Solution {
 
     static public class node{
         public node next;

@@ -1,6 +1,8 @@
+package com.nowcoder._020;
+
 import java.util.Arrays;
 
-class Solution {
+public class Solution {
 
 // 计数排序
     public static int[] countSort(int[] arr, int k){

@@ -1,6 +1,7 @@
+package com.nowcoder._022;
 import java.lang.*;
 
-public class binSearch {
+public class Solution {
 
     public  static int binarySearch(int[] arr, int k){
 

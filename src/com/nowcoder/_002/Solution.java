@@ -1,9 +1,9 @@
-import java.util.*;
+package com.nowcoder._002;
+import java.util.Stack;
 
-public class Main {
-    static  class solution{
-        Stack<Integer> stack1 = new Stack<Integer>();
-        Stack<Integer> stack2 = new Stack<Integer>();
+public class Solution {
+        private  Stack<Integer> stack1 = new Stack<Integer>();
+        private  Stack<Integer> stack2 = new Stack<Integer>();
 
         public void push(int data){
             stack1.push(data);
@@ -23,13 +23,9 @@ public class Main {
 
         }
 
-    }
-
-
-
     public static void main(String[] args) {
 
-        solution s =new solution();
+        Solution s =new Solution();
         s.push(2);
         s.push(4);
         s.push(8);

@@ -1,6 +1,7 @@
+package com.nowcoder._005;
 import java.util.Stack;
 
-class Solution {
+public class Solution {
 //从尾到头打印单链表
     static class node{
      public    int data;

@@ -1,4 +1,6 @@
-public class Recursion {
+package com.nowcoder._007;
+
+public class Solution {
 
     public static void recursion1(int n){
         System.out.printf("1th - level: %d\n ",n);

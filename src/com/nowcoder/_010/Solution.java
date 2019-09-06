@@ -1,5 +1,5 @@
+package com.nowcoder._010;
 import java.util.HashMap;
-
 class Solution {
     static class node{
         public    int data;

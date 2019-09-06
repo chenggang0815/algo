@@ -1,6 +1,7 @@
-//冒泡排序，选择排序，插入排序。
-class Solution {
+package com.nowcoder._018;
 
+//冒泡排序，选择排序，插入排序。
+public class Solution {
     //冒泡排序
     public static void bubbleSort(int[] arr){
 

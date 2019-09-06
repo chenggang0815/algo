@@ -1,4 +1,6 @@
-public class MyStack {
+package com.nowcoder._004;
+
+public class Solution {
 // 用链表实现栈
     public class node{
           int data;
@@ -49,7 +51,7 @@ public class MyStack {
 
 
     public static void main(String[] args){
-        MyStack stack = new MyStack();
+        Solution stack = new Solution();
         stack.push(2);
         stack.push(3);
         stack.push(5);

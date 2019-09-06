@@ -1,6 +1,7 @@
+package com.nowcoder._023;
 import java.lang.*;
 
-public class binSearch {
+public class Solution {
 /*
     Search in Rotated Sorted Array
     Suppose a sorted array is rotated at some pivot unknown to you beforehand.
