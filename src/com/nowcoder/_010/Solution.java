@@ -1,5 +1,7 @@
 package com.nowcoder._010;
 import java.util.HashMap;
+//判断链表是否有环（循环遍历，hash map，快慢指针）
+
 class Solution {
     static class node{
         public    int data;

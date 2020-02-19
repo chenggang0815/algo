@@ -1,6 +1,7 @@
 package com.nowcoder._011;
-//在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。 例如，链表1->2->3->3->4->4->5 处理后为 1->2->5
 import java.util.HashMap;
+//在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。
+//例如，链表1->2->3->3->4->4->5 处理后为 1->2->5
 
 class Solution {
     static class node{
@@ -97,6 +98,7 @@ class Solution {
         addnode(head,1);
         addnode(head,2);
         addnode(head,2);
+        addnode(head,4);
         addnode(head,3);
         printL(deleteDuplication1(head.next));
 

@@ -1,6 +1,6 @@
 package com.nowcoder._014;
-//输入两个链表，找出它们的第一个公共结点。
 import java.util.HashMap;
+//输入两个链表，找出它们的第一个公共结点。
 
 class Solution {
 
@@ -55,8 +55,6 @@ class Solution {
         E.next=F;
         F.next=D;
         //第一个公共结点：D
-
-
         System.out.println(FindFirstCommonNode(head1.next,head2.next).data+"");
 
     }

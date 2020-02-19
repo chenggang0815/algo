@@ -1,11 +1,10 @@
 package com.nowcoder._004;
+// 用链表实现栈
 
 public class Solution {
-// 用链表实现栈
     public class node{
           int data;
           node next;
-
          node(int data){
             this.data = data;
         }

@@ -1,10 +1,8 @@
 package com.nowcoder._020;
-
 import java.util.Arrays;
+//输入两个链表，找出它们的第一个公共结点。
 
 public class Solution {
-
-// 计数排序
     public static int[] countSort(int[] arr, int k){
         int[] c = new int[k+1];
         int length = arr.length;
@@ -28,12 +26,8 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-
         int[] array = {1,4,1,4,5,6};
         System.out.println(Arrays.toString(countSort(array,6)));
-
-
-
     }
 
 }

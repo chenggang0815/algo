@@ -1,8 +1,8 @@
 package com.nowcoder._022;
 import java.lang.*;
+//二分查找以及变种
 
 public class Solution {
-
     public  static int binarySearch(int[] arr, int k){
 
         int right = arr.length-1;
@@ -152,14 +152,8 @@ public class Solution {
         return -1;
     }
 
-
-
     public static void main(String[] args) {
-
         int[] arr = new int[]{2,3,4,8,8,8,10,10};
-
         System.out.println(searchLastLow(arr,9));
-
     }
-
 }

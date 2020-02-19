@@ -1,4 +1,5 @@
 package com.nowcoder._027;
+// 查找二叉树的查找前继，后继结点
 
 public class Solution {
 //    //前驱节点：二叉树中序遍历完成后和这个节点相邻的前面的节点为该节点的前驱节点
