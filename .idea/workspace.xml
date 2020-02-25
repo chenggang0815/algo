@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/algo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/leetcode/_0001/Solution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/leetcode/_0002/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/algo.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_026/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_026/Solution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_027/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_027/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/leetcode/_0001/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algo/com/leetcode/_0001/Solution.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0001/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0001/Solution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +35,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager" selected="Application.Solution (3)">
     <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -117,7 +110,7 @@
       <option name="presentableId" value="Default" />
       <updated>1582554627010</updated>
       <workItem from="1582554635196" duration="869000" />
-      <workItem from="1582593459911" duration="792000" />
+      <workItem from="1582593459911" duration="2886000" />
     </task>
     <servers />
   </component>
@@ -129,22 +122,26 @@
       <screen x="0" y="0" width="1474" height="864" />
     </state>
     <state x="330" y="91" key="#Notifications/0.0.1474.864@0.0.1474.864" timestamp="1582593980559" />
-    <state width="1431" height="224" key="GridCell.Tab.0.bottom" timestamp="1582559862719">
+    <state width="1425" height="217" key="GridCell.Tab.0.bottom" timestamp="1582596306378">
       <screen x="0" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="224" key="GridCell.Tab.0.bottom/0.0.1474.864@0.0.1474.864" timestamp="1582559862719" />
-    <state width="1431" height="224" key="GridCell.Tab.0.center" timestamp="1582559862719">
+    <state width="1425" height="217" key="GridCell.Tab.0.bottom/0.0.1474.864@0.0.1474.864" timestamp="1582596306378" />
+    <state width="1425" height="217" key="GridCell.Tab.0.center" timestamp="1582596306378">
       <screen x="0" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="224" key="GridCell.Tab.0.center/0.0.1474.864@0.0.1474.864" timestamp="1582559862719" />
-    <state width="1431" height="224" key="GridCell.Tab.0.left" timestamp="1582559862719">
+    <state width="1425" height="217" key="GridCell.Tab.0.center/0.0.1474.864@0.0.1474.864" timestamp="1582596306378" />
+    <state width="1425" height="217" key="GridCell.Tab.0.left" timestamp="1582596306378">
       <screen x="0" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="224" key="GridCell.Tab.0.left/0.0.1474.864@0.0.1474.864" timestamp="1582559862719" />
-    <state width="1431" height="224" key="GridCell.Tab.0.right" timestamp="1582559862719">
+    <state width="1425" height="217" key="GridCell.Tab.0.left/0.0.1474.864@0.0.1474.864" timestamp="1582596306378" />
+    <state width="1425" height="217" key="GridCell.Tab.0.right" timestamp="1582596306378">
       <screen x="0" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="224" key="GridCell.Tab.0.right/0.0.1474.864@0.0.1474.864" timestamp="1582559862719" />
+    <state width="1425" height="217" key="GridCell.Tab.0.right/0.0.1474.864@0.0.1474.864" timestamp="1582596306378" />
+    <state x="46" y="0" key="SettingsEditor" timestamp="1582594814131">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="46" y="0" key="SettingsEditor/0.0.1474.864@0.0.1474.864" timestamp="1582594814131" />
     <state x="418" y="256" key="com.intellij.ide.util.TipDialog" timestamp="1582593510840">
       <screen x="0" y="0" width="1474" height="864" />
     </state>
