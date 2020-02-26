@@ -3,9 +3,8 @@ package com.nowcoder._008;
 
 public class Solution {
     static class node{
-        public    int data;
+        public int data;
         node next;
-
         node (){
         }
         node(int data){

@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Solution {
     static class node{
-     public    int data;
+     public int data;
         node next;
 
         node(int data){
