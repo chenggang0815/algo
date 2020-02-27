@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/leetcode/_0003/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/leetcode/_0002/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algo/com/leetcode/_0002/Solution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_005/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nowcoder/_005/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_008/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nowcoder/_008/Solution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +23,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="147" />
-    <option name="y" value="-51" />
-    <option name="width" value="1440" />
-    <option name="height" value="810" />
   </component>
   <component name="ProjectId" id="1YG2UWqaxnrff1ittfBrSlZfMAM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -147,6 +136,7 @@
       <updated>1582554627010</updated>
       <workItem from="1582554635196" duration="869000" />
       <workItem from="1582593459911" duration="3236000" />
+      <workItem from="1582767447401" duration="43000" />
     </task>
     <servers />
   </component>
