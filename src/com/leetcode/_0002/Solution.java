@@ -73,12 +73,8 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-
         String s1 = "()[]{}";
         String s2 = "([} }]}";
         System.out.println(isValid(s2));
-
-
-
     }
 }
