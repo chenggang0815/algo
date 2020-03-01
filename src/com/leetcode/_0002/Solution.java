@@ -37,6 +37,8 @@ Output: true
 
  */
 public class Solution {
+    // Time Complexity
+    // Space Complexity
     public static boolean isValid(String s){
         char[] chars = s.toCharArray();
         if(chars.length == 0) return true;
