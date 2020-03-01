@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="" />
+    <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0003/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0003/Solution.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +41,7 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1582968226569" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.Solution (3)">
+  <component name="RunManager" selected="Application.Solution (5)">
     <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.leetcode._0004.Solution" />
       <module name="algo" />
@@ -114,10 +116,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Solution (5)" />
         <item itemvalue="Application.Solution (3)" />
         <item itemvalue="Application.Solution (1)" />
         <item itemvalue="Application.Solution" />
-        <item itemvalue="Application.Solution (5)" />
         <item itemvalue="Application.Solution (4)" />
       </list>
     </recent_temporary>
@@ -158,22 +160,22 @@
       <screen x="0" y="0" width="1474" height="864" />
     </state>
     <state x="522" y="300" width="429" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1474.864@0.0.1474.864" timestamp="1583064547918" />
-    <state width="1423" height="245" key="GridCell.Tab.0.bottom" timestamp="1583064531156">
+    <state width="1423" height="245" key="GridCell.Tab.0.bottom" timestamp="1583069364667">
       <screen x="0" y="0" width="1474" height="864" />
     </state>
-    <state width="1423" height="245" key="GridCell.Tab.0.bottom/0.0.1474.864@0.0.1474.864" timestamp="1583064531156" />
-    <state width="1423" height="245" key="GridCell.Tab.0.center" timestamp="1583064531156">
+    <state width="1423" height="245" key="GridCell.Tab.0.bottom/0.0.1474.864@0.0.1474.864" timestamp="1583069364667" />
+    <state width="1423" height="245" key="GridCell.Tab.0.center" timestamp="1583069364666">
       <screen x="0" y="0" width="1474" height="864" />
     </state>
-    <state width="1423" height="245" key="GridCell.Tab.0.center/0.0.1474.864@0.0.1474.864" timestamp="1583064531156" />
-    <state width="1423" height="245" key="GridCell.Tab.0.left" timestamp="1583064531156">
+    <state width="1423" height="245" key="GridCell.Tab.0.center/0.0.1474.864@0.0.1474.864" timestamp="1583069364666" />
+    <state width="1423" height="245" key="GridCell.Tab.0.left" timestamp="1583069364666">
       <screen x="0" y="0" width="1474" height="864" />
     </state>
-    <state width="1423" height="245" key="GridCell.Tab.0.left/0.0.1474.864@0.0.1474.864" timestamp="1583064531156" />
-    <state width="1423" height="245" key="GridCell.Tab.0.right" timestamp="1583064531156">
+    <state width="1423" height="245" key="GridCell.Tab.0.left/0.0.1474.864@0.0.1474.864" timestamp="1583069364666" />
+    <state width="1423" height="245" key="GridCell.Tab.0.right" timestamp="1583069364666">
       <screen x="0" y="0" width="1474" height="864" />
     </state>
-    <state width="1423" height="245" key="GridCell.Tab.0.right/0.0.1474.864@0.0.1474.864" timestamp="1583064531156" />
+    <state width="1423" height="245" key="GridCell.Tab.0.right/0.0.1474.864@0.0.1474.864" timestamp="1583069364666" />
     <state x="46" y="0" key="SettingsEditor" timestamp="1582594814131">
       <screen x="0" y="0" width="1474" height="864" />
     </state>

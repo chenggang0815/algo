@@ -41,6 +41,8 @@ public class Solution {
         }
     }
 
+    // Time Complexity:O(n)
+    // Space Complexity:O(1)
     static ListNode mergeTwoList(ListNode l1, ListNode l2){
         if (l1==null && l2==null){
             return null;
@@ -72,6 +74,20 @@ public class Solution {
         return newHead;
     }
 
+    // Time Complexity:O(n)
+    // Space Complexity:O(n)
+    public static ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
+        if (l1 == null) return l2;
+        if (l2 == null) return l1;
+        if (l1.val < l2.val) {
+            l1.next = mergeTwoLists2(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = mergeTwoLists2(l1, l2.next);
+            return l2;
+        }
+    }
+    
     public static void main(String[] args) {
         addNode(head1,1);
         addNode(head1,2);
@@ -83,7 +99,7 @@ public class Solution {
         addNode(head2,3);
         addNode(head2,4);
 
-        printList(mergeTwoList(head1,head2));
+        printList(mergeTwoLists2(head1,head2));
 
 
     }
