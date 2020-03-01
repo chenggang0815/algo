@@ -13,6 +13,8 @@ Follow up:
 If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
  */
 public class Solution {
+     //Time complexity : O(n^2)
+    //Space complexity :O(1)
     static int  maxSubArray(int[] nums){
         int n=nums.length;
         int maxSums=nums[0];
@@ -27,6 +29,24 @@ public class Solution {
         }
         return maxSums;
     }
+
+    //Time complexity:O(n)
+    //Space complexity:O(1)
+    static int maxSubArray2(int[] nums){
+        int max = nums[0], sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (sum < 0)
+                sum = nums[i];
+            else
+                sum += nums[i];
+            if (sum > max)
+                max = sum;
+        }
+        return max;
+    }
+
+
+
     public static void main(String[] args) {
         int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
         System.out.println(maxSubArray(nums));
