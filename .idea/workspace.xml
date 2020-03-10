@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/leetcode/_0011/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0011/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0011/Solution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +40,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="Application.Solution (5)">
+  <component name="RunManager" selected="Application.Solution (4)">
     <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.leetcode._0008.Solution" />
       <module name="algo" />
@@ -54,12 +54,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Solution (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.leetcode._0006.Solution" />
+    <configuration name="Solution (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.leetcode._0009.Solution" />
       <module name="algo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.leetcode._0006.*" />
+          <option name="PATTERN" value="com.leetcode._0009.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -67,12 +67,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Solution (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.leetcode._0009.Solution" />
+    <configuration name="Solution (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.leetcode._0011.Solution" />
       <module name="algo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.leetcode._0009.*" />
+          <option name="PATTERN" value="com.leetcode._0011.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -107,19 +107,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Solution (2)" />
       <item itemvalue="Application.Solution" />
       <item itemvalue="Application.Solution (1)" />
       <item itemvalue="Application.Solution (3)" />
       <item itemvalue="Application.Solution (5)" />
+      <item itemvalue="Application.Solution (4)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Solution (4)" />
         <item itemvalue="Application.Solution (5)" />
         <item itemvalue="Application.Solution (3)" />
         <item itemvalue="Application.Solution (1)" />
         <item itemvalue="Application.Solution" />
-        <item itemvalue="Application.Solution (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -138,6 +138,7 @@
       <workItem from="1582767447401" duration="43000" />
       <workItem from="1583070576521" duration="660000" />
       <workItem from="1583718686535" duration="282000" />
+      <workItem from="1583803735593" duration="1723000" />
     </task>
     <servers />
   </component>
@@ -165,22 +166,22 @@
       <screen x="0" y="0" width="1474" height="864" />
     </state>
     <state x="522" y="300" width="429" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1474.864@0.0.1474.864" timestamp="1583064547918" />
-    <state width="1423" height="192" key="GridCell.Tab.0.bottom" timestamp="1583340087695">
+    <state width="1423" height="192" key="GridCell.Tab.0.bottom" timestamp="1583805495165">
       <screen x="0" y="0" width="1474" height="864" />
     </state>
-    <state width="1423" height="192" key="GridCell.Tab.0.bottom/0.0.1474.864@0.0.1474.864" timestamp="1583340087695" />
-    <state width="1423" height="192" key="GridCell.Tab.0.center" timestamp="1583340087694">
+    <state width="1423" height="192" key="GridCell.Tab.0.bottom/0.0.1474.864@0.0.1474.864" timestamp="1583805495165" />
+    <state width="1423" height="192" key="GridCell.Tab.0.center" timestamp="1583805495164">
       <screen x="0" y="0" width="1474" height="864" />
     </state>
-    <state width="1423" height="192" key="GridCell.Tab.0.center/0.0.1474.864@0.0.1474.864" timestamp="1583340087694" />
-    <state width="1423" height="192" key="GridCell.Tab.0.left" timestamp="1583340087694">
+    <state width="1423" height="192" key="GridCell.Tab.0.center/0.0.1474.864@0.0.1474.864" timestamp="1583805495164" />
+    <state width="1423" height="192" key="GridCell.Tab.0.left" timestamp="1583805495164">
       <screen x="0" y="0" width="1474" height="864" />
     </state>
-    <state width="1423" height="192" key="GridCell.Tab.0.left/0.0.1474.864@0.0.1474.864" timestamp="1583340087694" />
-    <state width="1423" height="192" key="GridCell.Tab.0.right" timestamp="1583340087694">
+    <state width="1423" height="192" key="GridCell.Tab.0.left/0.0.1474.864@0.0.1474.864" timestamp="1583805495164" />
+    <state width="1423" height="192" key="GridCell.Tab.0.right" timestamp="1583805495165">
       <screen x="0" y="0" width="1474" height="864" />
     </state>
-    <state width="1423" height="192" key="GridCell.Tab.0.right/0.0.1474.864@0.0.1474.864" timestamp="1583340087694" />
+    <state width="1423" height="192" key="GridCell.Tab.0.right/0.0.1474.864@0.0.1474.864" timestamp="1583805495165" />
     <state x="46" y="0" key="SettingsEditor" timestamp="1583307114461">
       <screen x="0" y="0" width="1474" height="864" />
     </state>

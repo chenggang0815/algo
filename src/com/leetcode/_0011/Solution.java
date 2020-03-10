@@ -1,4 +1,8 @@
 package com.leetcode._0011;
+
+import javax.management.StandardEmitterMBean;
+import java.util.ArrayList;
+
 /*
 155. Min Stack
 Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
@@ -18,7 +22,74 @@ minStack.getMin();   --> Returns -2.
 
  */
 public class Solution {
+
+
+    public static class MinStack{
+
+        class ListNode{
+            int val;
+            ListNode next;
+            ListNode(int val){
+                this.val=val;
+            }
+        }
+        ListNode head = new ListNode(0);
+
+        public  void push(int num){
+            ListNode temp = head;
+            while (temp.next!=null){
+                temp = temp.next;
+            }
+            ListNode node = new ListNode(num);
+            temp.next = node;
+        }
+
+        public  void pop(){
+            ListNode temp = head;
+            if (temp.next.next==null) {
+                temp.next=null;
+                return;
+            }
+            while (temp.next.next!=null){
+                temp = temp.next;
+            }
+
+            temp.next =null;
+            return;
+        }
+
+        public int top(){
+            ListNode temp = head;
+            if (temp.next==null) return -1;
+            if (temp.next.next==null) return temp.next.val;
+            while (temp.next!=null){
+                temp=temp.next;
+            }
+            return temp.val;
+        }
+
+        public int getMin(){
+            ListNode temp = head;
+            if (temp.next==null) return -1;
+            int minValue = Integer.MAX_VALUE;
+            while (temp.next!=null){
+                temp = temp.next;
+                if (temp.val <= minValue){
+                    minValue = temp.val;
+                }
+            }
+            return minValue;
+        }
+    }
+
     public static void main(String[] args) {
-        
+        MinStack minStack = new MinStack();
+        minStack.push(-2);
+        minStack.push(0);
+        minStack.push(-3);
+        System.out.println(minStack.getMin());   //--> Returns -3.
+        minStack.pop();
+        System.out.println(minStack.top());    //  --> Returns 0.
+        System.out.println(minStack.getMin());  // --> Returns -2.
     }
 }
