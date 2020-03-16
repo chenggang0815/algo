@@ -17,6 +17,6 @@ Total amount you can rob = 2 + 9 + 1 = 12.
  */
 public class Solution {
     public static void main(String[] args) {
-
+        System.out.println("====");
     }
 }
