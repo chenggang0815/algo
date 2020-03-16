@@ -12,16 +12,16 @@ leetcode
 | 8-121  | [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock) |
 | 9-136  | [Single Number](https://leetcode.com/problems/single-number) |
 | 10-141 | [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle) |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
+| 11-155 |     [Min Stack](https://leetcode.com/problems/min-stack)     |
+| 12-160 | [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists) |
+| 13-169 | [Majority Element](https://leetcode.com/problems/majority-element) |
+| 14-198 |  [House Robber](https://leetcode.com/problems/house-robber)  |
+| 15-206 | [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list) |
+| 16-226 | [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree) |
+| 17-234 | [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list) |
+| 18-283 |   [Move Zeroes](https://leetcode.com/problems/move-zeroes)   |
+| 19-437 |  [Path Sum III](https://leetcode.com/problems/path-sum-iii)  |
+| 20-448 | [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array) |
 |        |                                                              |
 |        |                                                              |
 |        |                                                              |
