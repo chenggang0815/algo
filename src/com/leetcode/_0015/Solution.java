@@ -1,7 +1,4 @@
 package com.leetcode._0015;
-
-import java.util.Stack;
-
 /*
 206 Reverse Linked List
 Reverse a singly linked list.
