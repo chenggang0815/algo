@@ -1,9 +1,5 @@
 package com.leetcode._0020;
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 /*
 448. Find All Numbers Disappeared in an Array
 Easy
@@ -38,6 +34,5 @@ public class Solution {
         int[] nums = new int[]{1,2,2,4,5,5,7};
         ArrayList<Integer> arr = findDisappearedNumbers(nums);
         System.out.println(arr);
-
     }
 }
