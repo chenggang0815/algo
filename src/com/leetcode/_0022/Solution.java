@@ -59,7 +59,7 @@ public class Solution {
         }
         return res;
     }
-    
+
     public static void main(String[] args) {
         int[] nums = new int[]{0, 1, 2, 6, 4, 8, 10, 9, 10, 9, 15};
         //int[] nums = new int[]{1, 2, 3, 4};

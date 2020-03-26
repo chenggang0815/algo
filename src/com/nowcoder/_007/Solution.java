@@ -24,12 +24,23 @@ public class Solution {
         return n;
     }
 
+    static void printout(int n){
+        System.out.println(n);
+        if (n > 0) {
+        printout(n-1);
+        printout(n-100);
+        }
+        System.out.println("最后一句");
+
+        }
+
+
     public static void main(String[] args) {
 
         //recursion1(1);
-        int result=recursion2(1);
-        System.out.printf("main - result: %d\n",result);
-
+        //int result=recursion2(1);
+        //System.out.printf("main - result: %d\n",result);
+        printout(4);
     }
 }
 
