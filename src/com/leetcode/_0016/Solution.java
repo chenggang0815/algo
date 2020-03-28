@@ -30,11 +30,14 @@ public class Solution {
 
     static TreeNode invertTree2(TreeNode root){
         if (root==null) return null;
+
         TreeNode temp = root.left;
         root.left = root.right;
         root.right = temp;
+
         invertTree2(root.left);
         invertTree2(root.right);
+
         return root;
     }
 
@@ -68,13 +71,15 @@ public class Solution {
 
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        TreeNode node1 = new TreeNode(3);
-        TreeNode node2 = new TreeNode(5);
-        TreeNode node3 = new TreeNode(10);
-        TreeNode node4 = new TreeNode(4);
-        TreeNode node5 = new TreeNode(7);
-        TreeNode node6 = new TreeNode(8);
+        TreeNode root = new TreeNode(4);
+        TreeNode node1 = new TreeNode(2);
+        TreeNode node2 = new TreeNode(7);
+        TreeNode node3 = new TreeNode(3);
+        TreeNode node4 = new TreeNode(1);
+        TreeNode node5 = new TreeNode(6);
+        TreeNode node6 = new TreeNode(9);
+        TreeNode node7 = new TreeNode(4);
+        TreeNode node8 = new TreeNode(2);
 
         root.left = node1;
         root.right = node2;
@@ -82,8 +87,11 @@ public class Solution {
         node1.left = node4;
         node2.left = node5;
         node2.right = node6;
-        System.out.println(PrintFromTopToBottom(root));
-        System.out.println(PrintFromTopToBottom(invertTree3(root)));
+        node3.left = node7;
+        node3.right = node8;
+        //System.out.println(PrintFromTopToBottom(root));
+        //System.out.println(PrintFromTopToBottom(invertTree3(root)));
+        invertTree2(root);
 
 
     }
