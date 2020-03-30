@@ -11,107 +11,23 @@ public class Solution {
     }
 
     public static int pathSum(TreeNode root, int sum) {
-        int num = 0;
-        return pathLeft(root, sum, num) + pathRight(root,sum,num);
+        if(root==null) return 0;
+        return path(root,sum) + pathSum(root.right, sum) + pathSum(root.left,sum);
     }
 
 
-    public static int pathRight(TreeNode root, int sum, int num){
+    public static int path(TreeNode root, int sum){
 
-        if(root==null) return num;
-
-        TreeNode currentLeft = root;
-        int s1 = currentLeft.val;
-        while(currentLeft.left!=null){
-            if(s1==sum){
-                num++;
-                break;
-            }
-            else{
-                currentLeft = currentLeft.left;
-                s1 = s1 + currentLeft.val;
-                if (s1==sum){
-                    num++;
-                    break;
-                }
-            }
+        if(root==null) return 0;
+        sum = sum - root.val;
+        if (sum==0){
+            return 1 + path(root.left, sum) + path(root.right, sum);
         }
-
-        TreeNode currentRight = root;
-        int s2 = currentRight.val;
-        while(currentRight.right!=null){
-            if(s2==sum){
-                num++;
-                break;
-            }
-            else{
-                currentRight = currentRight.right;
-                s2 = s2 + currentRight.val;
-                //System.out.println("root:"+root.val);
-                // System.out.println("s2:"+s2);
-                if (s2==sum){
-                    num++;
-                    break;
-                }
-            }
+        else {
+            return path(root.left, sum) + path(root.right, sum);
         }
-
-        System.out.println("root:"+root.val);
-        System.out.println("num:"+num);
-        System.out.println("===========");
-
-        pathRight(root.right,sum,num);
-
-        return num;
     }
 
-    public static int pathLeft(TreeNode root, int sum, int num){
-
-        if(root==null) return num;
-
-        TreeNode currentLeft = root;
-        int s1 = currentLeft.val;
-        while(currentLeft.left!=null){
-            if(s1==sum){
-                num++;
-                break;
-            }
-            else{
-                currentLeft = currentLeft.left;
-                s1 = s1 + currentLeft.val;
-                if (s1==sum){
-                    num++;
-                    break;
-                }
-            }
-        }
-
-        TreeNode currentRight = root;
-        int s2 = currentRight.val;
-        while(currentRight.right!=null){
-            if(s2==sum){
-                num++;
-                break;
-            }
-            else{
-                currentRight = currentRight.right;
-                s2 = s2 + currentRight.val;
-                //System.out.println("root:"+root.val);
-                // System.out.println("s2:"+s2);
-                if (s2==sum){
-                    num++;
-                    break;
-                }
-            }
-        }
-
-        System.out.println("root:"+root.val);
-        System.out.println("num:"+num);
-        System.out.println("===========");
-
-        return pathLeft(root.left,sum,num);
-
-    }
     public static void main(String[] args) {
 
         TreeNode root = new TreeNode(10);
