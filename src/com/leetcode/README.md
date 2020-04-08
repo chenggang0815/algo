@@ -22,9 +22,9 @@ leetcode
 | 18-283 |   [Move Zeroes](https://leetcode.com/problems/move-zeroes)   |
 | 19-437 |  [Path Sum III](https://leetcode.com/problems/path-sum-iii)  |
 | 20-448 | [Find All Numbers Disappeared in an Array](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array) |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
+| 21-543 | [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree) |
+| 22-581 | [Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray) |
+| 23-617 | [Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees) |
 |        |                                                              |
 |        |                                                              |
 |        |                                                              |

@@ -36,12 +36,17 @@ public class Solution {
 
     static int depth(TreeNode root){
         if (root==null) return 0;
-        return Math.max(depth(root.left), depth(root.right))+1;
+        int left = depth(root.left);
+        int right = depth(root.right);
+        maxPath = Math.max(maxPath,left+right);
+        return Math.max(left,right)+1;
     }
 
+    static int maxPath = 0;
     static int Diameter(TreeNode root){
         if (root==null) return 0;
-        return depth(root.left) + depth(root.right) + 1;
+        depth(root);
+        return maxPath;
     }
 
 
@@ -55,10 +60,10 @@ public class Solution {
         root.right = node2;
         node1.left = node3;
         node1.right = node4;
-        preOrder(root);
+        //preOrder(root);
 //        System.out.println(depth(root.right));
 //        System.out.println(depth(root.left));
-//        System.out.println(Diameter(root));
+        System.out.println(Diameter(root));
 
 
 
