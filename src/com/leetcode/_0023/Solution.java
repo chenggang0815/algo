@@ -26,4 +26,68 @@ Merged tree:
 Note: The merging process must start from the root nodes of both trees.
  */
 public class Solution {
+    static class TreeNode{
+        TreeNode left;
+        TreeNode right;
+        int val;
+        TreeNode(int val){
+            this.val = val;
+        }
+    }
+
+    static void preorder(TreeNode root){
+        if (root==null) return;
+        System.out.println(root.val);
+        preorder(root.left);
+        preorder(root.right);
+    }
+
+    /*
+    Time complexity : O(m) A total of m nodes need to be traversed. Here, m represents the minimum number of nodes from the two given trees.
+    Space complexity : O(m) The depth of the recursion tree can go up to m in the case of a skewed tree. In average case, depth will be O(logm).
+     */
+    static public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
+        if (t1==null) return t2;
+        if (t2==null) return t1;
+
+        t1.val = t1.val + t2.val;
+
+        t1.left = mergeTrees(t1.left,t2.left);
+        t1.right = mergeTrees(t1.right,t2.right);
+
+        return t1;
+    }
+
+
+
+
+    public static void main(String[] args) {
+        TreeNode root1 = new TreeNode(1);
+        TreeNode node1 = new TreeNode(3);
+        TreeNode node2 = new TreeNode(2);
+        TreeNode node3 = new TreeNode(5);
+
+        root1.left = node1;
+        root1.right = node2;
+        node1.left = node3;
+
+        TreeNode root2 = new TreeNode(2);
+        TreeNode node2_1 = new TreeNode(1);
+        TreeNode node2_2 = new TreeNode(3);
+        TreeNode node2_3 = new TreeNode(4);
+        TreeNode node2_4 = new TreeNode(7);
+
+        root2.left = node2_1;
+        root2.right = node2_2;
+        node2_1.right = node2_3;
+        node2_2.right = node2_4;
+
+        preorder(root1);
+        System.out.println("====");
+        preorder(root2);
+        System.out.println("=====");
+        preorder(mergeTrees(root1,root2));
+
+
+    }
 }
