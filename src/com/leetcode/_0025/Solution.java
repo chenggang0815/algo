@@ -1,4 +1,4 @@
-package com.leetcode._0024._0025;
+package com.leetcode._0025;
 /*
 7. Reverse Integer Easy
 Given a 32-bit signed integer, reverse digits of an integer.
@@ -28,9 +28,7 @@ public class Solution {
         return res;
     }
     public static void main(String[] args) {
-        //System.out.println(reverse(-123));
-        double i = Math.pow(2, 31);
-        System.out.println();
-
+        System.out.println(reverse(-123));
     }
 }
+
