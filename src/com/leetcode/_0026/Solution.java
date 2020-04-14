@@ -1,5 +1,4 @@
 package com.leetcode._0026;
-
 import java.util.ArrayList;
 
 /*
@@ -16,18 +15,41 @@ Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 Follow up: Coud you solve it without converting the integer to a string?
 */
 public class Solution {
-    static private boolean isPalindrome(int x){
+
+    // time complexity: O(log10(n))
+    // space complexity: O(n)
+    static public boolean isPalindrome(int x){
      if(x<0) return false;
      ArrayList<Integer> array = new ArrayList<>();
      while (x!=0){
          array.add(x%10);
          x = x /10;
      }
+     for (int i=0;i<array.size()/2;i++){
+         if (array.get(i)!=array.get(array.size()-i-1)){
+             return false;
+         }
+     }
      System.out.println(array);
      return true;
     }
+
+    // time complexity: O(log10(n))
+    // space complexity: O(1)
+    static public boolean isPalindrome2(int x){
+        if (x<0 || x%10==0&&x!=0) return false;
+        int temp = 0;
+        while (x>temp){
+            temp = temp*10 + x % 10;
+            x = x / 10;
+        }
+        System.out.println("x: "+x);
+        System.out.println("temp: "+temp);
+        return x==temp || x==temp/10;
+    }
+
     public static void main(String[] args) {
-        int x = 1221;
-        isPalindrome(x);
+        int x = 10;
+        System.out.println(isPalindrome2(x));
     }
 }
