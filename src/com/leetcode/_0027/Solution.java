@@ -48,13 +48,13 @@ public class Solution {
         int sum=0;
         while (i < ar.length){
             if (ar.length-i > 1){
-            if (map.get(ar[i]) < map.get(ar[i+1])){
-             sum = sum + map.get(ar[i+1]) - map.get(ar[i]);
-             i=i+2;
-            }else {
-                sum = sum + map.get(ar[i]);
-                i++;
-            }
+                if (map.get(ar[i]) < map.get(ar[i+1])){
+                sum = sum + map.get(ar[i+1]) - map.get(ar[i]);
+                i=i+2;
+                }else {
+                    sum = sum + map.get(ar[i]);
+                    i++;
+                    }
             }
             else {
                 sum = sum + map.get(ar[i]);
