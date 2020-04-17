@@ -1,7 +1,4 @@
 package com.leetcode._0028;
-
-import java.util.HashMap;
-
 /*
 14. Longest Common Prefix Easy
 
