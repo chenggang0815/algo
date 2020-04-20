@@ -1,5 +1,6 @@
 package com.leetcode._0004;
 /*
+53. Maximum Subarray Easy
 Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
 
 Example:
@@ -41,6 +42,19 @@ public class Solution {
                 sum += nums[i];
             if (sum > max)
                 max = sum;
+        }
+        return max;
+    }
+
+    //dp solution
+    static public int maxSubArray3(int[] nums) {
+
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        int max = nums[0];
+        for(int i=1;i<nums.length;i++){
+            dp[i] = Math.max(nums[i], dp[i-1]+nums[i]);
+            max = Math.max(dp[i],max);
         }
         return max;
     }
