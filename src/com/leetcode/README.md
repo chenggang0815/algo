@@ -25,7 +25,7 @@ leetcode
 | 21-543 | [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree) |
 | 22-581 | [Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray) |
 | 23-617 | [Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees) |
-| 24-78  |                           Subsets                            |
+| 24-78  |       [Subsets](https://leetcode.com/problems/subsets)       |
 | 25-7   | [Reverse Integer](https://leetcode.com/problems/reverse-integer) |
 | 26-9   | [Palindrome Number](https://leetcode.com/problems/palindrome-number) |
 | 27-13  | [Roman to Integer](https://leetcode.com/problems/roman-to-integer) |
