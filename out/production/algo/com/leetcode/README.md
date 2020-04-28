@@ -25,23 +25,23 @@ leetcode
 | 21-543 | [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree) |
 | 22-581 | [Shortest Unsorted Continuous Subarray](https://leetcode.com/problems/shortest-unsorted-continuous-subarray) |
 | 23-617 | [Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees) |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
+| 24-78  |       [Subsets](https://leetcode.com/problems/subsets)       |
+| 25-7   | [Reverse Integer](https://leetcode.com/problems/reverse-integer) |
+| 26-9   | [Palindrome Number](https://leetcode.com/problems/palindrome-number) |
+| 27-13  | [Roman to Integer](https://leetcode.com/problems/roman-to-integer) |
+| 28-14  | [Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix) |
+| 29-26  | [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array) |
+| 30-27  | [Remove Element](https://leetcode.com/problems/remove-element) |
+| 31-28  | [Implement strStr()](https://leetcode.com/problems/implement-strstr) |
+| 32-35  | [Search Insert Position](https://leetcode.com/problems/search-insert-position) |
+| 33-38  | [Count and Say](https://leetcode.com/problems/count-and-say) |
+| 34-58  | [Length of Last Word](https://leetcode.com/problems/length-of-last-word) |
+| 35-66  |      [Plus One](https://leetcode.com/problems/plus-one)      |
+| 36-67  |    [Add Binary](https://leetcode.com/problems/add-binary)    |
+| 37-69  |        [Sqrt(x)](https://leetcode.com/problems/sqrtx)        |
+| 38-83  | [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list) |
+| 39-88  | [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array) |
+| 40-100 |     [Same Tree](https://leetcode.com/problems/same-tree)     |
 |        |                                                              |
 |        |                                                              |
 |        |                                                              |
