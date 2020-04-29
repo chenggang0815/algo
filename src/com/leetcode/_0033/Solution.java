@@ -30,6 +30,8 @@ Explanation: For n = 3 the term was "21" in which we have two groups "2" and "1"
  */
 public class Solution {
 
+    // time complexity : o(n^2)
+    //space complexity:o(1)
     static public String countAndSay(int n) {
         String s = "1";
         for (int i=0;i<n;i++){
@@ -52,14 +54,31 @@ public class Solution {
                 count=1;
             }
         }
-
         sb.append(count).append(c);
         return sb.toString();
     }
 
+    static public String countAndSay2(int n){
+        if (n==1) return "1";
+        String s = countAndSay2(n-1);
+        char[] c = s.toCharArray();
+        String str = "";
+        int count = 1;
+        for (int i=0;i<c.length-1;i++){
+            if (c[i]==c[i+1]){
+                count++;
+            }else {
+                str = str+count+c[i];
+                count=1;
+            }
+        }
+        str = str + count + c[c.length-1];
+        return str;
+    }
 
     public static void main(String[] args) {
-        System.out.println(countAndSay(6));
+        // 4:"1211" 5: "111221" 6: "312211"
+        System.out.println(countAndSay2(6));
     }
 
 
