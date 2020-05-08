@@ -140,6 +140,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>TreeNode</find>
+      <find>Climbing Stairs</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -268,7 +269,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1588908812392" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1588908999616" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -286,7 +287,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.string">
+  <component name="RunManager" selected="Application.Solution">
     <configuration name="Climbing_Stairs" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.kernel.dynamic_programming.Climbing_Stairs" />
       <module name="algo" />
@@ -326,12 +327,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Solution (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.leetcode._0033.Solution" />
+    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.leetcode._0037.Solution" />
       <module name="algo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.leetcode._0033.*" />
+          <option name="PATTERN" value="com.leetcode._0037.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -354,18 +355,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Solution (4)" />
-      <item itemvalue="Application.Solution (5)" />
       <item itemvalue="Application.Solution (2)" />
       <item itemvalue="Application.Climbing_Stairs" />
       <item itemvalue="Application.string" />
+      <item itemvalue="Application.Solution" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Solution" />
         <item itemvalue="Application.string" />
         <item itemvalue="Application.Climbing_Stairs" />
         <item itemvalue="Application.Solution (2)" />
         <item itemvalue="Application.Solution (4)" />
-        <item itemvalue="Application.Solution (5)" />
       </list>
     </recent_temporary>
   </component>
