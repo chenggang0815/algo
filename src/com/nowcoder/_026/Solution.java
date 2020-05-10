@@ -19,7 +19,7 @@ public class Solution {
         return null;
     }
 
-     static void insert(int data) {
+     static public void insert(int data) {
 
         if (root == null) {
             root = new Node(data);
@@ -43,33 +43,30 @@ public class Solution {
             }
         }
     }
-// 中序遍历（左->中->右 ；两层递归，先在左子树递归，后在每棵左子树的右子树递归）
+// 中序遍历（left->root->right ；两层递归，先在左子树递归，后在每棵左子树的右子树递归）
     public static void infixOrder(Node current){
-        if(current!=null){
-            infixOrder(current.left);
-            System.out.println(current.data+"");
-            infixOrder(current.right);
-        }
-        return;
+        if(current==null) return;
+
+        infixOrder(current.left);
+        System.out.println(current.data+"");
+        infixOrder(current.right);
     }
 
-// 前序遍历：中-》左-》右
+// 前序遍历：root->left->right
     public static void preOrder(Node current){
-        if (current!=null){
-            System.out.println(current.data+"");
-            preOrder(current.left);
-            preOrder(current.right);
-        }
-        return;
+        if (current==null) return;
+        System.out.println(current.data+"");
+        preOrder(current.left);
+        preOrder(current.right);
     }
 
-// 后序遍历:左-》右-》中
+// 后序遍历:left->right->root
     public static void postOrder(Node current){
-        if (current!=null){
-            postOrder(current.left);
-            postOrder(current.right);
-            System.out.println(current.data+"");
-        }
+        if (current==null) return;
+
+        postOrder(current.left);
+        postOrder(current.right);
+        System.out.println(current.data+"");
     }
 
 // 删除结点
@@ -126,15 +123,28 @@ public class Solution {
         return p;
     }
 
-    //树的节点类
-    public static class Node {
+//二叉树的反转
+static public Node invertTree(Node root){
+         if (root==null) return null;
+         Node temp = root.left;
+         root.left = root.right;
+         root.right = temp;
+
+         invertTree(root.left);
+         invertTree(root.right);
+
+         return root;
+}
+
+//树的节点类
+static public  class Node {
          int data;
          Node left;
          Node right;
          Node(int data) {
             this.data = data;
         }
-    }
+     }
 
 
     public static void main(String[] args) {
@@ -145,7 +155,11 @@ public class Solution {
         insert(2);
         insert(5);
 //
-        postOrder(root);
+        infixOrder(root);
+        invertTree(root);
+        System.out.println("====");
+        infixOrder(root);
+
 
     }
 }

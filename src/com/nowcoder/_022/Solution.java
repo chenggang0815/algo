@@ -3,14 +3,12 @@ import java.lang.*;
 //二分查找以及变种
 
 public class Solution {
+//二分查找
     public  static int binarySearch(int[] arr, int k){
-
         int right = arr.length-1;
         int left = 0;
         while (left <= right){
-
-            int mid = (left+right)/2;
-
+            int mid = left + (right-left)/2;
             if(arr[mid] == k) return mid;
             else if (arr[mid] < k){
                 left = mid+1;
@@ -22,7 +20,7 @@ public class Solution {
         return -1;
         }
 
-        //二分查找的递归实现
+//二分查找的递归实现
     public static int bsearch(int[] arr,int k){
         int n = arr.length;
         return bsearchInternally(arr,0,n-1,k);
