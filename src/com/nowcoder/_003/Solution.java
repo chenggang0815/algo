@@ -16,12 +16,11 @@ public class Solution {
     // 添加节点
     public static void addnode(int data){
         node newnode = new node(data);
-        node temp = head;
-        while (temp.next != null){
-            temp=temp.next;
+        node current = head;
+        while (current.next != null){
+            current=current.next;
         }
-
-        temp.next =newnode;
+        current.next =newnode;
     }
 
     //打印链表
@@ -63,8 +62,7 @@ public class Solution {
 
         }
     }
-	
-	
+
     //删除指定位置的结点
     public static void deleteNodeByIndex(int index){
         if (index <1 || index > getLength()){

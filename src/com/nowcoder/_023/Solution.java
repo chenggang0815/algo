@@ -12,23 +12,23 @@ public class Solution {
 */
 
     public static int search(int[] arr, int target){
-        int start = 0;
-        int end = arr.length-1;
+        int right = 0;
+        int left = arr.length-1;
 
-        while (start <= end){
-            int mid = start + (end-start)/2;
+        while (right <= left){
+            int mid = left + (right-left)/2;
             if (arr[mid] == target) return mid;
-            else if (arr[mid]>= arr[start]){
-                if (target >= arr[start] && target < arr[mid]){
-                    end = mid-1;
+            else if (arr[mid]>= arr[left]){
+                if (target >= arr[left] && target < arr[mid]){
+                    right = mid-1;
                 }
-                else start = mid +1;
+                else left = mid +1;
             }
-            else if (arr[mid]<= arr[end]){
-                if(target > arr[mid] && target <= arr[end]){
-                    start =mid+1;
+            else if (arr[mid]<= arr[right]){
+                if(target > arr[mid] && target <= arr[right]){
+                    left =mid+1;
                 }
-                else end = mid -1;
+                else right = mid -1;
 
             }
         }

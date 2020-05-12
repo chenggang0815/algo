@@ -45,6 +45,19 @@ public class Solution {
         return  reHeadnode;
     }
 
+    static public node reverse(node head){
+        if (head==null || head.next==null) return head;
+        node cur = head;
+        node pre = null;
+        while (cur!=null){
+            node next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+
+        return pre;
+    }
     //递归法
     private static node reverseList1(node head){
         if (head ==null || head.next ==null){
@@ -77,8 +90,9 @@ public class Solution {
 		
         printL(head.next);
         System.out.println("========reverse 1==========");
-        printL(reverseList1(head.next));
+        //printL(reverseList1(head.next));
         System.out.println("========reverse 2==========");
+        printL(reverse(head.next));
 
 
     }
