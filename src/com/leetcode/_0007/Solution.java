@@ -38,24 +38,25 @@ public class Solution {
         return Math.max(maxDepth(root.left),maxDepth(root.right))+1;
     }
 
-    //广度优先遍历
+    //广度优先搜索(bfs)
     static int maxDepth2(TreeNode root){
         if (root==null) return 0;
         int depth=0;
-        Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
-        while (!q.isEmpty()){
-            int temp;
-            temp = q.size();
-            while (temp>0){
-                temp--;
-                TreeNode tempNode = q.poll();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()){
+            int count = queue.size();
+            while (count>0){
+
+                TreeNode tempNode = queue.poll();
                 if (tempNode.right!=null){
-                    q.add(tempNode.right);
+                    queue.add(tempNode.right);
                 }
                 if (tempNode.left!=null){
-                    q.add(tempNode.left);
+                    queue.add(tempNode.left);
                 }
+
+                count--;
             }
             depth++;
         }
