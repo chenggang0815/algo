@@ -79,7 +79,7 @@ class Solution {
         while (fast.next.next!=null && slow.next !=null){
             fast =fast.next.next;
             slow =slow.next;
-            if (slow.next == fast.next){
+            if (slow == fast){
                 return true;
             }
         }
@@ -95,7 +95,7 @@ class Solution {
         node3.next =node4;
         node4.next =node2;
 
-        System.out.println(isRingByHashMap(head.next));
+        System.out.println(isRingByPointer(head.next));
 
     }
 

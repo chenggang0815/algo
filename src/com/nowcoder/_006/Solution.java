@@ -58,6 +58,7 @@ public class Solution {
 
         return pre;
     }
+
     //递归法
     private static node reverseList1(node head){
         if (head ==null || head.next ==null){

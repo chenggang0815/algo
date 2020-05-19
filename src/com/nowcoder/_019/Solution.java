@@ -32,6 +32,8 @@ class Solution {
         quickSort(arr, low, i-1 );
         quickSort(arr, i+1, high);
     }
+
+
     static public void quickSort2(int[] nums, int left, int right){
         if (left>=right) return;
         int i = left;
