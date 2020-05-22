@@ -15,9 +15,12 @@ class Solution {
             while (i<j&&nums[j]>=key){
                 j--;
             }
+
             while (i<j&&nums[i]<=key){
                 i++;
             }
+
+
             System.out.println(nums[i]);
             System.out.println(nums[j]);
             System.out.println("====");
