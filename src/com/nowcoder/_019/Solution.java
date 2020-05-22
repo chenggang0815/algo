@@ -5,6 +5,15 @@ class Solution {
     //快速排序
     // time : o(nlog2(n))
     // space: o(nlog2(n))
+    /*
+    需要注意的点：
+	• 为什么快排需要先从右边开始：j-- ？
+	如果先出动i，显然i先到达“相遇数”，因为i只会在大于基准数的位置停下，这就意味着“相遇数”一定是大于基准数，
+	那么交换后左边序列最左边的元素一定大于归位后的基准数了，与快排一趟结束后，基准数大于左边子序列元素矛盾；
+	同理，如果先出动j，可以保证“相遇数”小于基准数。
+
+    • key <= nums[j]  key >= nums[i]  等号不能忘
+     */
     static public void quickSort(int[] nums, int left, int right){
         if (left>right) return;
         int i = left;
