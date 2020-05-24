@@ -16,8 +16,13 @@ Explanation: The square root of 8 is 2.82842..., and since
              the decimal part is truncated, 2 is returned.
  */
 public class Solution {
-    static public int mySqrt(int x) {
+    /*
+    left从1开始就足够了，因为返回值最小也是1，不会是0，并且可以保证mid>=1，可以使用x/mid，且mid!=0, 如果使用mid*mid<x 还需要考虑mid*mid的溢出情况
 
+    目标：找出最大的mid，使得mid < x/mid
+     */
+    //time: o(log2(x)) time: o(1)
+    static public int mySqrt(int x) {
         int left = 1;
         int right = x;
         while(left <= right){
@@ -30,6 +35,7 @@ public class Solution {
                 right = mid -1;
             }
         }
+
         return left-1;
     }
 
