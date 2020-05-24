@@ -1,4 +1,7 @@
 package com.kernel.dynamic_programming;
+
+import java.util.HashMap;
+
 /*
 每日复习专用
  */
@@ -46,10 +49,36 @@ Note:
         return dp[0][length-1]>0;
     }
 
+    static public void FindNumsAppearOnce(int [] array,int num1[] , int num2[]) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(int i=0; i<array.length; i++){
+            if(map.containsKey(array[i])){
+                map.put(array[i], map.get(array[i]) + 1);
+            }else{
+                map.put(array[i], 1);
+            }
+        }
+        int[] nums = new int[2];
+        for(int j=0; j<array.length; j++){
+            int n=0;
+            if(map.get(array[j]) == 1){
+                System.out.println(array[j]);
+                nums[n] = array[j];
+                n++;
+            }
+        }
+
+        num1 = new int[]{nums[0]};
+        num2 = new int[]{nums[1]};
+    }
+
 
     public static void main(String[] args) {
-        int[] nums = new int[]{5,2,4,5};
-        System.out.println(stonegame(nums));
+        int[] nums = new int[]{2,4,3,6,3,2,5,5};
+        int[] num1 = new int[1];
+        int[] num2 = new int[1];
+        FindNumsAppearOnce(nums,num1,num2);
+
 
 
     }
