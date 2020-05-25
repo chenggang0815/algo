@@ -24,7 +24,7 @@ public class Solution {
 
     //Time Complexity: O(n^2)
     //We search the whole list to find whether there is duplicate number,
-    // taking O(n)O(n)O(n) time. Because search is in the for loop
+    // taking O(n) time. Because search is in the for loop
     //Space Complexity:O(n)
     static int singleNumber(int[] nums){
         ArrayList<Integer> arr = new ArrayList<>();
@@ -71,11 +71,31 @@ public class Solution {
 //        return 0;
     }
 
+    /*
+    异或运算的性质：
+    1. a^b = b^a
+    2. a^b^c = a^(b^c) = (a^b)^c
+    3. a^a = 0
+    4. a^0 = a
+    对于此题，则有：3^1^2^1^2 => 3^(1^1)^(2^2) => 3^0^0 = 3
+     */
+    // time: o(n) space: o(1)
+    static int singleNumber3(int[] nums){
+        if (nums.length == 0) return -1;
+
+        int res = nums[0];
+        for (int i=1; i<nums.length; i++){
+            System.out.println(res);
+            res = res ^ nums[i]; // 3^1^2^1^2 => 3^(1^1)^(2^2) => 3^0^0 = 3
+        }
+
+        return res;
+    }
 
     public static void main(String[] args) {
 
-        int[] nums = new int[]{4,1,2,1,2};
-        System.out.println(singleNumber2(nums));
+        int[] nums = new int[]{3,1,2,1,2};
+        System.out.println(singleNumber3(nums));
 
 
 
