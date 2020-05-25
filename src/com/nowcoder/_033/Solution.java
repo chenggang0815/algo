@@ -34,6 +34,7 @@ public class Solution {
         }
     }
     static boolean isSubStructure(TreeNode root1, TreeNode root2) {
+        //if(root1 == null && root2 == null) return true; 输入root1,root2 = {}时，为false
         if (root1==null||root2==null) return false;
 
         return helper(root1,root2)||isSubStructure(root1.left,root2)||isSubStructure(root1.right,root2);
