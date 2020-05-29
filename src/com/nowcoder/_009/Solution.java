@@ -39,6 +39,40 @@ public class Solution {
 
     }
 
+/*
+    bigo面试:
+    输入链表:1->2->3->4->5->6->7
+    输出链表:1->7->2->6->3->5->4
+    时间复杂度o(n) 空间复杂度o(1)
+
+ */
+    static void merge(node head){
+        if (head == null) return;
+
+        node cur = head;
+        int length = 1;
+        while(cur.next != null){
+            cur = cur.next;
+            length++;
+        }
+
+        int midnode = length/2 + 1;
+        int index = 0;
+        node head1 = new node(0);
+        while (cur.next != null && index != midnode){
+            cur = cur.next;
+            head1.next = cur;
+            index++;
+        }
+
+        while(head != null && head1 != null){
+             head.next = head1;
+             head1 = head1.next;
+             head = head.next;
+        }
+
+    }
+
     // 合并链表 非递归
     public static node mergeList(node head1,node head2){
         node temp1 = head1;
