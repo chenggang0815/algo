@@ -50,15 +50,16 @@ public class Solution {
     }
 
     static public void helper(TreeNode root, int sum, List<List<Integer>> res, ArrayList<Integer> temp){
-        if (root==null) return;
+        if (root == null) return;
+
         temp.add(root.val);
-        if (root.left==null&&root.right==null&&root.val==sum){
+        if (root.left == null && root.right == null && root.val == sum){
             res.add(new ArrayList<>(temp));
         }
-        helper(root.left, sum-root.val, res, temp);
-        helper(root.right, sum-root.val, res, temp);
+        helper(root.left, sum - root.val, res, temp);
+        helper(root.right, sum - root.val, res, temp);
 
-        temp.remove(temp.size()-1);
+        temp.remove(temp.size() - 1);
     }
     public static void main(String[] args) {
         TreeNode root = new TreeNode(5);
