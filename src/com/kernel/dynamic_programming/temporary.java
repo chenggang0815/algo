@@ -72,14 +72,31 @@ Note:
         num2 = new int[]{nums[1]};
     }
 
+    static public double Power(double base, int exponent) {
+        if(exponent == 0) return 1;
+
+        double res = 1;
+        while(exponent != 0){
+            if((exponent & 1) == 1){
+                res = res * base;
+            }
+            base *= base;
+            exponent >>= 1;
+            System.out.println(exponent);
+        }
+
+        return res;
+
+    }
+
 
     public static void main(String[] args) {
         int[] nums = new int[]{2,4,3,6,3,2,5,5};
         int[] num1 = new int[1];
         int[] num2 = new int[1];
-        FindNumsAppearOnce(nums,num1,num2);
+        //FindNumsAppearOnce(nums,num1,num2);
 
-
+        System.out.println(Power(2,4));
 
     }
 }

@@ -148,7 +148,7 @@ public class Solution {
     public static void main(String[] args) {
 
         int[] input = new int[]{4,1,5,1,6,2,7,3,8};
-        System.out.println(GetLeastNumbers_Solution2(input,4));
+        System.out.println(GetLeastNumbers_Solution2(input,1));
 
     }
 }
