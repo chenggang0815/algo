@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/nowcoder/_045/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/nowcoder/_046/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_044/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_044/Solution.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,13 +61,13 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="Application.Solution">
-    <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nowcoder._043.Solution" />
+  <component name="RunManager" selected="Application.Solution (3)">
+    <configuration name="Solution (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.nowcoder._044.Solution" />
       <module name="algo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nowcoder._043.*" />
+          <option name="PATTERN" value="com.nowcoder._044.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -76,12 +75,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Solution (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nowcoder._044.Solution" />
+    <configuration name="Solution (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.nowcoder._046.Solution" />
       <module name="algo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nowcoder._044.*" />
+          <option name="PATTERN" value="com.nowcoder._046.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -130,18 +129,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Solution (5)" />
-      <item itemvalue="Application.Solution (1)" />
       <item itemvalue="Application.temporary" />
       <item itemvalue="Application.Solution (2)" />
       <item itemvalue="Application.Solution" />
+      <item itemvalue="Application.Solution (3)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Solution (3)" />
         <item itemvalue="Application.Solution" />
         <item itemvalue="Application.Solution (2)" />
         <item itemvalue="Application.Solution (5)" />
         <item itemvalue="Application.temporary" />
-        <item itemvalue="Application.Solution (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -170,7 +169,7 @@
       <workItem from="1589101079718" duration="3071000" />
       <workItem from="1589421221862" duration="25637000" />
       <workItem from="1589955554463" duration="26499000" />
-      <workItem from="1590326126000" duration="57970000" />
+      <workItem from="1590326126000" duration="59181000" />
     </task>
     <servers />
   </component>
@@ -178,9 +177,10 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="330" y="91" key="#Notifications" timestamp="1582593980559">
-      <screen x="0" y="0" width="1474" height="864" />
+    <state x="330" y="91" key="#Notifications" timestamp="1591237253174">
+      <screen x="0" y="0" width="1473" height="864" />
     </state>
+    <state x="330" y="91" key="#Notifications/0.0.1473.864@0.0.1473.864" timestamp="1591237253174" />
     <state x="330" y="91" key="#Notifications/0.0.1474.864@0.0.1474.864" timestamp="1582593980559" />
     <state x="499" y="76" key="#com.intellij.ide.util.MemberChooser" timestamp="1583307533838">
       <screen x="0" y="0" width="1474" height="864" />
@@ -199,26 +199,42 @@
       <screen x="0" y="0" width="1474" height="864" />
     </state>
     <state x="522" y="300" width="429" height="276" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1474.864@0.0.1474.864" timestamp="1583064547918" />
-    <state width="1422" height="137" key="GridCell.Tab.0.bottom" timestamp="1591187418736">
+    <state width="1422" height="260" key="GridCell.Tab.0.bottom" timestamp="1591237256802">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
-    <state width="1422" height="137" key="GridCell.Tab.0.bottom/0.0.1473.864@0.0.1473.864" timestamp="1591187418736" />
+    <state width="1422" height="260" key="GridCell.Tab.0.bottom/0.0.1473.864@0.0.1473.864" timestamp="1591237256802" />
     <state width="1423" height="197" key="GridCell.Tab.0.bottom/0.0.1474.864@0.0.1474.864" timestamp="1587218793533" />
-    <state width="1422" height="137" key="GridCell.Tab.0.center" timestamp="1591187418736">
+    <state width="1422" height="260" key="GridCell.Tab.0.center" timestamp="1591237256802">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
-    <state width="1422" height="137" key="GridCell.Tab.0.center/0.0.1473.864@0.0.1473.864" timestamp="1591187418736" />
+    <state width="1422" height="260" key="GridCell.Tab.0.center/0.0.1473.864@0.0.1473.864" timestamp="1591237256802" />
     <state width="1423" height="197" key="GridCell.Tab.0.center/0.0.1474.864@0.0.1474.864" timestamp="1587218793533" />
-    <state width="1422" height="137" key="GridCell.Tab.0.left" timestamp="1591187418736">
+    <state width="1422" height="260" key="GridCell.Tab.0.left" timestamp="1591237256802">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
-    <state width="1422" height="137" key="GridCell.Tab.0.left/0.0.1473.864@0.0.1473.864" timestamp="1591187418736" />
+    <state width="1422" height="260" key="GridCell.Tab.0.left/0.0.1473.864@0.0.1473.864" timestamp="1591237256802" />
     <state width="1423" height="197" key="GridCell.Tab.0.left/0.0.1474.864@0.0.1474.864" timestamp="1587218793533" />
-    <state width="1422" height="137" key="GridCell.Tab.0.right" timestamp="1591187418736">
+    <state width="1422" height="260" key="GridCell.Tab.0.right" timestamp="1591237256802">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
-    <state width="1422" height="137" key="GridCell.Tab.0.right/0.0.1473.864@0.0.1473.864" timestamp="1591187418736" />
+    <state width="1422" height="260" key="GridCell.Tab.0.right/0.0.1473.864@0.0.1473.864" timestamp="1591237256802" />
     <state width="1423" height="197" key="GridCell.Tab.0.right/0.0.1474.864@0.0.1474.864" timestamp="1587218793533" />
+    <state width="1422" height="260" key="GridCell.Tab.1.bottom" timestamp="1591237256803">
+      <screen x="0" y="0" width="1473" height="864" />
+    </state>
+    <state width="1422" height="260" key="GridCell.Tab.1.bottom/0.0.1473.864@0.0.1473.864" timestamp="1591237256803" />
+    <state width="1422" height="260" key="GridCell.Tab.1.center" timestamp="1591237256802">
+      <screen x="0" y="0" width="1473" height="864" />
+    </state>
+    <state width="1422" height="260" key="GridCell.Tab.1.center/0.0.1473.864@0.0.1473.864" timestamp="1591237256802" />
+    <state width="1422" height="260" key="GridCell.Tab.1.left" timestamp="1591237256802">
+      <screen x="0" y="0" width="1473" height="864" />
+    </state>
+    <state width="1422" height="260" key="GridCell.Tab.1.left/0.0.1473.864@0.0.1473.864" timestamp="1591237256802" />
+    <state width="1422" height="260" key="GridCell.Tab.1.right" timestamp="1591237256802">
+      <screen x="0" y="0" width="1473" height="864" />
+    </state>
+    <state width="1422" height="260" key="GridCell.Tab.1.right/0.0.1473.864@0.0.1473.864" timestamp="1591237256802" />
     <state x="46" y="0" key="SettingsEditor" timestamp="1583307114461">
       <screen x="0" y="0" width="1474" height="864" />
     </state>
