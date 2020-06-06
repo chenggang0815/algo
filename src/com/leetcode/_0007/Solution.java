@@ -32,34 +32,39 @@ public class Solution {
             this.val = val;
         }
     }
-
+    /*
+    1. 如果一棵树只有一个结点，那么它的深度为1；
+    2. 如果根结点只有左子树没有右子树，那么树的深度是左子树的深度加1，加1是加上根节点这一层
+    3. 如果既有左子树又有右子树，那么树的深度应该是左、右子树中深度较大的值再加1
+     */
     static int maxDepth(TreeNode root){
-        if (root==null)return 0;
-        return Math.max(maxDepth(root.left),maxDepth(root.right))+1;
+        if (root == null) return 0;
+
+        return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
 
-    //广度优先搜索(bfs)
+    //宽度优先搜索(bfs)
     static int maxDepth2(TreeNode root){
-        if (root==null) return 0;
-        int depth=0;
+        if (root == null) return 0;
+
+        int depth = 0;
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()){
             int count = queue.size();
             while (count>0){
-
                 TreeNode tempNode = queue.poll();
-                if (tempNode.right!=null){
+                if (tempNode.right != null){
                     queue.add(tempNode.right);
                 }
-                if (tempNode.left!=null){
+                if (tempNode.left != null){
                     queue.add(tempNode.left);
                 }
-
                 count--;
             }
             depth++;
         }
+
     return depth;
     }
 

@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/nowcoder/_048/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0007/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0007/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_048/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nowcoder/_048/Solution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +170,7 @@
       <workItem from="1589101079718" duration="3071000" />
       <workItem from="1589421221862" duration="25637000" />
       <workItem from="1589955554463" duration="26499000" />
-      <workItem from="1590326126000" duration="66092000" />
+      <workItem from="1590326126000" duration="68081000" />
     </task>
     <servers />
   </component>
