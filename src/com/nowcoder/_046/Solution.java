@@ -39,7 +39,8 @@ public class Solution {
         return res;
     }
         public static void main(String[] args) {
-            int[] nums = new int[]{1,2,3,4,5,6};
+            //int[] nums = new int[]{1,2,3,4,5,6};
+            int[] nums = new int[0];
             System.out.println(FindNumbersWithSum(nums, 7));
     }
 }
