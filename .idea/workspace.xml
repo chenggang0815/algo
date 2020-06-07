@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/nowcoder/_049/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/nowcoder/_050/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/leetcode/_0007/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algo/com/leetcode/_0007/Solution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_046/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_046/Solution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_047/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_047/Solution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_046/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nowcoder/_046/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_049/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nowcoder/_049/Solution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +170,7 @@
       <workItem from="1589101079718" duration="3071000" />
       <workItem from="1589421221862" duration="25637000" />
       <workItem from="1589955554463" duration="26499000" />
-      <workItem from="1590326126000" duration="76207000" />
+      <workItem from="1590326126000" duration="78736000" />
     </task>
     <servers />
   </component>
@@ -259,9 +256,10 @@
       <screen x="0" y="0" width="1474" height="864" />
     </state>
     <state x="734" y="0" width="740" height="864" key="find.popup/0.0.1474.864@0.0.1474.864" timestamp="1583323454107" />
-    <state x="316" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1583063605532">
-      <screen x="0" y="0" width="1474" height="864" />
+    <state x="316" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1591512592213">
+      <screen x="0" y="0" width="1473" height="864" />
     </state>
+    <state x="316" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1473.864@0.0.1473.864" timestamp="1591512592213" />
     <state x="316" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1474.864@0.0.1474.864" timestamp="1583063605532" />
   </component>
   <component name="masterDetails">
