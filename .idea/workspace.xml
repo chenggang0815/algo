@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/nowcoder/_057/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/nowcoder/_058/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_057/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_057/Solution.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +62,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="Application.Solution (3)">
+  <component name="RunManager" selected="Application.Solution (4)">
     <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.nowcoder._056.Solution" />
       <module name="algo" />
@@ -101,12 +102,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Solution (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nowcoder._051.Solution" />
+    <configuration name="Solution (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.nowcoder._058.Solution" />
       <module name="algo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nowcoder._051.*" />
+          <option name="PATTERN" value="com.nowcoder._058.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -128,19 +129,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Solution (5)" />
       <item itemvalue="Application.Solution (2)" />
       <item itemvalue="Application.Solution" />
       <item itemvalue="Application.Solution (1)" />
       <item itemvalue="Application.Solution (3)" />
+      <item itemvalue="Application.Solution (4)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Solution (4)" />
         <item itemvalue="Application.Solution (3)" />
         <item itemvalue="Application.Solution (1)" />
         <item itemvalue="Application.Solution" />
         <item itemvalue="Application.Solution (2)" />
-        <item itemvalue="Application.Solution (5)" />
       </list>
     </recent_temporary>
   </component>
@@ -170,7 +171,8 @@
       <workItem from="1589421221862" duration="25637000" />
       <workItem from="1589955554463" duration="26499000" />
       <workItem from="1590326126000" duration="86357000" />
-      <workItem from="1591704810238" duration="15167000" />
+      <workItem from="1591704810238" duration="19315000" />
+      <workItem from="1592283968527" duration="2380000" />
     </task>
     <servers />
   </component>
@@ -187,25 +189,25 @@
     </state>
     <state x="543" y="316" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1473.864@0.0.1473.864" timestamp="1588080145590" />
     <state x="543" y="316" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1474.864@0.0.1474.864" timestamp="1587210108973" />
-    <state width="1422" height="136" key="GridCell.Tab.0.bottom" timestamp="1592227125841">
+    <state width="1422" height="107" key="GridCell.Tab.0.bottom" timestamp="1592289297159">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
-    <state width="1422" height="136" key="GridCell.Tab.0.bottom/0.0.1473.864@0.0.1473.864" timestamp="1592227125841" />
+    <state width="1422" height="107" key="GridCell.Tab.0.bottom/0.0.1473.864@0.0.1473.864" timestamp="1592289297159" />
     <state width="1423" height="197" key="GridCell.Tab.0.bottom/0.0.1474.864@0.0.1474.864" timestamp="1587218793533" />
-    <state width="1422" height="136" key="GridCell.Tab.0.center" timestamp="1592227125841">
+    <state width="1422" height="107" key="GridCell.Tab.0.center" timestamp="1592289297159">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
-    <state width="1422" height="136" key="GridCell.Tab.0.center/0.0.1473.864@0.0.1473.864" timestamp="1592227125841" />
+    <state width="1422" height="107" key="GridCell.Tab.0.center/0.0.1473.864@0.0.1473.864" timestamp="1592289297159" />
     <state width="1423" height="197" key="GridCell.Tab.0.center/0.0.1474.864@0.0.1474.864" timestamp="1587218793533" />
-    <state width="1422" height="136" key="GridCell.Tab.0.left" timestamp="1592227125841">
+    <state width="1422" height="107" key="GridCell.Tab.0.left" timestamp="1592289297159">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
-    <state width="1422" height="136" key="GridCell.Tab.0.left/0.0.1473.864@0.0.1473.864" timestamp="1592227125841" />
+    <state width="1422" height="107" key="GridCell.Tab.0.left/0.0.1473.864@0.0.1473.864" timestamp="1592289297159" />
     <state width="1423" height="197" key="GridCell.Tab.0.left/0.0.1474.864@0.0.1474.864" timestamp="1587218793533" />
-    <state width="1422" height="136" key="GridCell.Tab.0.right" timestamp="1592227125841">
+    <state width="1422" height="107" key="GridCell.Tab.0.right" timestamp="1592289297159">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
-    <state width="1422" height="136" key="GridCell.Tab.0.right/0.0.1473.864@0.0.1473.864" timestamp="1592227125841" />
+    <state width="1422" height="107" key="GridCell.Tab.0.right/0.0.1473.864@0.0.1473.864" timestamp="1592289297159" />
     <state width="1423" height="197" key="GridCell.Tab.0.right/0.0.1474.864@0.0.1474.864" timestamp="1587218793533" />
     <state width="1422" height="259" key="GridCell.Tab.1.bottom" timestamp="1591241905936">
       <screen x="0" y="0" width="1473" height="864" />
