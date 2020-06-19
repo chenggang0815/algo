@@ -81,38 +81,38 @@ class Solution {
 //    }
 	// 归并排序
     private static void  mergeSort(int[] nums, int left, int right){
-        if (left>=right) return;
+        if (left >= right) return;
 
-        int mid = left + (right-left)/2;
-        mergeSort(nums,left,mid);
-        mergeSort(nums,mid+1,right);
+        int mid = left + (right - left) / 2;
+        mergeSort(nums, left, mid);
+        mergeSort(nums,mid+1, right);
 
-        merge(nums,left,mid,right);
+        merge(nums, left, mid, right);
 
     }
 
     static void merge(int[] nums, int left, int mid, int right){
         int i = left;
-        int j = mid+1;
-        int[] temp = new int[right-left+1];
+        int j = mid + 1;
+        int[] temp = new int[right - left + 1];
         int t = 0;
-        while (i<=mid&&j<=right){
-            if (nums[i]<=nums[j]){
+        while (i <= mid && j <= right){
+            if (nums[i] <= nums[j]){
                 temp[t++] = nums[i++];
             }else{
                 temp[t++] = nums[j++];
             }
         }
-        while (i<=mid){
+        while (i <= mid){
             temp[t++] = nums[i++];
         }
 
-        while (j<=right){
+        while ( j<= right){
             temp[t++] = nums[j++];
         }
 
-        for (i=0;i<t;i++){
-            nums[i+left] = temp[i];
+        for (i = 0;i < t;i++){
+            nums[i + left] = temp[i];
         }
     }
 
