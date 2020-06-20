@@ -10,31 +10,40 @@ package com.nowcoder._068;
 思路1：暴力遍历，两层for循环
 
 思路2：归并排序
+1. 对归并排序中的两个数组[1,4,5,6]和[2, 3] 从 1和2开始比较，当left=4，right=2时，有left > right ， 得知(4,2)是一个逆序对，
+由于两边都是排序好的数据，所有可以直接算出逆序对的个数，mid（6的位置） - i（4的位置） + 1 => 因为4后面的数据都比2大
+
+2. 根据第一点的思想，将数组二分到left >= right，即两个长度都为 1， [1] [4]时 ， 就判断了1和4的情况，因此只需在归并排序的基础上
+统计就能判断所有情况。
  */
 public class Solution {
+
+    // time: o(nlog(n)) space:o(n)
     static int res;
      static int InversePairs(int [] nums) {
         if (nums.length == 0) return 0;
-        mergesort(nums, 0, nums.length - 1);
+
+        int[] temp = new int[nums.length];
+        mergesort(nums, 0, nums.length - 1, temp);
 
         return res;
     }
 
-     static void mergesort(int[] nums, int left, int right){
+     static void mergesort(int[] nums, int left, int right, int[] temp){
         if (left >= right) return;
 
         int mid = left + (right - left) / 2;
-        mergesort(nums, left, mid);
-        mergesort(nums, mid + 1, right);
+        mergesort(nums, left, mid, temp);
+        mergesort(nums, mid + 1, right, temp);
 
-        merge(nums, left, mid, right);
+        merge(nums, left, mid, right, temp);
     }
 
-     static void merge(int[] nums, int left, int mid, int right){
+     static void merge(int[] nums, int left, int mid, int right, int[] temp){
         int i = left;
         int j = mid + 1;
-        int index = 0;
-        int[] temp = new int[right - left + 1];
+        int index = i;
+        //int[] temp = new int[right - left + 1];
 
         while (i <= mid && j <= right){
             if (nums[i] <= nums[j]){
@@ -52,8 +61,8 @@ public class Solution {
             temp[index++] = nums[j++];
         }
 
-        for (int t = 0; t < temp.length; t++){
-            nums[left + t] = temp[t];
+        for (i = left; i < index; i++){
+            nums[i] = temp[i];
         }
     }
 
