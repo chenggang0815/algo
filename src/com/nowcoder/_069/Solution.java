@@ -1,7 +1,11 @@
 package com.nowcoder._069;
 
 import java.util.HashMap;
-
+/*
+ps：链表的操作： A.next = B 代表使A的next指针指向B
+                A = B 或 A = B.next 代表令A节点等于B或者B的next节点
+                需要分清：指向操作和赋值操作
+ */
 /*
 复杂链表的复制
 
