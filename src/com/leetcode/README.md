@@ -42,12 +42,12 @@ leetcode
 | 38-83  | [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list) |
 | 39-88  | [Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array) |
 | 40-100 |     [Same Tree](https://leetcode.com/problems/same-tree)     |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
-|        |                                                              |
+| 41-112 |      [Path Sum](https://leetcode.com/problems/path-sum)      |
+| 42-113 |   [Path Sum II](https://leetcode.com/problems/path-sum-ii)   |
+| 43-437 |  [Path Sum III](https://leetcode.com/problems/path-sum-iii)  |
+| 44-102 | [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal) |
+| 45-91  |   [Decode Ways](https://leetcode.com/problems/decode-ways)   |
+| 46-877 |   [ Stone Game](https://leetcode.com/problems/stone-game)    |
 |        |                                                              |
 |        |                                                              |
 |        |                                                              |
