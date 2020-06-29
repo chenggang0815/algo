@@ -41,7 +41,7 @@ public class Solution {
     return right - left + 1;
     }
 
-    // time: o(logn) space: o(1)
+    // time: o(log(n)) space: o(1)
     static int GetNumberOfK2(int [] array , int k) {
         if(array.length == 0) return 0;
         if(array[0] > k || array[array.length - 1] < k) return 0;
