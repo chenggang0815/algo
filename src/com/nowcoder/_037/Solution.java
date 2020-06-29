@@ -9,11 +9,15 @@ import java.util.HashMap;
  */
 
 /*
-解题思路1：先快排，再统计中间数的个数看是否大于一半 ，时间复杂度：o(log2(n)) space: o(1)
+解题思路1：先快排，再统计中间数的个数看是否大于一半 ，时间复杂度：o(n*log(n)) space: o(1)
  */
 
 /*
 解题思路2: 利用hashmap存储每个数字的个数 time: o(n) space: o(n)
+ */
+
+/*
+解题思路3: 守擂台算法 time:o(n) space:o(1)
  */
 public class Solution {
     static int MoreThanHalfNum_Solution(int [] array) {
