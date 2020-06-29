@@ -18,7 +18,7 @@ package com.nowcoder._068;
  */
 public class Solution {
 
-    // time: o(nlog(n)) space:o(n)
+    // time: o(n*log(n)) space:o(n)
     static int res;
      static int InversePairs(int [] nums) {
         if (nums.length == 0) return 0;
