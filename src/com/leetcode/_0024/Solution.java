@@ -37,7 +37,7 @@ public class Solution {
             arr.remove(arr.size() - 1);
         }
     }
-    
+
     static List<List<Integer>> subsets2(int[] nums){
          res.add(new ArrayList<>());
          for (int i = 0; i < nums.length; i++){
@@ -84,6 +84,6 @@ public class Solution {
 //
     public static void main(String[] args) {
         int[] nums = new int[]{1, 2, 3};
-        System.out.println(subsets2(nums));
+        System.out.println(subsets1(nums));
     }
 }
