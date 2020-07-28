@@ -11,6 +11,44 @@ package com.nowcoder._071;
 import java.util.*;
 
 public class Solution {
+
+
+    //方法一 : 不需要交换
+
+    static List<String> res = new ArrayList<>();
+    static char[] c;
+
+    static List<String> Permutation(String s){
+        if (s.length() == 0) return res;
+
+        c = s.toCharArray();
+        List<Character> arr = new ArrayList<>();
+        helper(c, arr);
+
+        return res;
+    }
+
+    static void helper(char[] c, List<Character> arr){
+        if (arr.size() == c.length){
+            String temp = "";
+            for (int i = 0; i < arr.size(); i++){
+                temp += arr.get(i).toString();
+            }
+            res.add(temp);
+            return;
+        }
+
+        for (int i = 0; i < c.length; i++){
+            if (arr.contains(c[i])) continue;
+            arr.add(c[i]);
+            helper(c, arr);
+            arr.remove(arr.size() - 1);
+        }
+    }
+
+
+    /*
+    // 方法二  交换法
     static ArrayList<String> array = new ArrayList<>();
     static char[] c;
     //time: O(N!) space: o(N^2) 递归深度为N，且每次递归都需要创建hashset
@@ -43,7 +81,7 @@ public class Solution {
         c[i] = c[j];
         c[j] = temp;
     }
-
+*/
     public static void main(String[] args) {
         System.out.println(Permutation("abc").toString());
         //System.out.println(String.valueOf(new char[]{'a', 'b'}));
