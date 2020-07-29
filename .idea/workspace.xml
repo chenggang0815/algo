@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_010/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nowcoder/_010/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0015/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0015/Solution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +169,7 @@
       <workItem from="1592564570397" duration="24085000" />
       <workItem from="1593396292957" duration="8871000" />
       <workItem from="1595396915281" duration="16712000" />
-      <workItem from="1595836733941" duration="18195000" />
+      <workItem from="1595836733941" duration="19945000" />
     </task>
     <servers />
   </component>
@@ -241,10 +242,10 @@
       <screen x="0" y="0" width="1473" height="864" />
     </state>
     <state x="402" y="146" key="extract.method.dialog/0.0.1473.864@0.0.1473.864" timestamp="1595990103794" />
-    <state x="377" y="109" width="719" height="646" key="find.popup" timestamp="1595994506227">
+    <state x="377" y="109" width="719" height="646" key="find.popup" timestamp="1596004301797">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
-    <state x="377" y="109" width="719" height="646" key="find.popup/0.0.1473.864@0.0.1473.864" timestamp="1595994506227" />
+    <state x="377" y="109" width="719" height="646" key="find.popup/0.0.1473.864@0.0.1473.864" timestamp="1596004301797" />
     <state x="316" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1595907026318">
       <screen x="0" y="0" width="1473" height="864" />
     </state>

@@ -1,6 +1,6 @@
 package com.leetcode._0015;
 /*
-206 Reverse Linked List
+206 Reverse Linked List 反转单链表
 Reverse a singly linked list.
 Example:
 Input: 1->2->3->4->5->NULL
@@ -40,13 +40,13 @@ public class Solution {
 
     // 定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。
     public static ListNode reverseList2(ListNode head){
-        ListNode reHeadnode = null;
+        ListNode newHead = null;
         ListNode curnode = head;
         ListNode prenode = null;
-        while (curnode !=null){
+        while (curnode != null){
             ListNode nextnode = curnode.next;
             if (curnode.next == null){
-                reHeadnode = curnode;
+                newHead = curnode;
             }
 
             curnode.next = prenode;
@@ -55,7 +55,7 @@ public class Solution {
 
         }
 
-        return  reHeadnode;
+        return  newHead;
     }
 
     //递归法
@@ -63,10 +63,12 @@ public class Solution {
         if (head ==null || head.next ==null){
             return head;
         }
+
         ListNode temp = head.next;
-        ListNode newhead =reverseList1(head.next);
-        temp.next =head;
-        head.next =null;
+        ListNode newhead = reverseList1(head.next);
+        temp.next = head;
+        head.next = null;
+
         return newhead;
     }
 
