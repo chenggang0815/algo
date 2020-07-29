@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/nowcoder/_073/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/leetcode/_0042/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algo/com/leetcode/_0042/Solution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0043/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0043/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_072/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nowcoder/_072/Solution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +169,7 @@
       <workItem from="1592564570397" duration="24085000" />
       <workItem from="1593396292957" duration="8871000" />
       <workItem from="1595396915281" duration="16712000" />
-      <workItem from="1595836733941" duration="25955000" />
+      <workItem from="1595836733941" duration="27044000" />
     </task>
     <servers />
   </component>

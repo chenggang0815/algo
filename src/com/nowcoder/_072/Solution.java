@@ -1,8 +1,13 @@
 package com.nowcoder._072;
 /*
 1. 最长公共子序列
+如果X[i-1] = Y[j-1] => dp[i][j] = dp[i-1][j-1] + 1
+如果X[i-1] != Y[j-1] => Math.max(dp[i][j - 1], dp[i - 1][j])
 
-2. 最长公共子串
+2. 最长公共子串（求连续的公共最长子序列）
+
+如果X[i-1] = Y[j-1] => dp[i][j] = dp[i-1][j-1] + 1
+如果X[i-1] != Y[j-1] => dp[i][j] = 0，就相当于在这里重新开始了。
  */
 public class Solution {
 /*
