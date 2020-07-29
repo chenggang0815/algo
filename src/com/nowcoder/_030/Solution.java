@@ -13,24 +13,24 @@ package com.nowcoder._030;
 public class Solution {
     //time:o(2^n) space:o(2^n)
     static public int RectCover(int target) {
-        if (target==0) return 0;
-        if (target==1) return 1;
-        if (target==2) return 2;
+        if (target == 0) return 0;
+        if (target == 1) return 1;
+        if (target == 2) return 2;
 
-        return RectCover(target-1)+RectCover(target-2);
+        return RectCover(target - 1) + RectCover(target - 2);
     }
 
     //time:o(n) space:o(n)
     static public int RectCover2(int target){
-        if (target==0) return 0;
+        if (target == 0) return 0;
         int[] dp = new int[target];
         dp[0] = 1;
         dp[1] = 2;
-        for (int i=2;i<target;i++){
-            dp[i] = dp[i-1]+dp[i-2];
+        for (int i = 2; i < target; i++){
+            dp[i] = dp[i - 1] + dp[i - 2];
         }
 
-        return dp[target-1];
+        return dp[target - 1];
     }
 
     //time:o(n) space:o(1)
@@ -39,7 +39,7 @@ public class Solution {
         int first = 1;
         int second = 2;
         int result = 0;
-        for (int i=2;i<target;i++){
+        for (int i = 2; i < target; i++){
             result = first+second;
             first = second;
             second = result;
