@@ -8,6 +8,9 @@ public class Solution {
 /*
 1. dp[i][j] 的含义是：对于 s1[1..i] 和 s2[1..j]，它们的 LCS 长度是 dp[i][j]
 2. dp[0][..]和dp[..][0]都应该初始化为 0，这就是 base case
+3. 递推关系：
+    s1[i - 1] == s[j - 1] => dp[i][j] = dp[i -1][j - 1] + 1
+    s1[i - 1] != s[j - 1] => dp[i][j] = Math.max(dp[i -1][j], dp[i][j - 1])
  */
     static int lcs(String s1, String s2){
         int[][] dp = new int[s1.length()][s2.length()];
