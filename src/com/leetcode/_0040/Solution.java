@@ -35,12 +35,12 @@ public class Solution {
 
     // time : o(n)
     //sapce: the best: o(log(n)), the worst :o(n)
-    static public boolean isSameTree(TreeNode p, TreeNode q) {
-        if (p==null && q==null) return true;
-        if (p==null || q==null) return false;
-        if (p.val!=q.val) return false;
+    static public boolean isSameTree(TreeNode root1, TreeNode root2) {
+        if (root1 == null && root2 == null) return true;
+        if (root1 == null || root2 == null) return false;
+        if (root1.val != root2.val) return false;
 
-        return isSameTree(p.right,q.right)&&isSameTree(p.left,q.left);
+        return isSameTree(root1.right, root2.right) && isSameTree(root1.left, root2.left);
     }
 
     public static void main(String[] args) {
