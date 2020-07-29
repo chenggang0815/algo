@@ -17,7 +17,6 @@ package com.nowcoder._044;
 3. 既有 dp[i] = Math.max(dp[i], Math.max(j*dp[i-j], j*(i-j)))
 4. 因为有对于dp[i]来说有i中分割的可能，所以需要比较i种可能，选最大值。即比较两次（两个Math.max）,对某个j来说有两种，对某个i来说有j（j= 1 ~i）种
 
-
 思路三： 数学归纳法
 /**
  * 题目分析：
