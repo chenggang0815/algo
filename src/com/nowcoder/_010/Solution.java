@@ -4,13 +4,12 @@ import java.util.HashMap;
 
 class Solution {
     static class node{
-        public    int data;
+        int data;
         node next;
 
-        node (){
-        }
+        node(){}
         node(int data){
-            this.data=data;
+            this.data = data;
         }
     }
     static node head = new node();
@@ -23,8 +22,8 @@ class Solution {
     public static void addnode(node head, int data){
         node newnode = new node(data);
         node temp = head;
-        while (temp.next!=null){
-            temp=temp.next;
+        while (temp.next != null){
+            temp = temp.next;
         }
 
         temp.next = newnode;
@@ -32,28 +31,28 @@ class Solution {
 
     //打印链表
     public static void printL(node head){
-        if (head==null){
+        if (head == null){
             System.out.println("链表为空");
         }
         node temp = head;
-        while (temp!=null){
-            System.out.println(""+temp.data);
-            temp=temp.next;
+        while (temp != null){
+            System.out.println("" + temp.data);
+            temp = temp.next;
         }
 
     }
 
     //判断链表是否有环，循环遍历
     public static boolean isRingByLoop(node head){
-        if (head==null) return false;
+        if (head == null) return false;
 
-        node temp =head;
-        while (temp.next!=null){
+        node temp = head;
+        while (temp.next != null){
             node t = head;
             temp =temp.next;
             while (t != temp){
                 if (t.next == temp.next) return true;
-                t =t.next;
+                t = t.next;
             }
         }
         return false;
@@ -61,28 +60,30 @@ class Solution {
 
     //判断链表是否有环，hashmap
     public static boolean isRingByHashMap(node head){
-        node temp =head;
-        HashMap hp =new HashMap();
-        while (temp!=null){
-            hp.put(temp,temp);
-            temp =temp.next;
-            if (hp.get(temp)!=null) return true;
+        node temp = head;
+        HashMap<node, node> map = new HashMap<>();
+        while (temp != null){
+            map.put(temp, temp);
+            temp = temp.next;
+            if (map.get(temp) != null) return true;
         }
+
         return false;
     }
 
     //判断链表是否有环，快慢指针
     public static boolean isRingByPointer(node head){
-        if (head==null) return false;
+        if (head == null) return false;
         node fast = head;
         node slow = head;
-        while (fast.next.next!=null && slow.next !=null){
-            fast =fast.next.next;
-            slow =slow.next;
+        while (fast.next.next != null && slow.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
             if (slow == fast){
                 return true;
             }
         }
+
         return false;
     }
     
