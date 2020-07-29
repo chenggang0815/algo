@@ -3,11 +3,10 @@ package com.nowcoder._009;
 
 public class Solution {
     static class node{
-        public    int data;
+        int data;
         node next;
 
-        node (){
-        }
+        node(){}
         node(int data){
             this.data=data;
         }
@@ -19,8 +18,8 @@ public class Solution {
     public static void addnode(node head, int data){
         node newnode = new node(data);
         node temp = head;
-        while (temp.next!=null){
-            temp=temp.next;
+        while (temp.next != null){
+            temp = temp.next;
         }
 
         temp.next = newnode;
@@ -28,13 +27,13 @@ public class Solution {
 
     //打印链表
     public static void printL(node head){
-        if (head==null){
+        if (head == null){
             System.out.println("链表为空");
         }
         node temp = head;
-        while (temp!=null){
-            System.out.println(""+temp.data);
-            temp=temp.next;
+        while (temp != null){
+            System.out.println("" + temp.data);
+            temp = temp.next;
         }
 
     }
@@ -73,29 +72,29 @@ public class Solution {
 
     }
 
-    // 合并链表 非递归
+    //合并链表:非递归
     public static node mergeList(node head1,node head2){
         node temp1 = head1;
         node temp2 = head2; //不改变原来的两个链表
 
         node newhead = new node();
-        node temp =newhead;
+        node temp = newhead;
 
-        while (temp1!=null && temp2!=null) {
+        while (temp1 != null && temp2 != null) {
             if (temp1.data < temp2.data) {
                 temp.next = temp1;
-                temp1= temp1.next;
+                temp1 = temp1.next;
             } else {
                 temp.next = temp2;
-                temp2= temp2.next;
+                temp2 = temp2.next;
             }
             temp =temp.next;
         }
 
-        if (temp1!=null){
+        if (temp1 != null){
             temp.next = temp1;
         }
-        if (temp2!=null){
+        if (temp2 != null){
             temp.next = temp2;
         }
 
@@ -112,12 +111,12 @@ public class Solution {
         if (temp2 == null) return temp1;
 
         if (temp1.data < temp2.data){
-            newhead=temp1;
-            newhead.next=mergeList2(temp1.next,temp2);
+            newhead = temp1;
+            newhead.next = mergeList2(temp1.next, temp2);
         }
         else {
-            newhead=temp2;
-            newhead.next=mergeList2(temp1,temp2.next);
+            newhead = temp2;
+            newhead.next = mergeList2(temp1, temp2.next);
         }
         return newhead;
     }
