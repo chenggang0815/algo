@@ -5,22 +5,21 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /*
+二叉树的层次遍历
 
 从上往下打印出二叉树的每个节点，同层节点从左至右打印。
-
  */
 
 
 public class Solution {
-    static class TreeNode {
+    static class TreeNode{
         int val;
-        TreeNode left = null;
-        TreeNode right = null;
-
-        public TreeNode(int val) {
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int val){
             this.val = val;
-
         }
+    }
 
     static public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
         if (root==null) return new ArrayList<>();
@@ -29,11 +28,11 @@ public class Solution {
         queue.offer(root);
         while(!queue.isEmpty()){
             int count = queue.size();
-            while (count>0){
+            while (count > 0){
                 TreeNode node = queue.poll();
                 array.add(node.val);
-                if (node.left!=null) queue.offer(node.left);
-                if (node.right!=null) queue.offer(node.right);
+                if (node.left != null) queue.offer(node.left);
+                if (node.right != null) queue.offer(node.right);
                 count--;
             }
         }
@@ -42,7 +41,7 @@ public class Solution {
     }
 
 
-        }
+}
     public static void main(String[] args) {
 
     }
