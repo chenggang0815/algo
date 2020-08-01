@@ -9,6 +9,7 @@ output: "hello world"
 public class Solution {
 
     //time: o(n) space: o(1)
+
     static String deleteSpace(String s){
         if (s.length() == 0) return "";
 
