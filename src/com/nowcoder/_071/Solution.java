@@ -1,6 +1,6 @@
 package com.nowcoder._071;
 /*
-字符串的排列
+71 - 字符串的排列
 输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串abc,则打印出由字符a,b,c所能排列出来的所有字符串abc,acb,bac,bca,cab和cba。
 
 思路： 回溯算法
@@ -14,14 +14,12 @@ public class Solution {
 
 
     //方法一 : 不需要交换
-
     static List<String> res = new ArrayList<>();
-    static char[] c;
 
     static List<String> Permutation(String s){
         if (s.length() == 0) return res;
 
-        c = s.toCharArray();
+        char[] c = s.toCharArray();
         List<Character> arr = new ArrayList<>();
         helper(c, arr);
 
