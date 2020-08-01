@@ -21,34 +21,36 @@ import java.util.List;
 
  */
 public class Solution {
-    static List<List<Integer>> res = new ArrayList<>();
+    static List<List<String>> res = new ArrayList<>();
 
-    static public List<List<Integer>> permuteUnique(int[] nums) {
-        List<Integer> arr = new ArrayList<>();
+    static public List<List<String>> perList(String[] nums) {
+        List<String> arr = new ArrayList<>();
 
-        helper(nums, arr);
+        helper(nums, new boolean[nums.length], arr);
 
         return res;
     }
 
-    static void helper(int[] nums, List<Integer> arr){
+    static void helper(String[] nums, boolean[] visited, List<String> arr){
         if (arr.size() == nums.length){
             res.add(new ArrayList<>(arr));
             return;
         }
 
         for (int i = 0; i < nums.length; i++){
-            if (arr.contains(nums[i])) continue;
+            if (visited[i]) continue;
+            if(i>0 && nums[i] == nums[i-1] && visited[i-1]) break;
             arr.add(nums[i]);
-
-            helper(nums, arr);
+            visited[i] = true;
+            helper(nums, visited, arr);
             arr.remove(arr.size() - 1);
+            visited[i] = false;
         }
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1, 1, 2};
-        System.out.println(permuteUnique(nums));
+        String[] nums = new String[]{"A", "B", "B"};
+        System.out.println(perList(nums));
 
     }
 }
