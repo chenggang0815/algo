@@ -7,7 +7,8 @@ package com.nowcoder._060;
 思路: 双指针遍历
 1. 从末位开始，以" "为界，找到每个单词的起始位置
 2. j从i开始遍历到" "，单词就是[j+1,i]
-3. j继续遍历" " (如果只有一个空格，则j-1，res.append(' ')), 令 i = j，开始寻找下一个单词
+3. j继续遍历" " (如果只有一个空格，则j-1，res.append(' ')),
+4. 令 i = j，开始寻找下一个单词
  */
 public class Solution {
 
@@ -22,9 +23,10 @@ public class Solution {
             while (j >= 0 && str.charAt(j) != ' '){
                 j--;  //从末位开始遍历到第一个' '
             }
-            for (int index = j+1; index <= i; index++){
-                res.append(str.charAt(index)); //从第一个' '的后一位开始，遍历到i就是整个单词
-            }
+//            for (int index = j + 1; index <= i; index++){
+//                res.append(str.charAt(index)); //从第一个' '的后一位开始，遍历到i就是整个单词
+//            }
+            res.append(str, j + 1, i + 1);
             while (j >= 0 && str.charAt(j) == ' '){
                 j--;
                 res.append(' '); //遍历完' ',更新i
@@ -61,9 +63,9 @@ public class Solution {
     public static void main(String[] args) {
         String str = "I am a student.";
                     //0123456789
-        System.out.println(str.length());
-        //System.out.println(ReverseSentence(str).length());
-        System.out.println(ReverseSentence2(str));
+        System.out.println(ReverseSentence(str));
+        StringBuilder sb = new StringBuilder();
+        System.out.println(sb.append("hello", 0, 2));
 
     }
 }
