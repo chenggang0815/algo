@@ -1,8 +1,8 @@
 package com.leetcode._0001;
 import java.util.HashMap;
-
+import java.util.Arrays;
 /*
-1. Two Sum
+1. Two Sum 两数之和
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 

@@ -1,6 +1,8 @@
 package com.leetcode._0018;
+
+import java.util.Arrays;
 /*
-283. Move Zeroes
+283. Move Zeroes 移动所有0到末尾(原地交换)
 Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
 Example:
 Input: [0,1,0,3,12]
@@ -10,24 +12,22 @@ Note:
     Minimize the total number of operations.
  */
 public class Solution {
-    //T:O(n);S:O(1)
+    //time:O(n) space:O(1)
     static void moveZeroes(int[] nums){
-        int length=nums.length;
-        int num=0;
-        for (int item:nums){
-            if (item!=0){
-                nums[num++]=item;
+        int length = nums.length;
+        int index = 0;
+        for (int num: nums){
+            if (num != 0){
+                nums[index++] = num;
             }
         }
-        while (num<length){
-            nums[num++]=0;
+        while (index < length){
+            nums[index++]=0;
         }
     }
     public static void main(String[] args) {
         int[] nums = new int[]{0,1,2,3,0,2};
         moveZeroes(nums);
-        for (int num:nums){
-            System.out.println(num);
-        }
+        System.out.println(Arrays.toString(nums));
     }
 }
