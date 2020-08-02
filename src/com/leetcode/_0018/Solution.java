@@ -1,5 +1,4 @@
 package com.leetcode._0018;
-
 import java.util.Arrays;
 /*
 283. Move Zeroes 移动所有0到末尾(原地交换)
@@ -25,6 +24,7 @@ public class Solution {
             nums[index++]=0;
         }
     }
+
     public static void main(String[] args) {
         int[] nums = new int[]{0,1,2,3,0,2};
         moveZeroes(nums);
