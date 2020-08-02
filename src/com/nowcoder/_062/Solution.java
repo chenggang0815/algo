@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 输入一个正整数 target ，输出所有和为 target 的连续正整数序列（至少含有两个数）。
 （序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。）
+eg1:
+input: 5
+output: 23
 
 思路一 ： 双指针
 因为是连续的数，采用双指针方法，两个指针都从left = right = 1 开始，每次移动指针都更新序列和sum
@@ -42,6 +45,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
+
         System.out.println(FindContinuousSequence(100));
     }
 }
