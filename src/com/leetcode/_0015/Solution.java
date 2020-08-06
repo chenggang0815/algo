@@ -64,9 +64,9 @@ public class Solution {
             return head;
         }
 
-        ListNode temp = head.next;
+        //ListNode temp = head.next;
         ListNode newhead = reverseList1(head.next);
-        temp.next = head;
+        head.next.next = head;
         head.next = null;
 
         return newhead;
