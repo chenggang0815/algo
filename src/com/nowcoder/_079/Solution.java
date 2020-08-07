@@ -1,6 +1,8 @@
 package com.nowcoder._079;
 
-
+/*
+链表的排序（冒泡排序）
+ */
 public class Solution {
     static class ListNode{
         ListNode next;
