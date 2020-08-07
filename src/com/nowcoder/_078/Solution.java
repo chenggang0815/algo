@@ -18,7 +18,10 @@ public class Solution {
             this.val = val;
         }
     }
-
+    /*
+    从根结点开始，先往栈里面压入左结点，直到叶子结点。
+    再把叶子结点出栈，把叶子结点的右节点作为根结点再次遍历
+     */
     static List<Integer> midOrder(TreeNode root){
         if (root == null) return new ArrayList<>();
 
