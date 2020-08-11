@@ -22,7 +22,8 @@ public class Solution {
     }
 
     static public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
-        if (root==null) return new ArrayList<>();
+        if (root == null) return new ArrayList<>();
+
         ArrayList<Integer> array = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
