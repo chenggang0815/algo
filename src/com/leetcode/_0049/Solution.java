@@ -39,7 +39,7 @@ public class Solution {
 
         for (int i = 0; i < nums.length; i++){
             if (visited[i]) continue;
-            if(i>0 && nums[i] == nums[i-1] && visited[i-1]) break;
+            if(i > 0 && nums[i] == nums[i-1] && visited[i-1]) break;
             arr.add(nums[i]);
             visited[i] = true;
             helper(nums, visited, arr);

@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0024/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0024/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0049/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0049/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_071/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/nowcoder/_071/Solution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +175,8 @@
       <workItem from="1596098241697" duration="41783000" />
       <workItem from="1596687195694" duration="1580000" />
       <workItem from="1596764926057" duration="13748000" />
-      <workItem from="1597033045294" duration="3010000" />
+      <workItem from="1597033045294" duration="4652000" />
+      <workItem from="1597283759320" duration="5335000" />
     </task>
     <servers />
   </component>
@@ -236,10 +240,10 @@
       <screen x="0" y="0" width="1473" height="864" />
     </state>
     <state x="402" y="146" key="extract.method.dialog/0.0.1473.864@0.0.1473.864" timestamp="1595990103794" />
-    <state x="377" y="109" width="719" height="672" key="find.popup" timestamp="1597042746012">
+    <state x="377" y="109" width="719" height="672" key="find.popup" timestamp="1597133110499">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
-    <state x="377" y="109" width="719" height="672" key="find.popup/0.0.1473.864@0.0.1473.864" timestamp="1597042746012" />
+    <state x="377" y="109" width="719" height="672" key="find.popup/0.0.1473.864@0.0.1473.864" timestamp="1597133110499" />
     <state x="86" y="0" key="new project wizard" timestamp="1596680958549">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
