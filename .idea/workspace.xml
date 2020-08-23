@@ -2,7 +2,190 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/leetcode/_0050/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/leetcode/_0051/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/剑指offer/_013_取出有环链表中环的长度/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/剑指offer/_017_滑动窗口的最大值/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_002/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_003/Solution$node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_003/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_004/Solution$node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_004/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_005/Solution$node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_005/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_006/Solution$node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_006/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_007/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_008/Solution$node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_008/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_009/Solution$node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_009/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_010/Solution$node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_010/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_011/Solution$node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_011/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_012/Solution$node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_012/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_014/Solution$node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_014/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_015/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_018/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_019/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_020/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_022/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_023/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_025/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_026/Solution$Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_026/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_027/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_028/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_029/Solution$TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_029/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_030/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_031/Solution$TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_031/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_032/Solution$TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_032/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_033/Solution$TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_033/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_034/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_035/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_036/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_037/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_038/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_039/Solution$TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_039/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_040/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_041/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_042/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_043/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_044/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_045/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_046/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_047/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_048/Solution$TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_048/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_049/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_050/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_051/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_052/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_053/Solution$TreeLinkNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_053/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_054/Solution$TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_054/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_055/Solution$TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_055/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_056/Solution$TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_056/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_057/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_058/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_059/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_060/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_061/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_062/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_063/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_064/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_065/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_066/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_067/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_068/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_069/Solution$RandomListNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_069/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_070/Solution$TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_070/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_071/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_072/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_073/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_074/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_075/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_076/Solution$Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_076/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_077/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_078/Solution$TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_078/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_079/Solution$ListNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_079/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/_080/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/nowcoder/斐波那契数列/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_002/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_002_两个栈实现一个队列/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_003/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_003_链表中倒数第k个结点/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_004/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_004_用链表实现栈/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_005/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_005_从尾到头打印链表/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_006/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_006_反转链表/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_007/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_007_理解递归/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_008/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_008_查找链表的中间结点/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_009/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_009_合并两个排序的链表/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_010/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_010_判断链表是否有环/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_011/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_011_删除链表中重复的结点/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_012/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_012_链表中环的入口结点/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_014/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_014_两个链表的第一个公共结点/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_015/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_015_单链表的复制/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_018/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_018_冒泡排序_选择排序_插入排序/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_019/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_019_快排_归并/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_020/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_020_两个链表的第一个公共结点/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_022/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_022_二分查找以及变种/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_023/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_023_循环有序数组的二分查找/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_024/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_024/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_025/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_025_二进制中1的个数/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_026/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_026_二叉树的前序中序后序遍历/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_027/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_027_查找二叉树的查找前继后继结点/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_028/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_028_反转一个字符串/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_029/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_029_重建二叉树/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_030/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_030_矩形覆盖/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_031/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_031_二叉树的层次遍历/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_032/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_032/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_033/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_033/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_034/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_034/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_035/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_035/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_036/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_036/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_037/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_037/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_038/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_038/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_039/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_039/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_040/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_040/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_041/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_041/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_042/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_042/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_043/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_043/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_044/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_044/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_045/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_045/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_046/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_046/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_047/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_047/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_048/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_048/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_049/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_049/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_050/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_050/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_051/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_051/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_052/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_052/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_053/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_053/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_054/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_054/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_055/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_055/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_056/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_056/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_057/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_057/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_058/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_058/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_059/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_059/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_060/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_060/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_061/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_061/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_062/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_062/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_063/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_063/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_064/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_064/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_065/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_065/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_066/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_066/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_067/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_067/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_068/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_068/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_069/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_069/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_070/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_070/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_071/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_071/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_072/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_072/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_073/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_073/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_074/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_074/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_075/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_075/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_076/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_076/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_077/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_077/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_078/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_078/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_079/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_079/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/_080/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_080/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/nowcoder/斐波那契数列/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_001_斐波那契数列/Solution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,13 +237,13 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
-  <component name="RunManager" selected="Application.Solution">
-    <configuration name="Solution (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nowcoder._071.Solution" />
+  <component name="RunManager" selected="Application.Solution (2)">
+    <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.剑指offer._005_从尾到头打印链表.Solution" />
       <module name="algo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nowcoder._071.*" />
+          <option name="PATTERN" value="com.剑指offer._005_从尾到头打印链表.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -68,12 +251,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Solution (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nowcoder._080.Solution" />
+    <configuration name="Solution (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.剑指offer._019_快排_归并.Solution" />
       <module name="algo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nowcoder._080.*" />
+          <option name="PATTERN" value="com.剑指offer._019_快排_归并.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -94,12 +277,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Solution (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nowcoder._079.Solution" />
+    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.剑指offer._071.Solution" />
       <module name="algo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nowcoder._079.*" />
+          <option name="PATTERN" value="com.剑指offer._071.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -108,11 +291,50 @@
       </method>
     </configuration>
     <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.nowcoder.斐波那契数列.Solution" />
+      <option name="MAIN_CLASS_NAME" value="com.剑指offer._003_链表中倒数第k个结点.Solution" />
       <module name="algo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.nowcoder.斐波那契数列.*" />
+          <option name="PATTERN" value="com.剑指offer._003_链表中倒数第k个结点.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.剑指offer._072.Solution" />
+      <module name="algo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.剑指offer._072.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.剑指offer._001_斐波那契数列.Solution" />
+      <module name="algo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.剑指offer._001_斐波那契数列.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.剑指offer._002_两个栈实现一个队列.Solution" />
+      <module name="algo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.剑指offer._002_两个栈实现一个队列.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -121,19 +343,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Solution (5)" />
-      <item itemvalue="Application.Solution (3)" />
       <item itemvalue="Application.Solution (4)" />
       <item itemvalue="Application.Solution (2)" />
       <item itemvalue="Application.Solution" />
+      <item itemvalue="Application.Solution (1)" />
+      <item itemvalue="Application.Solution (5)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Solution" />
         <item itemvalue="Application.Solution (2)" />
-        <item itemvalue="Application.Solution (4)" />
-        <item itemvalue="Application.Solution (3)" />
+        <item itemvalue="Application.Solution (1)" />
         <item itemvalue="Application.Solution (5)" />
+        <item itemvalue="Application.Solution (1)" />
+        <item itemvalue="Application.Solution" />
       </list>
     </recent_temporary>
   </component>
@@ -173,7 +395,7 @@
       <workItem from="1596687195694" duration="1580000" />
       <workItem from="1596764926057" duration="13748000" />
       <workItem from="1597033045294" duration="4652000" />
-      <workItem from="1597283759320" duration="7982000" />
+      <workItem from="1597283759320" duration="11055000" />
     </task>
     <servers />
   </component>
@@ -189,21 +411,25 @@
       <screen x="0" y="0" width="1473" height="864" />
     </state>
     <state x="476" y="312" width="520" height="252" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1473.864@0.0.1473.864" timestamp="1595597958545" />
-    <state width="1422" height="183" key="GridCell.Tab.0.bottom" timestamp="1596976375299">
+    <state width="1422" height="161" key="GridCell.Tab.0.bottom" timestamp="1598173996774">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
+    <state width="1422" height="161" key="GridCell.Tab.0.bottom/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598173996774" />
     <state width="1422" height="183" key="GridCell.Tab.0.bottom/0.0.1473.864@0.0.1473.864" timestamp="1596976375299" />
-    <state width="1422" height="183" key="GridCell.Tab.0.center" timestamp="1596976375298">
+    <state width="1422" height="161" key="GridCell.Tab.0.center" timestamp="1598173996773">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
+    <state width="1422" height="161" key="GridCell.Tab.0.center/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598173996773" />
     <state width="1422" height="183" key="GridCell.Tab.0.center/0.0.1473.864@0.0.1473.864" timestamp="1596976375298" />
-    <state width="1422" height="183" key="GridCell.Tab.0.left" timestamp="1596976375298">
+    <state width="1422" height="161" key="GridCell.Tab.0.left" timestamp="1598173996773">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
+    <state width="1422" height="161" key="GridCell.Tab.0.left/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598173996773" />
     <state width="1422" height="183" key="GridCell.Tab.0.left/0.0.1473.864@0.0.1473.864" timestamp="1596976375298" />
-    <state width="1422" height="183" key="GridCell.Tab.0.right" timestamp="1596976375298">
+    <state width="1422" height="161" key="GridCell.Tab.0.right" timestamp="1598173996773">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
+    <state width="1422" height="161" key="GridCell.Tab.0.right/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598173996773" />
     <state width="1422" height="183" key="GridCell.Tab.0.right/0.0.1473.864@0.0.1473.864" timestamp="1596976375298" />
     <state width="1422" height="256" key="GridCell.Tab.1.bottom" timestamp="1595838945978">
       <screen x="0" y="0" width="1473" height="864" />
@@ -229,17 +455,14 @@
       <screen x="0" y="0" width="1473" height="864" />
     </state>
     <state x="423" y="307" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1473.864@0.0.1473.864" timestamp="1590977448045" />
-    <state x="301" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589434064351">
-      <screen x="0" y="0" width="1473" height="864" />
-    </state>
-    <state x="301" y="0" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1473.864@0.0.1473.864" timestamp="1589434064351" />
     <state x="402" y="146" key="extract.method.dialog" timestamp="1595990103794">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
     <state x="402" y="146" key="extract.method.dialog/0.0.1473.864@0.0.1473.864" timestamp="1595990103794" />
-    <state x="377" y="109" width="719" height="672" key="find.popup" timestamp="1597133110499">
+    <state x="377" y="108" width="719" height="672" key="find.popup" timestamp="1598174250343">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
+    <state x="377" y="108" width="719" height="672" key="find.popup/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598174250343" />
     <state x="377" y="109" width="719" height="672" key="find.popup/0.0.1473.864@0.0.1473.864" timestamp="1597133110499" />
     <state x="86" y="0" key="new project wizard" timestamp="1596680958549">
       <screen x="0" y="0" width="1473" height="864" />
