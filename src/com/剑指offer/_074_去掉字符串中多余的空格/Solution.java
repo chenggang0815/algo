@@ -1,4 +1,4 @@
-package com.剑指offer._075;
+package com.剑指offer._074_去掉字符串中多余的空格;
 /*
 去掉字符串中多余的空格
 

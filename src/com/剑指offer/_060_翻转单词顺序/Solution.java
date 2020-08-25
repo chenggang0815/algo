@@ -1,6 +1,6 @@
-package com.剑指offer._060;
+package com.剑指offer._060_翻转单词顺序;
 /*
-反转单词顺序
+翻转单词顺序
 
 "student. a am I" => "I am a student."
 

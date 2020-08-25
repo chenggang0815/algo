@@ -20,8 +20,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/剑指offer/_021_数组中重复的数字/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/剑指offer/_072_构建乘积数组/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_007_理解递归/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_032/Solution$TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_032/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_033/Solution$TreeNode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_033/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_060/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_066/Solution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_007_理解递归/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_007_旋转数组的最小数/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_032_替换空格/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_032_替换空格/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_033/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_033_跳台阶/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_060/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_060_翻转单词顺序/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_066/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_066_字符流中第一个不重复的字符/Solution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,25 +89,12 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager" selected="Application.Solution (1)">
-    <configuration name="Solution (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.剑指offer._075.Solution" />
-      <module name="algo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.剑指offer._075.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Solution (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.剑指offer._016_栈的压入弹出序列.Solution" />
       <module name="algo" />
@@ -140,6 +140,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.leetcode._0094_二叉树的中序遍历.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.剑指offer._074_去掉字符串中多余的空格.Solution" />
+      <module name="algo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.剑指offer._074_去掉字符串中多余的空格.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -250,7 +263,7 @@
       <workItem from="1598249264701" duration="181000" />
       <workItem from="1598249492448" duration="406000" />
       <workItem from="1598250001191" duration="56000" />
-      <workItem from="1598250342859" duration="1201000" />
+      <workItem from="1598250342859" duration="3710000" />
     </task>
     <servers />
   </component>
@@ -317,12 +330,13 @@
       <screen x="0" y="0" width="1473" height="864" />
     </state>
     <state width="1422" height="256" key="GridCell.Tab.1.right/0.0.1473.864@0.0.1473.864" timestamp="1595838945978" />
-    <state x="-21" y="-1005" key="SettingsEditor" timestamp="1598250806468">
+    <state x="-21" y="-1005" key="SettingsEditor" timestamp="1598343870880">
       <screen x="-127" y="-1080" width="1920" height="1080" />
     </state>
-    <state x="-21" y="-1005" key="SettingsEditor/0.0.1440.900/-127.-1080.1920.1080@-127.-1080.1920.1080" timestamp="1598250806468" />
+    <state x="-21" y="-1005" key="SettingsEditor/0.0.1440.900/-127.-1080.1920.1080@-127.-1080.1920.1080" timestamp="1598343870880" />
     <state x="144" y="0" key="SettingsEditor/0.0.1473.864@0.0.1473.864" timestamp="1595991295765" />
     <state x="811" y="-938" key="SettingsEditor/0.23.1440.810/-127.-1057.1920.1057@-127.-1057.1920.1057" timestamp="1598250051039" />
+    <state x="-21" y="-1005" key="SettingsEditor/0.23.1440.877/-127.-1080.1920.1080@-127.-1080.1920.1080" timestamp="1598343769987" />
     <state x="423" y="307" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1590977448045">
       <screen x="0" y="0" width="1473" height="864" />
     </state>
@@ -331,10 +345,10 @@
       <screen x="0" y="0" width="1473" height="864" />
     </state>
     <state x="402" y="146" key="extract.method.dialog/0.0.1473.864@0.0.1473.864" timestamp="1595990103794" />
-    <state x="364" y="-945" width="938" height="840" key="find.popup" timestamp="1598250818596">
+    <state x="364" y="-945" width="938" height="840" key="find.popup" timestamp="1598342986351">
       <screen x="-127" y="-1080" width="1920" height="1080" />
     </state>
-    <state x="364" y="-945" width="938" height="840" key="find.popup/0.0.1440.900/-127.-1080.1920.1080@-127.-1080.1920.1080" timestamp="1598250818596" />
+    <state x="364" y="-945" width="938" height="840" key="find.popup/0.0.1440.900/-127.-1080.1920.1080@-127.-1080.1920.1080" timestamp="1598342986351" />
     <state x="377" y="108" width="719" height="672" key="find.popup/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598190194030" />
     <state x="377" y="109" width="719" height="672" key="find.popup/0.0.1473.864@0.0.1473.864" timestamp="1597133110499" />
     <state x="86" y="0" key="new project wizard" timestamp="1596680958549">
@@ -345,81 +359,5 @@
       <screen x="0" y="0" width="1473" height="864" />
     </state>
     <state x="316" y="-1" width="840" height="1034" key="search.everywhere.popup/0.0.1473.864@0.0.1473.864" timestamp="1595907026318" />
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>scala-sdk-2.12.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>algo</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

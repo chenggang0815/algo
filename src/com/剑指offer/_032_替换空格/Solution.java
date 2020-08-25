@@ -7,7 +7,7 @@ package com.剑指offer._032_替换空格;
 则经过替换之后的字符串为We%20Are%20Happy。
  */
 public class Solution {
-    
+
     public static void main(String[] args) {
 
     }
