@@ -20,8 +20,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/剑指offer/_09_变态跳台阶/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/剑指offer/_17_树的子结构/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/剑指offer/_27_字符串的排列/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/剑指offer/_38_二叉树的深度/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/剑指offer/_47_求1加到n/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/剑指offer/_58_对称的二叉树/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/剑指offer/_60_把二叉树打印成多行/Solution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_001_斐波那契数列/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_07_斐波那契数列/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_002_两个栈实现一个队列/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_05_两个栈实现一个队列/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_003_链表中倒数第k个结点/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_14_链表中倒数第k个结点/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_005_从尾到头打印链表/Solution.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_006_反转链表/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_15_反转链表/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_007_旋转数组的最小数/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_06_旋转数组的最小数/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_009_合并两个排序的链表/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_16_合并两个排序的链表/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_011_删除链表中重复的结点/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_56_删除链表中重复的结点/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_012_链表中环的入口结点/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_55_链表中环的入口结点/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_014_两个链表的第一个公共结点/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_36_两个链表的第一个公共结点/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_016_栈的压入弹出序列/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_21_栈的压入弹出序列/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_017_滑动窗口的最大值/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_64_滑动窗口的最大值/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_021_数组中重复的数字/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_50_数组中重复的数字/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_024_二维数组中的查找/Solution.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_025_二进制中1的个数/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_11_二进制中1的个数/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_026_二叉树的前序中序后序遍历/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_18_二叉树的镜像/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_029_重建二叉树/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_04_重建二叉树/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_030_矩形覆盖/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_10_矩形覆盖/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_030_矩形覆盖/解题思路.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_10_矩形覆盖/解题思路.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_031_二叉树的层次遍历/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_22_从上往下打印二叉树/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_032_替换空格/Solution.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_033_跳台阶/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_08_跳台阶/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_034_连续子数组的最大和/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_30_连续子数组的最大和/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_035_数组中只出现一次的数字/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_40_数组中只出现一次的数字/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_036_从1到n中1出现的次数/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_31_从1到n中1出现的次数/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_037_数组中出现次数超过一半的数字/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_28_数组中出现次数超过一半的数字/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_038_数值的整数次方/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_12_数值的整数次方/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_039_二叉树中和为某一值的路径/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_24_二叉树中和为某一值的路径/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_040_最小的K个数/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_29_最小的K个数/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_041_调整数组顺序使奇数位于偶数前面/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_13_调整数组顺序使奇数位于偶数前面/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_042_包含min函数的栈/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_20_包含min函数的栈/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_043_顺时针打印矩阵/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_19_顺时针打印矩阵/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_044_剪绳子/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_67_剪绳子/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_045_不用加减乘除做加法/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_48_不用加减乘除做加法/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_046_和为S的两个数字/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_42_和为S的两个数字/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_047_约瑟夫环/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_46_孩子们的游戏_约瑟夫环/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_049_机器人的运动范围/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_66_机器人的运动范围/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_050_矩阵中的路径/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_65_矩阵中的路径/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_051_左旋转字符串/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_43_左旋转字符串/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_052_数据流中的中位数/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_63_数据流中的中位数/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_053_二叉树的下一个结点/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_57_二叉树的下一个结点/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_054_二叉搜索树的第k个结点/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_62_二叉搜索树的第k个结点/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_055_序列化二叉树/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_61_序列化二叉树/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_056_按之字形顺序打印二叉树/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_59_按之字形顺序打印二叉树/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_057_把字符串转换成整数/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_49_把字符串转换成整数/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_058_正则表达式匹配/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_52_正则表达式匹配/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_059_判断扑克牌是否有顺子/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_45_判断扑克牌是否有顺子/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_060_翻转单词顺序/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_44_翻转单词顺序/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_061_数字在排序数组中出现的次数/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_37_数字在排序数组中出现的次数/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_062_和为S的连续正数序列/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_41_和为S的连续正数序列/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_063_第一个只出现一次的字符/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_34_第一个只出现一次的字符/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_064_丑数/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_33_丑数/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_065_把数组排成最小的数/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_32_把数组排成最小的数/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_067_二叉搜索树的后序遍历序列/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_23_二叉搜索树的后序遍历序列/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_068_数组中的逆序对/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_35_数组中的逆序对/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_069_复杂链表的复制/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_25_复杂链表的复制/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_070_二叉搜索树与双向链表/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_26_二叉搜索树与双向链表/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_072_构建乘积数组/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_51_构建乘积数组/Solution.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_073_表示数值的字符串/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_53_表示数值的字符串/Solution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,20 +151,7 @@
       <recent name="$PROJECT_DIR$/src/com/剑指offer/_030_矩形覆盖" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Solution (1)">
-    <configuration name="Solution (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.剑指offer._016_栈的压入弹出序列.Solution" />
-      <module name="algo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.剑指offer._016_栈的压入弹出序列.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Solution (3)">
     <configuration name="Solution (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.leetcode._0005_最长回文子串.Solution" />
       <module name="algo" />
@@ -132,6 +184,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.leetcode._0094_二叉树的中序遍历.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Solution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.剑指offer._21_栈的压入弹出序列.Solution" />
+      <module name="algo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.剑指offer._21_栈的压入弹出序列.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -196,11 +261,9 @@
       <item itemvalue="Application.Solution (5)" />
       <item itemvalue="Application.Solution (4)" />
       <item itemvalue="Application.Solution" />
-      <item itemvalue="Application.Solution (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Solution (1)" />
         <item itemvalue="Application.Solution" />
         <item itemvalue="Application.Solution (4)" />
         <item itemvalue="Application.Solution (5)" />
@@ -272,6 +335,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="330" y="91" key="#Notifications" timestamp="1591237253174">
@@ -282,28 +346,28 @@
       <screen x="0" y="0" width="1473" height="864" />
     </state>
     <state x="476" y="312" width="520" height="252" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1473.864@0.0.1473.864" timestamp="1595597958545" />
-    <state width="1878" height="285" key="GridCell.Tab.0.bottom" timestamp="1598249913449">
-      <screen x="-127" y="-1057" width="1920" height="1057" />
+    <state width="1422" height="161" key="GridCell.Tab.0.bottom" timestamp="1598790100247">
+      <screen x="0" y="0" width="1473" height="864" />
     </state>
-    <state width="1422" height="161" key="GridCell.Tab.0.bottom/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598191728398" />
+    <state width="1422" height="161" key="GridCell.Tab.0.bottom/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598790100247" />
     <state width="1422" height="183" key="GridCell.Tab.0.bottom/0.0.1473.864@0.0.1473.864" timestamp="1596976375299" />
     <state width="1878" height="285" key="GridCell.Tab.0.bottom/0.23.1440.810/-127.-1057.1920.1057@-127.-1057.1920.1057" timestamp="1598249913449" />
-    <state width="1878" height="285" key="GridCell.Tab.0.center" timestamp="1598249913448">
-      <screen x="-127" y="-1057" width="1920" height="1057" />
+    <state width="1422" height="161" key="GridCell.Tab.0.center" timestamp="1598790100247">
+      <screen x="0" y="0" width="1473" height="864" />
     </state>
-    <state width="1422" height="161" key="GridCell.Tab.0.center/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598191728396" />
+    <state width="1422" height="161" key="GridCell.Tab.0.center/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598790100247" />
     <state width="1422" height="183" key="GridCell.Tab.0.center/0.0.1473.864@0.0.1473.864" timestamp="1596976375298" />
     <state width="1878" height="285" key="GridCell.Tab.0.center/0.23.1440.810/-127.-1057.1920.1057@-127.-1057.1920.1057" timestamp="1598249913448" />
-    <state width="1878" height="285" key="GridCell.Tab.0.left" timestamp="1598249913447">
-      <screen x="-127" y="-1057" width="1920" height="1057" />
+    <state width="1422" height="161" key="GridCell.Tab.0.left" timestamp="1598790100247">
+      <screen x="0" y="0" width="1473" height="864" />
     </state>
-    <state width="1422" height="161" key="GridCell.Tab.0.left/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598191728388" />
+    <state width="1422" height="161" key="GridCell.Tab.0.left/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598790100247" />
     <state width="1422" height="183" key="GridCell.Tab.0.left/0.0.1473.864@0.0.1473.864" timestamp="1596976375298" />
     <state width="1878" height="285" key="GridCell.Tab.0.left/0.23.1440.810/-127.-1057.1920.1057@-127.-1057.1920.1057" timestamp="1598249913447" />
-    <state width="1878" height="285" key="GridCell.Tab.0.right" timestamp="1598249913448">
-      <screen x="-127" y="-1057" width="1920" height="1057" />
+    <state width="1422" height="161" key="GridCell.Tab.0.right" timestamp="1598790100247">
+      <screen x="0" y="0" width="1473" height="864" />
     </state>
-    <state width="1422" height="161" key="GridCell.Tab.0.right/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598191728396" />
+    <state width="1422" height="161" key="GridCell.Tab.0.right/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598790100247" />
     <state width="1422" height="183" key="GridCell.Tab.0.right/0.0.1473.864@0.0.1473.864" timestamp="1596976375298" />
     <state width="1878" height="285" key="GridCell.Tab.0.right/0.23.1440.810/-127.-1057.1920.1057@-127.-1057.1920.1057" timestamp="1598249913448" />
     <state width="1422" height="256" key="GridCell.Tab.1.bottom" timestamp="1595838945978">
@@ -337,11 +401,11 @@
       <screen x="0" y="0" width="1473" height="864" />
     </state>
     <state x="402" y="146" key="extract.method.dialog/0.0.1473.864@0.0.1473.864" timestamp="1595990103794" />
-    <state x="364" y="-945" width="938" height="840" key="find.popup" timestamp="1598344628410">
-      <screen x="-127" y="-1080" width="1920" height="1080" />
+    <state x="377" y="108" width="719" height="672" key="find.popup" timestamp="1598796403873">
+      <screen x="0" y="0" width="1473" height="864" />
     </state>
     <state x="364" y="-945" width="938" height="840" key="find.popup/0.0.1440.900/-127.-1080.1920.1080@-127.-1080.1920.1080" timestamp="1598344628410" />
-    <state x="377" y="108" width="719" height="672" key="find.popup/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598190194030" />
+    <state x="377" y="108" width="719" height="672" key="find.popup/0.0.1473.864/1920.0.1920.1040@0.0.1473.864" timestamp="1598796403873" />
     <state x="377" y="109" width="719" height="672" key="find.popup/0.0.1473.864@0.0.1473.864" timestamp="1597133110499" />
     <state x="86" y="0" key="new project wizard" timestamp="1596680958549">
       <screen x="0" y="0" width="1473" height="864" />
