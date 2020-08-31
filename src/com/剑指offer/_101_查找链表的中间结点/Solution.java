@@ -1,4 +1,4 @@
-package com.剑指offer._008_查找链表的中间结点;
+package com.剑指offer._101_查找链表的中间结点;
 // 查找单链表中的中间结点
 
 public class Solution {
