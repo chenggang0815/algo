@@ -19,21 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_007_旋转数组的最小数/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_032_替换空格/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_033_跳台阶/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_060_翻转单词顺序/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_066_字符流中第一个不重复的字符/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_010_判断链表是否有环/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_993_判断链表是否有环/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_013_取出有环链表中环的长度/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_994_取出有环链表中环的长度/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_015_单链表的复制/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_995_单链表的复制/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_018_冒泡排序_选择排序_插入排序/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_996_冒泡排序_选择排序_插入排序/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_019_快排_归并/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_997_快排_归并/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_100_用链表实现栈/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_991_用链表实现栈/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_101_查找链表的中间结点/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_992_查找链表的中间结点/Solution.java" afterDir="false" />
-    </list>
+    <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
