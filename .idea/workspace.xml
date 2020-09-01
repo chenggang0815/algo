@@ -21,69 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4f5ed9f6-21a9-47cf-95a5-d44f5b1c192b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algo/com/剑指offer/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_020_两个链表的第一个公共结点/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_022_二分查找以及变种/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_023_循环有序数组的二分查找/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_027_查找二叉树的查找前继后继结点/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_028_反转一个字符串/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_071_最长不含重复字符的子字符串/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_074_去掉字符串中多余的空格/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_27_字符串的排列/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/algo/com/剑指offer/_27_字符串的排列/Solution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0001/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0001_两数之和/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0002/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0020_有效的括号/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0003/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0021_合并两个有序链表/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0004/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0053_最大子序和/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0005/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0070_爬楼梯/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0006/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0101_对称二叉树/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0007/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0104_二叉树的最大深度/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0008/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0121_买卖股票的最佳时机/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0009/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0136_只出现一次的数字/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0010/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0141_判断链表是否有环/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0011/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0155_包含min函数的栈/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0012/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0160_两个链表的第一个公共结点/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0013/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0169_数组中出现次数超过一半的数字/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0014/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0198_打家劫舍/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0015/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0206_反转单链表/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0016/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0226_翻转二叉树/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0017/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0234_判断是否是回文链表/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0018/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0283_移动所有0到末尾/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0019/Solution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0020/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0448_有序数组中消失的数字/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0021/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0543_二叉树的直径/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0022/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0581_最短无序连续子数组/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0023/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0617_合并二叉树/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0024/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0078_子集/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0025/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0007_整数反转/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0026/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0009_回文数/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0027/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0013_罗马数字转整数/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0028/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0014_最长公共前缀/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0029/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0026_删除排序数组中的重复项/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0030/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0027_移除元素/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0031/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0028_实现strStr/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0032/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0035_搜索插入位置/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0033/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0038_外观数列/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0034/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0058_最后一个单词的长度/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0035/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0066_加一/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0036/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0067_二进制求和/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0037/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0069_x的平方根/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0038/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0083_删除排序链表中的重复元素/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0038_字符串的排列/Solution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0039/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0088_合并两个有序数组/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0040/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0100_相同的树/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0041/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0112_路径总和/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0042/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0113_路径总和_2/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0043/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0437_路径总和_3/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0044/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0102_二叉树的层序遍历/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0045/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0091_解码方法/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0046/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0877_石子游戏/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0047/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0215_数组中的第K个最大元素/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0048/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0046_全排列/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0049/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/leetcode/_0047_全排列2/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0050/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_984_检查子树/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/leetcode/_0051/Solution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_17_树的子结构/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_17_树的子结构/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/剑指offer/_27_字符串的排列/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/剑指offer/_27_字符串的排列/Solution.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
