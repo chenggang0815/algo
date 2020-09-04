@@ -2,24 +2,14 @@ package com.leetcode._1143_最长公共子序列;
 /*
 1143. 最长公共子序列
 
-一个字符串的 子序列 是指这样一个新的字符串：它是由原字符串在不改变字符的相对顺序的情况下删除某些字符（也可以不删除任何字符）后组成的新字符串。
-例如，"ace" 是 "abcde" 的子序列，但 "aec" 不是 "abcde" 的子序列。两个字符串的「公共子序列」是这两个字符串所共同拥有的子序列。
+最长公共子序列：由原字符串在不改变字符的相对顺序的情况下删除某些字符（也可以不删除任何字符）后组成的新字符串
 
-若这两个字符串没有公共子序列，则返回 0。
-*/
-
-/*
-dp[i][j] => 代表以s1中第i-1个字符串结尾，s2中第j-1个字符串结尾时最长子串的长度
-
-1. 最长公共子序列
-如果X[i-1] = Y[j-1] => dp[i][j] = dp[i-1][j-1] + 1
-如果X[i-1] != Y[j-1] => Math.max(dp[i][j - 1], dp[i - 1][j])
-
-2. 最长公共子串（求连续的公共最长子序列）
-
-如果X[i-1] = Y[j-1] => dp[i][j] = dp[i-1][j-1] + 1
-如果X[i-1] != Y[j-1] => dp[i][j] = 0，就相当于在这里重新开始了。
+eg:
+"abcdf", "acdfmf"
+最长公共子序列："acdf"
+最长公共子串： "cdf"
  */
+
 public class Solution {
     /*
     1. dp[i][j] 的含义是：对于 s1[1..i-1] 和 s2[1..j-1]，它们的 LCS 长度是 dp[i][j]
@@ -60,8 +50,9 @@ public class Solution {
     static int lcsString(String s1, String s2){
         if (s1.length() == 0 || s2.length() == 0) return 0;
 
-        int[][] dp = new int[s1.length() + 1][s2.length() + 1];
         int result = 0;
+        int[][] dp = new int[s1.length() + 1][s2.length() + 1];
+
         for (int i = 0; i <= s1.length(); i++){
             dp[i][0] = 0;
         }
