@@ -2,22 +2,24 @@ package com.剑指offer._16_合并两个排序的链表;
 //合并两个有序的单链表
 
 public class Solution {
-    static class node{
-        int data;
-        node next;
+    static class ListNode{
+        int val;
+        ListNode next;
 
-        node(){}
-        node(int data){
-            this.data=data;
+        ListNode(){}
+        ListNode(int val){
+            this.val = val;
         }
     }
+
     // 初始化两个头结点
-    static node head1 = new node();
-    static node head2 = new node();
+    static ListNode head1 = new ListNode();
+    static ListNode head2 = new ListNode();
+
     //往链表里添加结点
-    public static void addnode(node head, int data){
-        node newnode = new node(data);
-        node temp = head;
+    public static void addNode(ListNode head, int data){
+        ListNode newnode = new ListNode(data);
+        ListNode temp = head;
         while (temp.next != null){
             temp = temp.next;
         }
@@ -26,16 +28,15 @@ public class Solution {
     }
 
     //打印链表
-    public static void printL(node head){
+    public static void printL(ListNode head){
         if (head == null){
             System.out.println("链表为空");
         }
-        node temp = head;
+        ListNode temp = head;
         while (temp != null){
-            System.out.println("" + temp.data);
+            System.out.println("" + temp.val);
             temp = temp.next;
         }
-
     }
 
 /*
@@ -45,10 +46,10 @@ public class Solution {
     时间复杂度o(n) 空间复杂度o(1)
 
  */
-    static void merge(node head){
+    static void merge(ListNode head){
         if (head == null) return;
 
-        node cur = head;
+        ListNode cur = head;
         int length = 1;
         while(cur.next != null){
             cur = cur.next;
@@ -57,7 +58,7 @@ public class Solution {
 
         int midnode = length/2 + 1;
         int index = 0;
-        node head1 = new node(0);
+        ListNode head1 = new ListNode(0);
         while (cur.next != null && index != midnode){
             cur = cur.next;
             head1.next = cur;
@@ -73,24 +74,23 @@ public class Solution {
     }
 
     //合并链表:非递归
-    public static node mergeList(node head1,node head2){
-        node temp1 = head1;
-        node temp2 = head2; //不改变原来的两个链表
+    public static ListNode mergeList(ListNode head1, ListNode head2){
+        ListNode temp1 = head1;
+        ListNode temp2 = head2; //不改变原来的两个链表
 
-        node newhead = new node();
-        node temp = newhead;
+        ListNode newhead = new ListNode();
+        ListNode temp = newhead;
 
         while (temp1 != null && temp2 != null) {
-            if (temp1.data < temp2.data) {
+            if (temp1.val < temp2.val) {
                 temp.next = temp1;
                 temp1 = temp1.next;
             } else {
                 temp.next = temp2;
                 temp2 = temp2.next;
             }
-            temp =temp.next;
+            temp = temp.next;
         }
-
         if (temp1 != null){
             temp.next = temp1;
         }
@@ -102,15 +102,15 @@ public class Solution {
     }
 	
 	    // 合并链表 递归
-    public static node mergeList2(node head1,node head2){
-        node temp1 = head1;
-        node temp2 = head2;
-        node newhead = new node();
+    public static ListNode mergeList2(ListNode head1, ListNode head2){
+        ListNode temp1 = head1;
+        ListNode temp2 = head2;
+        ListNode newhead = new ListNode();
 
         if (temp1 == null) return temp2;
         if (temp2 == null) return temp1;
 
-        if (temp1.data < temp2.data){
+        if (temp1.val < temp2.val){
             newhead = temp1;
             newhead.next = mergeList2(temp1.next, temp2);
         }
@@ -123,11 +123,11 @@ public class Solution {
 
     public static void main(String[] args) {
 
-        addnode(head1,1);
-        addnode(head1,3);
+        addNode(head1,1);
+        addNode(head1,3);
         //addnode(head1,5);
 
-        addnode(head2,5);
+        addNode(head2,5);
         //addnode(head2,4);
         //addnode(head2,5);
 
