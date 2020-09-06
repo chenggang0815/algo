@@ -35,28 +35,26 @@ public class Solution {
         }
     }
 
-    //广度优先搜索（Breath First Search-bfs），一般用一个队列来辅助
+    //bfs，一般用一个队列来辅助
     static public List<List<Integer>> levelOrder(TreeNode root) {
-           List<List<Integer>> res = new ArrayList<>();
-           Queue<TreeNode> queue = new LinkedList<>();
-           if (root==null) return res;
-           queue.add(root);
-           while (!queue.isEmpty()){
-               int count = queue.size();
-               ArrayList<Integer> temp = new ArrayList<>();
-               while (count>0){
-                   TreeNode node = queue.peek();
-                   temp.add(node.val);
-                   queue.poll();
-                   if (node.left!=null) queue.add(node.left);
-                   if (node.right!=null) queue.add(node.right);
-                   count--;
-               }
+        List<List<Integer>> res = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
 
-               res.add(temp);
-           }
-           return res;
+        queue.offer(root);
+        while (!queue.isEmpty()){
+            int count = queue.size();
+            ArrayList<Integer> temp = new ArrayList<>();
+            while (count > 0){
+                TreeNode node = queue.poll();
+                temp.add(node.val);
+                if (node.left != null) queue.add(node.left);
+                if (node.right != null) queue.add(node.right);
+                count--;
+            }
+            res.add(temp);
+        }
 
+        return res;
     }
 
     //递归
