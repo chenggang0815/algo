@@ -5,6 +5,10 @@ Reverse a singly linked list.
 Example:
 Input: 1->2->3->4->5->NULL
 Output: 5->4->3->2->1->NULL
+
+思路:
+1. 指针法
+2. 递归
  */
 public class Solution {
     static class ListNode{
@@ -53,11 +57,22 @@ public class Solution {
 
     //递归法
     private static ListNode reverseList1(ListNode head){
-        if (head ==null || head.next ==null){
+        if (head == null || head.next == null){
             return head;
         }
 
-        //ListNode temp = head.next;
+        /*
+        1->2->3->4->5
+        head = 4 => r(head.next) => return 5
+        4.next.next = 4  => 5.next = 4
+        4.next = null
+        null<-4<-5
+        3.next.next = 3  => 4.next = 3    4
+        3.next = null
+        null<-3<-4<-5
+        ...
+        null<-1<-2<-3<-4<-5
+         */
         ListNode newhead = reverseList1(head.next);
         head.next.next = head;
         head.next = null;
