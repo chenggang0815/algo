@@ -10,6 +10,9 @@ package com.LeetCode._0072_字符串的编辑距离;
     删除一个字符
     替换一个字符
 
+word1 插入 dp[i, j]=dp[i, j-1]+1
+word1 删除 dp[i, j]=dp[i-1, j]+1
+word1 替换 dp[i, j]=dp[i-1, j-1]+1
 
 思路：动态规划
 从最后一个字符考虑，假设源字符串为S，目标字符串为T，则S和T的最后一个字符 s[i] 和 t[j] 对应四种情况：
