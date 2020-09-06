@@ -39,12 +39,6 @@ public class Solution {
     }
 
 
-
-
-
-
-
-
     static List<List<Integer>> subsets2(int[] nums){
          res.add(new ArrayList<>());
          for (int i = 0; i < nums.length; i++){
