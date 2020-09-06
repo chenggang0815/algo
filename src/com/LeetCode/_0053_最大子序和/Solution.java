@@ -21,14 +21,14 @@ public class Solution {
      //Time complexity : O(n^2)
     //Space complexity :O(1)
     static int  maxSubArray(int[] nums){
-        int n=nums.length;
-        int maxSums=nums[0];
-        for (int i=0;i<n;i++){
-            int temp=0;
-            for (int j=i;j<n;j++){
-                temp=temp+nums[j];
-                if (temp>maxSums){
-                    maxSums=temp;
+        int n = nums.length;
+        int maxSums = nums[0];
+        for (int i = 0; i < n; i++){
+            int temp = 0;
+            for (int j = i;j < n; j++){
+                temp = temp + nums[j];
+                if (temp > maxSums){
+                    maxSums = temp;
                 }
             }
         }
@@ -52,13 +52,12 @@ public class Solution {
 
     //dp solution
     static public int maxSubArray3(int[] nums) {
-
         int[] dp = new int[nums.length];
         dp[0] = nums[0];
         int max = nums[0];
-        for(int i=1;i<nums.length;i++){
-            dp[i] = Math.max(nums[i], dp[i-1]+nums[i]);
-            max = Math.max(dp[i],max);
+        for(int i = 1; i < nums.length; i++){
+            dp[i] = Math.max(nums[i], dp[i - 1] + nums[i]);
+            max = Math.max(dp[i], max);
         }
         return max;
     }
