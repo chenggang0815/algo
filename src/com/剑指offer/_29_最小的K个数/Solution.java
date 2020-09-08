@@ -68,6 +68,8 @@ public class Solution {
             array.add(input[i]);
         }
 
+        //System.out.println(input[k-1]);
+
         return array;
     }
 
@@ -147,7 +149,7 @@ public class Solution {
     public static void main(String[] args) {
 
         int[] input = new int[]{4,1,5,1,6,2,7,3,8};
-        System.out.println(GetLeastNumbers_Solution2(input,1));
+        System.out.println(GetLeastNumbers_Solution2(input, 2));
 
     }
 }
