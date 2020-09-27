@@ -8,7 +8,19 @@ package com.LeetCode._0662_二叉树的最大宽度;
 每一层的宽度被定义为:该层最左和最右的非空节点（两端点间的null节点也计入长度）之间的长度。
  */
 public class Solution {
+    class TreeNode{
+        TreeNode left;
+        TreeNode right;
+        int val;
+        TreeNode(int val){
+            this.val = val;
+        }
+    }
 
+    public int widthOfBinaryTree(TreeNode root) {
+
+    }
+    
     public static void main(String[] args) {
 
     }
