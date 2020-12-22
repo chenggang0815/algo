@@ -40,7 +40,7 @@ public class Solution {
         }
         return stack;
     }
-//4521 k=3
+//3,4,6,5, 0
     static int[] maxSubsequence2(int[] nums, int k) {
         int length = nums.length;
         Stack<Integer> stack = new Stack<>();
@@ -55,10 +55,13 @@ public class Solution {
             stack.push(num);
         }
 
+
         int[] res = new int[k];
         int index = k;
-        while (!stack.isEmpty()){
+        int i = 0;
+        while (!stack.isEmpty() && i < k){
             res[--index] = stack.pop();
+            i++;
         }
 
         return res;
@@ -101,11 +104,12 @@ public class Solution {
 
 
     public static void main(String[] args) {
-        int[] s1 = new int[]{6,7};
-        int[] s2 = new int[]{6,0,4};
+        int[] s1 = new int[]{6,7,5};
+        int[] s2 = new int[]{4,8,1};
         //System.out.println(Arrays.toString(merge(s1, s2)));
         //System.out.println(Arrays.toString(maxSubsequence(new int[]{4,5,2,4,1,8}, 3)));
-        //System.out.println(Arrays.toString(maxSubsequence2(new int[]{4,5,2,4,1,8}, 3)));
-        System.out.println(Arrays.toString(maxNumber(s1,s2,5)));
+       //System.out.println(Arrays.toString(maxSubsequence2(new int[]{3,4,6,5}, 1)));
+        System.out.println(Arrays.toString(maxNumber(s1,s2,3)));
+
     }
 }
