@@ -40,7 +40,6 @@ public class Solution {
     // time: o(n) space: o(n)
     static int maxDepth(TreeNode root){
         if (root == null) return 0;
-
         return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
 
@@ -83,7 +82,7 @@ public class Solution {
         node2.right = node4;
         node2.left = node3;
 
-        System.out.println(maxDepth2(root));
+        System.out.println(maxDepth(root));
 
 
 
