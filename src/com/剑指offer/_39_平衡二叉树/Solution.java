@@ -13,9 +13,9 @@ import java.util.Queue;
 平衡二叉树（Balanced Binary Tree）又被称为AVL树（有别于AVL算法），且具有以下性质：
 它是一棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树
 
-1. 从根结点开始，对每个结点，遍历求其左右子树的高度是否 > 1
+思路1：从根结点开始，对每个结点，遍历求其左右子树的高度是否 > 1
 
-2. 从根结点开始，需要对每个结点从上到下遍历判断，会有重复遍历；因此，可以从叶子结点开始往上遍历，如果不满足条件直接退出
+思路2：从根结点开始，需要对每个结点从上到下遍历判断，会有重复遍历；因此，可以从叶子结点开始往上遍历，如果不满足条件直接退出
  */
 public class Solution {
     static class TreeNode{
@@ -55,7 +55,7 @@ public class Solution {
     }
 
     //dfs求高度
-    static boolean IsBalanced_Solution2(TreeNode root) {
+    static boolean IsBalanced2(TreeNode root) {
         if (root == null) return true;
 
         return IsBalanced_Solution(root.left) && IsBalanced_Solution(root.right) && (Math.abs(depth(root.left) - depth(root.right)) < 2);
@@ -66,8 +66,8 @@ public class Solution {
     }
 
 
-    // 思路2
-    static boolean IsBalanced_Solution3(TreeNode root) {
+    // 思路2 自底向上的递归
+    static boolean IsBalanced3(TreeNode root) {
         return getDepth(root) != -1;
     }
 
@@ -83,6 +83,6 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        System.out.println();
+        System.out.println("====");
     }
 }
