@@ -18,7 +18,7 @@ class ListNode:
 
 
 class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+    def addTwoNumbers_1(self, l1: ListNode, l2: ListNode) -> ListNode:
         n1 = []
         n2 = []
 
@@ -37,7 +37,7 @@ class Solution:
         a = int(''.join(n1))
         b = int(''.join(n2))
 
-        l = list(str(a+b))
+        l = list(str(a + b))
         l.reverse()
         head = ListNode()
         cur = head
@@ -45,6 +45,27 @@ class Solution:
             node = ListNode(item)
             cur.next = node
             cur = cur.next
+
+        return head.next
+
+    def addTwoNumbers_2(self, l1: ListNode, l2: ListNode) -> ListNode:
+        head = ListNode()
+        cur = head
+        carry = 0
+        while l1 or l2:
+            v1 = l1.val if l1 else 0
+            v2 = l2.val if l2 else 0
+
+            sum = v1 + v2 + carry
+            carry = sum // 10
+            cur.next = ListNode(sum % 10)
+            cur = cur.next
+
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
+
+        if carry == 1:
+            cur.next = ListNode(1)
 
         return head.next
 
@@ -63,7 +84,7 @@ if __name__ == '__main__':
     node3.next = node4
 
     s = Solution()
-    head = s.addTwoNumbers(head1, head2)
+    head = s.addTwoNumbers_2(head1, head2)
 
     while head:
         print(head.val)

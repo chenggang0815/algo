@@ -14,6 +14,8 @@ Explanation: 342 + 465 = 807.
 1. 将两个链表看成是相同长度的遍历，不足的补0
 2. 同位直接相加，每一位计算时需要考虑上一位的进位值，在计算结束后同样要更新当前位的进位值
 3. 全部遍历完后，如果进位值为1，则需要在最后添加节点1
+
+o(max(m,n)) o(max(m,n))
  */
 public class Solution {
     static class ListNode{
