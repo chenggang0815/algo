@@ -13,11 +13,13 @@ leetcode 5 - 最长回文子串
 输出: "bb"
 
 思路1： 暴力循环遍历 time: o(n^3) space: o(1)
-思路2： 中心扩散 time:o(n^2) space:o(1)
+思路2： 中心扩散法 time:o(n^2) space:o(1)
+思路3： 动态规划
+
  */
 public class Solution {
     //time: o(n^2) space:o(1)
-    static String longestPalindrome(String s) {
+    static String longestPalindrome1(String s) {
         if (s == null || s.length() < 1) return "";
 
         int start = 0, end = 0;
@@ -42,8 +44,46 @@ public class Solution {
         return right - left - 1; // 回文串的长度是right-left+1-2 = right-left-1
     }
 
-    public static void main(String[] args) {
+    //动态规划
+    /*
+    如果 dp[i + 1][j - 1]为回文串，那么向两边扩散，if s[i] == s[j] => dp[i][j] = true
+    初始化：if s[i] == s[j] 并且，if j - i < 3 =>  dp[i][j] = true eg:"a", "aa", "aba"
+    对于 s.length() <= 2 => return s
+        s.length() > 2 => maxLength >= 1
 
-        System.out.println(longestPalindrome("beaaebc"));
+     */
+    static String longestPalindrome2(String s){
+        int n = s.length();
+        boolean[][] dp = new boolean[n][n];
+        int maxLength = 1;
+        int start = 0;
+        for(int i = 0; i < n; i++){
+            dp[i][i] = true;
+        }
+
+        for(int j = 1; j < n; j++){
+            for(int i = 0; i < j; i++){
+                if (s.charAt(i) != s.charAt(j)){
+                    dp[i][j] = false;
+                }else{
+                    if (j - i < 3){
+                        dp[i][j] = true;
+                    }else{
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
+                }
+
+                if (dp[i][j] && j - i + 1 > maxLength){
+                    maxLength = j - i + 1;
+                    start = i;
+                }
+            }
+        }
+
+        return s.substring(start, start + maxLength);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(longestPalindrome2("a"));
     }
 }
