@@ -10,6 +10,8 @@ Return the answer in any order.
 
 思路1： dfs（回溯）
 对于回溯来说，需要画图理解每次搜索的路径，在哪撤销回退，在哪里达到搜索的终点
+思考s.deleteCharAt(index)和s.deleteCharAt(s.length() - 1)为什么相同
+
 思路2：bfs（队列）
  */
 public class Solution {
@@ -31,7 +33,8 @@ public class Solution {
         for(int i = 0; i < letters.length(); i++){
             s.append(letters.charAt(i));
            backtrack(digits, s, index + 1);
-           s.deleteCharAt(index);
+           //s.deleteCharAt(index);
+            s.deleteCharAt(s.length() - 1);
         }
     }
 
