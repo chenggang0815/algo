@@ -16,7 +16,6 @@ Input: n = 1
 Output: 0
  */
 public class Solution {
-    
     static int countPrimes(int n) {
 
     }
