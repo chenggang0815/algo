@@ -13,12 +13,12 @@ Example 1:
 Input: nums = [5,7,7,8,8,10], target = 8
 Output: [3,4]
  */
-public class Solution {
-    public int[] searchRange(int[] nums, int target) {
-
-    }
-    
-    public static void main(String[] args) {
-        System.out.println();
-    }
-}
+//public class Solution {
+//    public int[] searchRange(int[] nums, int target) {
+//
+//    }
+//
+//    public static void main(String[] args) {
+//        System.out.println();
+//    }
+//}
