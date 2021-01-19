@@ -60,9 +60,47 @@ class Solution:
 
         return res
 
+    def searchRange4(self, nums: List[int], target: int) -> List[int]:
+        res = [-1] * 2
+        # 找出第一个大于target的位置
+        def searchFirst(nums, target):
+            left = 0
+            right = len(nums) - 1
+            res = len(nums)
+            while left <= right:
+                mid = left + (right - left) // 2
+                if nums[mid] >= target:
+                    right = mid - 1
+                    res = mid
+                else:
+                    left = mid + 1
+
+            return res
+        # 找出第一个大于target的位置
+        def searchLast(nums, target):
+            left = 0
+            right = len(nums) - 1
+            res = len(nums) # 这一块有问题，res应该为0更好理解，特殊情况[1]，target = 1
+            while left <= right:
+                mid = left + (right - left) // 2
+                if nums[mid] > target:
+                    right = mid - 1
+                    res = mid
+                else:
+                    left = mid + 1
+
+            return res
+
+        left = searchFirst(nums, target)
+        right = searchLast(nums, target) - 1
+        print(left, right)
+        if left <= right < len(nums) and nums[left] == target and nums[right] == target:
+            return [left, right]
+
+        return res
 
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.searchRange3([1], 1))
+    print(s.searchRange4([1], 1))
 
