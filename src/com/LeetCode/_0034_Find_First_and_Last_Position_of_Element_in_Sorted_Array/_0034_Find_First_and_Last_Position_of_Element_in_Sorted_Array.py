@@ -15,9 +15,54 @@ class Solution:
 
         return res
 
+    def searchRange2(self, nums: List[int], target: int) -> List[int]:
+        res = [-1] * 2
+        for i in range(len(nums)):
+            if nums[i] == target:
+                res[0] = i
+                break
+
+        if res[0] == -1:
+            return res
+        left = res[0]
+        while left < len(nums) and nums[left] == target:
+            left += 1
+        res[1] = left - 1
+
+        return res
+
+    def searchRange3(self, nums: List[int], target: int) -> List[int]:
+        left = 0
+        right = len(nums) - 1
+        index = -1
+        res = [-1] * 2
+        while left <= right:
+            mid = left + (right - left) // 2
+            if nums[mid] == target:
+                index = mid
+                break
+            elif nums[mid] > target:
+                right = mid - 1
+            elif nums[mid] < target:
+                left = mid + 1
+        if index == -1:
+            return res
+
+        left = index
+        while left >= 0 and nums[left] == target:
+            left -= 1
+        right = index
+        while right < len(nums) and nums[right] == target:
+            right += 1
+
+        res[0] = left + 1
+        res[1] = right - 1
+
+        return res
+
+
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.searchRange([5,7,7,8,8,10], 8))
-    for index in range(5, 0, -1):
-        print(index)
+    print(s.searchRange3([1], 1))
+
