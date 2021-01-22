@@ -1,7 +1,9 @@
 package com.LeetCode._0287_Find_the_Duplicate_Number;
 
 import java.util.Arrays;
-
+/*
+tip：10分钟内写完
+ */
 public class Solution {
     static int findDuplicate(int[] nums){
         Arrays.sort(nums);
