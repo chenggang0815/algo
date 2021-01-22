@@ -46,7 +46,9 @@ public class Solution {
         int right = nums.length - 1;
         while (left <= right){
             int mid = left + (right - left) / 2;
-            if (nums[left] <= nums[mid] &&  nums[mid] <= nums[right]) return nums[left];
+            //if (nums[left] <= nums[mid] && nums[mid] <= nums[right]) return nums[left];
+            // nums[left] <= nums[mid] && nums[mid] <= nums[right] 等价于 nums[left] <= nums[right]
+            if (nums[left] <= nums[right]) return nums[left];
             if (nums[left] <= nums[mid] && nums[mid] >= nums[right]){
                 left = mid + 1;
             }else if (nums[left] >= nums[mid] && nums[mid] <= nums[right]){
