@@ -79,6 +79,7 @@ public class Solution {
     2. a^b^c = a^(b^c) = (a^b)^c
     3. a^a = 0
     4. a^0 = a
+    5. 0^0 = 1
     对于此题，则有：3^1^2^1^2 => 3^(1^1)^(2^2) => 3^0^0 = 3
      */
     // time: o(n) space: o(1)
