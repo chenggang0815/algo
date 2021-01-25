@@ -16,11 +16,30 @@ Input: nums = [3,2,1,0,4]
 Output: false
 Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
  */
-public class Solution {
-    public boolean canJump(int[] nums) {
+/*
+贪心算法： time: o(n) space:o(1)
+1. 如果某一个作为起跳点的格子可以跳跃的距离是3，那么表示后面3个格子都可以作为起跳点。
+2. 可以对每一个能作为起跳点的格子都尝试跳一次，把能跳到最远的距离不断更新。
+3. 如果可以一直跳到最后，就成功了。
 
+作者：ikaruga
+链接：https://leetcode-cn.com/problems/jump-game/solution/55-by-ikaruga/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+ */
+public class Solution {
+    static boolean canJump(int[] nums) {
+        int max = 0;
+        for (int i = 0; i < nums.length; i++){
+            if (i > max) return false;
+            max = Math.max(nums[i] + i, max);
+            if (max >= nums.length) return true;
+        }
+
+        return true;
     }
+
     public static void main(String[] args) {
-        System.out.println();
+        System.out.println(canJump(new int[]{3,2,1,0,4}));
     }
 }
