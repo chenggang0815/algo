@@ -17,10 +17,15 @@ Explanation: The minimum number of jumps to reach the last index is 2. Jump 1 st
 Example 2:
 Input: nums = [2,3,0,1,4]
 Output: 2
-
+[3,4,3,1,2,2]
  */
 
 public class Solution {
+    static int jump(int[] nums) {
+        int res = 0;
+        for ()
+    }
+
     public static void main(String[] args) {
         System.out.println();
     }
