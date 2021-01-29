@@ -38,6 +38,7 @@ solution 4： 递归
 二分法的思想就是，目标值和中点值进行比较，然后可以丢弃一半的元素。
 这道题的话是矩阵，如果我们找到矩阵的中心，然后和目标值比较看能不能丢弃一些元素。
 
+相关题目 74
 """
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
