@@ -1,18 +1,17 @@
-package com.LeetCode._0072_字符串的编辑距离;
+package com.LeetCode._0072_Edit_Distance;
 /*
 72. 编辑距离
 
-给你两个单词 word1 和 word2，请你计算出将 word1 转换成 word2 所使用的最少操作数 。
+给你两个单词 word1 和 word2，请你计算出将 word1 转换成 word2 所使用的最少操作数
 
 你可以对一个单词进行如下三种操作：
+    1. 插入一个字符
+    2. 删除一个字符
+    3. 替换一个字符
 
-    插入一个字符
-    删除一个字符
-    替换一个字符
-
-word1 插入 dp[i, j]=dp[i, j-1]+1
-word1 删除 dp[i, j]=dp[i-1, j]+1
-word1 替换 dp[i, j]=dp[i-1, j-1]+1
+word1 插入 dp[i, j] = dp[i, j-1] + 1
+word1 删除 dp[i, j] = dp[i-1, j] + 1
+word1 替换 dp[i, j] = dp[i-1, j-1] + 1
 
 思路：动态规划
 从最后一个字符考虑，假设源字符串为S，目标字符串为T，则S和T的最后一个字符 s[i] 和 t[j] 对应四种情况：
@@ -24,27 +23,26 @@ word1 替换 dp[i, j]=dp[i-1, j-1]+1
 
 第一种情况：
 
-    S+空白
-    T+字符X
+    S + 空白
+    T + 字符X
 
-S变成T，最后，在S的末尾插入“字符X”，若以dp矩阵来表示两个字符串之间的距离，则dp[i, j]=dp[i, j-1]+1。
+S变成T，S => T 最后，在S的末尾插入“字符X”，若以dp矩阵来表示两个字符串之间的距离，则dp[i, j] = dp[i, j-1]+1。
 
 第二种情况：
 
-    S+字符X
-    T+字符Y
+    S + 字符X
+    T + 字符Y
 
 S变成T，最后，把X修改成Y，如果X==Y，说明不需要操作变化，dp[i, j]=dp[i-1, j-1]，
 否则，需要在原来的基础上加1，dp[i, j]=dp[i-1, j-1]+1。
 
 第三种情况：
 
-    S+字符X
-    T+空白
+    S + 字符X
+    T + 空白
 
 S变成T，最后，X被删除。dp[i, j]=dp[i-1, j]+1。
 
-综合以上三种情况：
  */
 public class Solution {
 
