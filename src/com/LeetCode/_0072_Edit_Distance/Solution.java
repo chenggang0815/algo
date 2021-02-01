@@ -9,6 +9,8 @@ package com.LeetCode._0072_Edit_Distance;
     2. 删除一个字符
     3. 替换一个字符
 
+dp[i][j] 代表 word1 中前i个字符，变换到 word2 中前j个字符，最短需要操作的次数
+
 word1 插入 dp[i, j] = dp[i, j-1] + 1
 word1 删除 dp[i, j] = dp[i-1, j] + 1
 word1 替换 dp[i, j] = dp[i-1, j-1] + 1
