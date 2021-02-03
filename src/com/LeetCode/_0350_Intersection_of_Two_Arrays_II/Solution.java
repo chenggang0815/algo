@@ -2,6 +2,7 @@ package com.LeetCode._0350_Intersection_of_Two_Arrays_II;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 /*
 350. Intersection of Two Arrays II
@@ -29,12 +30,13 @@ solution 1: 排序+双指针
 time: o(mlog(m)+nlog(n)) 遍历的时间复杂度o(m+n)=>没有重复遍历
 space: o(nlog(n))
 
-solution2: hash
-
+solution2: hashmap
+time: o(m+n)
+space: o(min(m,n))
  */
 public class Solution {
     //Runtime: 2 ms, faster than 95.60% of Java online submissions for Intersection of Two Arrays II.
-    static int[] intersect(int[] nums1, int[] nums2) {
+    static int[] intersect1(int[] nums1, int[] nums2) {
         Arrays.sort(nums1);
         Arrays.sort(nums2);
         int startIndex = 0;
@@ -57,9 +59,31 @@ public class Solution {
         return res;
     }
 
+    static int[] intersect2(int[] nums1, int[] nums2) {
+        if (nums1.length > nums2.length){
+            return intersect2(nums2, nums1); // 这个操作很巧妙，加一个判断，交换参数，不用if else 写两份代码
+        }
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int num: nums1){
+            int count = map.getOrDefault(num, 0);
+            map.put(num, count + 1);
+        }
+
+        int[] res = new int[nums1.length];
+        int index = 0;
+        for(int i = 0; i < nums2.length; i++){
+            int count = map.getOrDefault(nums2[i], 0);
+            if (count > 0){
+                res[index++] = nums2[i];
+                count--;
+                if(count > 0)  map.put(nums2[i], count);
+                else map.remove(nums2[i]);
+            }
+        }
+        return Arrays.copyOfRange(res, 0, index);
+    }
+
     public static void main(String[] args) {
-
-        intersect(new int[]{1,2,2,1}, new int[]{2,2});
-
+        intersect2(new int[]{1,2,2,1}, new int[]{2,2,3});
     }
 }
