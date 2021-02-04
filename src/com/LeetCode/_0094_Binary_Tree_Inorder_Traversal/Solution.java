@@ -1,4 +1,4 @@
-package com.LeetCode._0094_二叉树的中序遍历;
+package com.LeetCode._0094_Binary_Tree_Inorder_Traversal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
