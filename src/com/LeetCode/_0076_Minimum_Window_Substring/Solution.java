@@ -7,11 +7,11 @@ Output: "BANC"
 
  */
 public class Solution {
-    static String minWindow(String s, String t) {
-
-
-    }
+//    static String minWindow(String s, String t) {
+//
+//
+//    }
     public static void main(String[] args) {
-        System.out.println();
+        System.out.println("===");
     }
 }
