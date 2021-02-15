@@ -52,6 +52,16 @@ class Solution:
 
 
     def minWindow3(self, s: str, t: str) -> str:
+        def helper1(c1, c2, t):
+            for char in t:
+                if c1[char] > c2[char]:
+                    return False
+            return True
+        def helper2(c1, c2, t):
+            for char in t:
+                if c1[char] != c2[char]:
+                    return False
+            return True
         left = 0
         right = 0
         c = Counter(t)
@@ -59,27 +69,25 @@ class Solution:
         minLength = len(s)
         while right < len(s):
             c1 = Counter(s[left: right + 1])
-            count = 0
-            for char in c:
-                if c[char] <= c1[char]:
-                    count += 1
-                    if count == len(c):
-                        if len(t) <= (right + 1 - left) <= minLength:
-                            minLength = right + 1 - left
-                            inedx = (left, right + 1)
-                            print(inedx)
-                            while True:
-                                print("===")
-                                left += 1
-                                if s[left] in t:
-                                    break
-                else:
-                    right += 1
-                    break
+            if helper1(c, c1, t):
+
+                while True:
+                    temp = Counter(s[left: right + 1])
+                    if helper1(c, temp, t):
+                        left += 1
+                    else:
+                        if len(t) <= (right + 1 - left - 1) <= minLength:
+                            minLength = min(minLength, right + 1 - left - 1)
+                            inedx = (left - 1, right + 1)
+                        break
+            else:
+                right += 1
+
 
         return s[inedx[0]:inedx[1]]
 
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.minWindow3("ADOBECODEBANC", "ABC"))
+    print(s.minWindow3("acbbaca", "aba"))
+
