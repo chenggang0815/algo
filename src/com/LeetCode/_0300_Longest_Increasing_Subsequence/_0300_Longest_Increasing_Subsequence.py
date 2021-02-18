@@ -28,13 +28,4 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     print(s.lengthOfLIS([18, 55, 66, 2, 3, 54]))
-"""
-[4,10,4,3,8,9]
-4
-4 10
-4 10 4=4
-3 10 4=3
-3 8  10=8
-3 8 9
 
-"""
