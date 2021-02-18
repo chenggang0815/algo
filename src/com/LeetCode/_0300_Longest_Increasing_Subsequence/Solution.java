@@ -14,6 +14,19 @@ Input: nums = [10,9,2,5,3,7,101,18]
 Output: 4
 Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
  */
+
+/*
+思路1：动态规划 - time:o(n^2) space:o(n)
+
+1. dp[i]的值代表以nums[i]结尾的最长子序列长度 （ps：注意区分dp[i]的值代表nums前i个数字的最长子序列长度，前者需要求max(dp)）
+
+2. 状态转移：
+    dp[i] = Math.max(dp[i], dp[j] + 1);
+
+思路2：动态规划+二分查找 - time:o(nlog(n)) space:o(n)
+
+
+ */
 public class Solution {
     static int lengthOfLIS(int[] nums) {
         int[] dp = new int[nums.length];
@@ -31,6 +44,8 @@ public class Solution {
 
         return res;
     }
+
+
 
     public static void main(String[] args) {
         System.out.println(lengthOfLIS(new int[]{10,9,2,5,3,7,101,18}));

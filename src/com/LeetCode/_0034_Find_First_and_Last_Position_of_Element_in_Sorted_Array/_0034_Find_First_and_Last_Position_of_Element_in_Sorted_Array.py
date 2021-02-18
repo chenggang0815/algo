@@ -76,7 +76,7 @@ class Solution:
                     left = mid + 1
 
             return res
-        # 找出第一个大于target的位置
+        # 找出最后一个大于target的位置
         def searchLast(nums, target):
             left = 0
             right = len(nums) - 1
