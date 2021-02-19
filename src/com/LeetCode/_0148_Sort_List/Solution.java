@@ -1,18 +1,22 @@
-package com.LeetCode._0148_排序链表;
+package com.LeetCode._0148_Sort_List;
 /*
 148. 排序链表
-
-在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。
+在O(nlogn)时间复杂度和常数级空间复杂度下，对链表进行排序。
 
 示例 1:
-
 输入: 4->2->1->3
 输出: 1->2->3->4
 
 示例 2:
-
 输入: -1->5->3->4->0
 输出: -1->0->3->4->5
+ */
+
+/*
+思路1：冒泡排序 time:o(n^2) space:o(1)
+
+思路2：递归排序
+
  */
 public class Solution {
     static class ListNode{
@@ -23,12 +27,12 @@ public class Solution {
         }
     }
 
-    static ListNode listSort(ListNode head){
+    // Time Limit Exceeded
+    static ListNode listSort1(ListNode head){
         if (head == null || head.next == null) return head;
 
-        ListNode left = null;
+        ListNode left = head;
         ListNode right = null;
-        left = head;
 
         while(left.next != right){
             while(left.next != right){
@@ -40,8 +44,14 @@ public class Solution {
                 left = left.next;
             }
 
-            right = left;
-            left = head;
+            right = left; // 此时，left以及右边的结点都是有序的 => 下次遍历的右边界为left
+            left = head; // 下次遍历的右边界总为head
+            /*  冒泡排序
+                for(int i = 0; i < length-1; i++){
+                    for(int j = 0; j < length - i - 1; j++){
+                    }
+                }
+             */
         }
 
         return head;
@@ -63,6 +73,6 @@ public class Solution {
         head.next = node1;
         node1.next = node2;
         node2.next = node3;
-        printList(listSort(head));
+        printList(listSort1(head));
     }
 }
