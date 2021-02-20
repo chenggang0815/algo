@@ -1,4 +1,5 @@
 from typing import List
+
 """
 152. Maximum Product Subarray
 Given an integer array nums, find the contiguous subarray within an array (containing at least one number) which has the largest product.
@@ -41,7 +42,25 @@ min(-4, -4*4, -4*-6) = -16
 3.2 当负数个数为奇数时候，它的左右两边的负数个数一定为偶数，只需求两边最大值
 3.3 当有0情况，重置就可以了
 
+
+思路：
+这个问题很像「力扣」第 53 题：最大子序和，只不过当前这个问题求的是乘积的最大值；
+「连续」这个概念很重要，可以参考第 53 题的状态设计，将状态设计为：以 nums[i]结尾的连续子数组的最大值；
+类似状态设计的问题还有「力扣」第 300 题：最长上升子序列，「子数组」、「子序列」问题的状态设计的特点是：以 nums[i] 结尾，这是一个经验，可以简化讨论。
+提示：以 nums[i] 结尾这件事情很重要，贯穿整个解题过程始终，请大家留意。
+
+分析与第 53 题的差异
+求乘积的最大值，示例中负数的出现，告诉我们这题和 53 题不一样了，一个正数乘以负数就变成负数，即：最大值乘以负数就变成了最小值；
+因此：最大值和最小值是相互转换的，这一点提示我们可以把这种转换关系设计到「状态转移方程」里去；
+如何解决这个问题呢？这里常见的技巧是在「状态设计」的时候，在原始的状态设计后面多加一个维度，减少分类讨论，降低解决问题的难度
+
+作者：liweiwei1419
+链接：https://leetcode-cn.com/problems/maximum-product-subarray/solution/dong-tai-gui-hua-li-jie-wu-hou-xiao-xing-by-liweiw/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 """
+
+
 class Solution:
 
     def maxProduct1(self, nums: List[int]) -> int:
@@ -85,9 +104,27 @@ class Solution:
 
         return res
 
+    def maxProduct3(self, nums: List[int]) -> int:
+        reverse_nums = nums[::-1]
+        for i in range(1, len(nums)):
+            nums[i] *= nums[i - 1] or 1  # 若相乘后为0则取1
+            reverse_nums[i] *= reverse_nums[i - 1] or 1
+
+        print(nums)
+        print(reverse_nums)
+        return max(nums + reverse_nums)
+
 
 if __name__ == '__main__':
     s = Solution()
-    #print(s.maxProduct2([2, 3, -2, 4]))
-    print(s.maxProduct2([-2, -3, -4]))
-
+    # print(s.maxProduct2([2, 3, -2, 4]))
+    print(s.maxProduct3([-2, -3, -4, -4, -2]))
+    """
+    * 以0为分界成一段一段分析
+    * 在一段中负数的个数要么为偶数要么为奇数
+    * 倘若负数的个数为偶数，那么直接相乘必然是最大值，因为偶数个负数相乘为正数
+    * 倘若负数有奇数个，设为n个的话，那么n-1个负数则为偶数个
+    * 那么这个减一因为是连续的子序列，所以要么是不包含最左边的负数，要么是不包含最右边的负数，只有这两种情况
+    * 那么只需要从左往右遍历一次，从右往左遍历一次，求最大值就可以了
+    * 注意为0的时候，虽然product要设置回1，但是有可能最大值就是0(每段都只有1个负数)，那么需要判断下answer是否更新为0
+    """
