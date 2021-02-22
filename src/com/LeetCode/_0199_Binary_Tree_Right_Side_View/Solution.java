@@ -18,6 +18,15 @@ Output: [1,3,4]
 思路1： bfs 加入每层最后一个元素
 
 思路2： dfs root -> right -> left 顺序，每层都是最右边
+         1
+        / \
+       2   3
+      / \
+     4   5
+     res = [1,3,5]
+     遍历顺序=[1, 3, 2, 5, 4]
+     depth = [0, 1, 1, 2, 2]
+     所以每次depth加1的时候，就是当前层最右边的结点 => [1,3,5]
  */
 public class Solution {
     static class TreeNode{
@@ -49,16 +58,34 @@ public class Solution {
         return res;
     }
 
-    static void dfs(TreeNode root, ArrayList<Integer> res){
+    static void dfs(TreeNode root, int depth, ArrayList<Integer> res){
         if (root == null) return;
 
-    }
+        if (depth == res.size()) res.add(root.val);
+        System.out.println(depth);
 
+        depth++;
+        dfs(root.right, depth, res);
+        dfs(root.left, depth, res);
+    }
+    /*
+         1
+        / \
+       2   3
+      / \
+     4   5
+     res = [1,3,5]
+     遍历顺序=[1, 3, 2, 5, 4]
+     depth = [0, 1, 1, 2, 2]
+     所以每次depth加1的时候，就是当前层最右边的结点 => [1,3,5]
+     */
     static List<Integer> rightSideView2(TreeNode root) {
         if (root == null) return new ArrayList<>();
 
+        ArrayList<Integer> res = new ArrayList<>();
+        dfs(root, 0, res);
 
-        return ;
+        return res;
     }
 
 
@@ -66,9 +93,14 @@ public class Solution {
         TreeNode root = new TreeNode(1);
         TreeNode node1 = new TreeNode(2);
         TreeNode node2 = new TreeNode(3);
+        TreeNode node3 = new TreeNode(4);
+        TreeNode node4 = new TreeNode(5);
+
         root.left = node1;
         root.right = node2;
+        node1.left = node3;
+        node1.right = node4;
 
-        System.out.println(rightSideView1(root).toString());
+        System.out.println(rightSideView2(root).toString());
     }
 }
