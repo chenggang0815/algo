@@ -1,4 +1,7 @@
 package com.LeetCode._0560_Subarray_Sum_Equals_K;
+
+import java.util.Arrays;
+
 /*
 560. Subarray Sum Equals K
 
@@ -15,28 +18,25 @@ Output: 2
 public class Solution {
 
     static int subarraySum(int[] nums, int k) {
+        Arrays.sort(nums);
         int res = 0;
-        int[] dp = new int[nums.length];
-        dp[0] = nums[0];
+        for (int i = 0; i < nums.length; i++){
+            for (int j = i; j < nums.length; j++){
+                int sum = 0;
+                for (int t = i; t <= j; t++){
+                    sum += nums[t];
+                }
+                if (sum == k) res++;
+                if (sum > k) continue;
 
-        for(int i = 1; i < nums.length; i++){
-            if (dp[i - 1] == k){
-                res++;
-                dp[i - 1] = 0;
             }
-            if (dp[i - 1] > k) dp[i - 1] = 0;
-            dp[i] = dp[i - 1] + nums[i];
-            if (dp[i] == k){
-                res++;
-                dp[i] = dp[i - 1];
-            }
-            if (dp[i] > k) dp[i] = 0;
         }
 
         return res;
     }
 
     public static void main(String[] args) {
-        System.out.println(subarraySum(new int[]{1,2,3}, 2));
+
+        System.out.println(subarraySum(new int[]{-1, -1, 1}, 0));
     }
 }
