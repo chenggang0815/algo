@@ -19,13 +19,29 @@ Output: "abcabccdcdcdef"
 Example 4:
 Input: s = "abc3[cd]xyz"
 Output: "abccdcdcdxyz"
- */
+*/
+
+
+import java.util.Stack;
 
 /*
 思路1 ： 栈方法
+
+本题中可能出现括号嵌套的情况，比如2[a2[bc]]，这种情况下我们可以先转化成2[abcbc]，在转化成abcbcabcbc。我们可以把字母、数字和括号看成是独立的TOKEN，并用栈来维护这些TOKEN。
+具体的做法是，遍历这个栈：
+1. 如果当前的字符为数位，解析出一个数字（连续的多个数位）并进栈
+2. 如果当前的字符为字母或者左括号，直接进栈
+3. 如果当前的字符为右括号，开始出栈，一直到左括号出栈，出栈序列反转后拼接成一个字符串，此时取出栈顶的数字（此时栈顶一定是数字，想想为什么？），就是这个字符串应该出现的次数，我们根据这个次数和字符串构造出新的字符串并进栈
+
+
  */
 public class Solution {
     public String decodeString(String s) {
+        Stack<String> stack = new Stack<>();
+
+        for (char: s){
+
+        }
 
     }
 
