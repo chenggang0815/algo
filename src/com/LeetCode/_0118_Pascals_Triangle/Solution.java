@@ -5,7 +5,16 @@ import java.util.List;
 /*
 118. Pascal's Triangle
 Given a non-negative integer numRows, generate the first numRows of Pascal's triangle.
- */
+
+Example 1:
+Input: numRows = 5
+Output: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+
+Example 2:
+Input: numRows = 1
+Output: [[1]]
+*/
+
 /*
 思路：
 1. 每一行首尾都是1
@@ -16,7 +25,7 @@ public class Solution {
         List<List<Integer>> res = new ArrayList<>();
         for(int i = 0; i < numRows; i++){
             List<Integer> temp = new ArrayList<>();
-            for (int j = 0; j < i + 1; j++){
+            for (int j = 0; j < i + 1; j++){ //第i行，有i+1个数字
                 if (j == 0 || j == i){
                     temp.add(1);
                 }else{
