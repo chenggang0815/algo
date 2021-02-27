@@ -26,7 +26,7 @@ public class Solution {
             if (map.containsKey(num) && i - map.get(num) <= k){
                 return true;
             }
-            map.put(num, i);
+            map.put(num, i); // 更新value为当前的index
         }
 
         return false;
