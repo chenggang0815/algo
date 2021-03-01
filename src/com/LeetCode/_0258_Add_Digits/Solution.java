@@ -16,16 +16,15 @@ Could you do it without any loop/recursion in O(1) runtime?
 
 */
 public class Solution {
-
-    static int addDigits(int num) {
+    //
+    static int addDigits1(int num) {
         int res = num;
         while (res > 9){
             String s = String.valueOf(res);
             int temp = 0;
             for (int i = 0; i < s.length(); i++){
-                temp = temp + (int) s.charAt(i);
+                temp = temp + (s.charAt(i) - '0');
             }
-            System.out.println(temp);
             res = temp;
         }
 
@@ -33,6 +32,6 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        System.out.println(addDigits(38));
+        System.out.println(addDigits1(38));
     }
 }
