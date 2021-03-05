@@ -12,10 +12,10 @@ Output: 4
 
  */
 public class Solution {
-    
-    static int maximalSquare(char[][] matrix) {
 
-    }
+//    static int maximalSquare(char[][] matrix) {
+//
+//    }
     public static void main(String[] args) {
         System.out.println();
     }
