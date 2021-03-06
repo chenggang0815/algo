@@ -33,8 +33,18 @@ Your output answer is guaranteed to be fitted in a 32-bit integer.
 2. 由于数组中所有数的和不超过1000，那么j的最小值可以达到-1000，最大值可以达到1000 => j的取值范围[-1000, 1000] => 1000-(-1000)+1=2001个数
    所以int[] dp=new int[nums.length][2001]
 
-3. 初始化dp[0][s]
+3. 初始化dp[0][]
+    1. 需要求的值dp[0][-1000]...dp[0][1000]，需要初始化的值dp[0][] => 即考虑第1个元素nums[0]
+    2. 因为不支持index为负，所以对所有index+1000
+    3. 因此需要初始化的值dp[0][0+1000]=dp[0][1000]
+        3.1 若nums[0]=0 =>  即第一个数的符号可以为+也可以为- 都使得nums[0]=0 => dp[0][nums[i]+1000]=dp[0][0]=2
+        3.1 若nums[0]!=0
+            dp[0][1000 + nums[i]] = 1
+            dp[0][1000 - nums[i]] = 1
 
+4. 边界值 保证index在[0,2000]之间
+   int l = (sum - nums[i] + 1000) >= 0 ? sum - nums[i] + 1000 : 0;
+   int r = (sum + nums[i] + 1000) < 2000 ? sum + nums[i] + 1000: 2000;
  */
 public class Solution {
     // Runtime: 476 ms, faster than 29.61% of Java online submissions for Target Sum.
@@ -139,6 +149,7 @@ public class Solution {
 
         return S > 1000 ? 0 : dp[nums.length - 1][S + 1000];
     }
+
     public static void main(String[] args) {
         int[] nums = new int[]{1, 1, 1, 1, 1};
         System.out.println(findTargetSumWays3(nums, 3));
