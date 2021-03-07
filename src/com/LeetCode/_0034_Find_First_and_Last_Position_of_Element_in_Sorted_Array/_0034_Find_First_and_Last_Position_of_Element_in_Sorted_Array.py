@@ -71,7 +71,7 @@ class Solution:
                 mid = left + (right - left) // 2
                 if nums[mid] >= target:
                     right = mid - 1
-                    res = mid
+                    res = mid # 因为是找第一个大于的数字，所以res=mid在if nums[mid] >= target下面
                 else:
                     left = mid + 1
 
