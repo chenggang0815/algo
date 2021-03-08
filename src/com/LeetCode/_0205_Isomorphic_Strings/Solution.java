@@ -21,6 +21,8 @@ Example 3:
 Input: s = "paper", t = "title"
 Output: true
 
+相似题目：
+290. Word Pattern
 */
 /*
 思路：
