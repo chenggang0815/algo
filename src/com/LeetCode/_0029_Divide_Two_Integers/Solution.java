@@ -30,9 +30,17 @@ Example 4:
 Input: dividend = 1, divisor = 1
 Output: 1
 */
+
+/*
+Java int类的最大值(Integer.MAX_VALUE) = 2^31 - 1 = 2147483648 - 1 = 2147483647
+     int类的最小值(Integer.MIN_VALUE) = -2^31 = Integer.MAX_VALUE + 1 = -2147483648
+ */
 public class Solution {
     static int divide(int dividend, int divisor) {
         if (dividend == 0) return 0;
+        if (divisor == -1){
+            if (dividend == Integer.MIN_VALUE) return Integer.MAX_VALUE;
+        }
 
         int m = Math.abs(dividend);
         int n = Math.abs(divisor);
@@ -49,13 +57,11 @@ public class Solution {
             return -res;
         }
 
-        return Math.min(res, Integer.MAX_VALUE);
+        return res;
     }
 
 
     public static void main(String[] args) {
-        System.out.println(divide(-2147483648, -1));
-        System.out.println(Math.pow(2, 31));
-        System.out.println(Integer.MAX_VALUE);
+        System.out.println(divide(-2147483648, 1));
     }
 }
