@@ -10,15 +10,22 @@ import java.util.HashMap;
 
 /*
 解题思路1：先快排，再统计中间数的个数看是否大于一半 ，时间复杂度：o(n*log(n)) space: o(1)
- */
+*/
 
 /*
 解题思路2: 利用hashmap存储每个数字的个数 time: o(n) space: o(n)
- */
+*/
 
 /*
 解题思路3: 守擂台算法 time:o(n) space:o(1)
- */
+1. nums[0]作为第一个士兵，守阵地；初始化count = 1
+    1.1 到相同元素 => count++
+    1.2 遇到不相同元素 => count--
+3. if count == 0 => 又以新的nums[i]值作为守阵地的士兵，继续下去，到最后还留在阵地上的士兵，有可能是主元素
+4. 再加一次循环，记录这个士兵的个数看是否大于数组一半即可
+
+
+*/
 public class Solution {
     static int MoreThanHalfNum_Solution(int [] array) {
         if (array.length == 0) return 0;
