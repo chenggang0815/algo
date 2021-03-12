@@ -36,32 +36,37 @@ Java int类的最大值(Integer.MAX_VALUE) = 2^31 - 1 = 2147483648 - 1 = 2147483
      int类的最小值(Integer.MIN_VALUE) = -2^31 = Integer.MAX_VALUE + 1 = -2147483648
  */
 public class Solution {
+/*
+https://leetcode.com/problems/divide-two-integers/discuss/142849/C%2B%2BJavaPython-Should-Not-Use-%22long%22-Int
+
+思路： time:o(log(n))
+100/3
+100>3 100>6 100>12 100>24 100>48 100>96 100<192 ---- 使用了 2^5 = 32 个3，还剩 100 - 96 = 4 需要被除
+4>3 4<6                                         ---- 使用了 2^0 = 1  个3，还剩 4   - 3  = 1 需要被除
+1<3                                             ---- 被除数小于除数，递归结束，总计使用了 33 个 3
+*/
     static int divide(int dividend, int divisor) {
-        if (dividend == 0) return 0;
-        if (divisor == -1){
-            if (dividend == Integer.MIN_VALUE) return Integer.MAX_VALUE;
+        if (Integer.MIN_VALUE == dividend && divisor == -1) {
+            return Integer.MAX_VALUE;
         }
-
-        int m = Math.abs(dividend);
-        int n = Math.abs(divisor);
-
-
         int res = 0;
-        int sum = n;
-        while (sum <= m){
-            sum += n;
-            res++;
+        int a = Math.abs(dividend);
+        int b = Math.abs(divisor);
+        while (a - b >= 0) {
+            int tmp = b;
+            int count = 1;
+            while (a - (tmp << 1) >= 0) {
+                tmp <<= 1;
+                count <<= 1;
+            }
+            a -= tmp;
+            res += count;
         }
-
-        if ((dividend < 0 && divisor > 0) || (dividend > 0 && divisor < 0)){
-            return -res;
-        }
-
-        return res;
+        return (dividend > 0) == (divisor > 0) ? res : -res;
     }
 
 
     public static void main(String[] args) {
-        System.out.println(divide(-2147483648, 1));
+        System.out.println(divide(100, 3));
     }
 }
