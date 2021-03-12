@@ -19,8 +19,10 @@ import java.util.ArrayList;
 1. 顺时针遍历指的是依次遍历四条边，方向是从（上边）left->right,（右边） top -> down , （下边） right -> left ,（左边） down -> top
 2. 每次遍历完一条边，需要更新边的边界值，并且判断是否满足临界条件
 
-参考：https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/solution/mian-shi-ti-29-shun-shi-zhen-da-yin-ju-zhen-she-di/
- */
+参考：
+1. https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/solution/mian-shi-ti-29-shun-shi-zhen-da-yin-ju-zhen-she-di/
+2. leetcode 54题
+*/
 public class Solution {
     static public ArrayList<Integer> printMatrix(int [][] matrix) {
         if (matrix.length == 0) return new ArrayList<>();
