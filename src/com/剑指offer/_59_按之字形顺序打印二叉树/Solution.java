@@ -12,6 +12,8 @@ import java.util.*;
 思路1：层次遍历，每次反转
 
 思路2：层次遍历，双端队列
+
+参考leetcode 103题
  */
 public class Solution {
     static class TreeNode {
