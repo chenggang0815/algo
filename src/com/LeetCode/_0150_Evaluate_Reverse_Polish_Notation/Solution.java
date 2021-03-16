@@ -1,13 +1,34 @@
 package com.LeetCode._0150_Evaluate_Reverse_Polish_Notation;
-
 import java.util.Stack;
 
 /*
+150. Evaluate Reverse Polish Notation
+Evaluate the value of an arithmetic expression in Reverse Polish Notation.
+Valid operators are +, -, *, and /. Each operand may be an integer or another expression.
+
 Example 1:
 Input: tokens = ["2","1","+","3","*"]
 Output: 9
 Explanation: ((2 + 1) * 3) = 9
+
+Example 2:
+Input: tokens = ["4","13","5","/","+"]
+Output: 6
+Explanation: (4 + (13 / 5)) = 6
 */
+
+/*
+思路：用栈操作运算：遇到数字则入栈；遇到算符则取出栈顶两个数字进行计算，并将结果压入栈中
+
+逆波兰表达式是一种后缀表达式，所谓后缀就是指算符写在后面。
+平常使用的算式则是一种中缀表达式，如 ( 1 + 2 ) * ( 3 + 4 ) 。
+该算式的逆波兰表达式写法为 ( ( 1 2 + ) ( 3 4 + ) * ) 。
+
+逆波兰表达式主要有以下两个优点：
+1. 去掉括号后表达式无歧义，上式即便写成 1 2 + 3 4 + * 也可以依据次序计算出正确结果。
+2. 适合用栈操作运算：遇到数字则入栈；遇到算符则取出栈顶两个数字进行计算，并将结果压入栈中
+
+ */
 
 /*
 “==”比较两个变量本身的值，即两个对象在内存中的首地址。
@@ -64,7 +85,7 @@ public class Solution {
       Stack<String> stack = new Stack<>();
 
         for (int i = 0; i < tokens.length; i++){
-            if (tokens[i].equals("+") || tokens.equals("-") || tokens[i].equals("*") || tokens[i].equals("/")){
+            if (tokens[i].equals("+") || tokens[i].equals("-") || tokens[i].equals("*") || tokens[i].equals("/")){
 
                 int a = Integer.parseInt(stack.pop());
                 int b = Integer.parseInt(stack.pop());
