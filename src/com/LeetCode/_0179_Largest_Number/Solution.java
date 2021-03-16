@@ -22,8 +22,15 @@ Input: nums = [10]
 Output: "10"
 */
 
+import java.util.Arrays;
+
 public class Solution {
     static String largestNumber(int[] nums) {
+        int len = nums.length;
+        String[] str = new String[len];
+        for (int i = 0; i < len; i++){
+            str[i] += String.valueOf(nums[i]);
+        }
 
     }
 
