@@ -29,21 +29,47 @@ Constraints:
 0 <= k <= 105
 */
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Solution {
     /*
     Input: nums = [1,2,3,4,5,6,7], k = 3
-        Output: [5,6,7,1,2,3,4]
+          Output: [5,6,7,1,2,3,4]
+1->4 0->3
+4->7 3->6
+7->3 6+3 % 7 = 2
+3->6
+6->2
+2->5
+5->1
+
+nums[3] = nums[0]
+nums[6] = nums[3]
+nums[(6+3) % 7] = nums[2] = nums[6]
 
      */
-    public void rotate(int[] nums, int k) {
+    static void rotate(int[] nums, int k) {
         int length = nums.length;
-        int count = k;
-        while (count > 0){
-
+        int num = nums[0];
+        int i = 0;
+        int temp1 = nums[0];
+        int temp2 = nums[0];
+        int count = 0;
+        while (true){
+            if (count == length
+            ) break;
+            temp1 = nums[i + k];
+            nums[i + k] = temp2;
+            temp2 = temp1;
+            i = (i + k) % length;
+            count++;
         }
     }
 
     public static void main(String[] args) {
-
+        int[] nums = new int[]{1,2,3,4,5,6,7};
+        rotate(nums, 3);
+        System.out.println(Arrays.toString(nums));
     }
 }
