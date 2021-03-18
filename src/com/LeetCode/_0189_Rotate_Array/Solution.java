@@ -48,28 +48,63 @@ nums[3] = nums[0]
 nums[6] = nums[3]
 nums[(6+3) % 7] = nums[2] = nums[6]
 
-     */
-    static void rotate(int[] nums, int k) {
+思路1：使用额外的数组 time:o(n) space:o(n)
+        for (int i = 0; i < nums.length; i++){
+            res[(i + k) % nums.length] = nums[i];
+        }
+
+思路2：环状替换
+1. 
+
+
+*/
+    static void rotate1(int[] nums, int k){
+        int[] res = new int[nums.length];
+//        int count = nums.length;
+//        int i = 0;
+//        while (count > 0){
+//            res[(i + k) % nums.length] = nums[i];
+//            i++;
+//            count--;
+//        }
+
+        for (int i = 0; i < nums.length; i++){
+            res[(i + k) % nums.length] = nums[i];
+        }
+
+        System.arraycopy(res, 0, nums, 0, res.length);
+    }
+
+    static void rotate2(int[] nums, int k) {
         int length = nums.length;
-        int num = nums[0];
         int i = 0;
         int temp1 = nums[0];
         int temp2 = nums[0];
         int count = 0;
+        int start = 0;
         while (true){
             if (count == length
             ) break;
-            temp1 = nums[i + k];
-            nums[i + k] = temp2;
-            temp2 = temp1;
             i = (i + k) % length;
+            temp1 = nums[i];
+            nums[i] = temp2;
+            temp2 = temp1;
             count++;
+
+            if (i == start){
+                i = (i + 1) % length;
+                start = i;
+                temp2 = nums[i];
+            }
         }
     }
 
     public static void main(String[] args) {
-        int[] nums = new int[]{1,2,3,4,5,6,7};
-        rotate(nums, 3);
+        //int[] nums = new int[]{1,2,3,4,5,6,7};
+        int[] nums = new int[]{-1,-100,3,99};
+        rotate1(nums, 2);
         System.out.println(Arrays.toString(nums));
     }
 }
+
+
