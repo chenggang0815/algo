@@ -34,8 +34,13 @@ import java.util.Arrays;
 
 public class Solution {
     /*
-    Input: nums = [1,2,3,4,5,6,7], k = 3
-          Output: [5,6,7,1,2,3,4]
+思路1：使用额外的数组 time:o(n) space:o(n)
+        for (int i = 0; i < nums.length; i++){
+            res[(i + k) % nums.length] = nums[i];
+        }
+
+思路2：环状替换 time:o(n) space:o(1)
+Input: nums = [1,2,3,4,5,6,7], k = 3 Output: [5,6,7,1,2,3,4]
 1->4 0->3
 4->7 3->6
 7->3 6+3 % 7 = 2
@@ -43,20 +48,21 @@ public class Solution {
 6->2
 2->5
 5->1
+转移nums.length次
+Input: nums = [-1,-100,3,99], k = 2 Output: [3,99，-1，-100]
+-1 -> 3
+3 -> -1
+转移nums.length次后，数组不变
+可以得出如果数组为偶数的长度，需要每次转移到相同位置i后，从i+1继续转移，总共还是转移nums.length次
 
-nums[3] = nums[0]
-nums[6] = nums[3]
-nums[(6+3) % 7] = nums[2] = nums[6]
-
-思路1：使用额外的数组 time:o(n) space:o(n)
-        for (int i = 0; i < nums.length; i++){
-            res[(i + k) % nums.length] = nums[i];
-        }
-
-思路2：环状替换
-1. 
-
-
+思路3：数组翻转 time:o(n) space:o(1)
+将数组的元素向右移动k次后，尾部k % n个元素会移动至数组头部，其余元素向后移动k % mod个位置
+1. 可以先将所有元素翻转，这样尾部的k % n个元素就被移至数组头部，
+2  再翻转[0,k % n−1]区间的元素和 [k % n, n-1]区间的元素即能得到最后的答案
+eg:[1,2,3,4,5,6,7] k=3
+1. 翻转所有元素 => [7,6,5,4,3,2,1]
+2. 翻转[0,k % n−1]即[0,3]的元素 => [5,6,7,4,3,2,1]
+4. 翻转[k % n,n−1]即[3,6]的元素 => [5,6,7,1,2,3,4]
 */
     static void rotate1(int[] nums, int k){
         int[] res = new int[nums.length];
@@ -99,10 +105,26 @@ nums[(6+3) % 7] = nums[2] = nums[6]
         }
     }
 
+    static void rotate3(int[] nums, int k) {
+        reverse(nums, 0, nums.length - 1);
+        reverse(nums, 0, k - 1);
+        reverse(nums, k, nums.length - 1);
+    }
+
+    static void reverse(int[] nums, int left, int right){
+        while (left < right){
+            int temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+            left++;
+            right--;
+        }
+    }
+
     public static void main(String[] args) {
         //int[] nums = new int[]{1,2,3,4,5,6,7};
         int[] nums = new int[]{-1,-100,3,99};
-        rotate1(nums, 2);
+        rotate2(nums, 2);
         System.out.println(Arrays.toString(nums));
     }
 }
