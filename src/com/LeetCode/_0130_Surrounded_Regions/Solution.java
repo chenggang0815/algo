@@ -28,6 +28,9 @@ output:
 
 思路2：bfs time:o(m*n) space:o(m*n)
 思路与1相同
+
+ps：如何从一个坐标(i,j)，不用if遍历它周围的坐标，可以for循环遍历坐标数组来模拟每次的移动，参考：289题
+
 */
 public class Solution {
     static void dfs(char[][] board, int i, int j){
