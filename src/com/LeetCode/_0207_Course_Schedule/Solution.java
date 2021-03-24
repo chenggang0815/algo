@@ -1,6 +1,5 @@
 package com.LeetCode._0207_Course_Schedule;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 /*
@@ -41,6 +40,14 @@ key：课号
 value：依赖这门课的后续课（数组）
 
 思路1： 拓扑排序 - bfs
+1. 首先用一个数组代替hashmap，统计每个结点的入度
+2. 因为只能从入度为0的结点开始，所以
+    2.1 申请一个queue，把所有入度为0的结点放到queue中
+    2.2 申请一个list，把所有入度的为0的结点都放到list中
+3. 当queue不为空时，从队列中拿出一个结点
+    3.1 如果图中有其他结点依赖当前节点，那么更新此节点的入度 => 入度减一 => 入度减一后如果为0，那么此节点也可以被选中，加入queue和list中
+
+4. 当queue为空后，如果list中的结点数和图中的结点数相等，那么所有结点都可以被选中，存在拓扑排序
 
 思路2： 拓扑排序 - dfs
 
