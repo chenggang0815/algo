@@ -1,6 +1,7 @@
 package com.LeetCode._0380_Insert_Delete_GetRandom_O_1;
 /*
 380. Insert Delete GetRandom O(1)
+
 380. 常数时间插入、删除和获取随机元素
 设计一个支持在平均 时间复杂度 O(1) 下，执行以下操作的数据结构。
 insert(val)：当元素 val 不存在时，向集合中插入该项。
@@ -48,6 +49,9 @@ import java.util.*;
 综上所述，使用以下数据结构：
     1. 动态数组存储元素值
     2. 哈希表存储存储值到索引的映射
+
+Next challenges: (to do list)
+Insert Delete GetRandom O(1) - Duplicates allowed
 
 list=[51,2,10,63,57] map=(51,0),(2,1),(10,2),(63,3),(57,4)
 delete 10
