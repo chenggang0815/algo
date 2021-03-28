@@ -43,11 +43,11 @@ nums 中的所有元素都是 唯一的
 2. 接下来，将当前元素和随机选出的下标所指的元素互相交换 => 其中选取下标范围的依据在于每个被选中的元素都不可能再被选中了
 3. 此外还有一个需要注意的细节，当前元素是可以和它本身互相交换的 => 否则生成最后的排列组合的概率就不对了
 */
-public class Solution {
+public class Solution1 {
     private int[] array;
     private int[] original;
     private Random rand = new Random();
-
+    // private 是表示这个函数只能在类里面被调用
     private List<Integer> getArrayCopy(){
         List<Integer> list = new ArrayList<>();
         for (int num: array){
@@ -55,16 +55,17 @@ public class Solution {
         }
         return list;
     }
-
-    public Solution(int[] nums) {
-            array = nums;
-            original = nums.clone();
+    // public 是表示这个函数可以在类外面被调用
+    public Solution1(int[] nums) {
+            array = nums; // 浅拷贝
+            original = nums.clone(); // 深拷贝
     }
+    // public 是表示这个函数可以在类外面被调用
     /** Resets the array to its original configuration and return it. */
     public int[] reset() {
 
-            array = original;
-            original = original.clone(); // 保证reset这个方法的正确性，因为original的地址被赋给了array，但在shuffle方法里面被修改了。
+            array = original;  // 浅拷贝
+            original = original.clone(); // 深拷贝 // 保证reset这个方法的正确性，因为original的地址被赋给了array，但在shuffle方法里面被修改了。
                                         // 如果不克隆的话，下次再shuffle的时候岂不是对一个乱序的数组进行操作，reset返回的数组和shuffle返回的数组是一样的乱序
             return array;
     }
@@ -83,7 +84,7 @@ public class Solution {
 
     public static void main(String[] args) {
         int[] nums = new int[]{1,2,3,4};
-        Solution s = new Solution(nums);
+        Solution1 s = new Solution1(nums);
         nums = s.shuffle();
         System.out.println(Arrays.toString(nums));
         nums = s.reset();
