@@ -1,5 +1,6 @@
 package com.剑指offer._997_快速排序;
 import java.util.Arrays;
+import java.util.Random;
 /*
 快速排序
 思路： time: o(n*log(n))  space: o(n*log(n))
@@ -29,8 +30,10 @@ j = nums.length - 1 = 7
 
 • key <= nums[j]  key >= nums[i]  等号不能忘
 */
+
 class Solution {
-    static public void quickSort(int[] nums, int left, int right){
+    static Random random = new Random();
+    static  void quickSort(int[] nums, int left, int right){
         if (left > right) return;
 
         int i = left;
