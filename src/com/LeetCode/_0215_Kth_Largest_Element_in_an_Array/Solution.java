@@ -10,18 +10,26 @@ Output: 5
 Example 2:
 Input: [3,2,3,1,2,4,5,5,6] and k = 4
 Output: 4
- */
+*/
+
+import java.util.Arrays;
 
 /*
-思路1：
+思路1：排序 time:o(n*log(n)) space:o(1)
 
 思路2：
 
  */
 public class Solution {
+    static int findKthLargest1(int[] nums, int k) {
+        Arrays.sort(nums);
+        return nums[nums.length - k];
+    }
+
 
     public static void main(String[] args) {
-
+        int[] nums = new int[]{3,2,1,5,6,4};
+        System.out.println(findKthLargest1(nums, 2));
     }
 
 }
