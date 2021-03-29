@@ -37,6 +37,8 @@ Constraints:
 
 注意：这里的left、mid、right是数值，不是索引位置
 
+参考：
+https://www.cnblogs.com/grandyang/p/5727892.html
 
 ps: 不必保证循环时每一个left或right都在矩阵中，但可以保证当left==right时，right一定在矩阵中，因为第k小的那个数始终在区间[left,right]中，只需要缩小区间的范围即可，当范围缩小到只有一个元素时,第k小的元素就等于right了。
  */
