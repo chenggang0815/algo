@@ -33,6 +33,7 @@ Output: false
 */
 public class Solution {
     static boolean isMatch(String s, String p) {
+        if (s == null || p == null) return false;
 
     }
     public static void main(String[] args) {
