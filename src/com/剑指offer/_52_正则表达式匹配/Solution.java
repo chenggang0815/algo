@@ -14,6 +14,7 @@ package com.剑指offer._52_正则表达式匹配;
 
 
 思路2：动态规划
+参考leetcode 10题
  */
 public class Solution {
 
