@@ -18,6 +18,23 @@ Example 2:
 Input: candidates = [2,3,5], target = 8
 Output: [[2,2,2,2],[2,3,3],[3,5]]
  */
+/*
+回溯 - 解题思路
+1. 递归退出条件：当前list中元素和>=target，如果sum==target，res.add（list）,再return
+2. 需要注意的是，可以重复选取当前的数字，但是解集中又不能有重复解
+   2.1 即下次递归遍历中，index只能从当前数字以及当前数字的右边开始，所以for循环的代码如下：
+           for(int i = index; i < candidates.length; i++){
+            list.add(candidates[i]);
+            backtrack(candidates, target, res, list, i, sum + candidates[i]);
+            list.remove(list.size() - 1);
+        }
+   2.2 以下写法会造成解集中有重复解：
+           for(int i = 0; i < candidates.length; i++){
+            list.add(candidates[i]);
+            backtrack(candidates, target, res, list, i, sum + candidates[i]);
+            list.remove(list.size() - 1);
+        }
+*/
 public class Solution {
 //    static int sum(List<Integer> track){
 //        int sum = 0;
