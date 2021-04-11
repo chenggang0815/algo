@@ -1,4 +1,4 @@
-package com.LeetCode._0078_子集;
+package com.LeetCode._0078_Subsets;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,34 +14,43 @@ Output:
 [ [3], [1], [2], [1,2,3], [1,3], [2,3], [1,2], [] ]
 
 思路一： 回溯
+1. 没有显示的递归停止目标，每次的list都要加入res
+2. 下一次遍历的起点在当前元素的右边，并且不包括当前元素
 
 思路二：
 从前到后（或者从后到前），每次把当前元素加入到现有集合中，作为新增集合
+1. res = [[]]
+2. i = 0 nums[i] = 1
+   res = [[]] + 1 => [[],[1]]
+3. i = 1 nums[i] = 2
+   [[],[1]] + 2 => [[], [1], [2], [1,2]]
+4. i = 2 nums[i] = 3
+   res = [[], [1], [2], [1,2]] + 3 => [[], [1], [2], [1,2], [3], [1,3], [2,3], [1,2,3]]
 
- */
+5. return res;
+*/
 public class Solution {
-     static List<List<Integer>> res = new ArrayList<>();
-
      static List<List<Integer>> subsets1(int[] nums) {
-        helper(nums, 0, new ArrayList<>());
+         List<List<Integer>> res = new ArrayList<>();
+         backtrack(nums, res, 0, new ArrayList<>());
 
-        return res;
+         return res;
     }
 
-    public static void helper(int[] nums, int index,  List<Integer> arr){
+    public static void backtrack(int[] nums, List<List<Integer>> res, int index,  List<Integer> arr){
         res.add(new ArrayList<>(arr));
-
         for (int i = index; i < nums.length; i++){
             arr.add(nums[i]);
-            helper(nums, i + 1, arr);
+            backtrack(nums, res,i + 1, arr);
             arr.remove(arr.size() - 1);
         }
     }
 
-
+    //从前到后（或者从后到前），每次把当前元素加入到现有集合中，作为新增集合
     static List<List<Integer>> subsets2(int[] nums){
-         res.add(new ArrayList<>());
-         for (int i = 0; i < nums.length; i++){
+        List<List<Integer>> res = new ArrayList<>();
+        res.add(new ArrayList<>());
+        for (int i = 0; i < nums.length; i++){
              int n = res.size();
              for (int j = 0; j < n; j++){
                 List<Integer> temp = new ArrayList<>(res.get(j));
@@ -50,7 +59,7 @@ public class Solution {
             }
         }
 
-         return res;
+        return res;
     }
 
 
