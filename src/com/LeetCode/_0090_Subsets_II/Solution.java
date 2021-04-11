@@ -37,7 +37,7 @@ index=1 i=1 2        2'  index=1 i=2
 */
 public class Solution {
 
-    static void backtrack1(int[] nums, List<List<Integer>> res, ArrayList<Integer> list, int[] flag, int index{
+    static void backtrack1(int[] nums, List<List<Integer>> res, ArrayList<Integer> list, int[] flag, int index){
         res.add(new ArrayList<>(list));
 
         for(int i = index; i < nums.length; i++){
@@ -65,7 +65,7 @@ public class Solution {
     static List<List<Integer>> subsetsWithDup(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums);
-        backtrack1(res, nums, 0, new ArrayList<>());
+        backtrack2(res, nums, 0, new ArrayList<>());
 
         return res;
     }
