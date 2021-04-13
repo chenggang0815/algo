@@ -1,6 +1,9 @@
 package com.LeetCode._0022_Generate_Parentheses;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
+
 /*
 22. Generate Parentheses
 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
@@ -34,7 +37,20 @@ https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by
 思路3：dfs + 剪枝 + 做加法
 
 思路4：bfs => 创建结点对象，使用队列完成广度优先遍历
-
+    4.1 因为queue中的元素，需要同时带着当前的字符以及左右括号剩余数量这三个状态，所以需要自己编写一个结点类。
+    4.2 类的每个实例带着这三个元素的状态
+以n=2为，模拟bfs的过程：
+    初始化q=[""]
+    while(queue.isEmpty())
+        1 ""出队列 => q=[["(",l=1,r=2]]
+        2 ["(",l=1,r=2]出队列 => q=[["((",l=0,r=2], ["()",l=1,r=1]]
+        3 ["((",l=0,r=2]出队列 => q=[["()",l=1,r=1], ["(()",l=0,r=1]]
+        4 ["()",l=1,r=1]出队列 => q=[["(()",l=0,r=1], ["()(",l=0,r=1]]
+        5 ["(()",l=0,r=1] => q=[["()(",l=0,r=1], ["(())",l=0,r=0]]
+        6 ["()(",l=0,r=1] => q=[["(())",l=0,r=0], ["()()",l=0,r=0]]
+        7 queue.poll()
+        8 queue.poll()
+        9 return
  */
 public class Solution {
     // 思路2 dfs + 剪枝 + 做减法
@@ -70,6 +86,7 @@ public class Solution {
         dfs2(res, n, "", 0, 0);
         return res;
     }
+
     static void dfs2(List<String> res, int n, String s, int left, int right){
         if (left == n && right == n){
             res.add(s);
@@ -85,7 +102,43 @@ public class Solution {
         }
     }
 
+    //思路4 bfs
+    static class Node{
+        private String res;
+        private int left; // 剩余左括号数量
+        private int right; // 剩余右括号数量
+        public Node(String str, int left, int right){
+            this.res = str;
+            this.left = left;
+            this.right = right;
+        }
+    }
+
+    static List<String> generateParenthesis3(int n){
+        List<String> res = new ArrayList<>();
+        if (n == 0) return res;
+
+        Queue<Node> queue = new LinkedList<>();
+        queue.offer(new Node("", n, n));
+
+        while (!queue.isEmpty()){
+
+            Node curNode = queue.poll();
+            if (curNode.left == 0 && curNode.right == 0){
+                res.add(curNode.res);
+            }
+            if (curNode.left > 0){
+                queue.offer(new Node(curNode.res + "(", curNode.left - 1, curNode.right));
+            }
+            if (curNode.right >0 && curNode.left < curNode.right){
+                queue.offer(new Node(curNode.res + ")", curNode.left, curNode.right - 1));
+            }
+        }
+
+        return res;
+    }
+
     public static void main(String[] args) {
-        System.out.println(generateParenthesis2(2));
+        System.out.println(generateParenthesis3(2));
     }
 }
