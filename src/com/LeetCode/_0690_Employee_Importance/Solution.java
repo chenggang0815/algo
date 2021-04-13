@@ -1,4 +1,4 @@
-package com.LeetCode._0690_员工的重要性;
+package com.LeetCode._0690_Employee_Importance;
 /*
 690. 员工的重要性
 
@@ -26,6 +26,18 @@ import java.util.*;
 
 /*
 思路1： dfs深度优先遍历  time:o(N) space:o(N) N=员工个数
+[[1,5,[2,3]],[2,3,[4]],[3,4,[]],[4,1,[]]]
+1
+画出递归搜索树
+         1(5)
+       /  \
+    2(3)   3(4)
+            \
+            4(1)
+
+    1.1 由上图可以看出，只需要不停遍历搜索树，并且把当前遍历到的结点的重要性累加到res中
+    1.2 递归终止条件：当前结点没有子结点了
+    1.3 不需要把1.1的条件想复杂了，否则会多加或者少加结点
 
 思路2： bfs广度优先遍历 利用queue
  */
@@ -33,11 +45,11 @@ public class Solution {
     static class Employee{
         int id;
         int importance;
-        List<Integer> subId;
-        Employee(int id, int importance, List<Integer> subId){
+        List<Integer> subordinates;
+        Employee(int id, int importance, List<Integer> subordinates){
             this.id = id;
             this.importance = importance;
-            this.subId = subId;
+            this.subordinates = subordinates;
         }
     }
 
@@ -68,7 +80,37 @@ public class Solution {
         return importance;
     }
 */
-    static int getImportance(List<Employee> employees, int id){
+    // 思路1 dfs + 使用全局变量res
+    static int res = 0;
+    static int getImportance2(List<Employee> employees, int id){
+        HashMap<Integer, Employee> map = new HashMap<>();
+        for(Employee employee: employees){
+            map.put(employee.id, employee);
+        }
+
+        //  if(map.get(id).subordinates.size() == 0) return map.get(id).importance;
+
+        dfs(map, id);
+
+        return res;
+    }
+
+    static void dfs(HashMap<Integer, Employee> map, int id){
+        Employee employee = map.get(id);
+        //  if(employee.subordinates.size() == 0){
+        //       res += employee.importance;
+        //       return;
+        //   }
+        res += map.get(id).importance;
+        List<Integer> sub = employee.subordinates;
+        for(int index: sub){
+            // res += map.get(id).importance;
+            dfs(map, index);
+        }
+    }
+
+        // 思路2 bfs
+    static int getImportance3(List<Employee> employees, int id){
         HashMap<Integer, Employee> map = new HashMap<>();
         for(int i = 0; i < employees.size(); i++){
             map.put(employees.get(i).id, employees.get(i));
@@ -80,9 +122,9 @@ public class Solution {
         while (!queue.isEmpty()){
             int tempId = queue.poll();
             res += map.get(tempId).importance;
-            if (map.get(tempId).subId.size() != 0){
-                for (int i = 0; i < map.get(tempId).subId.size(); i++){
-                    queue.offer(map.get(tempId).subId.get(i));
+            if (map.get(tempId).subordinates.size() != 0){
+                for (int i = 0; i < map.get(tempId).subordinates.size(); i++){
+                    queue.offer(map.get(tempId).subordinates.get(i));
                 }
             }
         }
@@ -108,7 +150,7 @@ public class Solution {
         Employees.add(e2);
         Employees.add(e3);
         Employees.add(e4);
-        System.out.println(getImportance(Employees, 1));
+        System.out.println(getImportance3(Employees, 1));
 
     }
 }
