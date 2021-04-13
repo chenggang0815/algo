@@ -18,7 +18,7 @@ https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by
 
 思路1：暴力法
 思路2：dfs + 剪枝 + 做减法 => 由于字符串的特殊性，产生一次拼接都生成新的对象，因此无需回溯
-                        => 如果用stringbuilder呢？
+                        => 如果使用StringBuilder呢？ => 回溯
     2.1 做减法 left和right分别表示左右括号剩余的数量
             "" n=2 left=right=2
            /  \
@@ -51,6 +51,10 @@ https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by
         7 queue.poll()
         8 queue.poll()
         9 return
+
+思路5：回溯 => 使用StringBuilder
+1. 使用sb需要回溯，因为搜索过程中使用一份状态变量sb去搜索所有可能的状态
+2. 在递归终止的时候需要拷贝变量
  */
 public class Solution {
     // 思路2 dfs + 剪枝 + 做减法
@@ -138,7 +142,34 @@ public class Solution {
         return res;
     }
 
+    //回溯
+    static List<String> generateParenthesis4(int n){
+        List<String> res = new ArrayList<>();
+        if (n == 0) return res; // 边界条件
+        StringBuilder sb = new StringBuilder();
+        dfs3(res, sb, n, n);
+        return res;
+    }
+
+    static void dfs3(List<String> res, StringBuilder sb, int left, int right){
+        if (left == 0 && right == 0){
+            //path.toString() 生成了一个新的字符串，相当于做了一次拷贝，这里的做法等同于「力扣」第 46 题、第 39 题
+            res.add(sb.toString());
+        }
+
+        if (left > right) return;
+        if (left > 0){
+            dfs3(res, sb.append("("), left - 1, right);
+            sb.deleteCharAt(sb.length() - 1); //sb对象需要回溯
+        }
+
+        if (right > 0){
+            dfs3(res, sb.append(")"), left, right - 1);
+            sb.deleteCharAt(sb.length() - 1);//sb对象需要回溯
+        }
+    }
+
     public static void main(String[] args) {
-        System.out.println(generateParenthesis3(2));
+        System.out.println(generateParenthesis4(2));
     }
 }
