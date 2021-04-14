@@ -40,7 +40,11 @@ import java.util.*;
     1.3 不需要把1.1的条件想复杂了，否则会多加或者少加结点
 
 思路2： bfs广度优先遍历 利用queue
- */
+2.1 因为queue中的元素，需要同时带着当前的重要性，以及它的下属员工信息，所以需要一个节点类带着这些信息，不过题目中已经定义好结点类了，可以直接使用。
+2.2 把头个员工的节点放入queue中，按照dfs的思路，累加当前的重要性到res中
+    2.2.1 如果当前员工存在下属，把它的下属员工节点加入queue中。
+2.3 遍历queue直到queue为空，return res
+*/
 public class Solution {
     static class Employee{
         int id;
@@ -112,19 +116,20 @@ public class Solution {
         // 思路2 bfs
     static int getImportance3(List<Employee> employees, int id){
         HashMap<Integer, Employee> map = new HashMap<>();
-        for(int i = 0; i < employees.size(); i++){
-            map.put(employees.get(i).id, employees.get(i));
+        for(Employee employee: employees){
+            map.put(employee.id, employee);
         }
 
-        Queue<Integer> queue = new LinkedList<>();
-        queue.offer(id);
+        Queue<Employee> queue = new LinkedList<>();
+        Employee employee = map.get(id);
+        queue.offer(employee);
         int res = 0;
         while (!queue.isEmpty()){
-            int tempId = queue.poll();
-            res += map.get(tempId).importance;
-            if (map.get(tempId).subordinates.size() != 0){
-                for (int i = 0; i < map.get(tempId).subordinates.size(); i++){
-                    queue.offer(map.get(tempId).subordinates.get(i));
+            Employee node = queue.poll();
+            res += node.importance;
+            if (node.subordinates.size() != 0){
+                for(int i: node.subordinates){
+                    queue.offer(map.get(i));
                 }
             }
         }
