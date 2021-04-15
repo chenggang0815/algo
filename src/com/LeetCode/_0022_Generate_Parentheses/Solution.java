@@ -13,7 +13,6 @@ Output: ["((()))","(()())","(())()","()(())","()()()"]
 Example 2:
 Input: n = 1
 Output: ["()"]
-
 https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by-liweiwei1419/
 
 思路1：暴力法
