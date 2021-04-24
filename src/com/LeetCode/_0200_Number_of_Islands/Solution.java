@@ -28,7 +28,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /*
-1. dfs
+1. dfs - 不改变原始数组grid
 因为本题直接dfs遍历寻找符合条件的解比较困难，所以需要对每个可能符合条件的岛屿进行dfs遍历，把当前岛屿内的1都标记，只需要计算有多少次dfs遍历就行了
 
 不改变原始数组grid，每次遍历修改flag[i][j] time：o(m*n) space:o(m*n)
@@ -36,7 +36,7 @@ import java.util.Queue;
 1.2 最终岛屿的数量就是我们进行深度优先搜索的次数
 
 
-2. dfs 改变原始数组grid，每次遍历直接修改grid  time：o(m*n) space:o(m*n)
+2. dfs - 改变原始数组grid，每次遍历直接修改grid  time：o(m*n) space:o(m*n)
 
 3. bfs
  */
