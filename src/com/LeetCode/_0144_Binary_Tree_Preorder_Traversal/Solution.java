@@ -1,7 +1,6 @@
 package com.LeetCode._0144_Binary_Tree_Preorder_Traversal;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -24,7 +23,9 @@ public class Solution {
         }
     }
 
-
+/*
+解法1
+*/
     static List<Integer> preorderTraversal(TreeNode root){
         List<Integer> res = new ArrayList<>();
         dfs(root, res);
@@ -38,6 +39,7 @@ public class Solution {
             dfs(root.right, res);
         }
     }
+
 /*
     1
    / \
@@ -46,10 +48,23 @@ public class Solution {
 5  7
 
 1->2->5->7->4
+
+解法2
  */
     static List<Integer> preorderTraversal2(TreeNode root){
+        List<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+
         Stack<TreeNode> stack = new Stack<>();
-        
+        stack.push(root);
+        while (!stack.isEmpty()){
+            TreeNode node = stack.pop();
+            res.add(node.val);
+            if (node.left != null) stack.push(node.left);
+            if (node.right != null) stack.push(node.right);
+        }
+
+        return res;
     }
 
     public static void main(String[] args) {
@@ -59,7 +74,7 @@ public class Solution {
         root.right = node1;
         node1.left = node2;
 
-        System.out.println(preorderTraversal(root));
+        System.out.println(preorderTraversal2(root));
 
     }
 }
