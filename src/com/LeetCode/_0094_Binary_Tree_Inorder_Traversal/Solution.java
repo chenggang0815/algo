@@ -2,11 +2,17 @@ package com.LeetCode._0094_Binary_Tree_Inorder_Traversal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
-
 /*
-二叉树的中序遍历
+94. Binary Tree Inorder Traversal
+Given the root of a binary tree, return the inorder traversal of its nodes' values.
+
 1. 递归
 2. 非递归(迭代)
+I use pushAllLeft() to push all the left children of one Node into the stack, so that my idea looks clear:
+    2.1 We push all the left children of root into the stack until there's no more nodes.
+    2.2 Then we pop from the stack which we'd call cur.
+    2.3 Add cur to result list
+    2.4 Recursively call pushAllLeft() on cur's right child.
  */
 public class Solution {
     static class TreeNode{
@@ -20,8 +26,16 @@ public class Solution {
     /*
     从根结点开始，先往栈里面压入左结点，直到叶子结点。
     再把叶子结点出栈，把叶子结点的右节点作为根结点再次遍历
+        1
+       / \
+      2  3
+      \
+       5
+
+    left -> root -> right
+    2->5->1->3
      */
-    static List<Integer> midOrder(TreeNode root){
+    static List<Integer> inorderTraversal(TreeNode root){
         if (root == null) return new ArrayList<>();
 
         List<Integer> res = new ArrayList<>();
@@ -52,7 +66,7 @@ public class Solution {
         node1.left = node3;
         node1.right = node4;
         //4 -> 2 -> 5 -> 1 -> 3
-        System.out.println(midOrder(root));
+        System.out.println(inorderTraversal(root));
     }
 }
 
