@@ -1,4 +1,4 @@
 *.iml
-.idea
-.git
-/out
+*.idea
+*.git
+out/
