@@ -1,15 +1,16 @@
-package com.LeetCode._0206_反转单链表;
+package com.LeetCode._0206_Reverse_Linked_List;
 /*
 206 Reverse Linked List 反转单链表
 Reverse a singly linked list.
 Example:
 Input: 1->2->3->4->5->NULL
 Output: 5->4->3->2->1->NULL
-
 思路:
-1. 指针法
+1. 三指针法
 2. 递归
- */
+
+92. Reverse Linked List II
+*/
 public class Solution {
     static class ListNode{
         int val;
@@ -40,8 +41,23 @@ public class Solution {
         }
     }
 
+/*
+三指针
+  null  1 -> 2 -> 3 -> 4
+  pre  cur  next
+  pre = null
+  cur = head
+  next = cur.next
+  cur.next = pre
+  pre = cur
+  cur = next
+  null <- 1    2 -> 3 -> 4
+          pre cur  next
+  null <- 1 <- 2  3 -> 4
+              pre cur next
 
-    // 定义一个函数，输入一个链表的头结点，反转该链表并输出反转后链表的头结点。
+*/
+
     public static ListNode reverseList2(ListNode head){
         ListNode cur = head;
         ListNode pre = null;
