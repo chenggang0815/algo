@@ -25,23 +25,58 @@ public class Solution {
         ListNode cur = head;
         ListNode l = null;
         ListNode r = null;
-        int n = 0;
+        ListNode node_l = null;
+        ListNode node_r = null;
+
+        int n = 1;
         while (cur != null){
-            if (left == n) l = cur;
-            if (right == n) r = cur;
+            if (n == left - 1) l = cur;
+            if (n == left) node_l = cur;
+            if (n == right) node_r = cur;
+            if (n == right + 1) r = cur;
+
             cur = cur.next;
+            n++;
         }
 
-        cur = head;
-        while (cur != null){
-            if (cur.next == l){
-                cur.next = r;
-            }
+        if (node_l == null){
+            return head;
         }
 
+//        System.out.println(l.val);
+//        System.out.println(node_l.val);
+//        System.out.println(r.val);
+//        System.out.println(node_r.val);
+
+        ListNode pre = node_l;
+        cur = node_l.next;
+        while (cur != r){
+            ListNode next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
+        }
+
+        if (l != null) l.next = node_r;
+        node_l.next = r;
+
+        return head;
     }
 
     public static void main(String[] args) {
-
+        ListNode head = new ListNode(1);
+        ListNode node1 = new ListNode(2);
+        ListNode node2 = new ListNode(3);
+        ListNode node3 = new ListNode(4);
+        ListNode node4 = new ListNode(5);
+        head.next = node1;
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        head = reverseBetween(head, 2, 4);
+        while (head != null){
+            System.out.println(head.val);
+            head = head.next;
+        }
     }
 }
