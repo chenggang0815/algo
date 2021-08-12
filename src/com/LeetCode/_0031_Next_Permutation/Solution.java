@@ -1,4 +1,4 @@
-package com.LeetCode._0031_下一个排列;
+package com.LeetCode._0031_Next_Permutation;
 /*
 31. 下一个排列
 
