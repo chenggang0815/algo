@@ -1,4 +1,4 @@
-package com.LeetCode._0007_整数反转;
+package com.LeetCode._0007_Reverse_Integer;
 /*
 7. Reverse Integer Easy
 Given a 32-bit signed integer, reverse digits of an integer.
