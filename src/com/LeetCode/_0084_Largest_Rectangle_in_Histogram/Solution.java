@@ -42,7 +42,7 @@ public class Solution {
         System.out.println(largestRectangleArea(heights));
         Deque<Integer> stack = new ArrayDeque<>();
         stack.addLast(3);
-        
+
         stack.addLast(2);
         stack.addLast(1);
         System.out.println(stack.peekLast());

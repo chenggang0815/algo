@@ -1,4 +1,4 @@
-package com.LeetCode._0001_两数之和;
+package com.LeetCode._0001_Two_Sum;
 import java.util.HashMap;
 import java.util.Arrays;
 /*
