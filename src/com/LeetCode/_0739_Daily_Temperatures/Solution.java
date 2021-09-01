@@ -23,13 +23,13 @@ Each temperature will be an integer in the range [30, 100].
 思路2 单调栈 time:o(n) space:o(n)
 
 如果需要找到左边或者右边第一个比当前位置的数大或者小，则可以考虑使用单调栈
-
 0. 栈里寸每个元素的index
 1. 保证栈里的元素，从栈底到栈顶是依次减小的，
     1.1 如果当前元素比栈顶元素大，则当前元素是第一个大于栈顶元素的，栈顶元素出栈，当前元素继续和栈顶元素比较大小，直到当前元素不大于栈顶元素或者栈为空
 2. 当前元素进栈
 3. 遍历完数组，栈里剩下的元素都是没有找到比它更大的了
 
+参考496题
  */
 public class Solution {
     static int[] dailyTemperatures1(int[] T) {
