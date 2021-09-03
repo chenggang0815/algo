@@ -67,19 +67,9 @@ public class Solution {
         return res;
     }
 
-
-
         public static void main(String[] args) {
-        int[] heights = new int[]{2,1,5,6,2,3};
+        //int[] heights = new int[]{2,1,5,6,2,3};
+            int[] heights = new int[]{3, 1, 3, 2, 2};
         System.out.println(largestRectangleArea2(heights));
-        Deque<Integer> stack = new ArrayDeque<>();
-        stack.addLast(3);
-
-        stack.addLast(2);
-        stack.addLast(1);
-        System.out.println(stack.peekLast());
-        System.out.println(stack.pollLast());
-        System.out.println(stack.peekLast());
-
     }
 }
