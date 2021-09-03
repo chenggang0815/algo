@@ -56,6 +56,7 @@ public class Solution {
             }
             stack.push(num);
         }
+        System.out.println(map);
 
         int[] res = new int[nums1.length];
         for (int i = 0; i < nums1.length; i++){
