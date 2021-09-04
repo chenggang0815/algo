@@ -61,11 +61,11 @@ public class Solution {
         List<String> res = new ArrayList<>();
         if (n == 0) return res; // 边界条件
 
-        dfs1(res, n, "", n, n);
+        dfs1(res,"", n, n);
         return res;
     }
 
-    static void dfs1(List<String> res, int n, String s, int left, int right){
+    static void dfs1(List<String> res, String s, int left, int right){
         if (left == 0 && right == 0){
             res.add(s);
             return;
@@ -73,12 +73,8 @@ public class Solution {
         // 剪枝
         if (left > right) return;
 
-        if (left > 0){
-            dfs1(res, n, s + "(", left - 1, right);
-        }
-        if (right > 0){
-            dfs1(res, n, s + ")", left, right - 1);
-        }
+        if (left > 0) dfs1(res,s + "(", left - 1, right);
+        if (right > 0) dfs1(res,s + ")", left, right - 1);
     }
 
     //思路3 dfs + 剪枝 + 做加法
