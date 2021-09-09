@@ -62,6 +62,36 @@ public class Solution {
 
         return -1;
     }
+/*
+          7
+         / \
+        3   8
+       / \
+      2   5
+         / \
+        4   6
+ */
+
+    static int findKSmallElement(TreeNode root, int k){
+        Stack<TreeNode> stack = new Stack<>();
+        while (root != null){
+            stack.push(root);
+            root = root.left;
+        }
+
+        while (!stack.isEmpty()){
+            TreeNode node = stack.pop();
+            k--;
+            if (k == 0) return node.val;
+            TreeNode right = node.right;
+            while (right != null){
+                stack.push(right);
+                right = right.left;
+            }
+        }
+
+        return -1;
+    }
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(5);
@@ -75,7 +105,7 @@ public class Solution {
         node1.left = node3;
         node1.right = node4;
         node3.left = node5;
-        System.out.println(kthSmallest2(root, 3));
+        System.out.println(findKSmallElement(root, 3));
     }
 
 }
