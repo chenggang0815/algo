@@ -1,7 +1,7 @@
-package com.Amazon._1192_Critical_Connections_in_a_Network;
+package com.Amazon._0146_LRU_Cache;
 
 public class Solution {
-
     public static void main(String[] args) {
+
     }
 }

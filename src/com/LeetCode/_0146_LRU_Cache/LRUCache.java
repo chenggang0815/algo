@@ -5,7 +5,6 @@ package com.LeetCode._0146_LRU_Cache;
 Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.
 
 Implement the LRUCache class:
-
 1. LRUCache(int capacity) Initialize the LRU cache with positive size capacity.
 2. int get(int key) Return the value of the key if the key exists, otherwise return -1.
 3. void put(int key, int value) Update the value of the key if the key exists. Otherwise, add the key-value pair to the cache. If the number of keys exceeds the capacity from this operation, evict the least recently used key.
@@ -18,7 +17,6 @@ Could you do get and put in O(1) time complexity?
 1. 由于题目要求get和put的时间复杂度为O(1)，空间肯定不能省，存取数据时间性能最好的就是哈希表，因此底层的数据结构一定是一个哈希表；
 2. 根据题目意思，访问某个数据，时间优先级得提前，还有删除末尾结点的需求，这样的数据结构得在头尾访问数据最快，这种数据结构是「双向链表」；
 3. 「链表」结点需要记录：1、value，2、key（在哈希表里删除的时候用得上），3、前驱结点引用，4、后继结点引用。
-
 */
 
 import java.util.HashMap;
