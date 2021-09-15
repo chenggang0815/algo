@@ -27,7 +27,13 @@ public class Solution {
             int len1 = helper(s, i, i);
             int len2 = helper(s, i, i + 1);
             int len = Math.max(len1, len2);
-            if (len > end - start) {
+            if (len > end - start + 1) {
+                //   c a b a c
+                //   l   i   r  len = r - left + 1 - 2
+                //   0 1 2 3 4
+                //   len = 4 - 0 - 1 = 3
+                //   start = 1 => i -  (len - 1) / 2 = 2-1
+                //   end = 3 => i + len / 2 = 2 + 1
                 start = i - (len - 1) / 2;
                 end = i + len / 2;
             }
@@ -41,6 +47,9 @@ public class Solution {
             left--;
             right++;
         }
+        // d a b a e
+        // 0 1 2 3 4
+        // l       r =>  len = right - left + 1 - 2 = right - left - 1
         return right - left - 1; // 回文串的长度是right-left+1-2 = right-left-1
     }
 
