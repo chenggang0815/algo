@@ -1,4 +1,4 @@
-package 剑指offer._49_把字符串转换成整数;
+package 剑指Offer._49_把字符串转换成整数;
 
 import java.util.ArrayList;
 import java.util.Arrays;

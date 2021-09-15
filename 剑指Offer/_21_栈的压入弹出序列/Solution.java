@@ -1,4 +1,4 @@
-package 剑指offer._21_栈的压入弹出序列;
+package 剑指Offer._21_栈的压入弹出序列;
 
 import java.util.Stack;
 

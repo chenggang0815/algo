@@ -1,4 +1,4 @@
-package 剑指offer._02_替换空格;
+package 剑指Offer._02_替换空格;
 /*
 替换空格
 

@@ -1,4 +1,4 @@
-package 剑指offer._993_判断链表是否有环;
+package 剑指Offer._993_判断链表是否有环;
 import java.util.HashMap;
 //判断链表是否有环（循环遍历，hash map，快慢指针）
 

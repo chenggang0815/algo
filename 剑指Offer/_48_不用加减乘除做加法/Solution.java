@@ -1,4 +1,4 @@
-package 剑指offer._48_不用加减乘除做加法;
+package 剑指Offer._48_不用加减乘除做加法;
 /*
 不用加减乘除做加法
 leetcode 371. Sum of Two Integers

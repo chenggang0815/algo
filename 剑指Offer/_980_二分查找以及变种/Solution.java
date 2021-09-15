@@ -1,4 +1,4 @@
-package 剑指offer._980_二分查找以及变种;
+package 剑指Offer._980_二分查找以及变种;
 import java.lang.*;
 //二分查找以及变种
 

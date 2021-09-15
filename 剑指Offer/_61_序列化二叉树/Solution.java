@@ -1,4 +1,4 @@
-package 剑指offer._61_序列化二叉树;
+package 剑指Offer._61_序列化二叉树;
 
 import java.util.Arrays;
 

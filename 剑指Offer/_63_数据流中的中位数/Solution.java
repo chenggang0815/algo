@@ -1,4 +1,4 @@
-package 剑指offer._63_数据流中的中位数;
+package 剑指Offer._63_数据流中的中位数;
 
 import java.util.PriorityQueue;
 

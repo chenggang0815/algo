@@ -1,4 +1,4 @@
-package 剑指offer._67_剪绳子;
+package 剑指Offer._67_剪绳子;
 /*
 剪绳子
 

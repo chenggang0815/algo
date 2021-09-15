@@ -1,4 +1,4 @@
-package 剑指offer._981_循环有序数组的二分查找;
+package 剑指Offer._981_循环有序数组的二分查找;
 import java.lang.*;
 //循环有序数组的二分查找 leetcode33
 

@@ -1,4 +1,4 @@
-package 剑指offer._999_归并排序;
+package 剑指Offer._999_归并排序;
 
 import java.util.Arrays;
 

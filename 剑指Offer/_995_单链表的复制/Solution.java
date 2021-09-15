@@ -1,4 +1,4 @@
-package 剑指offer._995_单链表的复制;
+package 剑指Offer._995_单链表的复制;
 // 单链表的复制
 public  class Solution {
 //

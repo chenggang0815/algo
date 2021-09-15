@@ -1,4 +1,4 @@
-package 剑指offer._33_丑数;
+package 剑指Offer._33_丑数;
 /*
 丑数
 

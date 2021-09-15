@@ -1,4 +1,4 @@
-package 剑指offer._42_和为S的两个数字;
+package 剑指Offer._42_和为S的两个数字;
 /*
 
 和为S的两个数字

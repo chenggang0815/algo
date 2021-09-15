@@ -1,4 +1,4 @@
-package 剑指offer._41_和为S的连续正数序列;
+package 剑指Offer._41_和为S的连续正数序列;
 import java.util.ArrayList;
 
 /*

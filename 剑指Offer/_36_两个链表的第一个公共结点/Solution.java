@@ -1,4 +1,4 @@
-package 剑指offer._36_两个链表的第一个公共结点;
+package 剑指Offer._36_两个链表的第一个公共结点;
 import java.util.HashMap;
 //输入两个链表，找出它们的第一个公共结点。
 

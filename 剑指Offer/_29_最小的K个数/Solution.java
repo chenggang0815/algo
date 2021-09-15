@@ -1,4 +1,4 @@
-package 剑指offer._29_最小的K个数;
+package 剑指Offer._29_最小的K个数;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Queue;

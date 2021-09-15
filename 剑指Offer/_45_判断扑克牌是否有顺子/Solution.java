@@ -1,4 +1,4 @@
-package 剑指offer._45_判断扑克牌是否有顺子;
+package 剑指Offer._45_判断扑克牌是否有顺子;
 
 import java.util.HashMap;
 

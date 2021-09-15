@@ -1,4 +1,4 @@
-package 剑指offer._59_按之字形顺序打印二叉树;
+package 剑指Offer._59_按之字形顺序打印二叉树;
 import java.util.*;
 /*
 按之字形顺序打印二叉树

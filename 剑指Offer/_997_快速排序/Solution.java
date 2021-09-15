@@ -1,4 +1,4 @@
-package 剑指offer._997_快速排序;
+package 剑指Offer._997_快速排序;
 import java.util.Arrays;
 import java.util.Random;
 /*

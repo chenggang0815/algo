@@ -1,4 +1,4 @@
-package 剑指offer._16_合并两个排序的链表;
+package 剑指Offer._16_合并两个排序的链表;
 //合并两个有序的单链表
 
 public class Solution {

@@ -1,4 +1,4 @@
-package 剑指offer._28_数组中出现次数超过一半的数字;
+package 剑指Offer._28_数组中出现次数超过一半的数字;
 
 import java.util.HashMap;
 

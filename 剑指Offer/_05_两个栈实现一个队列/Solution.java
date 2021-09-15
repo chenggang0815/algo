@@ -1,4 +1,4 @@
-package 剑指offer._05_两个栈实现一个队列;
+package 剑指Offer._05_两个栈实现一个队列;
 import java.util.Stack;
 // 用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。
 

@@ -1,4 +1,4 @@
-package 剑指offer._62_二叉搜索树的第k个结点;
+package 剑指Offer._62_二叉搜索树的第k个结点;
 
 import java.util.Stack;
 

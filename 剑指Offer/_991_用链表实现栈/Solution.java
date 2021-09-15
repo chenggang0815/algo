@@ -1,4 +1,4 @@
-package 剑指offer._991_用链表实现栈;
+package 剑指Offer._991_用链表实现栈;
 // 用链表实现栈
 
 public class Solution {

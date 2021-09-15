@@ -1,4 +1,4 @@
-package 剑指offer._30_连续子数组的最大和;
+package 剑指Offer._30_连续子数组的最大和;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package 剑指offer._40_数组中只出现一次的数字;
+package 剑指Offer._40_数组中只出现一次的数字;
 
 import java.util.HashMap;
 

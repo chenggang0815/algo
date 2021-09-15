@@ -1,4 +1,4 @@
-package 剑指offer._39_平衡二叉树;
+package 剑指Offer._39_平衡二叉树;
 
 import java.util.LinkedList;
 import java.util.Queue;

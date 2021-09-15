@@ -1,4 +1,4 @@
-package 剑指offer._51_构建乘积数组;
+package 剑指Offer._51_构建乘积数组;
 
 public class Solution {
 

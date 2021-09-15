@@ -1,4 +1,4 @@
-package 剑指offer._55_链表中环的入口结点;
+package 剑指Offer._55_链表中环的入口结点;
 import java.util.HashMap;
 //给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。
 

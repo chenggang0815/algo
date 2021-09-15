@@ -1,4 +1,4 @@
-package 剑指offer._34_第一个只出现一次的字符;
+package 剑指Offer._34_第一个只出现一次的字符;
 
 import java.util.HashMap;
 

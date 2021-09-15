@@ -1,4 +1,4 @@
-package 剑指offer._14_链表中倒数第k个结点;
+package 剑指Offer._14_链表中倒数第k个结点;
 //链表的基本操作（打印链表；在指定位置增加/删除；查找倒数第K个结点（遍历一次/两次））。
 
 public class Solution {

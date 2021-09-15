@@ -1,6 +1,5 @@
-package 剑指offer._50_数组中重复的数字;
+package 剑指Offer._50_数组中重复的数字;
 
-import java.util.Arrays;
 import java.util.HashSet;
 
 /*

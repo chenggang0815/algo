@@ -1,4 +1,4 @@
-package 剑指offer._35_数组中的逆序对;
+package 剑指Offer._35_数组中的逆序对;
 /*
 数组中的逆序对
 

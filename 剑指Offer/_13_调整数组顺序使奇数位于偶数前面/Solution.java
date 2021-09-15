@@ -1,4 +1,4 @@
-package 剑指offer._13_调整数组顺序使奇数位于偶数前面;
+package 剑指Offer._13_调整数组顺序使奇数位于偶数前面;
 
 import java.util.ArrayList;
 import java.util.Arrays;

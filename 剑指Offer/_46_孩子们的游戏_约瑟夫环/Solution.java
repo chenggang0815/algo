@@ -1,4 +1,4 @@
-package 剑指offer._46_孩子们的游戏_约瑟夫环;
+package 剑指Offer._46_孩子们的游戏_约瑟夫环;
 
 import java.util.ArrayList;
 

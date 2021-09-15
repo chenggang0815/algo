@@ -1,4 +1,4 @@
-package 剑指offer._985_查找二叉树的查找前继后继结点;
+package 剑指Offer._985_查找二叉树的查找前继后继结点;
 // 查找二叉树的查找前继，后继结点
 
 public class Solution {

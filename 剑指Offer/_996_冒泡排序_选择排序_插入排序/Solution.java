@@ -1,4 +1,4 @@
-package 剑指offer._996_冒泡排序_选择排序_插入排序;
+package 剑指Offer._996_冒泡排序_选择排序_插入排序;
 
 //冒泡排序，选择排序，插入排序。
 public class Solution {

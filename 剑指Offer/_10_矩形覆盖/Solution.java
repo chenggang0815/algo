@@ -1,4 +1,4 @@
-package 剑指offer._10_矩形覆盖;
+package 剑指Offer._10_矩形覆盖;
 /*
 矩形覆盖
 

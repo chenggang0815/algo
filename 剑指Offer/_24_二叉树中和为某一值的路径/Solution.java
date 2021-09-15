@@ -1,4 +1,4 @@
-package 剑指offer._24_二叉树中和为某一值的路径;
+package 剑指Offer._24_二叉树中和为某一值的路径;
 
 import java.util.ArrayList;
 
