@@ -1,4 +1,4 @@
-package com.Amazon._0146_LRU_Cache;
+package com.Amazon._00146_LRU_Cache;
 
 import java.util.HashMap;
 
@@ -17,15 +17,21 @@ public class LRUCache {
         Node tail = new Node(0, 0);
         int size = 0;
 
-
         DoubleList(){
+            // head -> tail
+            // head <- tail
             head.pre = tail;
+            head.next = tail;
             tail.next = head;
+            tail.pre = head;
         }
 
         //head -> headNext -> node2 -> tail
         void remove(Node node){
-
+             Node preNode = node.pre;
+             Node nextNode = node.next;
+             preNode.next = nextNode;
+             nextNode.pre = preNode;
         }
 
         //head -> headNext -> node2 -> tail
@@ -43,8 +49,6 @@ public class LRUCache {
         }
     }
 
-
-
     private int capacity;
     HashMap<Integer, Node> map;
     DoubleList cache;
@@ -58,24 +62,34 @@ public class LRUCache {
         if (!map.containsKey(k)) return -1;
         cache.remove(map.get(k));
         cache.addFirst(map.get(k));
-
         return map.get(k).value;
     }
 
     void put(int key, int value){
         Node node = new Node(key, value);
-        if (capacity == cache.size()){
-            Node tail = cache.tail.pre;
-            cache.remove(tail);
+        if (map.containsKey(key)){
+            cache.remove(map.get(key));
             cache.addFirst(node);
-            map.remove(tail.key);
-            map.put(key, node);
-        }else {
-            cache.addFirst(node);
-            map.put(key, node);
+            cache.size++;
         }
+        else{
+            if (capacity == cache.size){
+                Node tail = cache.tail.pre;
+                cache.remove(tail);
+                map.remove(tail.key);
+            }
+            cache.addFirst(node);
+        }
+        map.put(key, node);
     }
-    public static void main(String[] args) {
 
+
+    public static void main(String[] args) {
+        LRUCache lRUCache = new LRUCache(1);
+        lRUCache.put(2, 1);
+        System.out.println(lRUCache.get(2));
+        lRUCache.put(3, 2);
+        System.out.println(lRUCache.get(2));
+        System.out.println(lRUCache.get(3));
     }
 }
