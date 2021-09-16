@@ -15,14 +15,12 @@ public class LRUCache {
     class DoubleList{
         Node head = new Node(0, 0);
         Node tail = new Node(0, 0);
-        int size = 0;
+        int size;
 
         DoubleList(){
             // head -> tail
             // head <- tail
-            head.pre = tail;
             head.next = tail;
-            tail.next = head;
             tail.pre = head;
         }
 
@@ -32,6 +30,7 @@ public class LRUCache {
              Node nextNode = node.next;
              preNode.next = nextNode;
              nextNode.pre = preNode;
+             size--;
         }
 
         //head -> headNext -> node2 -> tail
@@ -39,9 +38,11 @@ public class LRUCache {
         void addFirst(Node node){
             Node headNext = head.next;
             node.next = headNext;
-            node.pre = headNext;
+            //node.pre = headNext;
+            node.pre = head;
             headNext.pre = node;
             head.next = node;
+            size++;
         }
 
         int size(){
@@ -70,7 +71,6 @@ public class LRUCache {
         if (map.containsKey(key)){
             cache.remove(map.get(key));
             cache.addFirst(node);
-            cache.size++;
         }
         else{
             if (capacity == cache.size){
