@@ -2,32 +2,70 @@ package Amazon._0994_Rotting_Oranges;
 
 import java.util.LinkedList;
 import java.util.Queue;
+/*
+994. Rotting Oranges
 
+You are given an m x n grid where each cell can have one of three values:
+0 representing an empty cell,
+1 representing a fresh orange, or
+2 representing a rotten orange.
+Every minute, any fresh orange that is 4-directionally adjacent to a rotten orange becomes rotten.
+
+Return the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return -1.
+
+1. dfs
+2 1 1
+0 1 1
+0 0 1
+
+first recursion => j+1  m=3
+second recursion => x+1 m=4
+                    j+1 m=4
+third recursion => x+1 m=5
+                => j+1 m=5
+fourth recursion => x+1 m=6
+ */
 public class Solution {
 
-    static int orangesRotting(int[][] grid) {
+    public int orangesRotting(int[][] grid) {
         int rows = grid.length;
         int cols = grid[0].length;
-        int[] res = new int[]{0};
 
-        int minutes = 0;
-        int fresh = 0;
 
         for(int i = 0; i < rows; i++){
             for(int j = 0; j < cols; j++){
                 if(grid[i][j] == 2){
-                    isRotting(grid, i, j, res);
+                    helper(grid, i, j, 2);
                 }
-                //if(grid[i][j] == 1 && isFresh(grid, i, j)) fresh++;
             }
         }
 
-        System.out.println(res[0]);
+        int minutes = 2;
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < cols; j++){
+                if(grid[i][j] == 1) return -1;
+                minutes = Math.max(minutes, grid[i][j]);
+            }
+        }
 
-        return res[0];
+        return minutes - 2;
 
     }
 
+
+    void helper(int[][] grid, int i, int j, int minutes){
+        if(i < 0 || i >= grid.length || j < 0 || j >= grid[0].length ||
+                grid[i][j] == 0 ||
+                (1 < grid[i][j] && grid[i][j] < minutes)) return;
+
+        grid[i][j] = minutes;
+        helper(grid, i - 1, j, minutes + 1);
+        helper(grid, i + 1, j, minutes + 1);
+        helper(grid, i, j - 1, minutes + 1);
+        helper(grid, i, j + 1, minutes + 1);
+    }
+
+/*
     static boolean isRotting(int[][] grid, int i, int j, int[] res){
         int rows = grid.length;
         int cols = grid[0].length;
@@ -43,7 +81,7 @@ public class Solution {
         isRotting(grid, i + 1, j, res) ||
         isRotting(grid, i, j - 1, res) ||
         isRotting(grid, i, j + 1, res)) res[0]++;
-   /*
+
         if(i - 1 >= 0 && grid[i - 1][j] == 1){
             grid[i - 1][j] = 2;
             res[0]++;
@@ -67,9 +105,9 @@ public class Solution {
             isRotting(grid, i, j + 1, res);
         }
 
-     */return false;
+     return false;
     }
-
+*/
     public boolean isFresh(int[][] grid, int i, int j){
         int rows = grid.length;
         int cols = grid[0].length;
@@ -96,19 +134,14 @@ public class Solution {
 
     static int orangesRotting2(int[][] grid) {
         int fresh = 0;
-        for(int i = 0; i < grid.length; i++){
-            for(int j = 0; j < grid[0].length; j++){
-                if(grid[i][j] == 1) fresh++;
-            }
-        }
-        if(fresh == 0) return 0;
-
         Queue<int[]> queue = new LinkedList<>();
         for(int i = 0; i < grid.length; i++){
             for(int j = 0; j < grid[0].length; j++){
+                if(grid[i][j] == 1) fresh++;
                 if(grid[i][j] == 2) queue.add(new int[]{i, j});
             }
         }
+        if(fresh == 0) return 0;
 
         int res = 0;
         while(!queue.isEmpty()){
@@ -122,32 +155,29 @@ public class Solution {
                     queue.add(new int[]{i - 1, j});
                     grid[i - 1][j] = 2;
                     flag = true;
+                    fresh--;
                 }
                 if(i + 1 < grid.length && grid[i + 1][j] == 1){
                     queue.add(new int[]{i + 1, j});
                     grid[i + 1][j] = 2;
                     flag = true;
+                    fresh--;
                 }
                 if(j - 1 >=0 && grid[i][j - 1] == 1){
                     queue.add(new int[]{i, j - 1});
                     grid[i][j - 1] = 2;
                     flag = true;
+                    fresh--;
                 }
                 if(j + 1 < grid[0].length && grid[i][j + 1] == 1){
                     queue.add(new int[]{i, j + 1});
                     grid[i][j + 1] = 2;
                     flag = true;
+                    fresh--;
                 }
                 size--;
             }
             if(flag == true) res++;
-        }
-
-        fresh = 0;
-        for(int i = 0; i < grid.length; i++){
-            for(int j = 0; j < grid[0].length; j++){
-                if(grid[i][j] == 1) fresh++;
-            }
         }
 
         if(fresh > 0) return -1;
