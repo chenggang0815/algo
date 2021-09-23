@@ -29,6 +29,7 @@ public class Solution {
         }
 
         return (int) ((maxW * maxH) % (1000000007));
+        
     }
 
     public static void main(String[] args) {
