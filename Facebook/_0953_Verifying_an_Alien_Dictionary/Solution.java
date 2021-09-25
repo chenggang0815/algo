@@ -30,6 +30,7 @@ All characters in words[i] and order are English lowercase letters.
 solution:
 character -> int => orderMap
 a > b and b > c => a > c
+time complexity: O(M) the total number of characters in words
 */
 public class Solution {
     static boolean isAlienSorted(String[] words, String order){
