@@ -1,8 +1,8 @@
 package LeetCode._0056_Merge_Intervals;
 /*
 56. Merge Intervals
-
-Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
+Given an array of intervals where intervals[i] = [starti, endi],
+merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
 
 Example 1:
 Input: intervals = [[1,3],[2,6],[8,10],[15,18]]
@@ -14,6 +14,29 @@ Input: intervals = [[1,4],[4,5]]
 Output: [[1,5]]
 Explanation: Intervals [1,4] and [4,5] are considered overlapping.
 */
+
+/*
+solution 1: brute force
+
+
+solution 2:
+1. sort by left value of every interval
+2. compare intervals[i][1] intervals[i + 1][0]
+   2.1 if intervals[i][1] >= intervals[i + 1][0] => merge
+       ex1: [1,3] [2,4] => [1,4]
+       ex2: [1,4] [2,3] => [1,4]
+   new interval = [left, right]
+   left = intervals[i][0]
+   right = Math.max(intervals[i][1], intervals[i + 1][1])
+
+3. for the current interval, we need to compare with the previous interval to check if the two interval can merge
+
+4. add all the interval in a dynamic array,
+    4.1 if there is nothing in my list, just add the interval to the list
+    4.2 if list.get(list.size() - 1)[1] < interval[0], add the interval to the list
+    4.3 else => merge two interval
+             => list.get(list.size() - 1)[1] = Math.max(list.get(list.size() - 1)[1], interval[1])
+ */
 
 /*
 1. 因为给定的输入不一定是example 1中这样每个区间的左端点升序排序
