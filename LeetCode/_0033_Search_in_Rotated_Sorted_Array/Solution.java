@@ -47,7 +47,7 @@ public class Solution {
         while (left <= right){
             int mid = left + (right - left) / 2;
             if (nums[mid] == target) return mid;
-            if (nums[0] <= nums[mid]){ //注意细节 =>  nums[0] <= nums[mid] => [3,1] 1
+            if (nums[left] <= nums[mid]){ //注意细节 =>  nums[0] <= nums[mid] => [3,1] 1
                 if (nums[left] <= target && target < nums[mid]){ //注意细节 =>  nums[left] <= target => [1,3,5] 1
                     right = mid - 1;
                 }else{
