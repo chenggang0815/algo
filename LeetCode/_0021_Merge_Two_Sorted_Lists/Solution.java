@@ -1,4 +1,4 @@
-package LeetCode._0021_合并两个有序链表;
+package LeetCode._0021_Merge_Two_Sorted_Lists;
 /*
 合并两个有序链表
 Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.

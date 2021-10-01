@@ -1,4 +1,4 @@
-package LeetCode._0026_删除排序数组中的重复项;
+package LeetCode._0026_Remove_Duplicates_from_Sorted_Array;
 
 /*
 26. Remove Duplicates from Sorted Array Easy 删除排序数组中的重复项

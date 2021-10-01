@@ -1,4 +1,4 @@
-package LeetCode._0025_K个一组翻转链表;
+package LeetCode._0025_Reverse_Nodes_in_k_Group;
 
 /*
 25. K个一组翻转链表

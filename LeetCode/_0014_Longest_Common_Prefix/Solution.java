@@ -1,4 +1,4 @@
-package LeetCode._0014_最长公共前缀;
+package LeetCode._0014_Longest_Common_Prefix;
 /*
 14. Longest Common Prefix Easy
 

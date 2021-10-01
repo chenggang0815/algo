@@ -1,4 +1,4 @@
-package LeetCode._0009_回文数;
+package LeetCode._0009_Palindrome_Number;
 import java.util.ArrayList;
 
 /*

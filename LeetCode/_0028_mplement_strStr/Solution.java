@@ -1,4 +1,4 @@
-package LeetCode._0028_实现strStr;
+package LeetCode._0028_mplement_strStr;
 /*
 28. Implement strStr() Easy
 Implement strStr().

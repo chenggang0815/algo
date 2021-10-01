@@ -1,4 +1,4 @@
-package LeetCode._0027_移除元素;
+package LeetCode._0027_Remove_Element;
 /*
 27. Remove Element Easy 移除元素
 

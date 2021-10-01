@@ -1,4 +1,4 @@
-package LeetCode._0020_有效的括号;
+package LeetCode._0020_Valid_Parentheses;
 import java.util.Stack;
 /*
 Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.

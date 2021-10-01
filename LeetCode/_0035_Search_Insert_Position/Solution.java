@@ -1,4 +1,4 @@
-package LeetCode._0035_搜索插入位置;
+package LeetCode._0035_Search_Insert_Position;
 /*
 搜索插入位置
 35. Search Insert Position  Easy

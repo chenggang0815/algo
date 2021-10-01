@@ -1,4 +1,4 @@
-package LeetCode._0038_外观数列;
+package LeetCode._0038_Count_and_Say;
 /*
 38. Count and Say Easy
 
