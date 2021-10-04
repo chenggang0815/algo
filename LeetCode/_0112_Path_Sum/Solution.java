@@ -1,4 +1,4 @@
-package LeetCode._0112_路径总和;
+package LeetCode._0112_Path_Sum;
 /*
 路径总和
 112. Path Sum Easy

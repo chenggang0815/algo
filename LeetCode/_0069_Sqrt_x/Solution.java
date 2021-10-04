@@ -1,4 +1,4 @@
-package LeetCode._0069_x的平方根;
+package LeetCode._0069_Sqrt_x;
 /*
 69. Sqrt(x) Easy
 Implement int sqrt(int x).

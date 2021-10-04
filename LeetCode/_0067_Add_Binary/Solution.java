@@ -1,4 +1,4 @@
-package LeetCode._0067_二进制求和;
+package LeetCode._0067_Add_Binary;
 /*
 二进制求和
 67. Add Binary Easy

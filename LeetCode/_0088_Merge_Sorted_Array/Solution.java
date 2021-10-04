@@ -1,4 +1,4 @@
-package LeetCode._0088_合并两个有序数组;
+package LeetCode._0088_Merge_Sorted_Array;
 
 import java.util.Arrays;
 

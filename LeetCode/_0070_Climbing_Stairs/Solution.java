@@ -1,4 +1,4 @@
-package LeetCode._0070_爬楼梯;
+package LeetCode._0070_Climbing_Stairs;
 /*
 Climbing Stairs 爬楼梯
 You are climbing a stair case. It takes n steps to reach to the top.

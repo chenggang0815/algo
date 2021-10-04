@@ -1,4 +1,4 @@
-package LeetCode._0101_对称二叉树;
+package LeetCode._0101_Symmetric_Tree;
 /*
 101 [Symmetric Tree]
 Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).

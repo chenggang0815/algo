@@ -1,4 +1,4 @@
-package LeetCode._0083_删除排序链表中的重复元素;
+package LeetCode._0083_Remove_Duplicates_from_Sorted_List;
 /*
 83. Remove Duplicates from Sorted List Easy
 Given a sorted linked list, delete all duplicates such that each element appear only once.

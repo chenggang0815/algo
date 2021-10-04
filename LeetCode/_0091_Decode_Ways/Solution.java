@@ -1,4 +1,4 @@
-package LeetCode._0091_解码方法;
+package LeetCode._0091_Decode_Ways;
 /*
 91. Decode Ways Medium
 A message containing letters from A-Z is being encoded to numbers using the following mapping:

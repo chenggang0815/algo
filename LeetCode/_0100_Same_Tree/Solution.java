@@ -1,4 +1,4 @@
-package LeetCode._0100_相同的树;
+package LeetCode._0100_Same_Tree;
 /*
 相同的树
 100. Same Tree Easy

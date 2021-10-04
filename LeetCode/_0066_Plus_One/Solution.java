@@ -1,4 +1,4 @@
-package LeetCode._0066_加一;
+package LeetCode._0066_Plus_One;
 import java.util.Arrays;
 /*
 66. Plus One Easy

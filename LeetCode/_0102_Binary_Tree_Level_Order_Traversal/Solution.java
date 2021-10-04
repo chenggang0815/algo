@@ -1,4 +1,4 @@
-package LeetCode._0102_二叉树的层序遍历;
+package LeetCode._0102_Binary_Tree_Level_Order_Traversal;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

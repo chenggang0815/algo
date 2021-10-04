@@ -1,4 +1,4 @@
-package LeetCode._0058_最后一个单词的长度;
+package LeetCode._0058_Length_of_Last_Word;
 /*
 58. Length of Last Word Easy
 Given a string s consists of upper/lower-case alphabets and empty space characters ' ', return the length of last word (last word means the last appearing word if we loop from left to right) in the string.
