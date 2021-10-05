@@ -1,21 +1,66 @@
 package LeetCode._0025_Reverse_Nodes_in_k_Group;
 
 /*
-25. K个一组翻转链表
-给你一个链表，每k个节点一组进行翻转，请你返回翻转后的链表。
-k是一个正整数，它的值小于或等于链表的长度。如果节点总数不是k的整数倍，那么请将最后剩余的节点保持原有顺序。
+25. Reverse Nodes in k-Group
+
+Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
+k is a positive integer and is less than or equal to the length of the linked list.
+If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.
+You may not alter the values in the list's nodes, only nodes themselves may be changed.
 
 
+Example 1:
+Input: head = [1,2,3,4,5], k = 2
+Output: [2,1,4,3,5]
 
-示例：
-给你这个链表：1->2->3->4->5
-当k = 2时，应当返回: 2->1->4->3->5
-当k = 3时，应当返回: 3->2->1->4->5
- */
+Example 2:
+Input: head = [1,2,3,4,5], k = 3
+Output: [3,2,1,4,5]
+
+Example 3:
+Input: head = [1,2,3,4,5], k = 1
+Output: [1,2,3,4,5]
+*/
 
 /*
-思路
-1. https://leetcode-cn.com/problems/reverse-nodes-in-k-group/solution/tu-jie-kge-yi-zu-fan-zhuan-lian-biao-by-user7208t/
+solution 1:  Iterative  time:O(n) space:O(1)
+Input: head = [1,2,3,4,5], k = 2
+ dummy->1->2->3->4->5
+  pre
+  end
+
+1. move end to left k step, if end is null, don't need to reverse, return directly
+ dummy-> 1 -> 2 -> 3-> 4-> 5
+  pre
+             end
+
+2. cut list from end
+ dummy-> 1 -> 2      3-> 4-> 5
+  pre
+             end   next
+LinkedList next = end.next
+end.next = null;
+
+3. reverse LinkedList from start to end
+ dummy-> 1 -> 2      3-> 4-> 5
+  pre  start
+             end   next
+start = pre.next
+pre.next = reverse(start) =>  dummy.next -> head
+ dummy-> 2 -> 1      3-> 4-> 5
+  pre   end
+             start   next
+
+4. concat the list
+start.next = next
+pre = start
+end = start
+ dummy-> 2 -> 1 -> 3-> 4-> 5
+             pre
+             end
+
+solution 2: Recursion time:O(n) space:O(n/k)  n/k is the number of recursion calls
+
  */
 public class Solution {
     static class ListNode{
@@ -25,6 +70,7 @@ public class Solution {
             this.val = val;
         }
     }
+
     // time: o(n) space: o(1)
     static ListNode reverseKGroup(ListNode head, int k){
         if (head == null || head.next == null) return head;
@@ -51,7 +97,7 @@ public class Solution {
             //记录下要翻转链表的头节点
             ListNode start = pre.next;
             //翻转链表,pre.next指向翻转后的链表的头节点。1->2 变成2->1。 dummy->2->1
-            pre.next = reverse(start);
+            pre.next = reverse(start); // dummy.next -> head
             //翻转后头节点变到最后。通过.next把断开的链表重新链接。
             start.next = next;
             //将pre换成下次要翻转的链表的头结点的上一个节点。即start
@@ -97,6 +143,7 @@ public class Solution {
             temp = temp.next;
         }
     }
+
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
         addNode(head, 2);
