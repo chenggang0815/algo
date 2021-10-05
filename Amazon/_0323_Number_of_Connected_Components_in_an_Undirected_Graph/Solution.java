@@ -69,7 +69,7 @@ public class Solution {
         return res;
     }
 
-    void dfs(List<Integer>[] graph, int[] visited, int startNode){
+    static void dfs(List<Integer>[] graph, int[] visited, int startNode){
         visited[startNode] = 1;
 
         for(int i = 0; i < graph[startNode].size(); i++){
@@ -81,8 +81,63 @@ public class Solution {
     }
 
 
+    static int countComponents2(int n, int[] edges){
+        int[] parents = new int[n];
+        for (int i = 0; i < n; i++){
+            parents[i] = i;
+        }
+        int res = n;
+        for (int i = 0; i < edges.length; i++){
+            int p1 = find(parents, edges[0]);
+            int p2 = find(parents, edges[1]);
+            if (p2 != p1){
+                parents[p1] = p2;
+                res--;
+            }
+        }
+
+        return res;
+    }
+
+    // disjoint-set union -  Without Path Compression
+    static int find(int[] parents, int i){
+        while (i != parents[i]){
+            i = parents[i];
+        }
+
+        return i; // Without Path Compression
+    }
+
+    // Path compression
+    //edges = [0,1],[1,2],[2,3]
+    /*  parents = new int[] {0,1,2,3}
+    parents[0]=0 parents[1]=1 parents[2]=2 parents[3]=3
+           3
+          /
+         2
+        /
+       1
+      /
+     0  parents[0]=1 parents[1]=2 parents[2]=3 parents[3]=3
+     after path compression for node 0 => parents[0]=3 parents[1]=2 parents[2]=3 parents[3]=3
+         3
+        / \
+       2   0
+      /
+     1
+   */
+    static int findParent(int[] parent, int i) {
+        if (i == parent[i]) return i;
+        //return parent[i] = findParent(parent, parent[i]); // Path compression
+        parent[i] = findParent(parent, parent[i]);
+
+        return parent[i];
+    }
+
+
     public static void main(String[] args) {
-            int[][] edges = new int[][]{{0,1},{1,2},{2,3},{3,4}};
-            System.out.println(countComponents1(5, edges));
+        int[][] edges = new int[][]{{0,1},{1,2},{2,3},{3,4}};
+
+        System.out.println(countComponents1(5, edges));
     }
 }
