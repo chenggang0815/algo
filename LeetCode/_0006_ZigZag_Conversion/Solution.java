@@ -35,8 +35,22 @@ Constraints:
 s consists of English letters (lower-case and upper-case), ',' and '.'.
 1 <= numRows <= 1000
 */
+
+/*
+solution 1: time:O(n) n = length(s) space:O(n)
+
+numRows = k
+0         0
+1     ...
+... k-2
+k-1
+
+
+if row = 0 || row = numRows - 1 => flag = - flag
+
+ */
 public class Solution {
-    public String convert(String s, int numRows) {
+    public String convert1(String s, int numRows) {
         /*
         numRows = 3
         0   0   0
@@ -67,7 +81,40 @@ public class Solution {
 
         return res.toString();
     }
+
+    /*
+     * PAYPALISHIRING
+     * numRows = 4
+     * P   I   N             0    6     12
+     * A L S I G             1  5 7  11 13
+     * Y A H R               2 4  8 10
+     * P   I                 3    9
+     *                       2n-2=6
+     *                       0  1*(6)+0   2*(6)+0
+     *                       1  1*(6)-1 1*(6)+1 2*(6)-1 2*(6)+1
+     *                       2  1*(6)-2 1*(6)+2 2*(6)-2
+     *                       3  1*(6)+3
+     */
+    static String convert2(String s, int numRows) {
+
+        if (numRows == 1) return s;
+
+        StringBuilder ret = new StringBuilder();
+        int n = s.length();
+        int cycleLen = 2 * numRows - 2;
+
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j + i < n; j += cycleLen) {
+                ret.append(s.charAt(j + i));
+                if (i != 0 && i != numRows - 1 && j + cycleLen - i < n)
+                    ret.append(s.charAt(j + cycleLen - i));
+            }
+        }
+        return ret.toString();
+    }
+
     public static void main(String[] args) {
+        System.out.println(convert2("PAYPALISHIRING", 4));
 
     }
 }
