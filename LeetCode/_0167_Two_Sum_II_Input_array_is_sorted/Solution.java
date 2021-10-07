@@ -25,10 +25,17 @@ Output: [1,2]
  */
 import java.util.Arrays;
 /*
-思路1：二分查找 time: o(log(n)) space:o(1)
+思路1：二分查找 time: O(log(n)) space:O(1)
 在数组中找到两个数，使得它们的和等于目标值，可以首先固定第一个数，然后寻找第二个数，第二个数等于目标值减去第一个数的差。
     1.1 因为数组有序 => 通过二分查找的方法寻找第二个数
     1.2 为了避免重复寻找，在寻找第二个数时，只在第一个数的右侧寻找
+
+solution 2: two pointers time: O(n) space:O(1)
+because the array is sorted,
+left index = 0
+right index = len(array) - 1
+if(nums[left] + nums[right] > target) right--
+else left++
  */
 public class Solution {
     static int[] twoSum(int[] numbers, int target){
@@ -48,6 +55,23 @@ public class Solution {
 
         return new int[]{-1, -1};
     }
+
+    static int[] twoSum2(int[] nums, int target){
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right){
+            if (nums[left] + nums[right] == target){
+                return new int[]{left + 1, right + 1};
+            }else if (nums[left] + nums[right] > target){
+                right--;
+            }else{
+                left++;
+            }
+        }
+
+        return new int[]{-1, -1};
+    }
+
     public static void main(String[] args) {
         System.out.println(Arrays.toString(twoSum(new int[]{2, 7, 11, 15}, 26)));
     }

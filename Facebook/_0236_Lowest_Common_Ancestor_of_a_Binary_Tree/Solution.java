@@ -1,4 +1,4 @@
-package LeetCode._0236_Lowest_Common_Ancestor_of_a_Binary_Tree;
+package Facebook._0236_Lowest_Common_Ancestor_of_a_Binary_Tree;
 /*
 236. Lowest Common Ancestor of a Binary Tree
 236. 二叉树的最近公共祖先

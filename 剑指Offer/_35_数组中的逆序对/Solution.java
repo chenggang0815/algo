@@ -15,6 +15,11 @@ package 剑指Offer._35_数组中的逆序对;
 
 2. 根据第一点的思想，将数组二分到left >= right，即两个长度都为 1， [1] [4]时 ， 就判断了1和4的情况，因此只需在归并排序的基础上
 统计就能判断所有情况。
+
+A,B is sorted, A = [1, 4, 5, 8 ,10]  B = [2,  3]
+   left index = 1       right index = 0
+   left > right => (4,2) is inversion => index of (10) - index of (4) + 1 = 4 is the number of inversion
+
  */
 public class Solution {
 
