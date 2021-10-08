@@ -13,6 +13,17 @@ Input: nums = [-1,0,1,2,-1,-4]
 Output: [[-1,-1,2],[-1,0,1]]
  */
 /*
+
+solution 1: two pointers time:O(nlog(n) + n^2) => O(n^2)
+
+input = [-4,-1,-1,0,1,2]
+-4             -1 -1 0 1 2
+target = 4  then use two pointers to search the right part of the array => make nums[left] + nums[right] = - target
+
+solution 2: hashSet
+
+solution 3: No-sort
+
 思路：
 1. 先将数组进行排序
 2. 从左侧开始（k=0），选定一个值为 定值 ，右侧进行求解，获取与其相加为0的两个值
@@ -30,8 +41,8 @@ tips:
     2.2 无重复元素：不进入循环，left左移 => left++
 */
 
-
 public class Solution {
+    // 代码太冗余了
     static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums);
@@ -42,23 +53,23 @@ public class Solution {
             while (left < right){
                 int sum = nums[k] + nums[left] + nums[right];
                 if (sum < 0){
-                    while (left < right && nums[left] == nums[left + 1]){
-                        left++;
-                    }
+//                    while (left < right && nums[left] == nums[left + 1]){
+//                        left++;
+//                    }  这段代码可以不用，sum < 0 时，如果left有重复值，会再次走到这个分支，left++
                     left++;
                 }else if (sum > 0){
-                    while (left < right && nums[right] == nums[right - 1]){
-                        right--;
-                    }
+//                    while (left < right && nums[right] == nums[right - 1]){
+//                        right--;
+//                    }
                     right--;
                 }else{
                     res.add(Arrays.asList(nums[k], nums[left], nums[right]));
                     while (left < right && nums[left] == nums[left + 1]){
                         left++;
                     }
-                    while (left < right && nums[right] == nums[right - 1]){
-                        right--;
-                    }
+//                    while (left < right && nums[right] == nums[right - 1]){
+//                        right--;
+//                    } when nums[left] + nums[right] == nums[k] => avoid the duplicate (left,right) => must skip the duplicate left or right
                     left++;
                     right--;
                 }
