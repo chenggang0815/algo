@@ -16,9 +16,14 @@ Output: [[-1,-1,2],[-1,0,1]]
 
 solution 1: two pointers time:O(nlog(n) + n^2) => O(n^2)
 
-input = [-4,-1,-1,0,1,2]
--4             -1 -1 0 1 2
-target = 4  then use two pointers to search the right part of the array => make nums[left] + nums[right] = - target
+input = [-1,0,1,2,-1,-4], target = 0
+
+1. first, sort => [-4,-1,-1,0,1,2]
+2. target=0-(-4)=4          -1  -1  0  1  2
+                           left         right
+3. target = 4  => then use two pointers to search the [left, right] part of the array => make nums[left] + nums[right] = - target
+
+4. for loop + two_sum_II(two_pointers)
 
 solution 2: hashSet
 
