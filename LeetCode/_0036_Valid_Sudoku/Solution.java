@@ -27,7 +27,7 @@ import java.util.HashSet;
 
  */
 public class Solution {
-    static boolean isduplicate(char[][] board, int i, int j){
+    static boolean isDuplicate(char[][] board, int i, int j){
         HashSet<Character> set = new HashSet<>();
         for (int n = i; n < i + 3; n++){
             for (int m = j; m < j + 3; m++){
@@ -38,7 +38,8 @@ public class Solution {
         }
         return true;
     }
-    static boolean isduplicaterow(char[][] board, int row){
+
+    static boolean isDuplicateRow(char[][] board, int row){
         HashSet<Character> set = new HashSet<>();
         for (int i = 0; i < board[row].length; i++){
             if (board[row][i] == '.') continue; // 5ms -> 3ms
@@ -49,7 +50,7 @@ public class Solution {
         return true;
     }
 
-    static boolean isduplicatecol(char[][] board, int col){
+    static boolean isDuplicateCol(char[][] board, int col){
         HashSet<Character> set = new HashSet<>();
         for (int i = 0; i < board.length; i++){
             if (board[i][col] == '.') continue; // 5ms -> 3ms
@@ -59,26 +60,27 @@ public class Solution {
 
         return true;
     }
+
     static boolean isValidSudoku1(char[][] board){
         int nums_row = board.length;
         int nums_col = board[0].length;
         for (int i = 0; i < nums_row; i += 3){
             for (int j = 0; j < nums_col; j += 3){
-                if (!isduplicate(board, i, j)) return false;
+                if (!isDuplicate(board, i, j)) return false;
             }
         }
         for (int i = 0; i < nums_row; i++){
-            if (!isduplicaterow(board, i)) return false;
+            if (!isDuplicateRow(board, i)) return false;
         }
         for (int i = 0; i < nums_col; i++){
-            if (!isduplicatecol(board,i)) return false;
+            if (!isDuplicateCol(board,i)) return false;
         }
 
         return true;
     }
 
     // 5ms
-    static boolean isValidSudoku2(char[][] board){
+     static boolean isValidSudoku2(char[][] board){
         HashMap<String, Boolean> colMap = new HashMap<>();
         HashMap<String, Boolean> rowMap = new HashMap<>();
         HashMap<String, Boolean> matrixMap = new HashMap<>();
@@ -131,7 +133,8 @@ public class Solution {
         return true;
     }
 
-        public static void main(String[] args) {
+
+    public static void main(String[] args) {
         char[][] board = new char[][]{
                 {'5','3','.','.','7','.','.','.','.'},
                 {'6','.','.','1','9','5','.','.','.'},
@@ -144,7 +147,7 @@ public class Solution {
                 {'.','.','.','.','8','.','.','7','9'}};
         
        // char[][] board1= [['5','3','.','.','7','.','.','.','.'],['6','.','.','1','9','5','.','.','.'],['.','9','8','.','.','.','.','6','.'],['8','.','.','.','6','.','.','.','3'],['4','.','.','8','.','3','.','.','1'],['7','.','.','.','2','.','.','.','6'],['.','6','.','.','.','.','2','8','.'],['.','.','.','4','1','9','.','.','5'],['.','.','.','.','8','.','.','7','9']];
-       System.out.println(isValidSudoku2(board));
+       System.out.println(isValidSudoku1(board));
 
     }
 }
