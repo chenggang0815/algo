@@ -1,10 +1,18 @@
 package LeetCode._0039_Combination_Sum;
-
 import java.util.ArrayList;
 import java.util.List;
-
 /*
-https://leetcode-cn.com/problems/combination-sum/solution/zu-he-zong-he-by-leetcode-solution/
+39. Combination Sum
+Given an array of distinct integers candidates and a target integer target,
+return a list of all unique combinations of candidates where the chosen numbers sum to target.
+You may return the combinations in any order.
+
+The same number may be chosen from candidates an unlimited number of times.
+
+Two combinations are unique if the frequency of at least one of the chosen numbers is different.
+
+It is guaranteed that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
+
 
 Example 1:
 Input: candidates = [2,3,6,7], target = 7
@@ -17,6 +25,24 @@ These are the only two combinations.
 Example 2:
 Input: candidates = [2,3,5], target = 8
 Output: [[2,2,2,2],[2,3,3],[3,5]]
+
+Example 3:
+Input: candidates = [2], target = 1
+Output: []
+
+Example 4:
+Input: candidates = [1], target = 1
+Output: [[1]]
+
+Example 5:
+Input: candidates = [1], target = 2
+Output: [[1,1]]
+
+Constraints:
+1 <= candidates.length <= 30
+1 <= candidates[i] <= 200
+All elements of candidates are distinct.
+1 <= target <= 500
  */
 /*
 回溯 - 解题思路
@@ -34,6 +60,8 @@ Output: [[2,2,2,2],[2,3,3],[3,5]]
             backtrack(candidates, target, res, list, i, sum + candidates[i]);
             list.remove(list.size() - 1);
         }
+
+https://leetcode-cn.com/problems/combination-sum/solution/zu-he-zong-he-by-leetcode-solution/
 */
 public class Solution {
 //    static int sum(List<Integer> track){
@@ -70,6 +98,6 @@ public class Solution {
 
 
     public static void main(String[] args) {
-        System.out.println(combinationSum(new int[]{2,3,6, 7}, 7));
+        System.out.println(combinationSum(new int[]{2,3,6,7}, 7));
     }
 }
