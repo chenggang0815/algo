@@ -32,7 +32,7 @@ solution 2:
 3. for the current interval, we need to compare with the previous interval to check if the two interval can merge
 
 4. add all the interval in a dynamic array,
-    4.1 if there is nothing in my list, just add the interval to the list
+    4.1 if there is nothing in list, just add the interval to the list
     4.2 if list.get(list.size() - 1)[1] < interval[0], add the interval to the list
     4.3 else => merge two interval
              => list.get(list.size() - 1)[1] = Math.max(list.get(list.size() - 1)[1], interval[1])
