@@ -28,22 +28,33 @@ Example 3:
 Input: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
 Output: false
  */
+
+/*
+Solution:
+
+Approach 1: Recursion - Brute Force
+                                wordDict=[l ,ee, t]
+                                      wb(leet)
+                      /                 \                 \            \
+             l&(wb(eet))                le&wb(et)       lee&wb(t)    leetwb()
+           /      |       \             /       \            \
+   le&(wb(et)) lee&wb(t) leet&wb()    lee&wb(t)  leet&wb()   leet&wb()
+        /    \        \                 /
+   lee&wb(t) leet&wb() leet&wb()    leet&wb()
+     /                  return true;
+  leet&wb()
+
+n = s.length()=4 => time:O(2^4)=16
+
+
+Approach 2: Recursion - memoization  => time:O(n^3)=16
+
+for above example, we call the two times wb(eb), so if we can remember from index = 3 we can just return false;
+
+Approach 3: Dynamic Programing
+https://leetcode.com/problems/word-break/solution/
+*/
 public class Solution {
-    //需要记住历史的比较记录 => 考虑动态规划
-//    static boolean wordBreak(String s, List<String> wordDict) {
-//        int right = 0;
-//        int left = 0;
-//        while (right < s.length()){
-//            String str = s.substring(left, right + 1);
-//            if (wordDict.contains(str)){
-//                left = right + 1;
-//                System.out.println(str);
-//            }
-//            right++;
-//        }
-//        //System.out.println(left);
-//        return left == s.length();
-//    }
 
 
     static boolean backtrack1(String s, List<String> wordDict){
@@ -89,9 +100,7 @@ public class Solution {
         return backtrack2(s, wordDict, flag, 0);
     }
 
-    /*
-    动态规划
-     */
+
     static boolean wordBreak3(String s, List<String> wordDict) {
         HashMap<String, String> map = new HashMap<>();
         for (String item : wordDict){
@@ -102,14 +111,10 @@ public class Solution {
         dp[0] = true;
 
         for (int i = 1; i <= s.length(); i++){
-            for (int j = i - 1; j >= 0; j--){
+            for (int j = 0; j < i; j++){
                 if (map.containsKey(s.substring(j, i)) && dp[j]){
-//                    System.out.println(j);
-//                    System.out.println(i);
-//                    System.out.println(s.substring(j, i));
-//                    System.out.println("====");
                     dp[i] = true;
-                    break; //7ms -> 4ms
+                    break;
                 }
             }
         }
