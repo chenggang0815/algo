@@ -22,7 +22,7 @@ import java.util.PriorityQueue;
 
 /*
 Solution
-Approach 1: PriorityQueue
+Approach 1: PriorityQueue  time: O(nlog(n))
 for example [0,30] [15,20] [5,10]
 1. first, sort the array by the start time =>[0,30] [5,10] [15,20]
 2. initialize a new min-heap, sort by the end time
