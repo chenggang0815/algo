@@ -2,9 +2,20 @@ package Amazon._0295_Find_Median_from_Data_Stream;
 
 import java.util.PriorityQueue;
 /*
+Algorithm
+1. when n=2k+1, which means n is odd, if we choose the min heap to store k+1 elements and max heap store k elements
+2. so, first we should add element to the min heap,
+3. and every time we add a number into min heap, we should pop the peek of min heap, and add this number to max heap,
+   so we can make the min heap and max heap almost balance
+4. then, we check if min.size() < max.size() => we add the peek of max heap into min heap,
+   because we choose the min heap to store k+1 elements
+5. just three line code:
+minHeap.add(num);
+maxHeap.add(minHeap.poll());
+if (minHeap.size() < maxHeap.size()) minHeap.add(maxHeap.poll());
+
 
 input 4,2,6,1,3
-
 maxHeap =>  store the smaller half of the numbers
       2
      /
