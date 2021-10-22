@@ -27,10 +27,7 @@ minStack.getMin();   --> Returns -2.
 
  */
 public class Solution {
-
-
     public static class MinStack{
-
         class ListNode{
             int val;
             ListNode next;
@@ -40,7 +37,7 @@ public class Solution {
         }
         ListNode head = new ListNode(0);
 
-        public  void push(int num){
+        public void push(int num){
             ListNode temp = head;
             while (temp.next!=null){
                 temp = temp.next;
@@ -86,6 +83,7 @@ public class Solution {
             return minValue;
         }
     }
+
 
     public static void main(String[] args) {
         MinStack minStack = new MinStack();
