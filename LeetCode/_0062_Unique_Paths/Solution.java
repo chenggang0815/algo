@@ -15,8 +15,10 @@ Approach 2: Dynamic Programing time:O(m*n) space:o(m*n)
 1. because robot can only move either down or right
 2. for a specific position (i,j), there are only two way to reach it, (i-1, j) and (i, j-1)
 3. dp[i][j] = dp[i-1][j] + dp[i][j-1]
-4. dp[0][0]...dp[row][0]=1 => the first row is always is 1
-5. dp[0][0]...dp[0][col]=1 => the first col is always is 1
+
+initialize:
+4. dp[0][0]...dp[row][0]=1 => because there is only one way to reach the first row
+5. dp[0][0]...dp[0][col]=1 => because there is only one way to reach the first col
 */
 public class Solution {
     public int uniquePaths1(int m, int n) {
