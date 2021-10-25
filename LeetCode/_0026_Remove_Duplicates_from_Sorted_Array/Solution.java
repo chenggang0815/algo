@@ -64,10 +64,11 @@ public class Solution {
 
         return left + 1;
     }
+
     public static void main(String[] args) {
         int[] nums = new int[]{0,0,1,1,1,2,2,3,3,4};
         int length = removeDuplicates(nums);
-        System.out.println(length);
+        //System.out.println(length);
         for (int i=0;i<length;i++){
             System.out.println(nums[i]);
         }
