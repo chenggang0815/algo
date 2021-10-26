@@ -1,14 +1,40 @@
 package LeetCode._0082_Remove_Duplicates_from_Sorted_List_II;
 /*
+82. Remove Duplicates from Sorted List II
+Given the head of a sorted linked list, delete all nodes that have duplicate numbers,
+leaving only distinct numbers from the original list.
+Return the linked list sorted as well.
 
-1->2->3->3->4 逻辑没有问题，使用pre和cur节点
-            if(head.next != null && head.val == head.next.val){
-                while(head.next != null && head.val == head.next.val){
-                    head = head.next;
-                }
-                pre.next = head.next;
+Example 1:
+Input: head = [1,2,3,3,4,4,5]
+Output: [1,2,5]
 
-1->1->2->3->4时，考虑单独处理head节点是错误的方向，应该用dummy node，然后使用上面的逻辑一起处理
+Example 2:
+Input: head = [1,1,1,2,3]
+Output: [2,3]
+
+Constraints:
+1. The number of nodes in the list is in the range [0, 300].
+2. -100 <= Node.val <= 100
+3. The list is guaranteed to be sorted in ascending order.
+*/
+/*
+Solution: time:O(n) space:O(1)
+1. we have two case
+2. case 1 => duplicate node not at the head
+    1 -> 2 -> 3 -> 3 -> 3 -> 4 -> 5
+        pre            cur
+ 2.1 we can use two pointer to solve this
+     while(cur.next != null && cur.val == cur.next.val) cur = cur.next
+     cur = cur.next
+     pre.next =cur
+
+3. case 2 => duplicate node at the head, we just add a dummy node before the head,
+            and make this dummy node is the pre node
+   dummy -> 1 -> 1 -> 1 -> 2 -> 3 -> 4 -> 5
+    pre    cur
+    cur = cur.next
+    pre.next = cur
 */
 public class Solution {
      public class ListNode {
@@ -20,25 +46,37 @@ public class Solution {
   }
 
     public ListNode deleteDuplicates(ListNode head) {
-        ListNode dummyNode = new ListNode(0);
-        dummyNode.next = head;
-        ListNode pre = dummyNode;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode cur = head;
+        ListNode pre = dummy;
+        // 1->2->3->3->3->4->5
+        //    pre     cur
+        //    cur = cur.next => cur = 4
+        //    pre.next = cur => 2.next = 4
+        // node 3 has been deleted
 
-        while(head != null){
-            if(head.next != null && head.val == head.next.val){
-                while(head.next != null && head.val == head.next.val){
-                    head = head.next;
+        // dummy -> 1->1->2->3->4
+        //  pre       cur
+        //  cur = cur.next => cur = 2
+        //  pre.next = cur => dummy.next = 2
+        //  node 1 hase been deleted
+        while(cur != null){
+            if(cur.next != null && cur.val == cur.next.val){
+                while(cur.next != null && cur.val == cur.next.val){
+                    cur = cur.next;
                 }
-                pre.next = head.next;
+                //delete current node
+                cur = cur.next;
+                pre.next = cur;
             }else{
-                pre = pre.next;
+                pre = cur;
+                cur = cur.next;
             }
-
-            head = head.next;
-
         }
 
-        return dummyNode.next;
+
+        return dummy.next;
     }
     public static void main(String[] args) {
 
