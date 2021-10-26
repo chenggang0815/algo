@@ -32,7 +32,17 @@ Approach 1: binary search time:O(log(n)) space:O(1)
 4. if   nums[minIndex] <= target <= nums[length - 1] => return binarySearch(nums, minIndex, length - 1, target)
 5. else  return binarySearch(nums, 0, minIndex - 1, target)
 
+
 Approach 2: binary search one-pass time:O(log(n)) space:O(1)
+1- take the middle and compare with target, if matches return.
+2- if middle is bigger than left side, it means left is sorted
+    2a- if [left] < target < [middle] then do recursion with left, middle - 1 (right)
+    2b- left side is sorted, but target not in here, search on right side middle + 1 (left), right
+3- if middle is less than right side, it means right is sorted
+    3a- if [middle] < target < [right] then do recursion with middle + 1 (left), right
+    3b- right side is sorted, but target not in here, search on left side left, middle -1 (right)
+
+
 思路一：
 1. 将数组从中间分开成左右两部分的时候，一定有一部分的数组是有序的。
 拿[4,5,6,7,0,1,2]来看，从6这个位置分开以后数组变成了[4,5,6]和[7,0,1,2]两个部分，其中左边[4,5,6]这个部分的数组是有序的，其他也是如此。
