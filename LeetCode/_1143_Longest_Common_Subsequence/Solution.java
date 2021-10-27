@@ -18,6 +18,45 @@ public class Solution {
         s1[i - 1] == s[j - 1] => dp[i][j] = dp[i -1][j - 1] + 1
         s1[i - 1] != s[j - 1] => dp[i][j] = Math.max(dp[i -1][j], dp[i][j - 1])
      */
+    //https://leetcode.com/problems/longest-common-subsequence/solution/
+    public int longestCommonSubsequence(String text1, String text2) {
+        int m = text1.length() + 1;
+        int n = text2.length() + 1;
+
+        int[][] dp = new int[m][n];
+        //        s1 = "hello"  s2="world"
+        //index         12345       12345
+        //dp[5][5] => s1.subString(0, 5) s2.subString(0, 5)
+        // dp[i][j] => s1[0]:s1[i-1] vs s2[0]:s2[j-1]
+        // dp[0][0] = 0
+        // dp[1][1] = text1.charAt(0) == text2.charAt(0) ? 1 : 0;
+        // if text1.charAt(i) == text2.charAt(j) => dp[i][j] = dp[i-1][j-1] + 1
+        // else => two case
+        // the last letter of "hello" is not matched or the last letter of "world" is not matched
+        //        1. "hell" vs "world"
+        //        2. "hello" vs "worl"
+        //        dp[i][j] = Math.max(dp[i][j-1], dp[i-1][j])
+        //
+        for(int i = 0; i < m; i++){
+            dp[i][0] = 0;
+        }
+        for(int i = 0; i < n; i++){
+            dp[0][i] = 0;
+        }
+
+        for(int i = 1; i < m; i++){
+            for(int j = 1; j < n; j++){
+                if(text1.charAt(i - 1) == text2.charAt(j - 1)){
+                    dp[i][j] = dp[i-1][j-1] + 1;
+                }else{
+                    dp[i][j] = Math.max(dp[i][j-1], dp[i-1][j]);
+                }
+            }
+        }
+
+        return dp[text1.length()][text2.length()];
+    }
+
     static int lcs(String s1, String s2){
         if (s1.length() == 0 || s2.length() == 0) return 0;
 
