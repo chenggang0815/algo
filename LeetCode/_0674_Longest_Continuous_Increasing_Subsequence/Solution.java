@@ -25,9 +25,14 @@ ps:此题是2021-01-24的每日一题，并且是32题，解法2中的一个子�
 
 算是一个惊喜，所以纪念一下
  */
-public class Solution {
-    static int findLengthOfLCIS(int[] nums) {
 
+/*
+第二次做这道题，2021/10/26，已经忘记什么时候做的这道题和上面的评论，看了下题就秒了，没用dp, time:O(n), space:O(1) 比原来更优化
+也没有第一次的惊喜, 见证自己的成长
+*/
+public class Solution {
+    //2021-01-24
+    static int findLengthOfLCIS(int[] nums) {
         if (nums.length <= 1) return nums.length;
         int[] dp = new int[nums.length];
         int res = 0;
@@ -41,6 +46,23 @@ public class Solution {
         }
 
         return res;
+    }
+
+    //2021/10/26
+    public int findLengthOfLCIS2(int[] nums) {
+        int cnt = 1;
+        int res = 1;
+        // 1 2 3 1 2 3 4 5
+        for(int i = 1; i < nums.length; i++){
+            if(nums[i] > nums[i - 1]){
+                cnt++;
+            }else{
+                res = Math.max(res, cnt);
+                cnt = 1;
+            }
+        }
+
+        return Math.max(res, cnt);
     }
     public static void main(String[] args) {
         System.out.println(findLengthOfLCIS(new int[]{1,3,5,4,7}));
