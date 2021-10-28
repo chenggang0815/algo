@@ -33,7 +33,7 @@ for loop step1 to step3 32 times, each time we move the last position of input t
 */
 public class Solution {
 
-    public int reverseBits(int n) {
+    static public int reverseBits(int n) {
         int res = 0;
         for (int i = 0; i < 32 && n != 0; ++i) {
             res |= (n & 1) << (31 - i);
