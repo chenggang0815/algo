@@ -1,24 +1,48 @@
-package 剑指Offer._997_快速排序;
+package 剑指Offer._997_qiuck_sort;
 import java.util.Arrays;
 import java.util.Random;
 /*
 快速排序
 思路： time: o(n*log(n))  space: o(n*log(n))
-1. 在nums中选择一个中心数（一般为nums[0]），通过一趟排序将数组A分为两部分 => 其中以key为中心，key右边都比key大，key左边都比key小
+1. 在nums中选择一个pivot（一般为nums[0]），通过一趟排序将数组A分为两部分 => 其中以pivot为中心，pivot右边都比pivot大，pivot左边都比pivot小
 2. 然后对这两部分[left， i-1]和[i+1, right]分别递归执行这个过程
 3. 递归结束条件 => 数组内只有一个元素 => i = left => [left, i - 1] => left > right
 
 4. 一趟排序的方法：
-nums = [5,2,8,9,2,3,4,9]
-key = nums[0] = 5
+nums = [5, 2, 8, 9, 2, 3, 4, 9]
+        0  1  2  3  4  5  6  7
+pivot = nums[0] = 5
 i = 0
 j = nums.length - 1 = 7
-    4.1 从nums[i]从左往右找，找到第一个小于key的数，即为Ai
-    4.2 从nums[j]从右往左找，找到第一个大于key的数，即为Aj
+    4.1 从nums[i]从左往右找，找到第一个小于pivot的数，即为Ai
+    4.2 从nums[j]从右往左找，找到第一个大于pivot的数，即为Aj
     4.3 交换Ai和Aj
     4.4 重复1，2，3步，直到i=j
-    4.5 调整key的位置 => 交换Ai和key
+    4.5 调整pivot的位置 => 交换Ai和pivot
 
+first
+pivot=5
+leftIndex=2
+rightIndex=6
+swap(nums[2],nums[6])
+
+nums=[5, 2, 4, 9, 2, 3, 8, 9]
+      0  1  2  3  4  5  6  7
+               l     r
+
+leftIndex=3
+rightIndex=5
+swap(nums[2],nums[6])
+
+nums=[5, 2, 4, 3, 2, 9, 8, 9]
+      0  1  2  3  4  5  6  7
+                  j
+                  i
+swap(pivot, nums[i])
+nums=[2, 2, 4, 3, 5, 9, 8, 9]
+      0  1  2  3  4  5  6  7
+                  j
+                  i
 一趟排序之后 => key的左边都是小于等于key的数，key的右边都是大于等于key的数
 
 
@@ -38,12 +62,12 @@ class Solution {
 
         int i = left;
         int j = right;
-        int key = nums[left];
+        int pivot = nums[left];
         while (i < j){
-            while (i < j && nums[j] >= key){
+            while (i < j && nums[j] >= pivot){
                 j--;
             }
-            while (i < j && nums[i] <= key){
+            while (i < j && nums[i] <= pivot){
                 i++;
             }
             if (i < j){
@@ -54,7 +78,7 @@ class Solution {
         }
 
         nums[left] = nums[i];
-        nums[i] = key;
+        nums[i] = pivot;
 
         quickSort(nums, left,i-1);
         quickSort(nums,i+1, right);

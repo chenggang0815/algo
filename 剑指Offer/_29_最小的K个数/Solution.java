@@ -75,19 +75,11 @@ public class Solution {
     }
 
     static void partitionArray(int[] arr, int low, int high, int k) {
-            // 做一次 partition 操作
-        int m = partition(arr, low, high);
-            // 此时数组前 m 个数，就是最小的 m 个数
-        if (k == m) {
-                // 正好找到最小的 k(m) 个数
-            return;
-        } else if (k < m) {
-                // 最小的 k 个数一定在前 m 个数中，递归划分
-            partitionArray(arr, low, m-1, k);
-        } else {
-                // 在右侧数组中寻找最小的 k-m 个数
-            partitionArray(arr, m+1, high, k);
-        }
+        // 做一次 partition 操作
+        int m = partition(arr, low, high); // 此时数组前 m 个数，就是最小的 m 个数
+        if (k == m) return; // 正好找到最小的 k(m) 个数
+        else if (k < m) partitionArray(arr, low, m-1, k);//最小的 k 个数一定在前 m 个数中，递归划分
+        else partitionArray(arr, m+1, high, k); // 在右侧数组中寻找最小的 k-m 个数
     }
 
     // partition 函数和快速排序中相同
