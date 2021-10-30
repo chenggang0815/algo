@@ -20,7 +20,7 @@ import java.util.*;
 
 */
 public class Solution {
-    class pair{
+    static class pair{
         int time;
         String website;
         pair(int time, String website){
@@ -29,7 +29,7 @@ public class Solution {
         }
     }
 
-    public List<String> mostVisitedPattern(String[] username, int[] timestamp, String[] website) {
+    static List<String> mostVisitedPattern(String[] username, int[] timestamp, String[] website) {
         Map<String, List<pair>> map = new HashMap<>();
         for(int i = 0; i < username.length; i++){
             if(!map.containsKey(username[i])) map.put(username[i], new ArrayList<>());
@@ -62,10 +62,13 @@ public class Solution {
         return Arrays.asList( res.split(" "));
 
     }
+
     public static void main(String[] args) {
-        ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1,2,3,4));
-        array.sort((a, b) -> a - b);
-        System.out.println(array);
+        String[] username = new String[]{"joe","joe","joe","james","james","james","james","mary","mary","mary"};
+        int[] timestamp = new int[]{1,2,3,4,5,6,7,8,9,10};
+        String[] website = new String[]{"home","about","career","home","cart","maps","home","home","about","career"};
+        System.out.println(mostVisitedPattern(username, timestamp, website));
+        System.out.println("a".compareTo("b"));
 
     }
 }

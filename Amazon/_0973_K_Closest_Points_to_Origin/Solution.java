@@ -13,10 +13,19 @@ The distance between two points on the X-Y plane is the Euclidean distance (i.e.
 You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).
 
 solution 1:  O(nlog(n))
+1. sort array by the distance
 
 solution 2: use head O(nlog(k))
 
-PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b - a) 表示最大堆，堆顶为最大元素
+1. because we need to find the k-th smallest element, so we use a max heap
+2. iterate the array, maintain max size of the heap is k
+    2.1 so, if i < k, we just add the current point into heap => heap.add(points[i]);
+    2.2 else, we compare the current distance with the peek distance
+        2.2.1 if current < peek, we poll peek, and add the current
+3. after iterate the array, the element in the heap, is the top-k smallest element in the array
+4. PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b - a) 表示最大堆，堆顶为最大元素
+
+solution 3: quick select
 */
 public class Solution {
     static int[][] kClosest1(int[][] points, int k) {
@@ -27,32 +36,25 @@ public class Solution {
 
     static int[][] kClosest2(int[][] points, int k) {
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> b[0]*b[0] + b[1]*b[1] - a[0]*a[0] - a[1]*a[1]);
-        int i = 0;
-        while (i < k){
-            pq.add(points[i]);
-            i++;
-        }
 
-        System.out.println(Arrays.toString(pq.peek()));
-
-        while (i < points.length){
-            int distance = points[i][0]*points[i][0] + points[i][1]*points[i][1];
-            int[] peek = pq.peek();
-            int peekDistance = peek[0]*peek[0] + peek[1]*peek[1];
-            if (distance < peekDistance){
-                pq.poll();
+        for(int i = 0; i < points.length; i++){
+            if(i < k){
                 pq.add(points[i]);
+            }else{
+                int[] peekPoint = pq.peek();
+                int peek = peekPoint[0]*peekPoint[0] + peekPoint[1]*peekPoint[1];
+                int current = points[i][0]*points[i][0] + points[i][1]*points[i][1];
+                if(peek > current){
+                    pq.poll();
+                    pq.add(points[i]);
+                }
             }
-            i++;
         }
-        System.out.println(Arrays.toString(pq.peek()));
-
 
         int[][] res = new int[k][2];
-        i = 0;
-        while (!pq.isEmpty()){
-            res[i] = pq.poll();
-            i++;
+        int i = 0;
+        while(!pq.isEmpty()){
+            res[i++] = pq.poll();
         }
 
         return res;
