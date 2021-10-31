@@ -1,14 +1,7 @@
-package LeetCode._0155_Min_Stack;
+package Amazon._0155_Min_Stack;
+import java.util.Stack;
 
 /*
-155. 最小栈
-计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。
-
-    push(x) —— 将元素 x 推入栈中。
-    pop() —— 删除栈顶的元素。
-    top() —— 获取栈顶元素。
-    getMin() —— 检索栈中的最小元素。
-
 155. Min Stack
 Design a stack that supports push, pop, top, and retrieving the minimum element in constant time.
     push(x) -- Push element x onto stack.
@@ -45,8 +38,8 @@ public class Solution {
             ListNode node = new ListNode(num);
             temp.next = node;
         }
-
-        public  void pop(){
+        // 1->2->3
+        public void pop(){
             ListNode temp = head;
             if (temp.next.next==null) {
                 temp.next=null;
@@ -70,6 +63,7 @@ public class Solution {
             return temp.val;
         }
 
+        // time complexity: O(n)
         public int getMin(){
             ListNode temp = head;
             if (temp.next==null) return -1;
@@ -94,5 +88,13 @@ public class Solution {
         minStack.pop();
         System.out.println(minStack.top());    //  --> Returns 0.
         System.out.println(minStack.getMin());  // --> Returns -2.
+
+        Stack<Integer> stack1 = new Stack<>();
+        Stack<Integer> stack2 = new Stack<>();
+        stack1.push(-1024);
+        stack2.push(-1024);
+        stack1.push(2);
+        stack2.push(2);
+        System.out.println(stack1.peek() == stack2.peek());
     }
 }
