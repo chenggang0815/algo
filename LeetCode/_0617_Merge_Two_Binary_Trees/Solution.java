@@ -49,35 +49,37 @@ public class Solution {
     Time complexity : O(m) A total of m nodes need to be traversed. Here, m represents the minimum number of nodes from the two given trees.
     Space complexity : O(m) The depth of the recursion tree can go up to m in the case of a skewed tree. In average case, depth will be O(logm).
      */
-    static public TreeNode mergeTrees1(TreeNode t1, TreeNode t2) {
-        if (t1==null) return t2;
-        if (t2==null) return t1;
+    static public TreeNode mergeTrees1(TreeNode root1, TreeNode root2) {
+        if (root1 == null && root2 == null) return null;
+        if (root1 == null) return root2;
+        if (root2 == null) return root1;
 
-        t1.val = t1.val + t2.val;
+        TreeNode root = new TreeNode(root1.val + root2.val);
 
-        t1.left = mergeTrees1(t1.left,t2.left);
-        t1.right = mergeTrees1(t1.right,t2.right);
+        root.left = mergeTrees1(root1.left, root2.left);
+        root.right = mergeTrees1(root1.right, root2.right);
 
-        return t1;
+        return root;
     }
 
+    // iterative
     static public TreeNode mergeTrees2(TreeNode t1, TreeNode t2) {
-        if (t1==null) return t2;
+        if (t1 == null) return t2;
         Stack<TreeNode[]> stack = new Stack<>();
 
         stack.push(new TreeNode[] {t1, t2});
         while (!stack.isEmpty()){
             TreeNode[] t = stack.pop();
-            if (t[0]==null || t[1]==null){
+            if (t[0] == null || t[1] == null){
                 continue;
             }
             t[0].val = t[0].val + t[1].val;
-            if (t[0].left==null){
+            if (t[0].left == null){
                 t[0].left = t[1].left;
             }else {
                 stack.push(new TreeNode[]{t[0].left, t[1].left});
             }
-            if (t[0].right==null){
+            if (t[0].right == null){
                 t[0].right = t[1].right;
             }else {
                 stack.push(new TreeNode[]{t[0].right, t[1].right});
