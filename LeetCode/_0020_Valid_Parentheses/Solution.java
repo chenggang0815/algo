@@ -40,38 +40,23 @@ public class Solution {
     // Time Complexity:O(n)
     // Space Complexity:O(1)
     public static boolean isValid(String s){
-        char[] chars = s.toCharArray();
-        if(chars.length == 0) return true;
-        if(chars.length%2 == 1 || chars[0] == ')' || chars[0] == ']' || chars[0]== '}') return false;
-        Stack<Character> stack=new Stack<Character>();
-        for(int i=0;i<chars.length;i++){
-            if(chars[i] == '{' || chars[i] == '(' || chars[i] == '['){
-                stack.push(chars[i]);
-            }else if (chars[i] == ')'){
-                if (stack.pop() == '('){
-                    continue;
-                }
-                else return false;
-            }else if (chars[i] == ']'){
-                if (stack.pop() == '['){
-                    continue;
-                }
-                else return false;
-            }else if (chars[i] == '}'){
-                if (stack.pop() == '{'){
-                    continue;
-                }
-                else return false;
-            } else {
-                //System.out.println(stack.pop().toString());
-                return false;
+        Stack<Character> stack = new Stack<>();
+        for(Character c : s.toCharArray()){
+            if(c.equals(')') || c.equals(']') || c.equals('}')){
+                if(stack.isEmpty()) return false;
+                if(c.equals(')') && stack.peek().equals('(')){
+                    stack.pop();
+                }else if(c.equals(']') && stack.peek().equals('[')){
+                    stack.pop();
+                }else if(c.equals('}') && stack.peek().equals('{')){
+                    stack.pop();
+                }else return false;
+            }else{
+                stack.push(c);
             }
         }
-        if (stack.size() == 0) {
-            return true;
-        }else {
-            return false;
-        }
+
+        return stack.isEmpty();
     }
 
     public static void main(String[] args) {
