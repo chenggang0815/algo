@@ -63,6 +63,7 @@ class Solution:
     def searchRange4(self, nums: List[int], target: int) -> List[int]:
         res = [-1] * 2
         # 找出第一个大于target的位置
+        # 1 2 3 3 4 5 6 target=2
         def searchFirst(nums, target):
             left = 0
             right = len(nums) - 1
@@ -78,6 +79,7 @@ class Solution:
             return res
         # 找出最后一个大于target的位置
         def searchLast(nums, target):
+            # 1 2 3 4 5 6
             left = 0
             right = len(nums) - 1
             res = len(nums) # 这一块有问题，res应该为0更好理解，特殊情况[1]，target = 1

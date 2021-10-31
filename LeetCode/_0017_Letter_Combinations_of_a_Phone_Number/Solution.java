@@ -37,11 +37,12 @@ public class Solution {
             res.add(s.toString());
             return;
         }
+
         char digit = digits.charAt(index);
         String letters = letterMap[digit - '0'];
         for(int i = 0; i < letters.length(); i++){
             s.append(letters.charAt(i));
-           backtrack(digits, letterMap, res, s, index + 1);
+            backtrack(digits, letterMap, res, s, index + 1);
            //s.deleteCharAt(index);
             s.deleteCharAt(s.length() - 1);
         }
