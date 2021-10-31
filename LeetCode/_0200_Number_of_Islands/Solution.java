@@ -39,6 +39,26 @@ import java.util.Queue;
 2. dfs - 改变原始数组grid，每次遍历直接修改grid  time：o(m*n) space:o(m*n)
 
 3. bfs
+1. iterate the matrix, if current position grid[i][j] == '1', put the current position in queue, res++
+2. do bfs base the position in the queue
+3. why we need to put the grid[x - 1][y] = '0' in the if condition, not the 104 line
+   because it will cause duplicate calculation
+for example:
+                {'1','1','0','0','0'},
+                {'1','1','0','0','0'},
+                {'0','0','1','0','0'},
+                {'0','0','0','1','1'}};
+if we change the value to '0'  before the if , the order to queue is
+first while [0,0] check current position => [1,0] [0,1]
+second while [1,0] check current position => [1,1]
+              [0,1] check current position => [1,1]
+third while, we have two [1,1] [1,1]
+
+if we change the position before put it into the queue
+first while [0,0]  => [1,0] [0,1] => matrix[1,0]=0 matrix[0,1]=0
+second while [1,0] => [1,1] => matrix[1,1]=0
+              [0,1] no position meet condition
+third while, we have one [1,1]
  */
 public class Solution {
     static void dfs(char[][] grid, int i, int j, int[][] flag){
@@ -81,57 +101,54 @@ public class Solution {
         return res;
     }
 
-    // bfs https://leetcode-cn.com/problems/number-of-islands/solution/number-of-islands-shen-du-you-xian-bian-li-dfs-or-/
+    // bfs
     static int numIslands2(char[][] grid) {
-        if (grid == null || grid.length == 0) {
-            return 0;
-        }
+        Queue<int[]> queue = new LinkedList<>();
+        int m = grid.length;
+        int n = grid[0].length;
+        int res = 0;
 
-        int nr = grid.length;
-        int nc = grid[0].length;
-        int num_islands = 0;
-
-        for (int r = 0; r < nr; ++r) {
-            for (int c = 0; c < nc; ++c) {
-                if (grid[r][c] == '1') {
-                    num_islands++;
-                    grid[r][c] = '0';
-                    Queue<Integer> neighbors = new LinkedList<>();
-                    neighbors.add(r * nc + c);
-                    while (!neighbors.isEmpty()) {
-                        int id = neighbors.remove();
-                        int row = id / nc;
-                        int col = id % nc;
-                        if (row - 1 >= 0 && grid[row-1][col] == '1') {
-                            neighbors.add((row-1) * nc + col);
-                            grid[row-1][col] = '0';
+        int[][] visited = new int[m][n];
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(grid[i][j] == '1'){
+                    res++;
+                    grid[i][j] = '0';
+                    queue.add(new int[]{i, j});
+                    while(!queue.isEmpty()){
+                        int[] current = queue.poll();
+                        int x = current[0];
+                        int y = current[1];
+                       // grid[x][y] = '0';
+                        if(x > 0 && grid[x - 1][y] == '1' ){
+                            queue.add(new int[]{x - 1, y});
+                            grid[x - 1][y] = '0';
                         }
-                        if (row + 1 < nr && grid[row+1][col] == '1') {
-                            neighbors.add((row+1) * nc + col);
-                            grid[row+1][col] = '0';
+                        if(x < m - 1 && grid[x + 1][y] == '1' ){
+                            queue.add(new int[]{x + 1, y});
+                            grid[x + 1][y] = '0';
                         }
-                        if (col - 1 >= 0 && grid[row][col-1] == '1') {
-                            neighbors.add(row * nc + col-1);
-                            grid[row][col-1] = '0';
+                        if(y > 0 && grid[x][y - 1] == '1' ){
+                            queue.add(new int[]{x, y - 1});
+                            grid[x][y - 1] = '0';
                         }
-                        if (col + 1 < nc && grid[row][col+1] == '1') {
-                            neighbors.add(row * nc + col+1);
-                            grid[row][col+1] = '0';
+                        if(y < n - 1 && grid[x][y + 1] == '1' ){
+                            queue.add(new int[]{x, y + 1});
+                            grid[x][y + 1] = '0';
                         }
                     }
                 }
             }
         }
 
-
-        return num_islands;
+        return res;
     }
 
 
     public static void main(String[] args) {
         char[][] grid = new char[][]{
-                {'0','1','0','0','0'},
-                {'1','1','0','1','0'},
+                {'1','1','0','0','0'},
+                {'1','1','0','0','0'},
                 {'0','0','1','0','0'},
                 {'0','0','0','1','1'}};
         char[][] grid1 = new char[][]{
