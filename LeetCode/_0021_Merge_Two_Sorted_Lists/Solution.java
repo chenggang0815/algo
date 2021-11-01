@@ -1,15 +1,14 @@
 package LeetCode._0021_Merge_Two_Sorted_Lists;
 /*
 合并两个有序链表
-Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+Merge two sorted linked lists and return it as a new list.
+The new list should be made by splicing together the nodes of the first two lists.
 
 Example:
-
 Input: 1->2->4, 1->3->4
 Output: 1->1->2->3->4->4
 */
 public class Solution {
-
     public static class ListNode{
         int val;
         ListNode next;
@@ -18,7 +17,6 @@ public class Solution {
             this.val=val;
         }
     }
-
 
     static void addNode(ListNode head, int val){
         ListNode newNode = new ListNode(val);
@@ -43,30 +41,24 @@ public class Solution {
     // Time Complexity:O(n)
     // Space Complexity:O(1)
     static ListNode mergeTwoList(ListNode head1, ListNode head2){
-
         ListNode temp1 = head1;
         ListNode temp2 = head2;
         ListNode newHead = new ListNode();
-        ListNode temp = newHead;
+        ListNode cur = newHead;
         while (temp1 != null && temp2 != null){
             if (temp1.val < temp2.val){
-                temp.next = temp1;
+                cur.next = temp1;
                 temp1 = temp1.next;
-            }
-            else {
-                temp.next = temp2;
+            }else {
+                cur.next = temp2;
                 temp2 = temp2.next;
             }
-            temp = temp.next;
+            cur = cur.next;
         }
+        if (temp1 == null) cur.next = temp2;
+        if (temp2 == null) cur.next = temp1;
 
-        if (temp1 == null){
-            temp.next=temp2;
-        }
-        if (temp2 == null){
-            temp.next=temp1;
-        }
-        return newHead;
+        return newHead.next;
     }
 
     // Time Complexity:O(n)
@@ -97,8 +89,6 @@ public class Solution {
         addNode(head2,4);
 
         printList(mergeTwoLists2(head1,head2));
-
-
     }
 
 

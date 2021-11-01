@@ -31,8 +31,25 @@ Constraints:
 5. lists[i] is sorted in ascending order.
 6. The sum of lists[i].length won't exceed 10^4.
 
-思路1：两两合并，时间复杂度：k^2*n
-思路2：归并排序，时间复杂度：nk*log（k） 空间复杂度：log（k）
+Solution
+Approach 1:
+time:O(N*k) k is the number of the lists, N is total number of nodes in lists
+space:O(1)
+1. input:
+       lists = [node1, node2, node3]
+       ListNode head=new ListNode(Integer.MIN_VALUE);
+2. iterate the lists, each time merge two list
+3. head = merge2Lists(head, node1)
+
+Approach 2: Merge with Divide And Conquer
+time:O(N*log(k)) k is the number of the lists, N is total number of nodes in lists
+space:O(log(k))
+
+Approach 3: Merge with Divide And Conquer
+lists = [node1, node2, node3, node4] i=0 interval=1
+lists = [1_2, node2, node3, node4] merge(index=i=0, index=i+interval=1) i=0 interval=1
+lists = [1_2, node2, 3_4, node4] merge(i=2, i=3) i=0 interval=2
+lists = [1234, node2, 3_4, node4] merge(i=0, i=2)
 */
 public class Solution {
     static class ListNode{
@@ -56,12 +73,11 @@ public class Solution {
             }
             cur = cur.next;
         }
-
         cur.next = (head1 == null ? head2 : head1);
 
         return head.next;
     }
-// Runtime: 145 ms, faster than 14.22% of Java online submissions for Merge k Sorted Lists.
+// Approach 1
     static ListNode mergeKLists1(ListNode[] lists) {
         ListNode head = new ListNode(Integer.MIN_VALUE);
         for(ListNode list: lists){
@@ -70,7 +86,8 @@ public class Solution {
 
         return head.next;
     }
-// 归并排序
+
+// Approach 2 归并排序
     static ListNode mergeKLists2(ListNode[] lists) {
         return merge(lists, 0, lists.length - 1);
     }
@@ -83,6 +100,20 @@ public class Solution {
         return merge2Lists(merge(lists, left, mid), merge(lists, mid + 1, right));
     }
 
+    // Approach 3
+    static ListNode mergeKLists3(ListNode[] lists){
+        if (lists.length == 0) return null;
+
+        int interval = 1;
+        while (interval < lists.length){
+            for (int i = 0; i < lists.length - interval; i = i + 2 * interval){
+                lists[i] = merge2Lists(lists[i], lists[i + interval]);
+            }
+            interval *= 2;
+        }
+
+        return lists[0];
+    }
     public static void main(String[] args) {
         ListNode head1 = new ListNode(1);
         ListNode node1 = new ListNode(5);
