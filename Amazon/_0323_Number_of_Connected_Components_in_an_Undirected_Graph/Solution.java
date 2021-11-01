@@ -26,8 +26,8 @@ There are no repeated edges.
 */
 
 /*
-solution 1: dfs
-
+Solution:
+Approach 1: dfs
 Here E = Number of edges, V = Number of vertices.
 Time complexity: O(E+V).
 Building the adjacency list will take O(E) operations, as we iterate over the list of edges once, and insert each edge into two lists.
@@ -40,7 +40,8 @@ Building the adjacency list will take O(E) space.
 To keep track of visited vertices, an array of size O(V) is required.
 Also, the run-time stack for DFS will use O(V) space.
 
-solution 2:
+Approach 2: UnionFind
+
 */
 public class Solution {
     static int countComponents1(int n, int[][] edges) {
@@ -79,61 +80,6 @@ public class Solution {
         }
 
     }
-
-
-    static int countComponents2(int n, int[] edges){
-        int[] parents = new int[n];
-        for (int i = 0; i < n; i++){
-            parents[i] = i;
-        }
-        int res = n;
-        for (int i = 0; i < edges.length; i++){
-            int p1 = find(parents, edges[0]);
-            int p2 = find(parents, edges[1]);
-            if (p2 != p1){
-                parents[p1] = p2;
-                res--;
-            }
-        }
-
-        return res;
-    }
-
-    // disjoint-set union -  Without Path Compression
-    static int find(int[] parents, int i){
-        while (i != parents[i]){
-            i = parents[i];
-        }
-
-        return i; // Without Path Compression
-    }
-
-    // Path compression
-    //edges = [0,1],[1,2],[2,3]
-    /*  parents = new int[] {0,1,2,3}
-    parents[0]=0 parents[1]=1 parents[2]=2 parents[3]=3
-           3
-          /
-         2
-        /
-       1
-      /
-     0  parents[0]=1 parents[1]=2 parents[2]=3 parents[3]=3
-     after path compression for node 0 => parents[0]=3 parents[1]=2 parents[2]=3 parents[3]=3
-         3
-        / \
-       2   0
-      /
-     1
-   */
-    static int findParent(int[] parent, int i) {
-        if (i == parent[i]) return i;
-        //return parent[i] = findParent(parent, parent[i]); // Path compression
-        parent[i] = findParent(parent, parent[i]);
-
-        return parent[i];
-    }
-
 
     public static void main(String[] args) {
         int[][] edges = new int[][]{{0,1},{1,2},{2,3},{3,4}};

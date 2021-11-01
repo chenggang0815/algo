@@ -32,12 +32,18 @@ for example
 1. cur=[0,30]
    pq=[]
 2. cur=[5,10]
-   pq=>  (0,30) =>  0<5 (because array is sort) and 5<30 => need a new room, add (5,10) in the heap, and (5,10) is the new peek
+   pq=>  (0,30) =>  0<5 always meet(because array is sort)
+                => consider the start time of current meet is 5
+                => the end time of previous meet is 30
+                => 5<30, so we need a new room, add (5,10) in the heap, and (5,10) is the new peek
 
 3. cur=[15,20]
-   pq=> (5,10)  =>   5<15 (because array is sort) and 10<15 => don't need a new room, use (15,20) replace the (5,10)
+   pq=> (5,10)  =>   5<15 (because array is sort)
         /
-      (0,30)
+      (0,30)    => consider the start time of current meet is 15
+                => the end time of previous meet is 10
+                => 10<15, so don't need a new room, use (15,20) replace the (5,10)
+
 
 4. pq=> (15,20)
        /
@@ -45,7 +51,7 @@ for example
 
 return pq.size()
 
-Approach 2: Ordering
+Approach 2: Ordering time: O(nlog(n))
 for example: [0,30] [15,20] [5,10]
 start => [0, 5, 15]
 end => [10, 20, 30]

@@ -1,26 +1,26 @@
 package LeetCode._0207_Course_Schedule;
-
 import java.util.*;
-
 /*
 207. Course Schedule
 
-你这个学期必须选修 numCourses 门课程，记为 0 到 numCourses - 1 。
-在选修某些课程之前需要一些先修课程。 先修课程按数组 prerequisites 给出，其中 prerequisites[i] = [ai, bi] ，表示如果要学习课程 ai 则 必须 先学习课程  bi 。
-例如，先修课程对 [0, 1] 表示：想要学习课程 0 ，你需要先完成课程 1 。
-请你判断是否可能完成所有课程的学习？如果可以，返回 true ；否则，返回 false 。
+There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1.
+You are given an array prerequisites where prerequisites[i] = [ai, bi] indicates that you must take course bi first if you want to take course ai.
+For example, the pair [0, 1], indicates that to take course 0 you have to first take course 1.
+Return true if you can finish all courses. Otherwise, return false.
 
-示例 1：
-输入：numCourses = 2, prerequisites = [[1,0]]
-输出：true
-解释：总共有 2 门课程。学习课程 1 之前，你需要完成课程 0 。这是可能的。
+Example 1:
+Input: numCourses = 2, prerequisites = [[1,0]]
+Output: true
+Explanation: There are a total of 2 courses to take.
+To take course 1 you should have finished course 0. So it is possible.
 
-示例 2：
-输入：numCourses = 2, prerequisites = [[1,0],[0,1]]
-输出：false
-解释：总共有 2 门课程。学习课程 1 之前，你需要先完成​课程 0 ；并且学习课程 0 之前，你还应先完成课程 1 。这是不可能的。
-
+Example 2:
+Input: numCourses = 2, prerequisites = [[1,0],[0,1]]
+Output: false
+Explanation: There are a total of 2 courses to take.
+To take course 1 you should have finished course 0, and to take course 0 you should also have finished course 1. So it is impossible.
 */
+
 /*
 拓扑排序
 
@@ -32,8 +32,7 @@ import java.util.*;
     2.2 出度：顶点的出度是=> 该顶点指向其他点的边的数量
 如果存在一条有向边A->B，则这条边给A增加了1个出度，给B增加了1个入度
 
-入度数组：课号 0 到 n - 1 作为索引，通过遍历先决条件表求出对应的初始入度
-
+入度数组：课号0到n-1作为索引，通过遍历先决条件表求出对应的初始入度
 
 邻接表：用哈希表记录依赖关系（也可以用二维矩阵，但有点大）
 key：课号
@@ -44,19 +43,15 @@ value：依赖这门课的后续课（数组）
 2. 因为只能从入度为0的结点开始，所以
     2.1 申请一个queue，把所有入度为0的结点放到queue中
     2.2 申请一个list，把所有入度的为0的结点都放到list中
-3. 当queue不为空时，从队列中拿出一个结点
-    3.1 如果图中有其他结点依赖当前节点，那么更新此节点的入度 => 入度减一 => 入度减一后如果为0，那么此节点也可以被选中，加入queue和list中
+3. 当queue不为空时，从queue中拿出一个结点
+    3.1 如果图中有其他结点依赖当前节点，那么更新此节点的入度 => 入度减1 => 入度减1后如果为0，那么此节点也可以被选中，加入queue和list中
 
 4. 当queue为空后，如果list中的结点数和图中的结点数相等，那么所有结点都可以被选中，存在拓扑排序
 
 思路2： 拓扑排序 - dfs
 
-
-输入：numCourses = 2, prerequisites = [[1,0]]
-输出：true
-解释：总共有 2 门课程。学习课程 1 之前，你需要完成课程 0 。这是可能的。
-
 int[][] prerequisites = new int[][]{{1,0},{2,0},{3,1},{3,2}};
+                                    0->1   0->2  1->3  2->3
     0
    / \
   1  2
@@ -91,7 +86,6 @@ public class Solution {
                        res.add(node[0]);
                        queue.offer(node[0]);
                    }
-
                }
            }
         }

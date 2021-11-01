@@ -4,60 +4,54 @@ import java.util.HashMap;
 
 public class Solution2 {
     static class UnionFind{
-        private HashMap<Integer, Integer> map;
-        private int count;
-
-        public UnionFind(){
-            map = new HashMap<>();
-            count = 0;
-        }
-
-        void add(int x){
-            if (!map.containsKey(x)){
-                map.put(x, null);
-                count++;
+        private int[] parent;
+        public UnionFind(int n){
+            parent = new int[n + 1];
+            for(int i = 0; i <= n; i++){
+                parent[i] = i;
             }
         }
 
         void merge(int x, int y){
-            int rootX = find(x);
-            int rootY = find(y);
-
-            if (rootX != rootY){
-                map.put(rootX, rootY);
-                count--;
-            }
+            int p1 = findParent(x);
+            int p2 = findParent(y);
+            parent[p1] = parent[p2];
         }
 
-        int find(int x){
-            int root = x;
-            while (map.get(root) != null){
-                root = map.get(root);
-            }
+        int findParent(int i){
+            if(i == parent[i]) return i;
 
-            while (x != root){
-                int original_root = map.get(x);
-                map.put(x, root);
-                x = original_root;
-            }
+            parent[i] = findParent(parent[i]);
 
-            return root;
+            return parent[i];
         }
 
     }
-
-    static int findCircleNum(int[][] isConnected){
-        UnionFind uf = new UnionFind();
-        for(int i = 0;i < isConnected.length;i++){
-            uf.add(i);
-            for(int j = 0;j < i;j++){
-                if(isConnected[i][j] == 1){
-                    uf.merge(i,j);
+    /*
+    1 1 1
+    1 1 1
+    1 1 1
+    [0,1] => p1=0 p2=1
+    [1,0] => p1=1 p2=0
+    */
+    static public int findCircleNum(int[][] isConnected){
+        int n = isConnected.length;
+        UnionFind uf = new UnionFind(n);
+        int count = n;
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                if (i != j && isConnected[i][j] == 1){
+                    int p1 = uf.findParent(i);
+                    int p2 = uf.findParent(j);
+                    if(p1 != p2){
+                        uf.merge(i, j);
+                        count--;
+                    }
                 }
             }
         }
 
-        return uf.count;
+        return count;
     }
 
     public static void main(String[] args) {
