@@ -32,7 +32,6 @@ public class Solution {
         for (int stick: sticks){
             pq.add(stick);
         }
-
         int cost = 0;
         while (pq.size() > 1){
             int stick1 = pq.poll();

@@ -20,6 +20,7 @@ Constraints:
 1 <= instructions.length <= 100
 instructions[i] is 'G', 'L' or, 'R'.
 
+
     up right down left
     0   1     2    3
 left => -1
