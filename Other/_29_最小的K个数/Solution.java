@@ -60,54 +60,38 @@ public class Solution {
     static public ArrayList<Integer> GetLeastNumbers_Solution2(int [] input, int k) {
         if (input.length == 0 || k > input.length) return new ArrayList<>();
 
-        // 原地不断划分数组
-        partitionArray(input, 0, input.length - 1, k-1);
-
-        // 数组的前 k 个数此时就是最小的 k 个数，将其存入结果
+        partitionArray(input, 0, input.length - 1, k-1); //原地不断划分数组, 数组的前 k 个数此时就是最小的 k 个数，将其存入结果
         ArrayList<Integer> array = new ArrayList<>();
-        for (int i = 0; i < k; i++) {
-            array.add(input[i]);
-        }
-
-        //System.out.println(input[k-1]);
+        for (int i = 0; i < k; i++) array.add(input[i]);
 
         return array;
     }
 
-    static void partitionArray(int[] arr, int low, int high, int k) {
-        // 做一次 partition 操作
-        int m = partition(arr, low, high); // 此时数组前 m 个数，就是最小的 m 个数
-        if (k == m) return; // 正好找到最小的 k(m) 个数
-        else if (k < m) partitionArray(arr, low, m-1, k);//最小的 k 个数一定在前 m 个数中，递归划分
-        else partitionArray(arr, m+1, high, k); // 在右侧数组中寻找最小的 k-m 个数
+    static void partitionArray(int[] arr, int left, int right, int k) {
+        int m = partition(arr, left, right); // 做一次partition操作, 此时数组前m个数，就是最小的m个数
+        if (k == m) return; // 正好找到最小的k个数
+        else if (k < m) partitionArray(arr, left, m-1, k);//最小的k个数一定在前 m 个数中，递归划分
+        else partitionArray(arr, m+1, right, k); // 在右侧数组中寻找最小的 k-m 个数
     }
 
     // partition 函数和快速排序中相同
-    static int partition(int[] a, int low, int high) {
-            int i = low;
-            int j = high;
-            int key = a[low];
-            while (i<j) {
-                while (i < j && a[j] >= key) {
-                    j--;
-                }
-
-                while (i < j && a[i] <= key) {
-                    i++;
-                }
-
-                if (i < j){
-                int temp = a[i];
-                a[i] = a[j];
-                a[j] = temp;
+    static int partition(int[] nums, int left, int right) {
+            int i = left;
+            int j = right;
+            int pivot = nums[left];
+            while (i < j) {
+                while (i < j && nums[j] >= pivot) j--; // from right to left, find the first number nums[j] small than pivot
+                while (i < j && nums[i] <= pivot) i++;// from left to right, find the first number nums[i] bigger than pivot
+                if (i < j){ // exchange the nums[j] and nums[i]
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
                 }
             }
+            nums[left] = nums[j]; // i==j exchange nums[j] and pivot
+            nums[j] = pivot;
 
-            a[low] = a[j];
-            a[j] = key;
-
-            // a[lo .. j-1] <= a[j] <= a[j+1 .. hi]
-            return j;
+            return j; // a[lo .. j-1] <= a[j] <= a[j+1 .. hi]
     }
 
     // 思路3：最大堆

@@ -41,7 +41,8 @@ public class Solution {
 
     static int findLast(int[] nums, int target){
         //5 7 7 7 7 8 9 10 11 12 13 14 15
-        //0 1 2 3 4 5 6
+        //0 4 4 4  5 6 target=4
+        //     <=4
         int l = 0;
         int r = nums.length - 1;
         int res = -1;

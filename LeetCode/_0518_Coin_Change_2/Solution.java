@@ -13,7 +13,6 @@ dp[i][j] =
    after considering using first i-th coins, the number of combinations that sum up j - ith coin
  */
 public class Solution {
-
     public int change1(int amount, int[] coins) {
         int[][] dp = new int[coins.length+1][amount+1];
         dp[0][0] = 1;

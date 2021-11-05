@@ -33,8 +33,24 @@ import java.util.List;
 如果堆已满（大小>=k）且当前数的次数比堆顶大，用当前元素替换堆顶元素
 返回堆中的数字部分
 
-思路3：快速排序
+思路3：QuickSelect
+for example = [4,5,5,2,1,1,1,5,2,3,3,5,2]
+1. build hashmap<element, frequency>, and a array of unique element
+   (because the elements are unique but their frequency are not)
+2. HashMap<>() => (4, cnt=1) (5, cnt=4) (2, cnt=3) (1, cnt=3) (3, cnt=2)
+   unique array => nums = [3,5,2,1,4]
+3. select a pivot = nums[left] = 3
+   after a partition => [4,    3,     1,      2,       5]
+                       cnt=1  cnt=2  cnt=3   cnt=3   cnt=4
+                      all the number on the left of pivot have small frequency
+                      all the number on the right of pivot have bigger frequency
 
+4. partitionArray(nums, 0, nums.length, nums.length - k)
+
+5. index m = partition(nums, left, right)
+   if k == m return
+   else if k < m => partitionArray(nums, left, m - 1, k)
+   else partitionArray(nums, m + 1, right, k)
 
 思路4：桶排序法 time:o(n) space:o(n)
  */

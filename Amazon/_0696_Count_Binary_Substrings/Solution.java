@@ -28,11 +28,14 @@ s[i] is either '0' or '1'.
 Solution:
 1. for a string "100" or "001", we can get two group of 0 and 1, and the cnt is [1,2] for "100" and [2,1] for "001"
 2. the number of expected substrings is min(1,2)=1
+    for "100" is "10"
+    for "001" is "01"
 3. so we can iterate the array, count the group, and get the number of expected substring
 
 for example:
 "1001110" => "100"       "0011"         "1110"
              min(1,2)=1  min(2,2)=2   min(3,1)=1
+             "10"        "01" "0011"    "10"
              => res=1+2+1=4
 */
 public class Solution {
