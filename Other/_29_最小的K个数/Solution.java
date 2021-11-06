@@ -76,22 +76,22 @@ public class Solution {
 
     // partition 函数和快速排序中相同
     static int partition(int[] nums, int left, int right) {
-            int i = left;
-            int j = right;
-            int pivot = nums[left];
-            while (i < j) {
-                while (i < j && nums[j] >= pivot) j--; // from right to left, find the first number nums[j] small than pivot
-                while (i < j && nums[i] <= pivot) i++;// from left to right, find the first number nums[i] bigger than pivot
-                if (i < j){ // exchange the nums[j] and nums[i]
+        int i = left;
+        int j = right;
+        int pivot = nums[left];
+        while (i < j) {
+            while (i < j && nums[j] >= pivot) j--; // from right to left, find the first number nums[j] small than pivot
+            while (i < j && nums[i] <= pivot) i++;// from left to right, find the first number nums[i] bigger than pivot
+            if (i < j){ // exchange the nums[j] and nums[i]
                 int temp = nums[i];
                 nums[i] = nums[j];
                 nums[j] = temp;
-                }
             }
-            nums[left] = nums[j]; // i==j exchange nums[j] and pivot
-            nums[j] = pivot;
+        }
+        nums[left] = nums[j]; // i==j exchange nums[j] and pivot
+        nums[j] = pivot;
 
-            return j; // a[lo .. j-1] <= a[j] <= a[j+1 .. hi]
+        return j; // a[lo .. j-1] <= a[j] <= a[j+1 .. hi]
     }
 
     // 思路3：最大堆
