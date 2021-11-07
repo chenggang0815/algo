@@ -1,4 +1,4 @@
-package Amazon._001_Self_Descriptive_Number;
+package Other._001_Self_Descriptive_Number;
 
 public class Solution {
     public static void main(String[] args) {
