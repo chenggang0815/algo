@@ -1,73 +1,101 @@
 package LeetCode._0402_Remove_K_Digits;
 
+import java.util.LinkedList;
+
 /*
-402. 移掉K位数字
-给定一个以字符串表示的非负整数 num，移除这个数中的 k 位数字，使得剩下的数字最小。
+402. Remove K Digits
 
-注意:
-num 的长度小于 10002 且 ≥ k。
-num 不会包含任何前导零。
-示例 1 :
-输入: num = "1432219", k = 3
-输出: "1219"
-解释: 移除掉三个数字 4, 3, 和 2 形成一个新的最小的数字 1219。
+Given string num representing a non-negative integer num, and an integer k, return the smallest possible integer after removing k digits from num.
 
-示例 2 :
-输入: num = "10200", k = 1
-输出: "200"
-解释: 移掉首位的 1 剩下的数字为 200. 注意输出不能有任何前导零。
+Example 1:
+Input: num = "1432219", k = 3
+Output: "1219"
+Explanation: Remove the three digits 4, 3, and 2 to form the new number 1219 which is the smallest.
 
-示例 3 :
-输入: num = "10", k = 2
-输出: "0"
-解释: 从原数字移除所有的数字，剩余为空就是0。
+Example 2:
+Input: num = "10200", k = 1
+Output: "200"
+Explanation: Remove the leading 1 and the number is 200. Note that the output must not contain leading zeroes.
 
+Example 3:
+Input: num = "10", k = 2
+Output: "0"
+Explanation: Remove all the digits from the number and it is left with nothing which is 0.
 
-思路：
-1. 从左到右遍历每一个数字，如果当前数字比上一个数字小，则删除上一个数字，可以使数字更小；否则不能删除数字
- eg： 1432219  k = 3
-      append(1)
- 序列：1  1 < 4  append(4)
-      1,4 4 > 3 delete(4) append(3) k=2
-      1,3 3 > 2 delete(3) append(2) k=1
-      1,2 2 = 2 append(2)
-      1,2,2 2 > 1 delete(2) append(1) k=0
-      1,2,1
-      k = 0 append(9)
-      1,2,1,9
+Constraints:
+1 <= k <= num.length <= 105
+num consists of only digits.
+num does not have any leading zeros except for the zero itself.
 
-2. 对于 12345 这样单调递增的数字，需要遍历完取前k个
-3. 如果当前栈为空且当前数字为0时，不能加入栈中（不能有任何前导零）
+Solution:
+1. iterate the string, when current digit < pre_digit => can delete pre_digit
+   //  num = 4  1  3
+   1. initialize, list is empty, list.add(4)
+   2. cur = 1, pre = 4, 4 > 1 => delete pre => num = 1 3
+   // num = 1 2 3 0 , k=3
+   // cur=0,pre=3 => delete 3; num=120 k=2
+   // cur=0,pre=2 => delete 2; num=10 k=1
+   // cur=0,pre=1 => delete 1; num=0 k=0
+   // so we need a while condition to check if cur < pre
+
+2. corner case, for number like 12345, k=2, we will not delete any number in step 1
+   so if k > 0, we need to delete the last k number
+   12345, delete 45 => 123
+
+3. then we use a variable leadZero to check the lead zero,
+   initialize the leadZero = true
+   if(current char == '0' && leadZero) continue
+   leadZero = false; => until we meet the first no-zero number
+
+4. why we use LinkedList not stack, be cause we need to iterate the list from left to right
+   // because we can iterate the char from first or last
  */
+// 10001
+//
 public class Solution {
-
     static String removeKdigits(String num, int k) {
-        if(num.length() == k) return "0";
-
-        StringBuilder stack = new StringBuilder();
-
-        for(int i = 0; i < num.length(); i++){
-            char ch = num.charAt(i);
-            while(k > 0 && stack.length() != 0 && stack.charAt(stack.length() - 1) > ch){
-                    stack.deleteCharAt(stack.length() - 1);
-                    k--;
+        LinkedList<Character> stack = new LinkedList<>();
+        for (char ch : num.toCharArray()){
+            while (k > 0 && !stack.isEmpty() && ch < stack.getLast()){//注意要用while 而不是if, for example => num="1234567890" k=9
+                stack.removeLast();
+                k--;
             }
-            if(ch == '0' && stack.length() == 0) continue;
-            stack.append(ch);
+            stack.addLast(ch);
         }
 
-        String res = stack.substring(0, stack.length() - k);
+        System.out.println(stack);
 
-        return res.length() == 0 ? "0" : res;
+        for (int i = 0; i < k; i++){
+            stack.removeLast();
+        }
+
+        System.out.println(stack);
+
+        boolean leadZero = true;
+        StringBuilder res = new StringBuilder();
+        for (char ch : stack){
+            if (ch == '0' && leadZero) continue;
+            leadZero = false;
+            res.append(ch);
+        }
+
+        if (res.length() == 0) return "0";
+
+        return res.toString();
     }
 
+
     public static void main(String[] args) {
-
-        String num = "10086";
-        int k = 2;
-
-        System.out.println(removeKdigits(num, k));
-
+        //String num = "12345";
+        //System.out.println(removeKdigits("1234567890", 9));
+        LinkedList<String> stack = new LinkedList<>();
+        stack.addLast("aa");
+        stack.addLast("bb");
+        stack.addFirst("cc");
+        System.out.println(stack);
+        System.out.println(stack.getFirst());
+        System.out.println(stack.getLast());
+        System.out.println(stack.peekLast());
     }
 
 }
