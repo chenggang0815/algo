@@ -32,7 +32,21 @@ s does not contain any leading or trailing spaces.
 All the words in s are separated by a single space.
  */
 /*
-思路：利用两个hashmap，分别映射s2p和p2s，依次判断是否相匹配
+Solution：利用两个hashmap，分别映射s2p和p2s，依次判断是否相匹配
+example 1 => Input: pattern = "abba", s = "dog cat cat dog"
+i=0, a -> dog => a not in p2s, p2s.put(a, dog)
+     dog->a => dog not in s2p, s2p.put(dog, a)
+i=1, b -> cat cat->b
+i=2, p2s.get(b)=cat, s2p.get(cat)=b
+i=3, p2s.get(a)=dog, s2p.get(dog)=a
+=> return ture
+
+example 2 => Input: pattern = "abba", s = "dog dog dog dog"
+i=0, a -> dog => a not in p2s, p2s.put(a, dog)
+     dog->a => dog not in s2p, s2p.put(dog, a)
+i=1, b -> dog  => b not in p2s, p2s.put(b, dog)
+     dog->b => dog in s2p, s2p.get(dog) != b => return false;
+
 time:o(m+n) m和n分别是pattern和s的长度，其中对s按照空格切分需要o(n)的时间复杂度
 space:o(m+n)
 
@@ -45,10 +59,8 @@ public class Solution {
         String[] str = s.split(" ");
         if (pattern.length() != str.length) return false;
 
-
         HashMap<Character, String> p2s = new HashMap<>();
         HashMap<String, Character> s2p = new HashMap<>();
-
         for (int i = 0; i < str.length; i++){
             char p = pattern.charAt(i);
             if (!p2s.containsKey(p)){
@@ -56,7 +68,6 @@ public class Solution {
             }else {
                 if (!p2s.get(p).equals(str[i])) return false;
             }
-
             if (!s2p.containsKey(str[i])){
                 s2p.put(str[i], p);
             }else {
