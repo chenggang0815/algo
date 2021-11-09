@@ -50,7 +50,7 @@ i=1, b -> dog  => b not in p2s, p2s.put(b, dog)
 time:o(m+n) m和n分别是pattern和s的长度，其中对s按照空格切分需要o(n)的时间复杂度
 space:o(m+n)
 
-相似题目：
+similar question：
 205. Isomorphic Strings
  */
 public class Solution {
@@ -78,10 +78,33 @@ public class Solution {
         return true;
     }
 
+    public boolean wordPattern2(String pattern, String s) {
+        HashMap<String, Character> w2p = new HashMap<>();
+        HashMap<Character, String> p2w = new HashMap<>();
+        String[] words = s.split(" ");
+        if (words.length != pattern.length()) return false;
+
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            Character c = pattern.charAt(i);
+                            // character compare to character                       // string compare to string
+            if (w2p.containsKey(word) && w2p.get(word) != c  || p2w.containsKey(c) && !p2w.get(c).equals(word)) return false;
+            w2p.put(word, c);
+            p2w.put(c, word);
+            }
+
+        return true;
+    }
 
     public static void main(String[] args) {
-        System.out.println(wordPattern("abba", "dog cat cat dog"));
-        System.out.println(wordPattern("abba", "dog dog dog dog"));
-
+       // System.out.println(wordPattern("abba", "dog cat cat dog"));
+      //  System.out.println(wordPattern("abba", "dog dog dog dog"));
+        HashMap<String, Character> map = new HashMap<>();
+        map.put("a", 'a');
+        Character s = 'a';
+        System.out.println(map.get("a").equals(s));
+        System.out.println(s.equals(map.get("a")));
+        System.out.println(map.get("a") == s);
+        System.out.println(s == map.get("a"));
     }
 }

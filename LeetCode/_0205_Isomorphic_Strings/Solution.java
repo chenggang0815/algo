@@ -1,31 +1,31 @@
 package LeetCode._0205_Isomorphic_Strings;
 /*
 205. Isomorphic Strings
-
-给定两个字符串 s 和 t，判断它们是否是同构的。
-
-如果s中的字符可以按某种映射关系替换得到t，那么这两个字符串是同构的。
-
-每个出现的字符都应当映射到另一个字符，同时不改变字符的顺序。
-不同字符不能映射到同一个字符上，相同字符只能映射到同一个字符上，字符可以映射到自己本身。
+Given two strings s and t, determine if they are isomorphic.
+Two strings s and t are isomorphic if the characters in s can be replaced to get t.
+All occurrences of a character must be replaced with another character while preserving the order of characters.
+No two characters may map to the same character, but a character may map to itself.
 
 Example 1:
 Input: s = "egg", t = "add"
 Output: true
-
 Example 2:
 Input: s = "foo", t = "bar"
 Output: false
-
 Example 3:
 Input: s = "paper", t = "title"
 Output: true
 
-相似题目：
+Constraints:
+1. 1 <= s.length <= 5 * 104
+2. t.length == s.length
+3. s and t consist of any valid ascii character.
+
+similar question：
 290. Word Pattern
 */
 /*
-思路：
+Solution：
 需要判断s和t每个位置上的字符是否都一一对应，即s的任意一个字符被t中唯一的字符对应，同时t的任意一个字符被s中唯一的字符对应。
 "paper"
 (p,t) (a,i) (p,t) (e,l) (r,e)
@@ -40,7 +40,6 @@ Output: true
 */
 
 import java.util.HashMap;
-
 public class Solution {
     // "paper", t = "title"
     static boolean isIsomorphic(String s, String t) {
@@ -58,11 +57,7 @@ public class Solution {
 
     public static void main(String[] args) {
         System.out.println(isIsomorphic("badc", "baba"));
-
         System.out.println(isIsomorphic("paper", "title"));
-
         System.out.println(isIsomorphic("bada", "eaba"));
-
-
     }
 }
