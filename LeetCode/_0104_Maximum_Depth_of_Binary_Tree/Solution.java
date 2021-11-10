@@ -24,7 +24,8 @@ Solution
 Approach 1 dfs time: O(n) space:O(height)
 
 Approach 2 bfs time: O(n) space:O(n)
-
+1. bfs - v1
+2. bfs - v2
 */
 public class Solution {
 
@@ -48,7 +49,7 @@ public class Solution {
         return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
     }
 
-    //bfs
+    //bfs - v1
     static int maxDepth2(TreeNode root){
         if (root == null) return 0;
 
@@ -67,6 +68,25 @@ public class Solution {
         }
 
     return depth;
+    }
+    // bfs - v2
+    public int maxDepth3(TreeNode root) {
+        if(root == null) return 0;
+
+        int depth = 0;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            depth++;
+            int k = queue.size();
+            for(int i = 0; i < k; i++){
+                TreeNode node = queue.poll();
+                if(node.left != null) queue.add(node.left);
+                if(node.right != null) queue.add(node.right);
+            }
+        }
+
+        return depth;
     }
 
     public static void main(String[] args) {
