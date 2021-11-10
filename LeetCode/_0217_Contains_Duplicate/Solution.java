@@ -1,25 +1,23 @@
 package LeetCode._0217_Contains_Duplicate;
-
+import java.util.Arrays;
 import java.util.HashSet;
-
 /*
 217. Contains Duplicate
-
 Given an array of integers, find if the array contains any duplicates.
 Your function should return true if any value appears at least twice in the array,
 and it should return false if every element is distinct.
-
 Example 1:
 Input: [1,2,3,1]
 Output: true
+
 Example 2:
 Input: [1,2,3,4]
 Output: false
+
 Example 3:
 Input: [1,1,1,3,3,4,3,2,4,2]
 Output: true
-
- */
+*/
 /*
 题目拓展
 这题类似题型非常之多，而且大多都是面试高频题 。
@@ -35,10 +33,23 @@ Output: true
 
 136. 只出现一次的数字
 超级经典，我相信绝大多数人已经做过了，没有做过的速速去会会它。姊妹题：137. 只出现一次的数字 II 和 260. 只出现一次的数字 III。这两题也是必刷题，刷了以后会对异或有更深入的了解和认识。其中 剑指 Offer 56 - I. 数组中数字出现的次数 是重复题目，我提供了一种 使用二分解决的思路，值得一看哦～
+*/
+/*
+Solution
+Approach 1: two for loop enumerate all the pair(i,j)
+time: O(n^2)
+space: O(1)
 
- */
+Approach 2: HashSet
+time: O(n^2)
+space: O(1)
+
+Approach 3: sort
+time: O(nlog(n))
+space: O(1) for heapsort
+*/
 public class Solution {
-
+    // approach 2
     static boolean containsDuplicate(int[] nums){
         HashSet<Integer> set = new HashSet<>();
         for (int i = 0; i < nums.length; i++){
@@ -52,15 +63,20 @@ public class Solution {
     //比上面更加快
     static boolean containsDuplicate2(int[] nums){
         HashSet<Integer> set = new HashSet<>();
-        for (int i = 0; i < nums.length; i++){
-            set.add(nums[i]);
+        for (int i = 0; i < nums.length; i++) set.add(nums[i]);
+
+        if (set.size() == nums.length) return false;
+        else return true;
+    }
+
+    // approach 3
+    public boolean containsDuplicate3(int[] nums) {
+        Arrays.sort(nums);
+        for(int i = 0; i < nums.length - 1; i++){
+            if(nums[i] == nums[i + 1]) return true;
         }
 
-        if (set.size() == nums.length){
-            return false;
-        }else{
-            return true;
-        }
+        return false;
     }
 
     public static void main(String[] args) {
