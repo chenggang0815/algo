@@ -23,8 +23,12 @@ return its level order traversal as:
   [9,20],
   [15,7]
 ]
-
  */
+/*
+solution:
+Approach 1: bfs
+Approach 2: dfs (pre-order) we use pre-order to make sure we create all the level list first, can we get use res.get(level)
+*/
 public class Solution {
     static class TreeNode{
         int val;
@@ -35,15 +39,16 @@ public class Solution {
         }
     }
 
-    //bfs，一般用一个队列来辅助
-    static public List<List<Integer>> levelOrder(TreeNode root) {
+    //bfs
+    static public List<List<Integer>> levelOrder1(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
-        Queue<TreeNode> queue = new LinkedList<>();
+        if (root == null) return res;
 
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while (!queue.isEmpty()){
             int count = queue.size();
-            ArrayList<Integer> temp = new ArrayList<>();
+            List<Integer> temp = new ArrayList<>();
             while (count > 0){
                 TreeNode node = queue.poll();
                 temp.add(node.val);
@@ -57,28 +62,23 @@ public class Solution {
         return res;
     }
 
-    //递归
-    static List<List<Integer>> leverorder2(TreeNode root){
+    // dfs pre-order, we use pre-order to make sure we create all the level list first, can we get use res.get(level)
+    public List<List<Integer>> levelOrder2(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
-        if (root==null) return res;
+        if(root == null) return res;
 
-        helper(root, 0, res);
+        dfs(root, 0, res);
 
         return res;
     }
+    // pre-order
+    void dfs(TreeNode root, int level, List<List<Integer>> res){
+        if(root == null) return;
 
-    static void helper(TreeNode root, int level, List<List<Integer>> res){
-
-        if (root==null) return;
-        if (res.size()==level){
-            res.add(new ArrayList<>());
-        }
-
+        if(level == res.size()) res.add(new ArrayList<>());
         res.get(level).add(root.val);
-
-        helper(root.left,level+1,res);
-        helper(root.right,level+1,res);
-
+        dfs(root.left, level + 1, res);
+        dfs(root.right, level + 1, res);
     }
 
     public static void main(String[] args) {
@@ -101,7 +101,7 @@ public class Solution {
         node2.right = node3;
         node3.left = node4;
 
-        System.out.println(leverorder2(root));
+        System.out.println(levelOrder1(root));
 
 
     }
