@@ -4,7 +4,10 @@ package LeetCode._0124_Binary_Tree_Maximum_Path_Sum;
 A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence at most once. Note that the path does not need to pass through the root.
 The path sum of a path is the sum of the node's values in the path.
 Given the root of a binary tree, return the maximum path sum of any path.
+*/
 
+/*
+Solution:
       -10  max = -10 + 9 + 42 = 41
       /  \
      9    20 20 + max_left + max_right = 20 + 15 + 7 = 42
@@ -24,7 +27,6 @@ public class Solution {
         int val;
         TreeNode left;
         TreeNode right;
-
         TreeNode(int val){
             this.val = val;
         }
@@ -32,22 +34,30 @@ public class Solution {
 
     int maxPathSum(TreeNode root){
         int[] result = new int[]{Integer.MIN_VALUE};
-        helper(root, result);
+        dfs(root, result);
 
         return result[0];
     }
 
-    int helper(TreeNode root, int[] result){
+    int dfs(TreeNode root, int[] result){
         if (root == null) return 0;
 
-        int left = helper(root.left, result);
-        int right = helper(root.right, result);
-
+        int left = dfs(root.left, result);
+        int right = dfs(root.right, result);
         left = left < 0 ? 0:left;
         right = right < 0 ? 0:right;
         result[0] = Math.max(result[0], root.val + left + right);
+        /*
+        If the current node is at level 2 and you want to go one level up, say level 1,
+        you can NOT keep both the left paths and right paths,
+        you just gotta choose one path out of these two.
+        See the example 2 of the problem, if the current node is 20,
+        then you wanna go up to -10 and compute the new sum,
+        you can't consider both 15 and 7 when computing path_sum, since -10->20->15->7 is illegal.
 
-        return root.val + Math.max(left, right);
+         */
+
+        return root.val + Math.max(left, right); //  because a path can not have branch, so we have to choose the max sub node + current node
     }
     public static void main(String[] args) {
 
