@@ -15,15 +15,25 @@ Output: [[-1,-1,2],[-1,0,1]]
 /*
 
 solution 1: two pointers time:O(nlog(n) + n^2) => O(n^2)
-
 input = [-1,0,1,2,-1,-4], target = 0
-
 1. first, sort => [-4,-1,-1,0,1,2]
 2. target=0-(-4)=4          -1  -1  0  1  2
                            left         right
 3. target = 4  => then use two pointers to search the [left, right] part of the array => make nums[left] + nums[right] = - target
-
 4. for loop + two_sum_II(two_pointers)
+
+for example :
+edge case 1:
+inputs = 0 0 0 0 0
+         i l     r => l=1, r=4, find a solution =>  step 1 => while(l < r && nums[l] == nums[l+1]) l++ => l=3,r=4
+                                                   step 2 => l++, r-- => l=4 r=3 => break out while
+edge case 2:
+inputs = -2 -1 0 1 2 3 4 5
+                 i => if nums[i] > 0 => break => the number on the right side of k is all > 0, we can not find a solution make nums[i]+nums[j]+nums[k]=0
+
+edge case 3:
+inputs = -1 -1 0 1 2
+            i => if i > 0 && nums[i] == nums[i-1] => continue =>  skip the duplicate solution
 
 solution 2: hashSet
 
@@ -47,43 +57,36 @@ tips:
 */
 
 public class Solution {
-    // 代码太冗余了
     static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums);
-        for (int k = 0; k < nums.length - 2; k++){
-            if (nums[k] > 0) break;
-            if (k > 0 && nums[k] == nums[k - 1]) continue;
-            int left = k + 1, right = nums.length - 1;
+        for (int i = 0; i < nums.length - 2; i++){
+            if (nums[i] > 0) break; // if k > 0 => the number on the right side of k is all > 0, we can not find a solution
+            if (i > 0 && nums[i] == nums[i - 1]) continue; // if k > 0 && nums[k] == nums[k - 1] => skip thr duplicate solution
+            int left = i + 1, right = nums.length - 1;
             while (left < right){
-                int sum = nums[k] + nums[left] + nums[right];
-                if (sum < 0){
-//                    while (left < right && nums[left] == nums[left + 1]){
-//                        left++;
-//                    }  这段代码可以不用，sum < 0 时，如果left有重复值，会再次走到这个分支，left++
+                int target = 0 - nums[i];
+                int sum = nums[left] + nums[right];
+                if (sum < target){
                     left++;
-                }else if (sum > 0){
-//                    while (left < right && nums[right] == nums[right - 1]){
-//                        right--;
-//                    }
+                }else if (sum > target){
                     right--;
                 }else{
-                    res.add(Arrays.asList(nums[k], nums[left], nums[right]));
-                    while (left < right && nums[left] == nums[left + 1]){
-                        left++;
-                    }
-//                    while (left < right && nums[right] == nums[right - 1]){
-//                        right--;
-//                    } when nums[left] + nums[right] == nums[k] => avoid the duplicate (left,right) => must skip the duplicate left or right
+                    res.add(Arrays.asList(nums[i], nums[left], nums[right]));
+                    while (left < right && nums[left] == nums[left + 1]) left++; // avoid the duplicate (left,right) => must skip the duplicate left or right
                     left++;
                     right--;
                 }
             }
         }
+
         return res;
     }
-        public static void main(String[] args) {
+
+    public static void main(String[] args) {
         int[] nums = new int[]{-1,0,1,2,-1,-4,-1,-1};
         System.out.println(threeSum(nums));
+
+        System.out.println(Arrays.asList("a","b","c"));
     }
 }
