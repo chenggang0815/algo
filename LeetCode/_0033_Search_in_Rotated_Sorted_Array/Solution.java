@@ -34,11 +34,13 @@ Approach 1: binary search time:O(log(n)) space:O(1)
 
 
 Approach 2: binary search one-pass time:O(log(n)) space:O(1)
-1- take the middle and compare with target, if matches return.
-2- if middle is bigger than left side, it means left is sorted
-    2a- if [left] < target < [middle] then do recursion with left, middle - 1 (right)
-    2b- left side is sorted, but target not in here, search on right side middle + 1 (left), right
-3- if middle is less than right side, it means right is sorted
+1 mid = left + (right - left) / 2 => if nums[mid]==target return mid
+
+2 if nums[mid] >= nums[left], it means [left, mid] is sorted
+    2.1  if nums[left] <= target < nums[mid] => it means target in [left, mid - 1] => right = mid - 1
+    2.2  else => it means target in [mid + 1, right] => left = mid + 1
+
+3 if middle is less than right side, it means right is sorted
     3a- if [middle] < target < [right] then do recursion with middle + 1 (left), right
     3b- right side is sorted, but target not in here, search on left side left, middle -1 (right)
 
