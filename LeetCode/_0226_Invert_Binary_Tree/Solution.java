@@ -16,32 +16,85 @@ public class Solution {
             this.val = val;
         }
     }
-
+    // dfs 1
     static TreeNode invertTree1(TreeNode root) {
-        if (root == null) {
-            return null;
-        }
+        if (root == null) return null;
+
         TreeNode right = invertTree1(root.right);
         TreeNode left = invertTree1(root.left);
         root.left = right;
         root.right = left;
+
         return root;
     }
 
+    // dfs2
     static TreeNode invertTree2(TreeNode root){
-        if (root==null) return null;
+        if (root == null) return null;
 
         TreeNode temp = root.left;
         root.left = root.right;
         root.right = temp;
-
         invertTree2(root.left);
         invertTree2(root.right);
 
         return root;
     }
 
-    static TreeNode invertTree3(TreeNode root){
+    //dfs3
+    public TreeNode invertTree(TreeNode root) {
+        if(root == null) return root;
+
+        dfs3(root);
+
+        return root;
+    }
+
+    void dfs3(TreeNode root){
+        if(root.left == null && root.right == null) return;
+        if(root.left == null){
+            root.left = root.right;
+            root.right = null;
+            dfs3(root.left);
+            return;
+        }
+        if(root.right == null){
+            root.right = root.left;
+            root.left = null;
+            dfs3(root.right);
+            return;
+        }
+
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+
+        dfs3(root.left);
+        dfs3(root.right);
+    }
+
+    // dfs 4
+    public TreeNode invertTree4(TreeNode root) {
+        if(root == null) return root;
+
+        dfs4(root);
+
+        return root;
+    }
+
+    void dfs4(TreeNode root){
+        if(root == null) return;
+
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+
+        dfs4(root.left);
+        dfs4(root.right);
+    }
+
+    // bfs
+    static TreeNode invertTree5(TreeNode root){
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()){
@@ -52,6 +105,7 @@ public class Solution {
             if (current.left!=null) queue.add(current.left);
             if (current.right!=null)queue.add(current.right);
         }
+
         return root;
     }
 
@@ -92,6 +146,9 @@ public class Solution {
         //System.out.println(PrintFromTopToBottom(root));
         //System.out.println(PrintFromTopToBottom(invertTree3(root)));
         invertTree2(root);
+
+        node8.left = root;
+        System.out.println(node8.left);
 
 
     }
