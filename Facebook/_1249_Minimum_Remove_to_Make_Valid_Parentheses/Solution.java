@@ -34,6 +34,12 @@ Output: "a(b(c)d)"
 
 /*
 solution:
+1. when current char is ( => push it's index into stack
+2. when current char is ) => 2.1 stack is not empty => stack.pop()
+                          => 2.2 stack is empty => delete.add(i)
+3. all the '(' in the stack need to be deleted
+4. build a string builder, return
+
 ex1: )() => ()
 ex2: (())) => (())
 when number of ) > number of ( => delete )
@@ -52,8 +58,32 @@ so we need to delete the index of 0 and 1
 time complexity is O(n)
  */
 public class Solution {
+    public String minRemoveToMakeValid1(String s) {
+        StringBuilder sb = new StringBuilder();
+        Stack<Integer> stack = new Stack<>();
+        HashSet<Integer> delete = new HashSet<>();
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) == '('){
+                stack.push(i);
+            }else if(s.charAt(i) == ')'){
+                if(!stack.isEmpty()){
+                    stack.pop();
+                    continue;
+                }else{
+                    delete.add(i);
+                }
+            }
+        }
+        while(!stack.isEmpty()) delete.add(stack.pop());
+        for(int i = 0; i < s.length(); i++){
+            if(delete.contains(i)) continue;
+            sb.append(s.charAt(i));
+        }
 
-    static String minRemoveToMakeValid(String s) {
+        return sb.toString();
+    }
+
+    static String minRemoveToMakeValid2(String s) {
         Stack<Integer> stack = new Stack<>();
         int leftParentheses = 0;
         int rightParentheses = 0;
@@ -92,6 +122,6 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        System.out.println(minRemoveToMakeValid("(()))"));
+        System.out.println(minRemoveToMakeValid1("(()))"));
     }
 }
