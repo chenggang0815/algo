@@ -58,7 +58,7 @@ so we need to delete the index of 0 and 1
 time complexity is O(n)
  */
 public class Solution {
-    public String minRemoveToMakeValid1(String s) {
+    static String minRemoveToMakeValid1(String s) {
         StringBuilder sb = new StringBuilder();
         Stack<Integer> stack = new Stack<>();
         HashSet<Integer> delete = new HashSet<>();
