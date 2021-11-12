@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Stack;
 
 /*
-思路1：动态规划
+Approach 1：动态规划
 1. dp[i] 表示以下标 i 字符结尾的最长有效括号的长度
 2. if nums[i]='(' => 不可能是最长有效括号的子串
 3. if nums[i]=')'
@@ -36,17 +36,49 @@ import java.util.Stack;
                                                        dp[i] = 2 + 4 + 2
                 dp[i-1]=4 => if(nums[i - dp[i-1] - 1]) => if(nums[i-5] == '(') => dp[i]=dp[i-1]+dp[i-dp[i-1]-2]+2
     3.3 还需要判断边界    i - dp[i - 1] > 0 和 i - dp[i - 1] > 2
-思路2：栈
+
+Approach 2：stack
 1. 先利用栈找到所有可以匹配的括号的索引，然后再对索引求最长连续子序列的长度
 eg:      (          )             (          )              (          (           )
       push(0)    pop()        push(2)      pop()           push(4)   push(5)      pop()
 arr             arr.add(peek())          arr.add(peek())                        arr.add(peek())
                 arr.add(1)               arr.add(3)                             arr.add(6)
 
-Array.sort(arr)
-arr => [0,1,2,3,5,6] => return 4
+2. Array.sort(arr) => arr = [0,1,2,3,5,6]
+
+3. => return 4
  */
 public class Solution {
+    public int longestValidParentheses(String s) {
+        List<Integer> arr = new ArrayList<>();
+        Stack<Integer> stack = new Stack<>();
+        for(int i = 0; i < s.length(); i++){
+            if(s.charAt(i) == '(') stack.push(i);
+            if(!stack.isEmpty() && s.charAt(i) == ')'){
+                arr.add(stack.peek());
+                arr.add(i);
+                stack.pop();
+            }
+        }
+        // edge case => s=""
+        if(arr.size() == 0) return 0;
+
+        arr.sort((a, b) -> a - b);
+        int res = 0;
+        int cnt = 1;
+        // arr= 123 5678
+        for(int i = 0; i < arr.size() - 1; i++){
+            if(arr.get(i) + 1 == arr.get(i + 1)){
+                cnt++;
+            }else{
+                res = Math.max(res, cnt);
+                cnt = 1;
+            }
+        }
+
+        return Math.max(res, cnt);
+    }
+
     static int longestValidParentheses1(String s) {
         int res =0;
         int[] dp = new int[s.length()];
