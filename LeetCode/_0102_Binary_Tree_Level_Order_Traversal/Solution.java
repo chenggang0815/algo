@@ -28,6 +28,8 @@ return its level order traversal as:
 solution:
 Approach 1: bfs
 Approach 2: dfs (pre-order) we use pre-order to make sure we create all the level list first, can we get use res.get(level)
+
+similar question with 107
 */
 public class Solution {
     static class TreeNode{
@@ -71,7 +73,7 @@ public class Solution {
 
         return res;
     }
-    // pre-order
+    // pre-order => node -> left -> right
     void dfs(TreeNode root, int level, List<List<Integer>> res){
         if(root == null) return;
 
