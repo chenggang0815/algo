@@ -12,13 +12,19 @@ A valid BST is defined as follows:
     2. The right subtree of a node contains only nodes with keys greater than the node's key.
     3. Both the left and right subtrees must also be binary search trees.
 
-solution 1:
-递归
+Solution:
+Approach 1: recursion - time:o(n) space:o(n)
 将当前节点的值分别作为左子树的上界和右子树的下界，分别再对左右子树遍历判断
-time:o(n) space:o(n)
 
-solution 2:
-中序遍历，判断是否依次递增
+Approach 2: iterative - inorder traversal
+
+Approach 3: recursion - inorder traversal
+use extra space, use a list store all the val in the tree
+
+Approach 3: recursion - inorder traversal
+use a global variable to track the previous node
+
+similar question to 426
  */
 public class Solution {
     static class TreeNode{

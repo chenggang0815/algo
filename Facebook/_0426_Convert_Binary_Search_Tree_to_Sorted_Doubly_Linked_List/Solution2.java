@@ -1,6 +1,6 @@
 package Facebook._0426_Convert_Binary_Search_Tree_to_Sorted_Doubly_Linked_List;
 /*
-
+similar question to 98
 */
 public class Solution2 {
     class Node {
@@ -21,7 +21,7 @@ public class Solution2 {
         }
     };
 
-    // use a variable to track the previous node
+    // use a global variable to track the previous node
     Node prev = null;
     public Node treeToDoublyList(Node root) {
         if(root == null) return null;
