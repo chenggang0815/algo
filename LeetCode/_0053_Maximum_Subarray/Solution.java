@@ -1,12 +1,5 @@
 package LeetCode._0053_Maximum_Subarray;
 /*
-53. 最大子序和
-给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
-示例:
-输入: [-2,1,-3,4,-1,2,1,-5,4]
-输出: 6
-解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
-
 53. Maximum Subarray - Easy
 Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
 Example:
@@ -17,10 +10,27 @@ Explanation: [4,-1,2,1] has the largest sum = 6.
 Follow up:
 If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 */
+/*
+Solution
+Approach 1: brute force Time: O(n^2) Space:O(1)
 
+Approach 2: dynamic programing Time:O(n) Space:O(n)
+1. similar with approach3
+2. if dp[i-1] + nums[i] < nums[i] => dp[i] = nums[i]
+3. if dp[i-1] + nums[i] > nums[i] => dp[i] = dp[i-1] + nums[i]
+=> dp[i] = Math.max(nums[i], dp[i - 1] + nums[i])
+
+Approach 3: dynamic programing Time:O(n) Space:O(1)
+1. if currentSum < 0 => which means currentSum + nums[i] < nums[i]
+    1.1 so we don't need to sum nums[i] to currentSum, we just let currentSum = nums[i]
+2. else => we can ass nums[i] to currentSum, which may generate bigger subarray
+for example nums=[-1, 4, -1, 2, 1]; maxSum = nums[0]; currentSum = nums[0];
+if currentSum < 0 => currentSum = nums[i]
+else currentSum += nums[i]
+maxSum = max(maxSum, currentSum)
+*/
 public class Solution {
-     //Time complexity : O(n^2)
-    //Space complexity :O(1)
+
     static int  maxSubArray(int[] nums){
         int n = nums.length;
         int maxSums = nums[0];
@@ -36,23 +46,22 @@ public class Solution {
         return maxSums;
     }
 
-    //Time complexity:O(n)
-    //Space complexity:O(1)
-    static int maxSubArray2(int[] nums){
-        int max = nums[0], sum = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (sum < 0)
-                sum = nums[i];
-            else
-                sum += nums[i];
-            if (sum > max)
-                max = sum;
+
+
+    public int maxSubArray3(int[] nums) {
+        int maxSum = nums[0];
+        int currentSum = nums[0];
+        for(int i = 1; i < nums.length; i++){
+            if(currentSum < 0) currentSum = nums[i];
+            else currentSum += nums[i];
+            maxSum = Math.max(maxSum, currentSum);
         }
-        return max;
+
+        return maxSum;
     }
 
     //dp solution
-    static public int maxSubArray3(int[] nums) {
+    static public int maxSubArray2(int[] nums) {
         int[] dp = new int[nums.length];
         dp[0] = nums[0];
         int max = nums[0];
