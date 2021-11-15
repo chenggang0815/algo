@@ -12,7 +12,7 @@ If you have figured out the O(n) solution, try coding another solution using the
 */
 /*
 Solution
-Approach 1: brute force Time: O(n^2) Space:O(1)
+Approach 1: Optimized Brute Force Time: O(n^2) Space:O(1)
 
 Approach 2: dynamic programing Time:O(n) Space:O(n)
 1. similar with approach3
@@ -23,38 +23,26 @@ Approach 2: dynamic programing Time:O(n) Space:O(n)
 Approach 3: dynamic programing Time:O(n) Space:O(1)
 1. if currentSum < 0 => which means currentSum + nums[i] < nums[i]
     1.1 so we don't need to sum nums[i] to currentSum, we just let currentSum = nums[i]
+    1.2 Whenever the sum of the array is negative, we know the entire array is not worth keeping, so we'll reset it back to an empty array.
 2. else => we can ass nums[i] to currentSum, which may generate bigger subarray
 for example nums=[-1, 4, -1, 2, 1]; maxSum = nums[0]; currentSum = nums[0];
 if currentSum < 0 => currentSum = nums[i]
 else currentSum += nums[i]
 maxSum = max(maxSum, currentSum)
+
+Approach 4: Divide and Conquer (Advanced)
+
 */
 public class Solution {
-
     static int  maxSubArray(int[] nums){
         int n = nums.length;
-        int maxSums = nums[0];
+        int maxSum= nums[0];
         for (int i = 0; i < n; i++){
-            int temp = 0;
-            for (int j = i;j < n; j++){
-                temp = temp + nums[j];
-                if (temp > maxSums){
-                    maxSums = temp;
-                }
+            int sum = 0;
+            for (int j = i; j < n; j++){
+                sum = sum + nums[j];
+                maxSum = Math.max(maxSum, sum);
             }
-        }
-        return maxSums;
-    }
-
-
-
-    public int maxSubArray3(int[] nums) {
-        int maxSum = nums[0];
-        int currentSum = nums[0];
-        for(int i = 1; i < nums.length; i++){
-            if(currentSum < 0) currentSum = nums[i];
-            else currentSum += nums[i];
-            maxSum = Math.max(maxSum, currentSum);
         }
 
         return maxSum;
@@ -72,7 +60,17 @@ public class Solution {
         return max;
     }
 
+    public int maxSubArray3(int[] nums) {
+        int maxSum = nums[0];
+        int currentSum = nums[0];
+        for(int i = 1; i < nums.length; i++){
+            if(currentSum < 0) currentSum = nums[i];
+            else currentSum += nums[i];
+            maxSum = Math.max(maxSum, currentSum);
+        }
 
+        return maxSum;
+    }
 
     public static void main(String[] args) {
         int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
