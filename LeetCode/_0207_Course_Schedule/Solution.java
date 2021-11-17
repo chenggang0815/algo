@@ -22,7 +22,7 @@ To take course 1 you should have finished course 0, and to take course 0 you sho
 */
 
 /*
-拓扑排序
+Solution: Topological Sort
 
 本题可约化为 => 判断课程安排图是否是有向无环图(DAG)。即课程间规定了前置条件，但不能构成任何环路，否则课程前置条件将不成立
 
@@ -96,29 +96,21 @@ public class Solution {
 
     static boolean canFinish2(int numCourses, int[][] prerequisites) {
         int[] indegrees = new int[numCourses];
-
         for (int[] nums: prerequisites){
             indegrees[nums[0]] += 1;
         }
-
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 0; i < numCourses; i++){
-            if (indegrees[i] == 0){
-                queue.offer(i);
-            }
+            if (indegrees[i] == 0) queue.offer(i);
         }
-
         while (!queue.isEmpty()){
             int curNode = queue.poll();
             for(int[] node :prerequisites){
                 numCourses--;
-                //{1,0}
                 if (node[1] == curNode){
                     indegrees[node[0]]--;
-                    if (indegrees[node[0]] == 0){
-                        queue.offer(node[0]);
-                    }
-
+                    if (indegrees[node[0]] == 0) queue.offer(node[0]);
+                    // 这个if必须在if (node[1] == curNode)里面，否则会无限循环
                 }
             }
         }
