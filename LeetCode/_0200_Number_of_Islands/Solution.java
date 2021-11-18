@@ -61,6 +61,19 @@ second while [1,0] => [1,1] => matrix[1,1]=0
 third while, we have one [1,1]
  */
 public class Solution {
+    void dfs2(int i, int j, char[][] grid){
+        grid[i][j] = '0';
+        int[][] directions = new int[][]{{0,1},{1,0},{0,-1},{-1,0}};
+        for(int[] direction : directions){
+            int x = i + direction[0];
+            int y = j + direction[1];
+            if(x < 0 || x >= grid.length || y < 0 || y >= grid[0].length) continue;
+            if(grid[x][y] == '0') continue;
+
+            dfs2(x, y, grid);
+        }
+    }
+
     static void dfs(char[][] grid, int i, int j, int[][] flag){
         if (i < 0 || i > grid.length - 1 || j < 0 || j > grid[0].length - 1 || grid[i][j] == '0' || flag[i][j] == 1){
             return;
@@ -122,7 +135,7 @@ public class Solution {
                        // grid[x][y] = '0';
                         if(x > 0 && grid[x - 1][y] == '1' ){
                             queue.add(new int[]{x - 1, y});
-                            grid[x - 1][y] = '0';
+                            grid[x - 1][y] = '0'; // 不加这一行过不了
                         }
                         if(x < m - 1 && grid[x + 1][y] == '1' ){
                             queue.add(new int[]{x + 1, y});
@@ -137,6 +150,34 @@ public class Solution {
                             grid[x][y + 1] = '0';
                         }
                     }
+                }
+            }
+        }
+
+        return res;
+    }
+
+    public int numIslands3(char[][] grid) {
+        int res = 0;
+        Queue<int[]> queue = new LinkedList<>();
+        int[][] directions = new int[][]{{0,1}, {1,0}, {0,-1}, {-1,0}};
+        for(int i = 0; i < grid.length; i++){
+            for(int j = 0; j < grid[0].length; j++){
+                if(grid[i][j] == '1'){
+                    queue.add(new int[]{i, j});
+                    while(!queue.isEmpty()){
+                        int[] point = queue.poll();
+                        //grid[point[0]][point[1]] = '0'; //可以不用这一行，因为不会再重复遍历这个点了
+                        for(int[] direction : directions){
+                            int x = point[0] + direction[0];
+                            int y = point[1] + direction[1];
+                            if(x < 0 || x >= grid.length || y < 0 || y >= grid[0].length) continue;
+                            if(grid[x][y] == '0') continue;
+                            queue.add(new int[]{x, y});
+                            grid[x][y] = '0'; // 不加这行会超时，可能是把重复的点加到queue里面了
+                        }
+                    }
+                    res++;
                 }
             }
         }

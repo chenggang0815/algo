@@ -58,6 +58,7 @@ public class Solution {
                 if(heights[point[0]][point[1]] > heights[x][y]) continue;
 
                 queue.add(new int[]{x, y});
+                visited[x][y] = true; // lc 200 如果不加这一行过不了
             }
         }
 
