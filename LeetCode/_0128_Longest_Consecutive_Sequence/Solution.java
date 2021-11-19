@@ -23,13 +23,17 @@ Constraints:
 /*
 Solution
 Approach 1: sort time:O(nlog(n)) space:O(1)
-situation 1
-example: [1,2,0,1] => sort => [0,1,1,2]
+
+edge case 1 => the array is all the consecutive
+edge case 2 => the array have duplicate element
+
+edge case 2: [1,2,0,1] => sort => [0,1,1,2]
 if nums[i] + 1 == nums[i + 1] => consecutive++
-if nums[i] == nums[i + 1] continue
+else if nums[i] == nums[i + 1] continue
 else => res => Math.max(res, consecutive)
                consecutive = 1
-situation 2:
+
+edge case 1:
 example: [1,2,0] => sort => [0,1,2]  => res = 1 consecutive = 3
 return Math.max(res, consecutive)
 
@@ -39,7 +43,7 @@ set = <100, 4, 200, 1, 3, 2, 101>
 
 1. iterate the set, for each num, if not exists num-1 in the set
 2. the num maybe the smallest element of the longest consecutive
-3. so, start the num, check until num+1 not exists in the set
+3. so, start the num, check until (num + 1) not exists in the set
 
 for example, set = <100, 4, 200, 1, 3, 2, 101>
 1. num = 100, check the consecutive, length = 2
@@ -48,8 +52,8 @@ for example, set = <100, 4, 200, 1, 3, 2, 101>
 4. num = 1, check the consecutive, length = 4
 
 Approach 3: UnionFind
-1. The union-find is implicit.
-2. In the beginning we have n nodes.
+1. The union-find is implicit
+2. In the beginning we have n nodes
 3. After merging consequences nodes we have several connected components
 4. and the task is to find out the biggest component.
 
@@ -74,7 +78,7 @@ for example, input = [100, 4, 200, 1, 3, 2, 101]
  find(2) = 1
  find(1) = 1
 
- size = 4
+size = 4
 */
 public class Solution {
     // Approach 1  time:O(nlog(n))
@@ -85,11 +89,9 @@ public class Solution {
         int cnt = 1;
         int maxCnt = 1;
         for(int i = 0; i < nums.length - 1; i++){
-            if(nums[i] + 1 == nums[i + 1]){
-                cnt++;
-            }else if (nums[i] == nums[i + 1]){
-                continue;
-            }else{
+            if(nums[i] + 1 == nums[i + 1]) cnt++;
+            else if (nums[i] == nums[i + 1]) continue;
+            else{
                 maxCnt = Math.max(cnt, maxCnt);
                 cnt = 1;
             }
@@ -102,9 +104,7 @@ public class Solution {
     public int longestConsecutive2(int[] nums) {
         //if(nums.length == 0) return 0;
         HashSet<Integer> set = new HashSet<>();
-        for(int num: nums){
-            set.add(num);
-        }
+        for(int num: nums) set.add(num);
         int maxCnt = 0;
         for(int currentNum: set){
             if(!set.contains(currentNum - 1)){

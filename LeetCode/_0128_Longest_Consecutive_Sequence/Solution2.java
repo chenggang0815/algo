@@ -8,9 +8,7 @@ public class Solution2 {
         int[] parents;
         UnionFind(int n){
             parents = new int[n];
-            for(int i = 0; i < n; i++){
-                parents[i] = i;
-            }
+            for(int i = 0; i < n; i++) parents[i] = i;
         }
 
         int findParent(int i){
@@ -19,10 +17,6 @@ public class Solution2 {
             parents[i] = findParent(parents[i]);
 
             return parents[i];
-        }
-
-        boolean connected(int i, int j){
-            return findParent(i) == findParent(j);
         }
 
         void merge(int i, int j){
@@ -56,6 +50,7 @@ how to get the maximum size of the union?
                 parentCnt[parent]++;
                 size = Math.max(size, parentCnt[parent]);
             }
+
             return size;
         }
 
@@ -63,19 +58,26 @@ how to get the maximum size of the union?
 
     public int longestConsecutive(int[] nums) {
         UnionFind uf = new UnionFind(nums.length);
-        Map<Integer,Integer> map = new HashMap<Integer,Integer>(); // <value,index>
+        Map<Integer, Integer> map = new HashMap<>(); // <value,index>
         for(int i = 0; i < nums.length; i++){
-            if(map.containsKey(nums[i])){
-                continue;
-            }
+            if(map.containsKey(nums[i])) continue; // avoid duplicate element, for example => [1,2,0,1]
             map.put(nums[i], i);
-            if(map.containsKey(nums[i] + 1)){
-                uf.merge(i, map.get(nums[i] + 1));
-            }
-            if(map.containsKey(nums[i] - 1)){
-                uf.merge(i, map.get(nums[i] - 1));
-            }
+            if(map.containsKey(nums[i] + 1)) uf.merge(i, map.get(nums[i] + 1));
+            if(map.containsKey(nums[i] - 1)) uf.merge(i, map.get(nums[i] - 1));
         }
+
+        return uf.maxUnion();
+    }
+
+    public int longestConsecutive2(int[] nums) {
+        UnionFind uf = new UnionFind(nums.length);
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i < nums.length; i++) map.put(nums[i], i);
+        for(int num: nums){
+            if(map.containsKey(num - 1))uf.merge(map.get(num - 1), map.get(num));
+            if(map.containsKey(num + 1)) uf.merge(map.get(num + 1), map.get(num));
+        }
+
         return uf.maxUnion();
     }
 
