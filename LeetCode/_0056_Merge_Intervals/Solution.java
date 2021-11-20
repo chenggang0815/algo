@@ -13,29 +13,37 @@ Example 2:
 Input: intervals = [[1,4],[4,5]]
 Output: [[1,5]]
 Explanation: Intervals [1,4] and [4,5] are considered overlapping.
+
+Constraints:
+1 <= intervals.length <= 104
+intervals[i].length == 2
+0 <= start_i <= end_i <= 104
 */
 
 /*
-solution 1: brute force
+Solution:
+Approach 1: brute force
 
+Approach 2: time:O(nlog(n)) space:O(n)
+similar to question 57
+1. sort by intervals[i][0]
+2. because 1 <= intervals.length => res.add(intervals[0])
+3. iterate the array, from i=1, there exists two case,
+   case 1: => if res.get(res.size()-1)[1] < intervals[i][0]
 
-solution 2:
-1. sort by left value of every interval
-2. compare intervals[i][1] intervals[i + 1][0]
-   2.1 if intervals[i][1] >= intervals[i + 1][0] => merge
-       ex1: [1,3] [2,4] => [1,4]
-       ex2: [1,4] [2,3] => [1,4]
-   new interval = [left, right]
-   left = intervals[i][0]
-   right = Math.max(intervals[i][1], intervals[i + 1][1])
+                                           |_______________|
+                     res.get(res.size()-1)[0]    res.get(res.size()-1)[1]
+                                                                     |_______________|
+                                                               intervals[i][0]   intervals[i][1]
 
-3. for the current interval, we need to compare with the previous interval to check if the two interval can merge
+    case 2: else (because we already sorted by the intervals[i][0]):
+            => res.get(res.size() - 1)[0] = Math.min(res.get(res.size() - 1)[0], intervals[i][0]);
+            => res.get(res.size() - 1)[1] = Math.max(res.get(res.size() - 1)[1], intervals[i][1]);
 
-4. add all the interval in a dynamic array,
-    4.1 if there is nothing in list, just add the interval to the list
-    4.2 if list.get(list.size() - 1)[1] < interval[0], add the interval to the list
-    4.3 else => merge two interval
-             => list.get(list.size() - 1)[1] = Math.max(list.get(list.size() - 1)[1], interval[1])
+                                               |_______________|
+                          res.get(res.size()-1)[0]    res.get(res.size()-1)[1]
+                                                          |_______________|
+                                                  intervals[i][0]   intervals[i][1]
  */
 
 /*
@@ -55,8 +63,6 @@ import java.util.List;
 
 */
 public class Solution {
-    // 第一版40ms https://leetcode.com/submissions/detail/450064142/
-
     //10 ms
     static int[][] merge1(int[][] intervals) {
         int length = intervals.length;
@@ -97,29 +103,22 @@ public class Solution {
         return res;
     }
 
-    // 6ms
     static int[][] merge2(int[][] intervals) {
-        int length = intervals.length;
-        if (length <= 1) return intervals;
-
-        Arrays.sort(intervals, new Comparator<int[]>() {
-            public int compare(int[] interval1, int[] interval2) {
-                return interval1[0] - interval2[0];
-            }
-        });
-
+        Arrays.sort(intervals, (a,b) -> a[0] - b[0]);
         List<int[]> res = new ArrayList<>();
-        for (int i = 0; i < length; i++){
-            int left = intervals[i][0];
-            int right = intervals[i][1];
-            if(res.size() == 0 || res.get(res.size() - 1)[1] < left){
+        res.add(intervals[0]);
+        for(int i = 1; i < intervals.length; i++){
+            if(res.get(res.size() - 1)[1] < intervals[i][0]){
                 res.add(intervals[i]);
-            }else {
-                res.get(res.size() - 1)[1] = Math.max(res.get(res.size() - 1)[1], right);
+            }else{
+                res.get(res.size() - 1)[0] = Math.min(res.get(res.size() - 1)[0], intervals[i][0]);
+                res.get(res.size() - 1)[1] = Math.max(res.get(res.size() - 1)[1], intervals[i][1]);
             }
         }
+        int[][] array = new int[res.size()][2];
+        for(int i = 0; i < res.size(); i++) array[i] = res.get(i);
 
-        return  res.toArray(new int[res.size()][]);
+        return array;
     }
 
 
