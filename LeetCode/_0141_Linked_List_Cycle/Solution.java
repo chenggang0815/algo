@@ -1,11 +1,32 @@
 package LeetCode._0141_Linked_List_Cycle;
 
-import java.util.HashMap;
-
 /*
 141. Linked List Cycle
-Given a linked list, determine if it has a cycle in it.
- */
+
+Given head, the head of a linked list, determine if the linked list has a cycle in it.
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
+Return true if there is a cycle in the linked list. Otherwise, return false.
+
+Example 1:
+Input: head = [3,2,0,-4], pos = 1
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
+*/
+
+/*
+Solution
+Approach1 HashMap time:O(n) space:O(n)
+
+Approach2 slow fast pointers time:O(n) space:O(n)
+3 -> 2 -> 0 -> -4
+   4->2
+while(fast != null){
+    slow = slow.next
+    if(fast.next == null) return false
+    fast = fast.next.next
+    if(slow == fast)  return true
+    }
+*/
 public class Solution {
     static class ListNode{
         int val;
@@ -14,95 +35,33 @@ public class Solution {
             this.val = val;
         }
     }
-    //Time Complexity:O(n)
-    //Space Complexity:O(1);
-    // 1ms
-    public boolean hasCycle(ListNode head) {
-        if (head == null || head.next == null) return false;
 
+    static boolean hasCycle(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
         while (fast != null){
             slow = slow.next;
-            if(fast.next != null){
-                fast = fast.next.next;
-            }else{
-                return false;
-            }
-
-            if (slow == fast){
-                return true;
-            }
-        }
-
-        return false;
-    }
-    // 0ms
-    static boolean hasCycle0(ListNode head) {
-        if (head == null || head.next == null) return false;
-
-        ListNode slow = head;
-        ListNode fast = head;
-        while (fast.next != null && fast.next.next != null){
-            slow = slow.next;
+            if(fast.next == null) return false;
             fast = fast.next.next;
-            if (slow == fast){
-                return true;
-            }
+            if (slow == fast) return true;
         }
 
         return false;
     }
 
     static boolean hasCycle1(ListNode head) {
-        if (head == null || head.next == null) return false;
+        if (head == null) return false;
 
         ListNode slow = head;
-        ListNode fast = head.next;
-
+        ListNode fast = head;
         while (fast.next != null && fast.next.next != null){
-            if (slow == fast){
-                return true;
-            }
             slow = slow.next;
             fast = fast.next.next;
+            if (slow == fast) return true;
         }
 
         return false;
     }
-    //Time Complexity:O(n^2)
-    //Space Complexity:O(1);
-    static boolean hasCycle2(ListNode head) {
-        if(head == null || head.next == null) return false;
-        if(head.next.next == head) return true;
-        ListNode temp = head;
-
-        while(temp.next != null){
-            ListNode t = head;
-            temp = temp.next;
-            while(t != temp){
-                if(t.next == temp.next) return true;
-                t = t.next;
-            }
-        }
-        return false;
-    }
-
-    //Time Complexity:O(n)
-    //Space Complexity:O(n)
-    static boolean hasCycle3(ListNode head){
-        if (head==null || head.next==null) return false;
-        HashMap<ListNode,ListNode> map = new HashMap();
-        ListNode temp = head;
-        while (temp.next!=null){
-            map.put(temp,temp);
-            temp = temp.next;
-            if (map.containsKey(temp)) return true;
-        }
-        return false;
-    }
-
-
 
     public static void main(String[] args) {
         ListNode head = new ListNode(0);
@@ -115,6 +74,6 @@ public class Solution {
         node2.next = node3;
         node3.next = node2;
 
-        System.out.println(hasCycle1(head));
+        System.out.println(hasCycle(head));
     }
 }
