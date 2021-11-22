@@ -1,38 +1,48 @@
 package LeetCode._0142_Linked_List_Cycle_II;
-
 import java.util.HashSet;
-
 /*
 142. Linked List Cycle II
+Given the head of a linked list, return the node where the cycle begins.
+If there is no cycle, return null.
+There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to (0-indexed). It is -1 if there is no cycle. Note that pos is not passed as a parameter.
+Do not modify the linked list.
 
-给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
-Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+Example 1:
+Input: head = [3,2,0,-4], pos = 1
+Output: tail connects to node index 1
+Explanation: There is a cycle in the linked list, where tail connects to the second node.
+*/
 
-solution 1：hash set
-time: o(n)
-space: o(1)
+/*
+Solution
+Approach1 HashSet time: o(n) space: o(n)
+1. iterate the linked list, store the node in the HashSet, the first duplicate node is the cycle begin node
+2. 3 -> 2 -> 0 -> -4
+       -4->2
+3. 3 -> 2 -> 0 -> -4 -> 2 -> 0 -> -4 -> 2
+                => 2 is the first duplicate node
 
-solution 2： 快慢指针
-1. 使用两个指针，fast 与slow。它们起始都位于链表的头部。slow指针每次向后移动一个位置，fast指针向后移动两个位置。
-2. 如果链表中存在环，则fast指针最终将再次与slow指针在环中相遇。
+Approach 2 fast-slow pointer time: o(n) space: o(1)
+1. the first meeting point is not the cycle begin point
+2. for example
+    3 -> 2 -> 0 -> -4
+       4->2
+slow = 3   2   0   4   2   0
+fast = 3   0   2   4   0   2
+             head= 3   0   2
+                         begin point
 
-3. 设链表中 环外部分的长度为a，slow指针进入环后，又走了b的距离与fast相遇。
-4. 此时，fast 指针已经走完了环的n圈，因此它走过的总距离为 a+n(b+c)+b=a+(n+1)b+nc
-
-5. 任意时刻，fast指针走过的距离都为slow指针的2倍。因此，有：
-    a+(n+1)b+nc=2(a+b)⟹a=c+(n−1)(b+c)
-
-6. 有了a=c+(n−1)(b+c)的等量关系 =>
-    6.1 从相遇点到入环点的距离加上n−1圈的环长 => c+(n−1)(b+c)
-    6.2 恰好等于从链表头部到入环点的距离 => a
-
-7. 因此，当发现slow与fast相遇时，我们再额外使用一个指针ptr。
-8. 起始，它指向链表头部；随后，它和slow每次向后移动一个位置。
-9. 最终，它们会在入环点相遇。
-
-time: o(n)
-space: o(1)
- */
+3. the first meeting node is 4, the begin node is 2
+4. but we can find a relationship between slow and fast
+    x => from 3 to 2, is the distance from start point to begin point
+    y => from 2 to 4, is the distance from begin point to meeting point
+    z => from 4 to 2, is the distance from meeting point to begin point
+5. the distance for slow = x + y, the distance for fast = x + y + z + y
+    2slow = fast => 2x+2y=x+2y+z => y=z
+    ps: fast = x + n(y + z) + y, which means fast may walk n times of cycle
+6. y=z means the distance from begin point to meeting point equal the distance from meeting point to begin point
+7. so we can iterate from meeting point and start point, when they are equal, the current point is begin point
+*/
 public class Solution {
     static class ListNode{
         int val;
@@ -41,33 +51,32 @@ public class Solution {
             this.val = val;
         }
     }
+
     // time:o(n) space:o(n)
     static ListNode detectCycle1(ListNode head) {
+        if(head == null) return null;
+
         HashSet<ListNode> set = new HashSet<>();
         ListNode cur = head;
         while (cur != null){
-            if (set.contains(cur)){
-                return cur;
-            }
+            if (set.contains(cur)) return cur;
             set.add(cur);
             cur = cur.next;
         }
 
         return null;
     }
+
     // time:o(n) space:o(1)
     static ListNode detectCycle2(ListNode head) {
-        if (head == null || head.next == null) return null;
+        if (head == null) return null;
 
         ListNode slow = head;
         ListNode fast = head;
         while (fast != null){
             slow = slow.next;
-            if (fast.next != null){
-                fast = fast.next.next;
-            }else {
-                return null;
-            }
+            if (fast.next == null) return null;
+            fast = fast.next.next;
             if (slow == fast){
                 ListNode cur = head;
                 while (cur != slow){
@@ -80,6 +89,7 @@ public class Solution {
 
         return null;
     }
+
     public static void main(String[] args) {
 //        ListNode head = new ListNode(3);
 //        ListNode node1 = new ListNode(2);
