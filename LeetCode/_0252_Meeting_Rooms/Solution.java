@@ -1,7 +1,5 @@
 package LeetCode._0252_Meeting_Rooms;
-
 import java.util.Arrays;
-
 /*
 252. Meeting Rooms
 Given an array of meeting time intervals where intervals[i] = [starti, endi], determine if a person could attend all meetings.
@@ -20,7 +18,9 @@ intervals[i].length == 2
 0 <= starti < endi <= 106
 */
 /*
-Solution: sort time:O(nlog(n))
+Solution: time:O(nlog(n))
+1. sort by the start time, if intervals[i][1] > intervals[i+1][0] => return false
+ => [[2,4],[7,10]]
 */
 public class Solution {
     public boolean canAttendMeetings(int[][] intervals) {
@@ -32,6 +32,7 @@ public class Solution {
 
         return true;
     }
+
     public static void main(String[] args) {
 
     }
