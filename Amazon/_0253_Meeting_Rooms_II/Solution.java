@@ -1,9 +1,7 @@
 package Amazon._0253_Meeting_Rooms_II;
 /*
 253. Meeting Rooms II
-
 Given an array of meeting time intervals intervals where intervals[i] = [starti, endi], return the minimum number of conference rooms required.
-
 Example 1:
 Input: intervals = [[0,30],[5,10],[15,20]]
 Output: 2
@@ -14,7 +12,7 @@ Output: 1
 
 Constraints:
 1 <= intervals.length <= 104
-0 <= starti < endi <= 106
+0 <= start_i < end_i <= 106
 */
 
 import java.util.Arrays;
@@ -23,9 +21,18 @@ import java.util.PriorityQueue;
 /*
 Solution
 Approach 1: PriorityQueue  time: O(nlog(n))
-for example [0,30] [15,20] [5,10]
-1. first, sort the array by the start time =>[0,30] [5,10] [15,20]
-2. initialize a new min-heap, sort by the end time
+for example [[4,9], [4,17],[9,10]]
+1. first, sort the array by the start time => [[4,9], [4,17],[9,10]]
+2. similar to question 252, compare intervals[i][1] and intervals[i+1][0]
+3. initialize a new min-heap, sort by the end time
+    3.1 add intervals[0] in the heap, heap.size() represent the number of the meeting room
+    3.2 compare heap.peek() and intervals[i] => [4,9] [4,17] => 4 < 9 => need a meeting room, add [4,17] in the queue
+    3.3 heap.peek() => [4,9]
+    3.4 compare [4,9] [9,10] => don't need another room, pop [4,9] add [9,10]
+    3.5 return heap.size() = 2
+    Every time the new interval start is larger than the minimum end, pop the interval in the queue
+
+
 3. iterate the array
 
 for example
