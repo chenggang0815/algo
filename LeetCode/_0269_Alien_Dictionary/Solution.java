@@ -34,7 +34,7 @@ public class Solution {
         //initialize the in-degree for all the letters is 0
         HashMap<Character, Integer> inDegree = new HashMap<>();
         for (String word : words){
-            for (Character c : word.toCharArray()){
+            for (char c : word.toCharArray()){
                 inDegree.put(c, 0);
             }
         }
