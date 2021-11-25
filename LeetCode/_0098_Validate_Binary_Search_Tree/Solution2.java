@@ -23,9 +23,7 @@ public class Solution2 {
         if(root == null) return;
 
         dfs(root.left);
-
         if(pre != null && pre.val >= root.val) isBST = false;
-
         pre = root;
         dfs(root.right);
     }
