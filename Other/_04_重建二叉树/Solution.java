@@ -36,20 +36,22 @@ public class Solution {
             this.val = val;
         }
     }
-
+    // in => left root right
+    // pre => root left right
     static TreeNode reConstructBinaryTree(int[] pre, int[] in){
-        if (pre.length==0) return null;
+        if (pre.length == 0) return null;
         TreeNode root = new TreeNode(pre[0]);
         int rootIndex = 0;
-        for (int i=0;i<in.length;i++){
-            if (pre[0]==in[i]){
+        for (int i = 0; i < in.length; i++){
+            if (pre[0] == in[i]){
                 rootIndex = i;
                 break;
             }
         }
-
-        root.left = reConstructBinaryTree(Arrays.copyOfRange(pre,1,rootIndex+1),Arrays.copyOfRange(in,0,rootIndex));
-        root.right = reConstructBinaryTree(Arrays.copyOfRange(pre,rootIndex+1,pre.length),Arrays.copyOfRange(in,rootIndex+1,in.length));
+                                                            // pre => root left right
+                                                            // in  => left root right
+        root.left = reConstructBinaryTree(Arrays.copyOfRange(pre,1,rootIndex + 1), Arrays.copyOfRange(in,0, rootIndex));
+        root.right = reConstructBinaryTree(Arrays.copyOfRange(pre,rootIndex + 1, pre.length),Arrays.copyOfRange(in,rootIndex + 1, in.length));
 
         return root;
     }
