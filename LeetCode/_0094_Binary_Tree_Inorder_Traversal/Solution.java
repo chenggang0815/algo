@@ -5,14 +5,15 @@ import java.util.Stack;
 /*
 94. Binary Tree Inorder Traversal
 Given the root of a binary tree, return the inorder traversal of its nodes' values.
-
-1. 递归
-2. 非递归(迭代)
-I use pushAllLeft() to push all the left children of one Node into the stack, so that my idea looks clear:
-    2.1 We push all the left children of root into the stack until there's no more nodes.
-    2.2 Then we pop from the stack which we'd call cur.
-    2.3 Add cur to result list
-    2.4 Recursively call pushAllLeft() on cur's right child.
+*/
+/*
+Solution
+Approach 1 => dfs
+Approach 2 => iterative
+1. start from root node, push all the left children into the stack until reach left node
+2. then we pop from the stack which we'd call current node
+3. add current node to result list
+4. start from the right child of the current node, push it into stack
  */
 public class Solution {
     static class TreeNode{
@@ -36,8 +37,6 @@ public class Solution {
     2->5->1->3
      */
     static List<Integer> inorderTraversal(TreeNode root){
-        if (root == null) return new ArrayList<>();
-
         List<Integer> res = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         TreeNode cur = root;
@@ -46,7 +45,6 @@ public class Solution {
                 stack.push(cur);
                 cur = cur.left;
             }
-
             cur = stack.pop();
             res.add(cur.val);
             cur = cur.right;
