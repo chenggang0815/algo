@@ -1,10 +1,4 @@
 package LeetCode._0023_Merge_k_Sorted_Lists;
-
-import com.sun.deploy.ui.DialogTemplate;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /*
 23. Merge k Sorted Lists
 
@@ -30,11 +24,13 @@ Constraints:
 4. -10^4 <= lists[i][j] <= 10^4
 5. lists[i] is sorted in ascending order.
 6. The sum of lists[i].length won't exceed 10^4.
+*/
 
+/*
 Solution
 Approach 1:
-time:O(N*k) k is the number of the lists, N is total number of nodes in lists
-space:O(1)
+time: O(N*k) k is the number of the lists, N is total number of nodes in lists
+space: O(1)
 1. input:
        lists = [node1, node2, node3]
        ListNode head=new ListNode(Integer.MIN_VALUE);
@@ -42,10 +38,12 @@ space:O(1)
 3. head = merge2Lists(head, node1)
 
 Approach 2: Merge with Divide And Conquer
-time:O(N*log(k)) k is the number of the lists, N is total number of nodes in lists
-space:O(log(k))
+time: O(N*log(k)) k is the number of the lists, N is total number of nodes in lists
+space: O(log(k))
 
 Approach 3: Merge with Divide And Conquer
+time: O(N*log(k))
+space: O(1)
 lists = [node1, node2, node3, node4] i=0 interval=1
 lists = [1_2, node2, node3, node4] merge(index=i=0, index=i+interval=1) i=0 interval=1
 lists = [1_2, node2, 3_4, node4] merge(i=2, i=3) i=0 interval=2
@@ -87,7 +85,7 @@ public class Solution {
         return head.next;
     }
 
-// Approach 2 归并排序
+// Approach 2
     static ListNode mergeKLists2(ListNode[] lists) {
         return merge(lists, 0, lists.length - 1);
     }
@@ -97,8 +95,12 @@ public class Solution {
         if (left > right) return null;
 
         int mid = left + (right - left) / 2;
-        return merge2Lists(merge(lists, left, mid), merge(lists, mid + 1, right));
+        ListNode node1 = merge(lists, left, mid);
+        ListNode node2 = merge(lists, mid + 1, right);
+
+        return merge2Lists(node1, node2);
     }
+
 
     // Approach 3
     static ListNode mergeKLists3(ListNode[] lists){
@@ -114,6 +116,7 @@ public class Solution {
 
         return lists[0];
     }
+
     public static void main(String[] args) {
         ListNode head1 = new ListNode(1);
         ListNode node1 = new ListNode(5);
