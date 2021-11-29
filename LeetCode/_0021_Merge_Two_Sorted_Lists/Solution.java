@@ -1,13 +1,24 @@
 package LeetCode._0021_Merge_Two_Sorted_Lists;
 /*
-合并两个有序链表
-Merge two sorted linked lists and return it as a new list.
-The new list should be made by splicing together the nodes of the first two lists.
+21. Merge Two Sorted Lists
+You are given the heads of two sorted linked lists list1 and list2.
+Merge the two lists in a one sorted list. The list should be made by splicing together the nodes of the first two lists.
+Return the head of the merged linked list.
 
-Example:
+Example 1:
 Input: 1->2->4, 1->3->4
 Output: 1->1->2->3->4->4
 */
+/*
+Solution
+Approach 1: recursion
+    // Time Complexity:O(n)
+    // Space Complexity:O(n)
+Approach 2: iterative
+    // Time Complexity:O(n)
+    // Space Complexity:O(1)
+*/
+
 public class Solution {
     public static class ListNode{
         int val;
@@ -63,15 +74,17 @@ public class Solution {
 
     // Time Complexity:O(n)
     // Space Complexity:O(n)
-    public static ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
-        if (l1 == null) return l2;
-        if (l2 == null) return l1;
-        if (l1.val < l2.val) {
-            l1.next = mergeTwoLists2(l1.next, l2);
-            return l1;
+    public static ListNode mergeTwoLists2(ListNode list1, ListNode list2) {
+        if (list1 == null) return list2;
+
+        if (list2 == null) return list1;
+
+        if (list1.val < list2.val) {
+            list1.next = mergeTwoLists2(list1.next, list2);
+            return list1;
         } else {
-            l2.next = mergeTwoLists2(l1, l2.next);
-            return l2;
+            list2.next = mergeTwoLists2(list1, list2.next);
+            return list2;
         }
     }
     
