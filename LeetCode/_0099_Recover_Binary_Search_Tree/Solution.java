@@ -103,6 +103,5 @@ public class Solution {
         // 4 > 1
         // second=1
         List<Integer> list = Arrays.asList(1,3,2,4);
-        System.out.println(Arrays.toString(findTwoSwapped(list)));
     }
 }
