@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-
 /*
 22. Generate Parentheses
 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
@@ -13,10 +12,12 @@ Output: ["((()))","(()())","(())()","()(())","()()()"]
 Example 2:
 Input: n = 1
 Output: ["()"]
-https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by-liweiwei1419/
+*/
 
-思路1：暴力法
-思路2：dfs + 剪枝 + 做减法 => 由于字符串的特殊性，产生一次拼接都生成新的对象，因此无需回溯
+/*
+Solution
+Approach 1：backtracking
+    由于字符串的特殊性，产生一次拼接都生成新的对象，因此无需回溯
                         => 如果使用StringBuilder呢？ => 回溯
     2.1 做减法 left和right分别表示左右括号剩余的数量
             "" n=2 left=right=2
@@ -33,9 +34,20 @@ https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by
     2. 当左右括号剩余数量大于0时，可以产生分支
     3. 当左右括号剩余数量都等于0时，递归停止，把字符加入res
 
-思路3：dfs + 剪枝 + 做加法
+Approach 2：backtracking
+n = 3 left=3 right=3
+we have
+    => ( ( ( ) ) ) left=3 right=3
+    => ( ) ( ) ( )
+    => ( ( ) ) ( )
+    => ( left=1 right=0
+    => ( ( left=2 right=0
+    => ( ( ) left=2 right=1
+    => ) left=0 right=1 => left < right => return;
+    => (((( left=4 > n => return
+    => left=3 right=3 => res.add(s) => return;
 
-思路4：bfs => 创建结点对象，使用队列完成广度优先遍历
+Approach 3：bfs => 创建结点对象，使用队列完成广度优先遍历
     4.1 因为queue中的元素，需要同时带着当前的字符以及左右括号剩余数量这三个状态，所以需要自己编写一个结点类。
     4.2 类的每个实例带着这三个元素的状态
 以n=2为，模拟bfs的过程：
@@ -51,57 +63,52 @@ https://leetcode-cn.com/problems/generate-parentheses/solution/hui-su-suan-fa-by
         8 queue.poll()
         9 return
 
-思路5：回溯 => 使用StringBuilder
+Approach 4: backtracking + StringBuilder
 1. 使用sb需要回溯，因为搜索过程中使用一份状态变量sb去搜索所有可能的状态
 2. 在递归终止的时候需要拷贝变量
  */
 public class Solution {
-    // 思路2 dfs + 剪枝 + 做减法
+    // approach 1
     static List<String> generateParenthesis1(int n){
         List<String> res = new ArrayList<>();
-        if (n == 0) return res; // 边界条件
+        backTracking1(res,"", n, n);
 
-        dfs1(res,"", n, n);
         return res;
     }
 
-    static void dfs1(List<String> res, String s, int left, int right){
+    static void backTracking1(List<String> res, String s, int left, int right){
         if (left == 0 && right == 0){
             res.add(s);
             return;
         }
-        // 剪枝
+
         if (left > right) return;
 
-        if (left > 0) dfs1(res,s + "(", left - 1, right);
-        if (right > 0) dfs1(res,s + ")", left, right - 1);
+        if (left > 0) backTracking1(res,s + "(", left - 1, right);
+        if (right > 0) backTracking1(res,s + ")", left, right - 1);
     }
 
-    //思路3 dfs + 剪枝 + 做加法
+    // approach 2
     static List<String> generateParenthesis2(int n){
         List<String> res = new ArrayList<>();
-        if (n == 0) return res; // 边界条件
+        backTracking2(res, n, "", 0, 0);
 
-        dfs2(res, n, "", 0, 0);
         return res;
     }
 
-    static void dfs2(List<String> res, int n, String s, int left, int right){
+    static void backTracking2(List<String> res, int n, String s, int left, int right){
         if (left == n && right == n){
             res.add(s);
             return;
         }
-        if (left < right) return;
 
-        if (left < n){
-            dfs2(res, n, s + "(", left + 1, right);
-        }
-        if (right < n){
-            dfs2(res, n, s + ")", left, right + 1);
-        }
+        if (left > n || left < right) return; // (((( left = 4 > 3 => should return
+
+        backTracking2(res, n, s + "(", left + 1, right);
+        backTracking2(res, n, s + ")", left, right + 1);
     }
 
-    //思路4 bfs
+    //approach 3
     static class Node{
         private String res;
         private int left; // 剩余左括号数量
@@ -137,7 +144,7 @@ public class Solution {
         return res;
     }
 
-    //回溯
+    //approach 4
     static List<String> generateParenthesis4(int n){
         List<String> res = new ArrayList<>();
         if (n == 0) return res; // 边界条件
@@ -164,7 +171,7 @@ public class Solution {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args){
         System.out.println(generateParenthesis4(2));
     }
 }
