@@ -5,36 +5,53 @@ import java.util.Queue;
 
 /*
 116. Populating Next Right Pointers in Each Node
-将二叉树的每一层节点都连接起来形成一个链表
-You are given a perfect binary tree where all leaves are on the same level, and every parent has two children.
+
+You are given a perfect binary tree where all leaves are on the same level, and every parent has two children. The binary tree has the following definition:
+struct Node {
+  int val;
+  Node *left;
+  Node *right;
+  Node *next;
+}
 Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
 
-Initially, all next pointers are set to NULL
+Initially, all next pointers are set to NULL.
+
+example:
+      input     =>        output
+         1               1->null
+       /  \            /  \
+      2    3    =>    2 -> 3->null
+    / \  /  \        / \  /  \
+   4  5 6   7       4->5->6->7->null
 
 Follow up:
 1. You may only use constant extra space.
 2. Recursive approach is fine, you may assume implicit stack space does not count as extra space for this problem.
+*/
 
-思路1：层次遍历 time: o(n) space:o(n)
-1. 对二叉树进行层次遍历，在层次遍历的过程中将我们将二叉树每一层的节点拿出来遍历并构建链表
-2. 如果当前层还有两个以及上的结点，将当前节点指向它右侧的结点 => if (size > 1) node.next = queue.peek();
+/*
+Solution:
+Approach 1: time:O(n) space:O(n)
+1. use level order traversal, for each level, we traverse the tree from left to right
+2. for each level, if there exits at least one node in the queue, we have curNode.next = queue.peek()
+3. for example, when we traverse level = 2, we have queue = [2,3] => curNode = 2, queue= [3] => curNode.next = 3
 
-思路2：迭代：利用已经建立的next指针，建立递推关系 time: o(n) space:o(1)
-    1
-   / \
-  2   3
- / \  / \
-4  5 6   7
-
-2. head节点为父节点
-    2.1 第一种 同一层两个串联的节点都有一个共同的父节点（4和5） => head.left.next = head.right; // 4.next = 5
-
-    2.1 第二种 同一层两个串联的节点的父节点不同（5和6）利用上层父节点的next指针
-if (head.next != null){ // 如果当前节点不是当前层最右边的结点，则 => 5.next = 6
-    head.right.next = head.next.left;
-}
-
-思路3：递归
+Approach 2: time:O(N) space:O(1)
+example:
+      input     =>        output
+         1               1->null
+       /  \            /  \
+      2    3    =>    2 -> 3->null
+    / \  /  \        / \  /  \
+   4  5 6   7       4->5->6->7->null
+1. we can observe the above binary tree, and we can find two patterns
+2. pattern 1:
+   for node 2 and node 3 => we can connect node 2 and node 3 => 1.left.next = 1.right => because node 2 and node 3 have the similar parent node
+   for node 4 and node 5 => we can connect node 4 and node 5 => 2.left.next = 2.right => because node 4 and node 5 have the similar parent node
+3. pattern 2:
+   for node 5 and node 6 => these two nodes don't have similar parent node, but if we already connect the node 2 and the node 3
+   => we can use 2.right.next = 2.next.left => 5.next = 6
 */
 public class Solution {
     static class Node {
@@ -42,13 +59,6 @@ public class Solution {
         public Node left;
         public Node right;
         public Node next;
-
-        public Node() {
-        }
-
-        public Node(int _val) {
-            val = _val;
-        }
 
         public Node(int _val, Node _left, Node _right, Node _next) {
             val = _val;
@@ -63,55 +73,33 @@ public class Solution {
 
         Queue<Node> queue = new LinkedList<>();
         queue.offer(root);
-
         while (!queue.isEmpty()){
             int size = queue.size();
             while (size > 0){
                 Node node = queue.poll();
-                if (size > 1) node.next = queue.peek(); //如果当前层还有两个以及上的结点，将当前节点指向它右侧的结点
+                size--;
+                if (size > 0) node.next = queue.peek(); // if current level exists node, current_node.next = queue.peek()
                 if (node.left != null) queue.offer(node.left);
                 if (node.right != null) queue.offer(node.right);
-                size--;
             }
         }
 
         return root;
     }
-    /*
-    1
-   / \
-  2   3
- / \  / \
-4  5 6   7
 
-    第一层
-    root = leftmost
-    leftmost = head
-    head = left
-    head.left.next = head.right => 2.next = 3
-    第二层
-    leftmost = leftmost.left => leftmost = 1.left = 2
-    head = leftmost
-    head.left.next = head.right => 4.next = 5
-    head.right.next = head.next.left => 5.next = 2.next.left = 3.left = 6 => 5.next = 6
-     */
     static Node connect2(Node root){
-        if (root == null) return root;
+        Node leftMost = root;
 
-        Node leftmost = root;
-
-        while (leftmost.left != null){ //如果当前层为最后一层，则结束循环
-            Node head = leftmost;
-            while (head != null){ //当前节点为空，本层遍历结束
-                head.left.next = head.right; // 4.next = 5
-
-                if (head.next != null){ // 如果当前节点不是当前层最右边的结点，则 => 5.next = 6
-                    head.right.next = head.next.left;
-                }
-                head = head.next; // 当前节点向本层的右边移动一位
+        while (leftMost != null){
+            Node cur = leftMost;
+            while(cur != null){
+                // case 1 => similar parent node
+                if(cur.left != null) cur.left.next = cur.right;
+                // case 2
+                if(cur.next != null && cur.left != null) cur.right.next = cur.next.left;
+                cur = cur.next;
             }
-
-            leftmost = leftmost.left; //leftmost这一层遍历结束，从下一层的最左边的结点开始遍历
+            leftMost = leftMost.left;
         }
 
         return root;
