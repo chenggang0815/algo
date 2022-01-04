@@ -57,9 +57,5 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        String s = "0hello";
-        if (Character.i(s.charAt(0))){
-            System.out.println("===");
-        }
     }
 }
