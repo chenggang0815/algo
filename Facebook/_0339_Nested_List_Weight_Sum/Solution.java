@@ -24,47 +24,47 @@ Approach 2: BFS
 */
 public class Solution {
     // dfs
-    public int depthSum1(List<NestedInteger> nestedList) {
-        int[] res = new int[1];
-
-        dfs(nestedList, res, 1);
-
-        return res[0];
-    }
-
-    void dfs(List<NestedInteger> nestedList, int[] res, int depth){
-        for(NestedInteger list : nestedList){
-            if(list.isInteger()){
-                res[0] += list.getInteger() * depth;
-            }else{
-                dfs(list.getList(), res, depth + 1);
-            }
-        }
-    }
-
-    // bfs
-    public int depthSum2(List<NestedInteger> nestedList) {
-        int res = 0;
-        int depth = 1;
-        Queue<List<NestedInteger>> queue = new LinkedList<>();
-        queue.add(nestedList);
-        while(!queue.isEmpty()){
-            int cnt = queue.size();
-            while(cnt > 0){
-                List<NestedInteger> lists = queue.poll();
-                for(NestedInteger list : lists){
-                    if(list.isInteger()) res += depth * list.getInteger();
-                    else{
-                        queue.add(list.getList());
-                    }
-                }
-                cnt--;
-            }
-            depth++;
-        }
-
-        return res;
-    }
+//    public int depthSum1(List<NestedInteger> nestedList) {
+//        int[] res = new int[1];
+//
+//        dfs(nestedList, res, 1);
+//
+//        return res[0];
+//    }
+//
+//    void dfs(List<NestedInteger> nestedList, int[] res, int depth){
+//        for(NestedInteger list : nestedList){
+//            if(list.isInteger()){
+//                res[0] += list.getInteger() * depth;
+//            }else{
+//                dfs(list.getList(), res, depth + 1);
+//            }
+//        }
+//    }
+//
+//    // bfs
+//    public int depthSum2(List<NestedInteger> nestedList) {
+//        int res = 0;
+//        int depth = 1;
+//        Queue<List<NestedInteger>> queue = new LinkedList<>();
+//        queue.add(nestedList);
+//        while(!queue.isEmpty()){
+//            int cnt = queue.size();
+//            while(cnt > 0){
+//                List<NestedInteger> lists = queue.poll();
+//                for(NestedInteger list : lists){
+//                    if(list.isInteger()) res += depth * list.getInteger();
+//                    else{
+//                        queue.add(list.getList());
+//                    }
+//                }
+//                cnt--;
+//            }
+//            depth++;
+//        }
+//
+//        return res;
+//    }
 
     public static void main(String[] args) {
 
