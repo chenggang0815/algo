@@ -25,6 +25,7 @@ This case is the exact same as example 2, but with nodes 5 and 6 swapped.
 Note that the solution remains the same since 5 and 6 are in the same location and should be ordered by their values.
 */
 /*
+similar to question 314
 Solution
 Approach 1: BFS
 1. use a map to store the tree node and position => Map<TreeNode, int[]> => map.put(0, [0,0])
