@@ -32,6 +32,7 @@ Constraints:
 /*
 Solution
 Approach 1: backTracking
+https://leetcode.com/problems/expression-add-operators/discuss/71895/Java-Standard-Backtrace-AC-Solutoin-short-and-clear
 */
 public class Solution {
     public List<String> addOperators(String num, int target) {
