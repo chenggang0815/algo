@@ -1,11 +1,7 @@
 package Facebook._0236_Lowest_Common_Ancestor_of_a_Binary_Tree;
 /*
 236. Lowest Common Ancestor of a Binary Tree
-236. 二叉树的最近公共祖先
-
-给定一个二叉树, 找到该树中两个指定节点的最近公共祖先
 Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
-
 According to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
          3
         / \
@@ -16,6 +12,10 @@ According to the definition of LCA on Wikipedia: “The lowest common ancestor i
       7   4
 Input: root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
 Output: 5
+*/
+
+/*
+https://www.youtube.com/watch?v=13m9ZCB8gjw
 */
 /*
 由于需要先知道左右子树的情况，然后决定向上返回什么 => 因此「后序遍历」的思想是很关键
@@ -33,7 +33,6 @@ Output: 5
     3.1 p,q其中一个在root的右子树中，另一个节点为最近公共祖先结点，此时right指向p（假设为p）；
     3.2 p,q两节点都在root的右子树中，此时的right指向最近公共祖先节点 ；
 4. 当left不为空，right为空 => 与情况3.同理
-
  */
 public class Solution {
     static class TreeNode{
@@ -45,17 +44,15 @@ public class Solution {
         }
     }
 
-    static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if(root == null || root == p || root == q) return root;
+    static public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(root == null || root == q || root == p) return root;
 
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
 
-        if(left == null && right == null) return null; // 1.
-        if(left == null) return right; // 3.
-        if(right == null) return left; // 4.
-
-        return root; // 2. if(left != null and right != null)
+        if(left == null && right == null) return null;
+        if(left != null && right != null) return root;
+        return left == null ? right : left;
     }
 
     public static void main(String[] args) {
