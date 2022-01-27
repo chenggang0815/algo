@@ -77,7 +77,7 @@ public class Solution {
             }
         }
         res[0] = Math.max(res[0], longest + secondLongest);
-        
+
         return longest + 1;
 
     }
