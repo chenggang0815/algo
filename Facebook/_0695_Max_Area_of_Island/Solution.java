@@ -17,6 +17,8 @@ Explanation: The answer is not 11, because the island must be connected 4-direct
 /*
 Solution
 Approach 1: bfs
+
+Approach 2: dfs - similar to question 827
 */
 public class Solution {
     public int maxAreaOfIsland(int[][] grid) {
@@ -60,6 +62,29 @@ public class Solution {
         }
 
         return res;
+    }
+
+    public int maxAreaOfIsland2(int[][] grid) {
+        int res = 0;
+        for(int i = 0; i < grid.length; i++){
+            for(int j = 0; j < grid[0].length; j++){
+                if(grid[i][j] == 1){
+                    res = Math.max(res, dfs(grid, i, j));
+                }
+            }
+        }
+
+        return res;
+    }
+
+    int dfs(int[][] grid, int i, int j){
+        if(i < 0 || i > grid.length - 1 || j < 0 || j > grid[0].length - 1 || grid[i][j] == 0){
+            return 0;
+        }
+        grid[i][j] = 0;
+
+        return 1 + dfs(grid, i - 1, j) + dfs(grid, i + 1, j) + dfs(grid, i, j - 1) + dfs(grid, i, j + 1);
+
     }
     public static void main(String[] args) {
 
