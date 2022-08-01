@@ -15,37 +15,63 @@ Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
 Follow up: Coud you solve it without converting the integer to a string?
 */
 public class Solution {
+    public boolean isPalindrome1(int x) {
+        //121
+        String s = String.valueOf(x);
+        for(int i = 0; i < s.length() / 2; i++){
+            if(s.charAt(i) != s.charAt(s.length() - i - 1)){
+                return false;
+            }
+        }
 
+        return true;
+    }
     // time complexity: O(log10(n))
     // space complexity: O(n)
-    static public boolean isPalindrome(int x){
-     if(x<0) return false;
-     ArrayList<Integer> array = new ArrayList<>();
-     while (x!=0){
-         array.add(x%10);
-         x = x /10;
-     }
-     for (int i=0;i<array.size()/2;i++){
-         if (array.get(i)!=array.get(array.size()-i-1)){
-             return false;
-         }
-     }
-     System.out.println(array);
-     return true;
+    static public boolean isPalindrome2(int x) {
+        if(x < 0) return false;
+
+        ArrayList<Integer> arr = new ArrayList<>();
+        while(x != 0){
+            arr.add(x % 10);
+            x /= 10;
+        }
+
+        for(int i = 0; i < arr.size() / 2; i++){
+            if(arr.get(i) != arr.get(arr.size() - i - 1)){
+                return false;
+            }
+        }
+
+        return true;
     }
 
     // time complexity: O(log10(n))
     // space complexity: O(1)
-    static public boolean isPalindrome2(int x){
-        if (x<0 || x%10==0&&x!=0) return false;
+    /*
+    x = 1221
+    temp=1 x=122
+    temp=12 x=12 => x=temp
+
+    x = 12121
+    temp=1 x=1212
+    temp=12 x=121
+    temp=121 x=12 => x=temp/10
+
+    x = 10
+    temp=0 x=1
+    temp=10 x=0 => x==temp/10, so if the last digit is 0, we need return false
+    * */
+    static public boolean isPalindrome3(int x){
+        if (x < 0 || x % 10 == 0 && x != 0) return false;
+
         int temp = 0;
-        while (x>temp){
-            temp = temp*10 + x % 10;
-            x = x / 10;
+        while (x > temp){
+            temp = temp * 10 + x % 10;
+            x /= 10;
         }
-        System.out.println("x: "+x);
-        System.out.println("temp: "+temp);
-        return x==temp || x==temp/10;
+
+        return x == temp || x == temp / 10;
     }
 
     public static void main(String[] args) {
