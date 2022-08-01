@@ -2,7 +2,7 @@ package LeetCode._0001_Two_Sum;
 import java.util.HashMap;
 import java.util.Arrays;
 /*
-1. Two Sum 两数之和
+1. Two Sum
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 
@@ -18,15 +18,12 @@ public class Solution {
             for(int i = 0; i< nums.length - 1; i++){
                 for(int j = i + 1; j < nums.length; j++){
                     if(nums[i] + nums[j] == target){
-                        int[] arr = new int[]{i, j};
-                        return arr;
+                        return new int[]{i, j};
                     }
                 }
             }
 
-            int[] arr = new int[]{};
-
-            return arr;
+            return new int[]{};
     }
 
     //Time complexity : O(n)
