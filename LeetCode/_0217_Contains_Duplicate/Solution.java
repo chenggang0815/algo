@@ -41,8 +41,8 @@ time: O(n^2)
 space: O(1)
 
 Approach 2: HashSet
-time: O(n^2)
-space: O(1)
+time: O(n)
+space: O(n)
 
 Approach 3: sort
 time: O(nlog(n))
@@ -52,21 +52,20 @@ public class Solution {
     // approach 2
     static boolean containsDuplicate(int[] nums){
         HashSet<Integer> set = new HashSet<>();
-        for (int i = 0; i < nums.length; i++){
-            if(set.contains(nums[i])) return true;
-            set.add(nums[i]);
+        for (int num: nums){
+            if(set.contains(num)) return true;
+            set.add(num);
         }
 
         return false;
     }
 
-    //比上面更加快
+    //比上面更加快 2022-08-05 没有比上面更快
     static boolean containsDuplicate2(int[] nums){
         HashSet<Integer> set = new HashSet<>();
-        for (int i = 0; i < nums.length; i++) set.add(nums[i]);
+        for(int num: nums) set.add(num);
 
-        if (set.size() == nums.length) return false;
-        else return true;
+        return set.size() != nums.length;
     }
 
     // approach 3
