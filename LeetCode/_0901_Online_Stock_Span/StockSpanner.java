@@ -82,7 +82,7 @@ public class StockSpanner {
 
     private Stack<int[]> stack;
     public StockSpanner(){
-       stack = new Stack<>();
+        stack = new Stack<>();
     }
 
     int next(int price){
