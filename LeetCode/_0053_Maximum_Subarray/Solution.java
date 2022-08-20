@@ -24,7 +24,7 @@ Approach 3: dynamic programing Time:O(n) Space:O(1)
 1. if currentSum < 0 => which means currentSum + nums[i] < nums[i]
     1.1 so we don't need to sum nums[i] to currentSum, we just let currentSum = nums[i]
     1.2 Whenever the sum of the array is negative, we know the entire array is not worth keeping, so we'll reset it back to an empty array.
-2. else => we can ass nums[i] to currentSum, which may generate bigger subarray
+2. else => we can add nums[i] to currentSum, which may generate bigger subarray
 for example nums=[-1, 4, -1, 2, 1]; maxSum = nums[0]; currentSum = nums[0];
 if currentSum < 0 => currentSum = nums[i]
 else currentSum += nums[i]
