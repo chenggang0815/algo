@@ -47,7 +47,7 @@ public class Solution {
         int res = 0;
         while (left <= right){
             int mid = left + (right - left) / 2;
-            if (nums[mid] > nums[mid + 1]){
+            if (nums[mid] > nums[mid + 1]){ //because 3 <= arr.length <= 105, we don't need to worry about mid + 1 exceed of index
                 right = mid - 1;
                 res = mid;
             }else {
