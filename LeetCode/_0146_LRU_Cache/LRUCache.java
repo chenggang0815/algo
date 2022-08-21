@@ -26,9 +26,9 @@ class LRUCache{
     class Node{
         int key, val;
         Node next, prev;
-        Node(int k, int v){
-            this.key = k;
-            this.val = v;
+        Node(int key, int val){
+            this.key = key;
+            this.val = val;
         }
     }
 
@@ -38,47 +38,35 @@ class LRUCache{
         Node tail = new Node(0,0);
         int size;
 
-        private DoubleList(){
+        DoubleList(){
             head.next = tail;
             tail.prev = head;
             size = 0;
         }
 
         // 在链表头部添加节点 x，时间 O(1)
-        void addFirst(Node x){
-            Node headNext = head.next;
-            head.next = x;
-            headNext.prev = x;
-            x.next = headNext;
-            x.prev = head;
+        void addFirst(Node node){
+            Node firstNode = head.next;
+            head.next = node;
+            firstNode.prev = node;
+            node.next = firstNode;
+            node.prev = head;
             size++;
         }
 
         // 删除链表中的 x 节点（x 一定存在）
         // 由于是双链表且给的是目标 Node 节点，时间 O(1)
-        void remove(Node x){
-            x.prev.next = x.next;
-            x.next.prev = x.prev;
+        void remove(Node node){
+            node.prev.next = node.next;
+            node.next.prev = node.prev;
             size--;
         }
-
-        // 删除链表中最后一个节点，并返回该节点，时间 O(1)
-        Node removeLast(){
-            Node last = tail.prev;
-            remove(last);
-            return last;
-        };
-
-        // 返回链表长度，时间 O(1)
-        public int size(){
-            return size;
-        };
     }
 
 
-    private HashMap<Integer, Node> map;
-    private DoubleList cache;
-    private int capacity;
+    HashMap<Integer, Node> map;
+    DoubleList cache;
+    int capacity;
 
     LRUCache(int capacity){
             this.capacity = capacity;
@@ -88,31 +76,30 @@ class LRUCache{
 
     int get(int key){
             if (!map.containsKey(key)) return -1;
-            int val = map.get(key).val;
-            // 利用 put 方法把该数据提前
-            put(key, val);
-            return val;
+
+            cache.remove(map.get(key));
+            cache.addFirst(map.get(key));
+
+            return map.get(key).val;
         }
 
     void put(int key, int val){
-            // 先把新节点 x 做出来
-            Node x = new Node(key, val);
+            Node node = new Node(key, val);
             if (map.containsKey(key)){
-                // 删除旧的节点，新的插到头部
+                // Update the value of the key if the key exists. 删除旧的节点，新的插到头部
                 cache.remove(map.get(key));
-                cache.addFirst(x);
-                // 更新 map 中对应的数据
-                map.put(key, x);
+                cache.addFirst(node);
             }else{
-                if (capacity == cache.size()){
+                if (capacity == cache.size){
                     // 删除链表最后一个数据
-                    Node last = cache.removeLast();
+                    Node last = cache.tail.prev;
+                    cache.remove(last);
                     map.remove(last.key); // 为什么要在链表中同时存储 key 和 val，而不是只存储 val
                 }
-                // 直接添加到头部
-                cache.addFirst(x);
-                map.put(key, x);
+                cache.addFirst(node);
             }
+
+            map.put(key, node);
     }
 
 
