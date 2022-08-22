@@ -65,11 +65,11 @@ public class Solution {
         ListNode fast = head;
         for(int i = 0; i < n; i++){
             fast = fast.next;
-            // 1 2 3 n=3
-            // fast=null
-            if(fast == null) return head.next;
-
         }
+
+        // 1 2 3 n=3 => remove head(1) => return 2->3
+        // corner case, n == length of linked list
+        if(fast == null) return head.next;
 
         while(fast.next != null){
             fast = fast.next;

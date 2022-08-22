@@ -44,10 +44,10 @@ space: O(log(k))
 Approach 3: Merge with Divide And Conquer
 time: O(N*log(k))
 space: O(1)
-lists = [node1, node2, node3, node4] i=0 interval=1
-lists = [1_2, node2, node3, node4] merge(index=i=0, index=i+interval=1) i=0 interval=1
-lists = [1_2, node2, 3_4, node4] merge(i=2, i=3) i=0 interval=2
-lists = [1234, node2, 3_4, node4] merge(i=0, i=2)
+    //lists = [L1, L2, L3, L4] i=0 interval=1
+    //lists = [L1L2, L2, L3, L4] => interval=1 i=0 => merge(index=i=0, index=i+interval=1) => list[0] = merge(i=0, i=1)
+    //lists = [L1L2, L2, L3L4, L4] => interval=1 i=2 => list[2] = merge(i=2, i=3)
+    //lists = [L1L2L3L4, L2, L3L4, L4] => interval=2 i=0 => merge(i=0, i=0+interval) => merge(0,2)
 */
 public class Solution {
     static class ListNode{
@@ -103,6 +103,10 @@ public class Solution {
 
 
     // Approach 3
+    //lists = [L1, L2, L3, L4] i=0 interval=1
+    //lists = [L1L2, L2, L3, L4] => interval=1 i=0 => merge(index=i=0, index=i+interval=1) => list[0] = merge(i=0, i=1)
+    //lists = [L1L2, L2, L3L4, L4] => interval=1 i=2 => list[2] = merge(i=2, i=3)
+    //lists = [L1L2L3L4, L2, L3L4, L4] => interval=2 i=0 => merge(i=0, i=0+interval) => merge(0,2)
     static ListNode mergeKLists3(ListNode[] lists){
         if (lists.length == 0) return null;
 
@@ -111,6 +115,7 @@ public class Solution {
             for (int i = 0; i < lists.length - interval; i = i + 2 * interval){
                 lists[i] = merge2Lists(lists[i], lists[i + interval]);
             }
+
             interval *= 2;
         }
 
@@ -131,7 +136,7 @@ public class Solution {
         head3.next = node3;
 
         ListNode[] lists = new ListNode[]{head1, head2, head3};
-        ListNode head = mergeKLists2(lists);
+        ListNode head = mergeKLists3(lists);
         while (head != null){
             System.out.println(head.val);
             head = head.next;

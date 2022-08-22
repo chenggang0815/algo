@@ -20,10 +20,9 @@ Approach 2: iterative
 */
 
 public class Solution {
-    public static class ListNode{
+    static class ListNode{
         int val;
         ListNode next;
-        ListNode(){};
         ListNode(int val){
             this.val=val;
         }
@@ -54,7 +53,7 @@ public class Solution {
     static ListNode mergeTwoList(ListNode head1, ListNode head2){
         ListNode temp1 = head1;
         ListNode temp2 = head2;
-        ListNode newHead = new ListNode();
+        ListNode newHead = new ListNode(-1);
         ListNode cur = newHead;
         while (temp1 != null && temp2 != null){
             if (temp1.val < temp2.val){
@@ -76,7 +75,6 @@ public class Solution {
     // Space Complexity:O(n)
     public static ListNode mergeTwoLists2(ListNode list1, ListNode list2) {
         if (list1 == null) return list2;
-
         if (list2 == null) return list1;
 
         if (list1.val < list2.val) {
