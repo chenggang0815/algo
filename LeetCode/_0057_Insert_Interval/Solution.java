@@ -39,7 +39,7 @@ Solution:
 Approach 1: time:O(n) space:O(n)
 1. because the intervals is sorted in ascending order by intervals[i][0]
 2. iterate the intervals, for each interval and newInterval, we have 3 case:
-case 1 => if interval[1] < newInterval[1]
+case 1 => if interval[1] < newInterval[0]
        => res.add(interval)
                                         |_________|
                                interval[0]     interval[1]
