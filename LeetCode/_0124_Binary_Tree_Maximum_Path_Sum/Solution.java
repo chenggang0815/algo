@@ -54,10 +54,9 @@ public class Solution {
         See the example 2 of the problem, if the current node is 20,
         then you wanna go up to -10 and compute the new sum,
         you can't consider both 15 and 7 when computing path_sum, since -10->20->15->7 is illegal.
+        */
 
-         */
-
-        return root.val + Math.max(left, right); //  because a path can not have branch, so we have to choose the max sub node + current node
+        return root.val + Math.max(left, right); //  because a path can not have branch, so we must choose the max sub node + current node
     }
     public static void main(String[] args) {
 

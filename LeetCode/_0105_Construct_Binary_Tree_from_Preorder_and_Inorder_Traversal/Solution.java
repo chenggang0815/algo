@@ -43,6 +43,10 @@ public class Solution {
         // pre_left_start = preStart + 1
         // pre_left_end =  pre_left_start + (rootIndex - inorderStart + 1 - 2)
         //              = preStart + 1 + (rootIndex - inorderStart - 1) = preStart + rootIndex - inorderStart
+        // for example:
+        // preorder: [3, 9,1,2, 20,15,7]
+        // inorder: [1,9,2, 3, 15,20,7]
+        // rootIndex = 3, for preorder, preEnd of index
         // pre_right_start = pre_left_end + 1 = preStart + rootIndex - inorderStart + 1
         // pre_right_end = preEnd
                                                                                     //pre left start = preStart + 1
