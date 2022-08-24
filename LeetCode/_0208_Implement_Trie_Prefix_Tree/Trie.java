@@ -59,32 +59,32 @@ public class Trie {
 
     /** Inserts a word into the trie. */
     public void insert(String word) {
-        TrieNode cur = root;
+        TrieNode curNode = root;
         for (char c: word.toCharArray()){
-            if (cur.next[c - 'a'] == null) cur.next[c - 'a'] = new TrieNode();
-            cur = cur.next[c - 'a'];
+            if (curNode.next[c - 'a'] == null) curNode.next[c - 'a'] = new TrieNode();
+            curNode = curNode.next[c - 'a'];
         }
 
-        cur.isWord = true;
+        curNode.isWord = true;
     }
 
     /** Returns if the word is in the trie. */
     public boolean search(String word) {
-        TrieNode cur = root;
+        TrieNode curNode = root;
         for (char c: word.toCharArray()){
-            cur = cur.next[c - 'a'];
-            if (cur == null) return false;
+            curNode = curNode.next[c - 'a'];
+            if (curNode == null) return false;
         }
 
-        return cur.isWord;
+        return curNode.isWord;
     }
 
     /** Returns if there is any word in the trie that starts with the given prefix. */
     public boolean startsWith(String prefix) {
-        TrieNode cur = root;
+        TrieNode curNode = root;
         for (char c: prefix.toCharArray()){
-            cur = cur.next[c - 'a'];
-            if (cur == null) return false;
+            curNode = curNode.next[c - 'a'];
+            if (curNode == null) return false;
         }
 
         return true;
