@@ -30,14 +30,26 @@ Explanation: The LCA of nodes 2 and 4 is 2, since a node can be a descendant of 
 2. 分别得到了从根节点到p和q的路径之后，就可以很方便地找到它们的最近公共祖先了
 3. 最近公共祖先 => 从根节点到它们路径上的「分岔点」，也就是最后一个相同的节点
 
-思路2： 一次遍历
-从根节点开始遍历；
-    2.1 如果当前节点的值大于p和q的值，说明 p 和 q 应该在当前节点的左子树，因此将当前节点移动到它的左子节点；
-    2.2 如果当前节点的值小于p和q的值，说明 p 和 q 应该在当前节点的右子树，因此将当前节点移动到它的右子节点；
-    2.3 如果当前节点的值不满足上述两条要求，那么说明当前节点就是「分岔点」
-    => 此时，p和q要么在当前节点的不同的子树中，要么其中一个就是当前节点
+思路2： 一次遍历- recursion
+for example:
+         5
+       /  \
+      3    7
+     / \  / \
+    2  4  6  8
 
- */
+从根节点开始遍历；
+    2.1 如果当前节点的值大于p和q的值，说明 p 和 q 应该在当前节点的左子树，因此将当前节点移动到它的左子节点 => node=5 p=2 q=4
+    2.2 如果当前节点的值小于p和q的值，说明 p 和 q 应该在当前节点的右子树，因此将当前节点移动到它的右子节点 =>  node=5, p=6 q=8
+    2.3 如果当前节点的值不满足上述两条要求，那么说明当前节点就是「分岔点」 => 此时，p和q要么在当前节点的不同的子树中，要么其中一个就是当前节点
+
+Approach 3: one pass - iterative
+The only difference is instead of recursively calling the function, we traverse down the tree iteratively.
+This is possible without using a stack or recursion since we don't need to backtrace to find the LCA node.
+In essence of it the problem is iterative, it just wants us to find the split point.
+The point from where p and q won't be part of the same subtree or when one is the parent of the other.
+
+*/
 public class Solution {
     static class TreeNode{
         int val;
@@ -84,17 +96,28 @@ public class Solution {
     }
 
     // 一次遍历
-    static TreeNode getPath2(TreeNode root, TreeNode p, TreeNode q){
+    static TreeNode lowestCommonAncestor3(TreeNode root, TreeNode p, TreeNode q) {
         if (root.val < p.val && root.val < q.val){
-            return getPath2(root.right, p, q);
+            return lowestCommonAncestor3(root.right, p, q);
         }else if (root.val > p.val && root.val > q.val){
-            return getPath2(root.left, p, q);
+            return lowestCommonAncestor3(root.left, p, q);
         }else return root;
     }
 
-    static TreeNode lowestCommonAncestor3(TreeNode root, TreeNode p, TreeNode q) {
-        TreeNode res = getPath2(root, p, q);
-        return res;
+    // one pass - iterative
+    static TreeNode lowestCommonAncestor4(TreeNode root, TreeNode p, TreeNode q){
+        TreeNode cur = root;
+        while (cur != null){
+            if (cur.val > p.val && cur.val > q.val){
+                cur = cur.left;
+            }else if (cur.val < p.val && cur.val < q.val){
+                cur = cur.right;
+            }else{
+                return cur;
+            }
+        }
+
+        return null;
     }
 
     public static void main(String[] args) {
