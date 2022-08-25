@@ -139,7 +139,6 @@ public class Solution {
             map.put(curNode.val, new Node(curNode.val, list));
         }
         */
-
         while(!queue.isEmpty()){
             Node curNode = queue.poll();
             //map.put(curNode.val, new Node(curNode.val, new ArrayList<>())); => 会把已有的node重置为空

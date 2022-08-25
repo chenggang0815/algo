@@ -121,7 +121,6 @@ public class Solution {
         int n = grid[0].length;
         int res = 0;
 
-        int[][] visited = new int[m][n];
         for(int i = 0; i < m; i++){
             for(int j = 0; j < n; j++){
                 if(grid[i][j] == '1'){
