@@ -1,16 +1,13 @@
 package LeetCode._0003_Longest_Substring_Without_Repeating_Characters;
 import java.util.HashMap;
-
 /*
-请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。
-
-输入: "abcabcbb"
-输出: 3
-解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
-
-intput : "abcdbgh"
-output: 5 ("cdbgh")
- */
+3. Longest Substring Without Repeating Characters
+Given a string s, find the length of the longest substring without repeating characters.
+Example 1:
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+*/
 /*
 思路：
 1、首先，判断当前字符是否包含在map中，如果不包含，将该字符添加到map（字符，字符在数组下标）,
@@ -38,24 +35,31 @@ start = max(table.get(v) + 1, start)
  如果没有max函数锁定住滑动窗口的左边界，start就会弹回去第一个't'的索引0处，最后输出的最长无重复子串会变成"mmzuxt"。
  */
 public class Solution {
-    /*
-复杂度分析
-时间复杂度：O(N)O(N)，其中 N 是字符串的长度。左指针和右指针分别会遍历整个字符串一次。
+/*
+"a b c a b"
+i=0 map=[[a,0]] left=0 i-left+1=1
+i=1 map=[[a,0],[b,1]] left=0 i-left+1=2
+i=2 map =[[a,0],[b,1],[c,2] left=0 i-left+1=3
+i=3 map =[[a,3],[b,1],[c,2] left=1 i-left+1=3
+i=4 map =[[a,3],[b,4],[c,2] left=2 i-left+1=3
 
-空间复杂度：O(∣Σ∣)，其中 Σ 表示字符集（即字符串中可以出现的字符），∣Σ∣ 表示字符集的大小。
-在本题中没有明确说明字符集，因此可以默认为所有 ASCII 码在 [0, 128)内的字符，
-即∣Σ∣=128。我们需要用到哈希集合来存储出现过的字符，而字符最多有∣Σ∣ 个，因此空间复杂度为O(∣Σ∣)。
-     */
+"a b c b c"
+ 0 1 2 3 4
+i=0 map=[[a,0]] left=0 i-left+1=1
+i=1 map=[[a,0],[b,1]] left=0 i-left+1=2
+i=2 map =[[a,0],[b,1],[c,2] left=0 i-left+1=3
+
+i=3 char=b map =[[a,0],[b,3],[c,2] left=2 i-left+1=3
+i=4 map =[[a,3],[b,4],[c,2] left=2 i-left+1=3
+ */
     static int longestSubString(String s){
-        if (s.length() == 0) return 0;
-
         int res = 0;
+        int left = 0;
         HashMap<Character, Integer> map = new HashMap<>();
-        int left = 0; //滑动窗口左指针
 
         for (int i = 0; i < s.length(); i++){
             if (map.containsKey(s.charAt(i))){
-                left = Math.max(left, map.get(s.charAt(i)) + 1);
+                left = Math.max(left, map.get(s.charAt(i)) + 1); // why we need Math.max(left, xxx), consider this example: "abba"
             }
             map.put(s.charAt(i), i);
             res = Math.max(res, i - left + 1);
