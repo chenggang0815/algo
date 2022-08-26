@@ -24,9 +24,9 @@ Output: false
 */
 
 /*
-solution 1: disjoint - set
+solution 1: disjoint - set / UnionFind
 1. detect if a cycle in the graph => if parents[node1] == parents[node2] => exists a cycle
-2. detect if only exists a graph
+2. detect if only exists a graph or more than one graph
 for example:  Input: n = 4, edges = [[0,1],[2,3]]
  0   2
  |   |

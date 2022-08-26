@@ -11,7 +11,9 @@ import java.util.*;
 
 /*
 solution
-Approach 1: bfs
+Approach 1: bfs - start from the ocean and traverse backwards
+When we start a traversal at a cell, whatever result we end up with can be applied to only that cell.
+However, when we start from the ocean and work backwards, we already know that every cell we visit must be connected to the ocean.
 
 Approach 2: dfs
 
