@@ -20,11 +20,14 @@ Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
 
 /*
 
-思路1：枚举出所有的子串，然后再判断这些子串是否是回文 time:o(n^3)
+Approach 1：枚举出所有的子串，然后再判断这些子串是否是回文 time:o(n^3)
 
-思路2：枚举每一个可能的回文中心，然后用中心扩展法判断当前的回文中心有多少个回文子串 time:o(n^2)
+Approach 2：枚举每一个可能的回文中心，然后用中心扩展法判断当前的回文中心有多少个回文子串 time:o(n^2)
+
+similar to question 647
  */
 public class Solution {
+    // Approach 2
     // Runtime: 2 ms, faster than 97.24% of Java online submissions for Palindromic Substrings.
     static int countSubstrings(String s){
         int res = 0;
