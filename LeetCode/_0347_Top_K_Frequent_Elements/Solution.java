@@ -19,15 +19,12 @@ It's guaranteed that the answer is unique, in other words the set of the top k f
 You can return the answer in any order.
  */
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /*
-思路1： 统计每个数字的次数，根据次数排序，参考python solution  time:o(n*log(n))
+Approach 1： 统计每个数字的次数，根据次数排序，参考python solution  time:o(n*log(n))
 
-思路2： min-heap
+Approach 2： min-heap
 记录每个数字出现的次数
 把数字和对应的出现次数放到堆中（小顶堆）
 如果堆已满（大小>=k）且当前数的次数比堆顶大，用当前元素替换堆顶元素
@@ -53,10 +50,12 @@ for example = [4,5,5,2,1,1,1,5,2,3,3,5,2]
    else partitionArray(nums, m + 1, right, k)
 
 思路4：桶排序法 time:o(n) space:o(n)
+https://leetcode.com/problems/top-k-frequent-elements/discuss/81602/Java-O(n)-Solution-Bucket-Sort
  */
 
 public class Solution {
-    // 桶排序法
+    //Approach 1
+    //https://leetcode.com/problems/top-k-frequent-elements/discuss/81602/Java-O(n)-Solution-Bucket-Sort
     static int[] topKFrequent(int[] nums, int k) {
 
         HashMap<Integer,Integer> map = new HashMap();
@@ -93,7 +92,35 @@ public class Solution {
         return result;
     }
 
+    //Approach 2
+
+    static int[] topKFrequent2(int[] nums, int k) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int num: nums){
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        // min heap
+        PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> map.get(a) - map.get(b));
+
+        for(int num: map.keySet()){
+            pq.add(num);
+            if(pq.size() > k ){
+                pq.poll();
+            }
+        }
+
+        int[] res = new int[k];
+        for(int i = 0; i < k; i++){
+            res[i] = pq.poll();
+        }
+
+        return res;
+    }
+
+    //Approach 3
+
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(topKFrequent(new int[]{1,1,1,2,3,3}, 2)));
+        System.out.println(Arrays.toString(topKFrequent2(new int[]{1,1,1,2,3,3}, 2)));
     }
 }
