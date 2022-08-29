@@ -24,6 +24,8 @@ You may assume all calls to the checkIn and checkOut methods are consistent.
 If a customer checks in at time t1 then checks out at time t2, then t1 < t2. All events happen in chronological order.
  */
 public class UndergroundSystem {
+    // checkout map => key= start_end value=pair(total_time, cnt)
+    // checkIn map => key=id value=pair(start station, time)
     HashMap<Integer, Pair<String, Integer>> checkInData;
     HashMap<String, Pair<Double, Double>> checkOutData;
 
