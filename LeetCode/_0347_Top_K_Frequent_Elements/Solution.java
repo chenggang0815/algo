@@ -27,7 +27,7 @@ import java.util.List;
 /*
 思路1： 统计每个数字的次数，根据次数排序，参考python solution  time:o(n*log(n))
 
-思路2： 堆排序
+思路2： min-heap
 记录每个数字出现的次数
 把数字和对应的出现次数放到堆中（小顶堆）
 如果堆已满（大小>=k）且当前数的次数比堆顶大，用当前元素替换堆顶元素
@@ -68,8 +68,7 @@ public class Solution {
             }
         }
 
-        //桶排序
-        //将频率作为数组下标，对于出现频率不同的数字集合，存入对应的数组下标
+
         List<Integer>[] list = new List[nums.length + 1];
         for(int key : map.keySet()){
             //key => 数字

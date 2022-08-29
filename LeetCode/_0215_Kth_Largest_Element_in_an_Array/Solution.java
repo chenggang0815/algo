@@ -13,24 +13,40 @@ Output: 4
 */
 
 import java.util.Arrays;
+import java.util.PriorityQueue;
 import java.util.Random;
 
 /*
-思路1：排序 time:o(n*log(n)) space:o(1)
+Approach 1：sort time: O(n*log(n)) space:o(1)
 
-思路2：基于快速排序 time:o(n)) space:o(log(n))
+Approach 2：heap
+time: O(nlog(k))
+space: O(N + k)
 
-思路3：基于堆排序
- */
+Approach 3：quick select time:o(n)) space:o(log(n))
+
+*/
 public class Solution {
     static Random random = new Random();
 
+    // Approach 1
     static int findKthLargest1(int[] nums, int k) {
         Arrays.sort(nums);
         return nums[nums.length - k];
     }
+    // Approach 2
+    public int findKthLargest2(int[] nums, int k) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for(int num: nums){
+            pq.add(num);
+            if(pq.size() > k) pq.poll();
+        }
 
-    static int findKthLargest2(int[] nums, int k) {
+        return pq.peek();
+    }
+
+    // Approach 3
+    static int findKthLargest3(int[] nums, int k) {
         partitionArray(nums, 0, nums.length - 1, nums.length - k);
 
         return nums[nums.length - k];
@@ -39,11 +55,8 @@ public class Solution {
     static void partitionArray(int[] nums, int left, int right, int k){
         int mid = partition(nums, left, right);
         if (mid == k) return;
-        else if (mid > k){
-            partitionArray(nums, left, mid - 1, k);
-        }else{
-            partitionArray(nums, mid + 1, right, k);
-        }
+        else if (mid > k) partitionArray(nums, left, mid - 1, k);
+        else partitionArray(nums, mid + 1, right, k);
     }
 
     static int partition(int[] nums, int left, int right){
@@ -60,14 +73,12 @@ public class Solution {
             while (i < j && nums[i] <= key){
                 i++;
             }
-
             if (i < j){
                 int temp = nums[i];
                 nums[i] = nums[j];
                 nums[j] = temp;
             }
         }
-
         nums[left] = nums[i];
         nums[i] = key;
 

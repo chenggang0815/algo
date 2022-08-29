@@ -20,30 +20,27 @@ j = nums.length - 1 = 7
     4.4 重复1，2，3步，直到i=j
     4.5 调整pivot的位置 => 交换Ai和pivot
 
-first
-pivot=5
-leftIndex=2
-rightIndex=6
-swap(nums[2],nums[6])
+nums = [5, 2, 8, 9, 2, 3, 4, 9]
+        0  1  2  3  4  5  6  7
+step 1
+assume pivot = nums[0] = 5
+left index=2
+right index=6
+swap(nums[2],nums[6]) => swap(8, 4) => nums=[5, 2, 4, 9, 2, 3, 8, 9]
+                                             0  1  2  3  4  5  6  7
+                                                   i           j
+step 2
+left index = 3
+right index = 5
+swap(nums[3],nums[5]) => swap(9, 3) => nums=[5, 2, 4, 3, 2, 9, 8, 9]
+                                             0  1  2  3  4  5  6  7
+                                                         j
+                                                         i
 
-nums=[5, 2, 4, 9, 2, 3, 8, 9]
-      0  1  2  3  4  5  6  7
-               l     r
-
-leftIndex=3
-rightIndex=5
-swap(nums[2],nums[6])
-
-nums=[5, 2, 4, 3, 2, 9, 8, 9]
-      0  1  2  3  4  5  6  7
-                  j
-                  i
-swap(pivot, nums[i])
-nums=[2, 2, 4, 3, 5, 9, 8, 9]
-      0  1  2  3  4  5  6  7
-                  j
-                  i
-一趟排序之后 => key的左边都是小于等于key的数，key的右边都是大于等于key的数
+step 3
+swap nums[i] and nums[0] =>  nums=[2, 2, 4, 3, 5, 9, 8, 9]
+                                             pivot
+一趟排序之后 => pivot的左边都是小于等于pivot的数，pivot的右边都是大于等于pivot的数
 
 
 需要注意的点：
@@ -63,6 +60,13 @@ class Solution {
         int i = left;
         int j = right;
         int pivot = nums[left];
+
+        // randomly choose a number and then switch with the first number
+//        int index = left + random.nextInt(right - left + 1);
+//        int pivot = nums[index];
+//        nums[index] = nums[left];
+//        nums[left] = pivot;
+
         while (i < j){
             while (i < j && nums[j] >= pivot){
                 j--;
@@ -86,7 +90,6 @@ class Solution {
 
 
     public static void main(String[] args) {
-
         int[] nums = {10,7,2,4,7,62,3,4,2,1,8,9,19};
         quickSort(nums, 0, nums.length - 1);
         System.out.println(Arrays.toString(nums));

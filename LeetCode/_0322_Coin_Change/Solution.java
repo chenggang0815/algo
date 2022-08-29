@@ -34,8 +34,8 @@ https://leetcode-cn.com/problems/coin-change/solution/322-by-ikaruga/
 eg：coins = [1, 2, 5], amount = 6
 F(0) = 0
 F(1) = min(F(1−1),F(1−2),F(1−5))+1 = F(1−1) + 1 = 1
-F(2) = min(F(2−1),F(2−2),F(2−5))+1 = min(F(1),F(0)) + 1 = 1
-F(3) = min(F(3−1),F(3−2),F(3−5))+1 = min(F(2),F(1)) + 1 = 2
+F(2) = min(F(2−1),F(2−2),F(2−5))+1 = min(F(1),F(0)) + 1) = 1
+F(3) = min(F(3−1),F(3−2),F(3−5))+1 = min(F(2),F(1)) + 1) = 2
 F(4) = min(F(4−1),F(4−2),F(4−5))+1 = min(F(3),F(2)) + 1 = 2
 F(5) = min(F(5−1),F(5−2),F(5−5))+1 = min(F(4),F(3),F(0)) + 1 = 1
 F(6) = min(F(6−1),F(6−2),F(6−5))+1 = min(F(5),F(4),F(1)) + 1 = 2
