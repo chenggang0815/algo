@@ -88,7 +88,7 @@ public class Solution {
 
     public static void main(String[] args) {
         int[] nums = new int[]{3,2,3,1,2,4,5,5,6};
-        System.out.println(findKthLargest2(nums, 4));
+        System.out.println(findKthLargest3(nums, 4));
     }
 
 }
