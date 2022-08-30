@@ -30,7 +30,7 @@ randomSet.getRandom();
 import java.util.*;
 
 /*
-思路： 哈希表+动态数组
+Solution： HashMap + ArrayList
 需要在平均复杂度为O(1) 实现：insert、remove、getRandom
 
 1. 从insert开始，有两个平均插入时间为O(1)的选择：
@@ -86,14 +86,21 @@ public class RandomizedSet {
 
     /** Removes a value from the set. Returns true if the set contained the specified element. */
     public boolean remove(int val) {
-        if (!map.containsKey(val)) return false;
-
-        int lastElement = list.get(list.size() - 1);
-        int index = map.get(val);
-        list.set(index, lastElement);
-        map.put(lastElement, index);
+        if(!map.containsKey(val)) return false;
+        // we want to delete val
+        // use last value to overwrite val, and delete last val
+        // so we can use O(1) to delete val
+        int indexOfVal = map.get(val);
+        int lastVal = list.get(list.size() - 1);
+        // overwrite val
+        list.set(indexOfVal, lastVal);
+        // update index of last value
+        map.put(lastVal, indexOfVal);
+        // remove last value of array, O(1)
         list.remove(list.size() - 1);
+
         map.remove(val);
+
         return true;
     }
 
