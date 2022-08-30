@@ -33,7 +33,8 @@ Approach 2: use array to record
 Approach 3: use stack to record
 */
 public class Solution {
-
+    // a b b b a a k=3
+    // 0 1 2 3 4 5
     public String removeDuplicates1(String s, int k) {
         StringBuilder sb = new StringBuilder(s);
         int[] count = new int[s.length()];
