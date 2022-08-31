@@ -1,8 +1,16 @@
 package LeetCode._0394_Decode_String;
 /*
 394. Decode String
-给定一个经过编码的字符串，返回它解码后的字符串。编码规则为: k[encoded_string]，表示其中方括号内部的 encoded_string 正好重复 k 次。注意 k 保证为正整数。
-你可以认为输入字符串总是有效的；输入字符串中没有额外的空格，且输入的方括号总是符合格式要求的。此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 k ，例如不会出现像 3a 或 2[4] 的输入。
+
+Given an encoded string, return its decoded string.
+The encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times.
+Note that k is guaranteed to be a positive integer.
+
+You may assume that the input string is always valid; there are no extra white spaces, square brackets are well-formed, etc.
+Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k.
+For example, there will not be input like 3a or 2[4].
+
+The test cases are generated so that the length of the output will never exceed 10^5.
 
 Example 1:
 Input: s = "3[a]2[bc]"
@@ -39,6 +47,7 @@ import java.util.Stack;
  */
 public class Solution {
     // 数字存放在数字栈，字符串存放在字符串栈，遇到右括号时候弹出一个数字栈，字母栈弹到左括号为止
+    // 2[a2[bc]]
     static String decodeString(String s) {
         Stack<StringBuilder> strStack = new Stack<>();
         Stack<Integer> intStack = new Stack<>();
@@ -68,6 +77,12 @@ public class Solution {
     }
 
     public static void main(String[] args) {
+
         System.out.println(decodeString("3[a]2[bc]"));
+        String temp = "hello";
+        for (int i = 0; i < 2; i++){
+            temp += temp;
+        }
+        System.out.println(temp);
     }
 }
