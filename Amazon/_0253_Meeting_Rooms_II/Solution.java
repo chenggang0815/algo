@@ -28,9 +28,10 @@ for example [[4,9], [4,17],[9,10]]
     3.1 add intervals[0] in the heap, heap.size() represent the number of the meeting room
     3.2 compare heap.peek() and intervals[i] => [4,9] [4,17] => 4 < 9 => need a meeting room, add [4,17] in the queue
     3.3 heap.peek() => [4,9]
-    3.4 compare [4,9] [9,10] => don't need another room, pop [4,9] add [9,10]
+    3.4 compare [4,9] [9,10] => don't need another room, pop [4,9], add [9,10]
     3.5 return heap.size() = 2
-    Every time the new interval start is larger than the minimum end, pop the interval in the queue
+
+    Every time the new interval start is larger than the minimum end, pop the interval in the queue and add the new interval
 
 
 3. iterate the array

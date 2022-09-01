@@ -12,11 +12,12 @@ Output: 1->1->2->3->4->4
 /*
 Solution
 Approach 1: recursion
-    // Time Complexity:O(n)
-    // Space Complexity:O(n)
+Time: O(n + m)
+Space: O(n + m)
+
 Approach 2: iterative
-    // Time Complexity:O(n)
-    // Space Complexity:O(1)
+Time: O(n + m)
+Space: O(1)
 */
 
 public class Solution {
@@ -47,10 +48,24 @@ public class Solution {
             tempNode=tempNode.next;
         }
     }
+    // recursion
+    public static ListNode mergeTwoLists1(ListNode list1, ListNode list2) {
+        //  if either of list 1 or list 2 is null, there is no merge to perform, so we simply return the non-null list
+        if (list1 == null) return list2;
+        if (list2 == null) return list1;
 
-    // Time Complexity:O(n)
-    // Space Complexity:O(1)
-    static ListNode mergeTwoList(ListNode head1, ListNode head2){
+        // if list1.val < list2.val => list1.next => merge(list1.next, list2)
+        if (list1.val < list2.val) {
+            list1.next = mergeTwoLists1(list1.next, list2);
+            return list1;
+        } else {
+            list2.next = mergeTwoLists1(list1, list2.next);
+            return list2;
+        }
+    }
+
+    // iterative
+    static ListNode mergeTwoList2(ListNode head1, ListNode head2){
         ListNode temp1 = head1;
         ListNode temp2 = head2;
         ListNode newHead = new ListNode(-1);
@@ -71,21 +86,7 @@ public class Solution {
         return newHead.next;
     }
 
-    // Time Complexity:O(n)
-    // Space Complexity:O(n)
-    public static ListNode mergeTwoLists2(ListNode list1, ListNode list2) {
-        if (list1 == null) return list2;
-        if (list2 == null) return list1;
 
-        if (list1.val < list2.val) {
-            list1.next = mergeTwoLists2(list1.next, list2);
-            return list1;
-        } else {
-            list2.next = mergeTwoLists2(list1, list2.next);
-            return list2;
-        }
-    }
-    
     public static void main(String[] args) {
         ListNode head1 = new ListNode(0);
         ListNode head2 = new ListNode(0);
@@ -99,7 +100,7 @@ public class Solution {
         addNode(head2,3);
         addNode(head2,4);
 
-        printList(mergeTwoLists2(head1,head2));
+        printList(mergeTwoLists1(head1,head2));
     }
 
 
