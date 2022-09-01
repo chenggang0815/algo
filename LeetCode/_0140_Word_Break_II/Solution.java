@@ -1,6 +1,7 @@
 package LeetCode._0140_Word_Break_II;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /*
@@ -53,7 +54,6 @@ public class Solution {
 
     void backTracking(String s, List<String> wordDict, List<List<String>> res, List<String> temp, int index, int length){
         if(index == length){
-            //System.out.print(temp);
             res.add(new ArrayList<>(temp));
             return;
         }
@@ -70,7 +70,7 @@ public class Solution {
     }
 
 
-    public List<String> wordBreak2(String s, List<String> wordDict) {
+    static List<String> wordBreak2(String s, List<String> wordDict) {
         List<String> res = new ArrayList<>();
 
         backTracking2(s, wordDict, res, "", 0, s.length());
@@ -78,22 +78,23 @@ public class Solution {
         return res;
     }
 
-    void backTracking2(String s, List<String> wordDict, List<String> res, String sb, int index, int length){
+    static void backTracking2(String s, List<String> wordDict, List<String> res, String str, int index, int length){
         if(index == length){
-            res.add(sb.substring(0, sb.length() - 1));
+            res.add(str.substring(0, str.length() - 1)); // we don't need the last space in the string
             return;
         }
 
         for(int i = 0; i < s.length(); i++){
             String word = s.substring(0, i + 1);
             if(wordDict.contains(word)){
-                backTracking2(s.substring(i + 1), wordDict, res, sb + word + " ", index + word.length(), length);
+                backTracking2(s.substring(i + 1), wordDict, res, str + word + " ", index + word.length(), length);
             }
         }
     }
-    public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("hello").append(" ").append("world").append(" ");
 
+    public static void main(String[] args) {
+        String s = "catsanddog";
+        List<String> wordDict = Arrays.asList("cat","cats","and","sand","dog");
+        System.out.println(wordBreak2(s, wordDict));
     }
 }

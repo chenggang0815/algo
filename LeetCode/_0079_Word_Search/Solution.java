@@ -3,23 +3,22 @@ package LeetCode._0079_Word_Search;
 79. Word Search
 Given an m x n board and a word, find if the word exists in the grid.
 
-The word can be constructed from letters of sequentially adjacent cells, where 'adjacent' cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
+The word can be constructed from letters of sequentially adjacent cells,
+where 'adjacent' cells are horizontally or vertically neighboring.
+The same letter cell may not be used more than once.
 
 Example 1:
 Input: board = [['A','B','C','E'],
                 ['S','F','C','S'],
                 ['A','D','E','E']], word = 'ABCCED'
 Output: true
- */
+*/
 /*
-解法：
-1
-2
-3
-4 => 2021-04-11
+解法： 2021-04-11
 思路： 回溯/dfs + 多个剪枝条件
 1. 遍历整个数组board，如果当前元素board[i][j]=word.charAt(0) => 进入dfs
-2. dfs剪枝条件 => if(i < 0 || i >= board.length || j < 0 || j >= board[0].length || flag[i][j] == 1 || board[i][j] != word.charAt(k)) return false;
+2. dfs剪枝条件 => if(i < 0 || i >= board.length || j < 0 || j >= board[0].length
+                || flag[i][j] == 1 || board[i][j] != word.charAt(k)) return false;
    2.1 i < 0 || i >= board.length || j < 0 || j >= board[0].length 表示元素越界
    2.2 flag[i][j] == 1 表示元素已经搜索过了，不能走回头路
    2.3 board[i][j] != word.charAt(k) 表示当前搜索的元素与word中对应的元素不相等，提前退出搜索
@@ -28,11 +27,10 @@ Output: true
 
 4. flag[i][j] 搜索状态重置
 4. 递归搜索上下左右
-        boolean res = dfs4(board, word, flag, i, j - 1, k)
-                || dfs4(board, word, flag, i, j + 1, k)
-                || dfs4(board, word, flag, i - 1, j, k)
-                || dfs4(board, word, flag, i + 1, j, k);
-
+        boolean res = dfs(board, word, flag, i, j - 1, k)
+                || dfs(board, word, flag, i, j + 1, k)
+                || dfs(board, word, flag, i - 1, j, k)
+                || dfs(board, word, flag, i + 1, j, k);
 
 时间复杂度：
     1. 一个非常宽松的上界为O(MN3^L),其中M,N为网格的长度与宽度，L 为字符串word的长度。在每次调用函数dfs时，除了第一次可以进入4个分支以外，
