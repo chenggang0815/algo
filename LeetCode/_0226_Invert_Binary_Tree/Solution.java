@@ -7,6 +7,14 @@ import java.util.ArrayList;
 /*
 226	Invert Binary Tree
  */
+
+/**
+ * Approach 1: pre-order and post-order
+ * 1. we can recursion to traverse the tree, and at the same time, for each node, we can swap it's left node and right node
+ * 2. but we can use in-order traversal to do this, think about it, why?
+ *
+ * Approach 2: bfs
+ */
 public class Solution {
     static class TreeNode{
         int val;
