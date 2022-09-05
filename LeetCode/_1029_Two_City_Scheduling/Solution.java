@@ -65,6 +65,18 @@ totalCost += 470 + -350 + -10 = 110
 So, minimum cost is 110
 */
 
+/*
+1. Assume we send all people to the first city, we can get the total cost
+2. at the same time, we can calculate the refund, if we send each people to second city instead of the first city.
+3. and we pick up the max N refund
+
+for example:
+costs = [[10,20],[30,200],[400,50],[30,20]]
+total cost => 10 + 30 + 400 + 30 = 470
+refund => [10, 170, -350, -10] => sorted refund => [-350, -10, 10, 170]
+we pick up first 4/2=2 refund => total cost = 470 - 350 - 10 = 110
+*/
+
 public class Solution {
     public int twoCitySchedCost(int[][] costs) {
         int res = 0;

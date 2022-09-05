@@ -94,7 +94,9 @@ public class RandomizedSet {
         int lastVal = list.get(list.size() - 1);
         // overwrite val
         list.set(indexOfVal, lastVal);
-        // update index of last value
+        // update index of last value,
+        // We must do map.put(lastVal, indexOfVal) before map.remove(val), because lastVal may equal val.
+        // So if lastVal == val, we should delete it from map after remove() function
         map.put(lastVal, indexOfVal);
         // remove last value of array, O(1)
         list.remove(list.size() - 1);

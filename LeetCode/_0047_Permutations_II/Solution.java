@@ -5,16 +5,15 @@ import java.util.Arrays;
 import java.util.List;
 
 /*
-47. 全排列 II
-给定一个可包含重复数字的序列，返回所有不重复的全排列。
-示例:
-输入: [1,1,2]
-输出:
-[
-  [1,1,2],
-  [1,2,1],
-  [2,1,1]
-]
+47. Permutations II
+Given a collection of numbers, nums, that might contain duplicates, return all possible unique permutations in any order.
+Example 1:
+
+Input: nums = [1,1,2]
+Output:
+[[1,1,2],
+ [1,2,1],
+ [2,1,1]]
 */
 /*
 思考：回溯+剪枝
