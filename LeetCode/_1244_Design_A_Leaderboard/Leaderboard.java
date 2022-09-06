@@ -36,13 +36,20 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
  */
 
 /*
-Approach 1: hashmap + arraylist
+Approach 1: hashmap
+* for addScore() time: O(1)
+* for top() time: O(Nlog(N))
+* for reset() time: O(1)
 Approach 2: hashmap + treeMap
+* for addScore() time: O(log(N))
+* for top() time: O(log(K))
+* for reset() time: O(log(N))
 */
 public class Leaderboard {
-    // add => map => id, score
-    //        score => <score, cnt + 1>
+    // map => <id, score>
     HashMap<Integer, Integer> map;
+
+    // scoreMap => <score, score_cnt>
     TreeMap<Integer, Integer> scoreMap;
     public Leaderboard() {
         map = new HashMap<>();
