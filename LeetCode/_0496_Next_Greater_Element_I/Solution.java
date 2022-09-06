@@ -23,8 +23,8 @@ Explanation: The next greater element for each value of nums1 is as follows:
 1. 暴力解法 time: o(n^2)
 2. 单调栈 time: o(n)
 如果需要找到左边或者右边第一个比当前位置的数大或者小，则可以考虑使用单调栈
- => 找出nums2中，每个元素右边第一个比它大的数；把结果放在map中
- => 因为nums1是nums2的子集，所以遍历nums1，寻找map中是否有结果
+    2.1 找出 nums2 中，每个元素右边第一个比它大的数；把结果放在map中 => map<num, next_greater_num>
+    2.2 因为 nums1 是 nums2 的子集，所以遍历 nums1，寻找map中是否有结果
 参考739题
 */
 public class Solution {
@@ -47,6 +47,7 @@ public class Solution {
         return res;
     }
 
+    // nums2 = [1,3,4,2]
     static public int[] nextGreaterElement2(int[] nums1, int[] nums2) {
         Stack<Integer> stack = new Stack<>();
         Map<Integer, Integer> map = new HashMap<>();
