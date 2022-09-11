@@ -1,4 +1,4 @@
-package Amazon._1730_Shortest_Path_to_Get_Food;
+package LeetCode._1730_Shortest_Path_to_Get_Food;
 /*
 1730. Shortest Path to Get Food
 You are starving and you want to eat food as quickly as possible. You want to find the shortest path to arrive at any food cell.
@@ -28,8 +28,7 @@ similar to leetcode 130
 Solution
 Approach 1: BFS time: O(m*n) space: O(m*n)
 1. start bfs from "*", add  (i, j, step) into queue
-2.
-
+2. do a bfs step by step and res++
 
 why Can't we apply DFS here? Can somebody explain! Thanks
 Technically, you can apply DFS too. You have to apply DFS & store the shortest path separately.
@@ -142,12 +141,43 @@ public class Solution {
                 int row = i + direction[0];
                 int col = j + direction[1];
                 if(row < 0 || row >= rows || col < 0 || col >= cols || grid[row][col] == 'X') continue;
-
                 if(grid[row][col] == '#') return step;
-
                 grid[row][col] = 'X';
                 int[] index = new int[]{row, col, step};
                 queue.add(index);
+            }
+        }
+
+        return -1;
+    }
+
+    public int getFood3(char[][] grid) {
+        int res = 0;
+        Queue<int[]> queue = new LinkedList<>();
+        for(int i = 0; i < grid.length; i++){
+            for(int j = 0; j < grid[0].length; j++){
+                if(grid[i][j] == '*'){
+                    queue.add(new int[]{i,j});
+                    break;
+                }
+            }
+        }
+
+        int[][] directions = new int[][]{{0,1}, {1,0}, {0,-1}, {-1,0}};
+        while(!queue.isEmpty()){
+            int cnt = queue.size();
+            res++;
+            while(cnt > 0){
+                int[] cur = queue.poll();
+                for(int[] direction: directions){
+                    int x = cur[0] + direction[0];
+                    int y = cur[1] + direction[1];
+                    if(x < 0 || x >= grid.length || y < 0 || y >= grid[0].length || grid[x][y] == 'X') continue;
+                    if(grid[x][y] == '#') return res;
+                    grid[x][y] = 'X';
+                    queue.add(new int[]{x, y});
+                }
+                cnt--;
             }
         }
 

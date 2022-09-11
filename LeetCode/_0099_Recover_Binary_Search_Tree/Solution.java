@@ -33,6 +33,11 @@ Approach 2
 2. TreeNode firstNode = null;
    TreeNode secondNode = null;
    TreeNode pre = null;
+3. firstNode => the first node meet the condition => if(firstNode == null && pre != null && pre.val > cur.val)
+4. secondNode => the last node meet the condition => if(firstNode != null && pre.val > cur.val)
+for example: 3 2 1 4
+first node is 3, because 3 is the first node meet pre > cur, 3 > 2 => firstNode = pre
+second node is 1, because 1 is the last node meet pre > cur, 2 > 1 => secondNode = cur
 */
 public class Solution {
     class TreeNode{
@@ -70,6 +75,7 @@ public class Solution {
         dfs(root.right, list);
     }
 
+    // approach 2
     TreeNode firstNode = null;
     TreeNode secondNode = null;
     TreeNode pre = null;
