@@ -9,7 +9,8 @@ Given the root of a binary tree, return the inorder traversal of its nodes' valu
 /*
 Solution
 Approach 1 => dfs
-Approach 2 => iterative
+
+Approach 2 => iterative using stack
 1. start from root node, push all the left children into the stack until reach left node
 2. then we pop from the stack which we'd call current node
 3. add current node to result list
@@ -37,6 +38,7 @@ public class Solution {
     left -> root -> right
     2->5->1->3
      */
+    // Approach
     static List<Integer> inorderTraversal(TreeNode root){
         List<Integer> res = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
