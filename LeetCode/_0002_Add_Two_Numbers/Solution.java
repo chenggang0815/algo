@@ -10,7 +10,11 @@ Input: l1 = [2,4,3], l2 = [5,6,4]
 Output: [7,0,8]
 Explanation: 342 + 465 = 807.
 
-思路：
+
+Solution: similar question 445. Add Two Numbers II
+1. because the linked list is stored in reverse order, which means 2->4->3 denote 342
+2. so we can add these two linked list from left to right.
+
 1. 将两个链表看成是相同长度的遍历，不足的补0
 2. 同位直接相加，每一位计算时需要考虑上一位的进位值，在计算结束后同样要更新当前位的进位值
 3. 全部遍历完后，如果进位值为1，则需要在最后添加节点1
@@ -50,6 +54,29 @@ public class Solution {
         }
 
         return head.next;
+    }
+
+    // approach 2 11/09/2022
+    public ListNode addTwoNumbers2(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(-1);
+        ListNode cur = dummy;
+        int num = 0;
+        while(l1 != null || l2 != null || num != 0){
+            if(l1 != null){
+                num += l1.val;
+                l1 = l1.next;
+            }
+            if(l2 != null){
+                num += l2.val;
+                l2 = l2.next;
+            }
+            cur.next = new ListNode(num % 10);
+            num /= 10;
+            cur = cur.next;
+        }
+
+        return dummy.next;
+
     }
 
     public static void main(String[] args) {

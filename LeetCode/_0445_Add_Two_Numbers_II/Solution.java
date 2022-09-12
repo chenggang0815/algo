@@ -1,9 +1,26 @@
-package Amazon._0445_Add_Two_Numbers_II;
+package LeetCode._0445_Add_Two_Numbers_II;
+/*
+445. Add Two Numbers II
 
+You are given two non-empty linked lists representing two non-negative integers.
+The most significant digit comes first and each of their nodes contains a single digit.
+Add the two numbers and return the sum as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+Example 1:
+Input: l1 = [7,2,4,3], l2 = [5,6,4]
+Output: [7,8,0,7]
+*/
 import java.util.Stack;
 
 /*
-Solution
+
+Solution: similar question 2. Add Two Numbers
+* Because the linked list is stored not in reverse order, which means the most significant digit comes first.
+* So 7->2->4->3 denote 7243, in contrast with question 2, we need to add these two list from right to left.
+* So we use two stack to store the list.
+
 Approach 1 => three stack
 1. use two stack to store the two linked list, calculate the sum, push another stack
 2. use the third stack to generate the linked list
