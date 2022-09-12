@@ -32,26 +32,25 @@ public class Solution {
             map.put(inorder[i], i);
         }
 
-        return build(inorder, 0, inorder.length - 1, preorder, 0, preorder.length - 1, map);
+        return build(inorder, 0, inorder.length - 1, preorder, 0, map);
     }
 
-    public TreeNode build(int[] inorder, int inorderStart, int inorderEnd, int[] preorder, int preStart, int preEnd, HashMap<Integer, Integer> map){
+    public TreeNode build(int[] inorder, int inorderStart, int inorderEnd, int[] preorder, int preStart, HashMap<Integer, Integer> map){
         if (inorderStart > inorderEnd) return null;
 
         TreeNode root = new TreeNode(preorder[preStart]);
         int rootIndex = map.get(root.val);
-        // pre_left_start = preStart + 1
-        // pre_left_end =  pre_left_start + (rootIndex - inorderStart + 1 - 2)
-        //              = preStart + 1 + (rootIndex - inorderStart - 1) = preStart + rootIndex - inorderStart
+
         // for example:
-        // preorder: [3, 9,1,2, 20,15,7]
-        // inorder: [1,9,2, 3, 15,20,7]
-        // rootIndex = 3, for preorder, preEnd of index
-        // pre_right_start = pre_left_end + 1 = preStart + rootIndex - inorderStart + 1
-        // pre_right_end = preEnd
-                                                                                    //pre left start = preStart + 1
-        root.left = build(inorder, inorderStart, rootIndex - 1, preorder, preStart + 1, preStart + rootIndex - inorderStart, map);
-        root.right = build(inorder, rootIndex + 1, inorderEnd, preorder, preStart + rootIndex - inorderStart + 1, preEnd, map);
+        // preorder: [3,   9,    1,   2,    20,  15,   7]
+        // root.left    preStart
+        // root.right                    preStart
+        // inorder:  [1,    9,   2,   3,    15,  20,   7]
+        //      inorderStart         rootIndex
+        // for root.left => preStart = preStart + 1
+        // for root.right => preStart = preStart + 1 + rootIndex - inorderStart
+        root.left = build(inorder, inorderStart, rootIndex - 1, preorder, preStart + 1, map);
+        root.right = build(inorder, rootIndex + 1, inorderEnd, preorder, preStart + 1 + rootIndex - inorderStart, map);
 
         return root;
     }
