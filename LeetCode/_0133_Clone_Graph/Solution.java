@@ -110,6 +110,7 @@ public class Solution {
         return map.get(node.val);
     }
 
+    // bfs
     static Node cloneGraph2(Node node){
         if(node == null) return null;
 
@@ -156,6 +157,35 @@ public class Solution {
         return map.get(node.val);
     }
 
+    /*
+    public Node cloneGraph(Node node) {
+	Node newNode = new Node(node.val, new ArrayList<>(node.neighbors));
+	HashMap<Node, Node> map = new HashMap<>();
+  map.put(node, newNode);
+  dfs(node, map);
+
+  return newNode;
+}
+
+void dfs(Node node. HashMap<Node, Node> map){
+	if(node.neighbors.size() == 0) return;
+
+  for(Node neighborNode: node.neighbors){
+
+  		if(!map.containsKey(neighborNode)){
+      		Node newNeighborNode = new Node(neighborNode.val, new ArrayList<>());
+      }
+
+      map.put(neighborNode, newNeighborNode);
+
+      // node => newNode
+      // map.get(node) => newNode
+      map.get(neighborNode).add(map.get(node));
+
+      dfs(neighborNode, map);
+  }
+}
+    * */
 
     public static void main(String[] args) {
         Node node1 = new Node(1);

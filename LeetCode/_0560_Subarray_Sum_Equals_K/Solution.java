@@ -99,6 +99,25 @@ To achieve this, we just need to go through the array, calculate the current sum
 
         return result;
     }
+    // 2022-09-16
+    static int subarraySum4(int[] nums, int k) {
+        // Edge cases
+        if(nums.length == 0)    return 0;
+        int sum = 0, result = 0;
+        Map<Integer, Integer> preSum = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++){
+            sum += nums[i];
+            if (sum == k) result++;
+            if (preSum.containsKey(sum - k)){
+                result += preSum.get(sum - k);
+            }
+
+            preSum.put(sum, preSum.getOrDefault(sum, 0) + 1);
+        }
+
+        return result;
+    }
     public static void main(String[] args) {
 
         System.out.println(subarraySum2(new int[]{-1, -1, 1}, 0));
