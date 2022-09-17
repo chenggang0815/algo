@@ -11,6 +11,9 @@ Output: true
 Explanation: One possible way is : left -> down -> left -> down -> right -> down -> right.
 */
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /*
 Solution
 Approach 1: DFS
@@ -25,6 +28,20 @@ Approach 1: DFS
  3. use visited to avoid repeat iterate
 
 Approach 2: BFS
+思路：
+1. 从开始节点，上下左右一直遍历到有墙或者有边界的地方停下
+2. 对于停下之前的这个位置，
+    2.1 如果等于目标值，那么已经找到符合要求的值，return true
+    2.2 如果不等于目标值，停下之前的这个位置，可以考虑作为新的起始点放进去队列。
+    2.3 至于从开始节点到停下之前的这个位置中间的位置，都可以忽略，因为它们肯定不满足
+
+1. we try to explore the search space on a level by level basis. i.e. We try to move in all the directions at every step.
+2. When all the directions have been explored and we still don't reach the destination, then only we proceed to the new set of traversals from the new positions obtained.
+    2.1 we make use of a queue. We start with the ball at the start position.
+    2.2 For every current position, we add all the new positions possible by traversing in all the four directions(till reaching the wall or boundary) into the queue to act as the new start positions
+    2.3 and mark these positions as True in the visited array.
+
+If we hit the destination position at any moment, we return a True directly indicating that the destination position can be reached starting from the start position.
 
 */
 public class Solution {
@@ -51,6 +68,36 @@ public class Solution {
             }
             current = new int[]{row - direction[0], col - direction[1]};
             if(dfs(maze, current, destination, directions, visited)) return true;
+        }
+
+        return false;
+    }
+
+    // bfs
+    public boolean hasPath2(int[][] maze, int[] start, int[] destination) {
+        Queue<int[]> queue = new LinkedList<>();
+        queue.add(start);
+        int[][] directions = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        boolean[][] visited = new boolean[maze.length][maze[0].length];
+        //visited[start[0]][start[1]] = true;
+
+        while(!queue.isEmpty()){
+            int[] cur = queue.poll();
+            if(cur[0] == destination[0] && cur[1] == destination[1]) return true;
+
+            for(int[] dir: directions){
+                int x = cur[0];
+                int y = cur[1];
+                while(x >= 0 && x < maze.length && y >= 0 && y < maze[0].length && maze[x][y] == 0){
+                    x += dir[0];
+                    y += dir[1];
+                }
+
+                if(!visited[x - dir[0]][y - dir[1]]){
+                    queue.add(new int[]{x - dir[0], y - dir[1]});
+                    visited[x - dir[0]][y - dir[1]] = true;
+                }
+            }
         }
 
         return false;
