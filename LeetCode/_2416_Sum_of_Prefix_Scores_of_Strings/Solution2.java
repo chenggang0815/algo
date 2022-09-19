@@ -6,7 +6,7 @@ package LeetCode._2416_Sum_of_Prefix_Scores_of_Strings;
 超时的做法：分别单独遍历"a" "ab" "abc" "abcd"
 更快的做法：遍历到"a"，记下"a"的出现次数，从"a"遍历到"ab"，记下"ab"出现的次数，直到遍历到"abcd"，
           相当只遍历一次"abcd"，记下沿途每个前缀出现的次数。
-
+https://leetcode.com/problems/sum-of-prefix-scores-of-strings/discuss/2590081/C%2B%2B-Java-Python3-Easy-Trie-Explained-with-diagram
 */
 public class Solution2 {
     class Trie{
