@@ -59,10 +59,33 @@ i=4 map =[[a,3],[b,4],[c,2] left=2 i-left+1=3
 
         for (int i = 0; i < s.length(); i++){
             if (map.containsKey(s.charAt(i))){
-                left = Math.max(left, map.get(s.charAt(i)) + 1); // why we need Math.max(left, xxx), consider this example: "abba"
+                left = Math.max(left, map.get(s.charAt(i)) + 1); // why we need Math.max(left, xxx), consider this example: "pwaca"
             }
             map.put(s.charAt(i), i);
             res = Math.max(res, i - left + 1);
+        }
+
+        return res;
+    }
+
+    // 09/20/2022
+    public int lengthOfLongestSubstring(String s) {
+        if(s.length() == 0) return 0;
+
+        HashMap<Character, Integer> map = new HashMap<>();
+        int left = 0;
+        int res = 1;
+
+        for(int i = 0; i < s.length(); i++){
+            if(map.containsKey(s.charAt(i))){ //if the current character has appeared previously and
+                //res = Math.max(res, i - left)
+                // if the it's index lies in the current window
+                // we can contract the window by moving left boundary to index + 1
+                if(map.get(s.charAt(i)) >= left) left = map.get(s.charAt(i)) + 1;
+                //left = Math.max(left, map.get(s.charAt(i)) + 1);
+            }
+            res = Math.max(res, i - left + 1);
+            map.put(s.charAt(i), i);
         }
 
         return res;
