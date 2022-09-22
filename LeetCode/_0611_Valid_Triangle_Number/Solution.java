@@ -30,11 +30,11 @@ time: O(n^2)
 space: O(log(n)). Sorting takes O(log(n)) space
  */
 public class Solution {
-    public int triangleNumber(int[] nums) {
+    static public int triangleNumber(int[] nums) {
         Arrays.sort(nums);
         // 2 3 4 4 => 2 3 4 / 2 3 4 / 3 4 4 / 2 4 4
-        // l   r i => 2 4 4 / 3 4 4
-        // l r   i => 2 3 4
+        // l   r i => 2 4 4 / 3 4 4 two pointers left == right之后， i--, 直接跳到最后一行，会miss掉第三行
+        // l r   i => 2 3 4 two pointers 会miss掉这个解
         // l r i   => 2 3 4
         int res = 0;
         for(int i = nums.length - 1; i >= 2; i--){
@@ -53,7 +53,10 @@ public class Solution {
         return res;
 
     }
-    public static void main(String[] args) {
 
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{2,3,4,4};
+        System.out.println(triangleNumber(nums));
     }
 }
