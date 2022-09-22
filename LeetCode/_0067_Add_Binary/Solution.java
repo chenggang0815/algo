@@ -18,23 +18,33 @@ Constraints:
     1 <= a.length, b.length <= 10^4
     Each string is either "0" or doesn't contain any leading zero.
  */
+/*
+Approach 1
+1. add two digits from the last digit to the first digit (from right to left)
+2. use an variable 'carry' to record the carry
+3. don't forget append carry at last, if carry not equal 0
+*/
 public class Solution {
     static public String addBinary(String a, String b) {
-        StringBuilder sb = new StringBuilder();
-        int i = a.length()-1, j = b.length()-1, carry = 0;
-        while(i>=0||j>=0){
-            int sum = carry;
-            if(i>=0) sum += a.charAt(i--) - '0';
-            if(j>=0) sum += b.charAt(j--) - '0';
-            sb.append(sum%2);
-            carry = sum/2;
+        StringBuilder s = new StringBuilder();
+        int i = a.length() - 1;
+        int j = b.length() - 1;
+        int carry = 0;
+        while(i >= 0 || j >= 0){
+            int num1 = i >= 0 ? a.charAt(i) - '0' : 0;
+            int num2 = j >= 0 ? b.charAt(j) - '0' : 0;
+            int sum = num1 + num2 + carry;
+            s.append(sum % 2);
+            carry = sum / 2;
+            i--;
+            j--;
         }
-        if(carry!=0)sb.append(carry);
-        return sb.reverse().toString();
+
+        return carry == 0 ? s.reverse().toString() : s.append(carry).reverse().toString();
     }
 
     public static void main(String[] args) {
-     String a = "11", b = "1";
-     addBinary(a,b);
+        String a = "11", b = "1";
+        addBinary(a,b);
     }
 }
