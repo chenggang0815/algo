@@ -12,6 +12,10 @@ Explanation: [2,3] has the largest product 6.
 */
 /*
 Solution:
+1. We need to take care of negative number, a negative product times a negative number may have the maximum product
+2. so we use two int array to save the maximum product and the minimum product
+3. for max array, we need to compare => Math.max(nums[i], Math.max(max[i - 1] * nums[i], Math.max(min[i - 1] * nums[i]))
+
 similar with question 53
 */
 public class Solution {
@@ -30,12 +34,15 @@ public class Solution {
         return res;
     }
 
+    // approach 2, time: O(n), space: O(1)
+    // similar to question 53, we use to variable the max and min
+    // and use one temporary variable the max value, before we update max value
     public int maxProduct2(int[] nums) {
         int max = nums[0];
         int min = nums[0];
         int res = nums[0];
         for (int i = 1; i < nums.length; i++){
-            // we need this temporary variable to store the max value
+            // we need this temporary variable to store the max value, before we update max value
             int tempMax = Math.max(nums[i], Math.max(max * nums[i], min * nums[i]));
             min = Math.min(nums[i], Math.min(max * nums[i], min * nums[i]));
             max = tempMax;
