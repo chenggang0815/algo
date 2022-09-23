@@ -1,6 +1,6 @@
 package LeetCode._0053_Maximum_Subarray;
 /*
-53. Maximum Subarray - Easy
+53. Maximum Subarray
 Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
 Example:
 Input: [-2,1,-3,4,-1,2,1,-5,4],
@@ -12,15 +12,21 @@ If you have figured out the O(n) solution, try coding another solution using the
 */
 /*
 Solution
-Approach 1: Optimized Brute Force Time: O(n^2) Space:O(1)
+Approach 1: Brute Force
+time: O(n^2)
+space:O(1)
 
-Approach 2: dynamic programing Time:O(n) Space:O(n)
+Approach 2: DP
+time:O(n)
+space:O(n)
 1. similar with approach3
-2. if dp[i-1] + nums[i] < nums[i] => dp[i] = nums[i]
-3. if dp[i-1] + nums[i] > nums[i] => dp[i] = dp[i-1] + nums[i]
+2. if dp[i-1] < 0 which means => dp[i - 1] + nums[i] < nums[i] => so we don't need care about dp[i - 1] => dp[i] = nums[i]
+3. else dp[i - 1] > 0 which means => dp[i-1] + nums[i] > nums[i] => dp[i] = dp[i-1] + nums[i]
 => dp[i] = Math.max(nums[i], dp[i - 1] + nums[i])
 
-Approach 3: dynamic programing Time:O(n) Space:O(1)
+Approach 3: DP
+time:O(n)
+space:O(1)
 1. if currentSum < 0 => which means currentSum + nums[i] < nums[i]
     1.1 so we don't need to sum nums[i] to currentSum, we just let currentSum = nums[i]
     1.2 Whenever the sum of the array is negative, we know the entire array is not worth keeping, so we'll reset it back to an empty array.
@@ -31,9 +37,9 @@ else currentSum += nums[i]
 maxSum = max(maxSum, currentSum)
 
 Approach 4: Divide and Conquer (Advanced)
-
 */
 public class Solution {
+    // Approach 1
     static int  maxSubArray(int[] nums){
         int n = nums.length;
         int maxSum= nums[0];
@@ -48,28 +54,32 @@ public class Solution {
         return maxSum;
     }
 
-    //dp solution
+    //Approach 2
     static public int maxSubArray2(int[] nums) {
         int[] dp = new int[nums.length];
         dp[0] = nums[0];
-        int max = nums[0];
+        int res = nums[0];
         for(int i = 1; i < nums.length; i++){
-            dp[i] = Math.max(nums[i], dp[i - 1] + nums[i]);
-            max = Math.max(dp[i], max);
+            if(dp[i - 1] < 0) dp[i] = nums[i]; //if the sum of the array is negative, we know it is not worth keeping, so we'll reset it back to an empty array.
+            else dp[i] = dp[i - 1] + nums[i];
+            res = Math.max(res, dp[i]);
         }
-        return max;
+
+        return res;
     }
 
+    // Approach 3
+    // we just use an variable cur to denote the dp[i - 1], space complexity from O(n) to O(1)
     public int maxSubArray3(int[] nums) {
-        int maxSum = nums[0];
-        int currentSum = nums[0];
+        int cur = nums[0];
+        int res = nums[0];
         for(int i = 1; i < nums.length; i++){
-            if(currentSum < 0) currentSum = nums[i];
-            else currentSum += nums[i];
-            maxSum = Math.max(maxSum, currentSum);
+            if(cur < 0) cur = nums[i];
+            else cur += nums[i];
+            res = Math.max(res, cur);
         }
 
-        return maxSum;
+        return res;
     }
 
     public static void main(String[] args) {
