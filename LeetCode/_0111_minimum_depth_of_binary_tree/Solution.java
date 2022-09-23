@@ -10,17 +10,12 @@ Output: 2
 Example 2:
 Input: root = [2,null,3,null,4,null,5,null,6]
 Output: 5
+*/
+/*
+Solution
+1.
 
-叶子节点的定义是左孩子和右孩子都为 null 时叫做叶子节点
-1. 当 root 为空时，返回 0
-2. 当 root 节点左右孩子都为空时，返回 1
-3. 当 root 节点左右孩子有一个为空时，返回不为空的孩子节点的深度
-4. 当 root 节点左右孩子都不为空时，返回左右孩子较小深度的节点值
-作者：reals
-链接：https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/solution/li-jie-zhe-dao-ti-de-jie-shu-tiao-jian-by-user7208/
-来源：力扣（LeetCode）
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
- */
+*/
 public class Solution {
     static class TreeNode{
         int val;

@@ -55,25 +55,27 @@ tips:
     2.1 有重复元素：在跳出循环时，nums[left]还是之前的值，nums[left+1]才是新的边界，所以还需要left++
     2.2 无重复元素：不进入循环，left左移 => left++
 */
-
+/*
+time: O(nlog(n) + n^2) => O(nlog(n))
+space: O(log(n))  depending on the implementation of the sorting algorithm
+*/
 public class Solution {
     static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         Arrays.sort(nums);
         for (int i = 0; i < nums.length - 2; i++){
             if (nums[i] > 0) break; // if k > 0 => the number on the right side of k is all > 0, we can not find a solution
-            if (i > 0 && nums[i] == nums[i - 1]) continue; // if k > 0 && nums[k] == nums[k - 1] => skip thr duplicate solution
-            int left = i + 1, right = nums.length - 1;
-            while (left < right){
-                int target = 0 - nums[i];
-                int sum = nums[left] + nums[right];
-                if (sum < target){
-                    left++;
-                }else if (sum > target){
+            if(i != 0 && nums[i] == nums[i- 1]) continue; // if we have two duplicate number, we need to skip the second duplicate number not the first one, because the first number may use second number to generate an answer
+            int left = i + 1;
+            int right = nums.length - 1;
+            while(left < right){
+                if(nums[left] + nums[right] > -nums[i]){
                     right--;
+                }else if(nums[left] + nums[right] < -nums[i]){
+                    left++;
                 }else{
-                    res.add(Arrays.asList(nums[i], nums[left], nums[right]));
-                    while (left < right && nums[left] == nums[left + 1]) left++; // avoid the duplicate (left,right) => must skip the duplicate left or right
+                    res.add(Arrays.asList(nums[left], nums[right], nums[i]));
+                    while(left < right && nums[left] == nums[left + 1]) left++;
                     left++;
                     right--;
                 }
