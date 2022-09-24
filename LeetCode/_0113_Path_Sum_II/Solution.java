@@ -10,7 +10,6 @@ Note: A leaf is a node with no children.
 
 Example:
 Given the below binary tree and sum = 22,
-
       5
      / \
     4   8
@@ -18,9 +17,7 @@ Given the below binary tree and sum = 22,
   11  13  4
  /  \    / \
 7    2  5   1
-
 Return:
-
 [
    [5,4,11,2],
    [5,8,4,5]
@@ -37,29 +34,28 @@ public class Solution {
             this.val = val;
         }
     }
-    //从根结点开始，回溯遍历每个结点。
-    //参考链接：https://leetcode-cn.com/problems/path-sum-ii/solution/113java-hui-su-xiang-jie-da-bai-9998-by-ustcyyw/
-    static public List<List<Integer>> pathSum(TreeNode root, int sum) {
-        List<List<Integer>> res = new ArrayList<>();
-        ArrayList<Integer> temp = new ArrayList<>();
 
-        helper(root, sum, res, temp);
+    static public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        List<List<Integer>> res = new ArrayList<>();
+
+        dfs(root, targetSum, res, new ArrayList<>());
 
         return res;
-
     }
 
-    static public void helper(TreeNode root, int sum, List<List<Integer>> res, ArrayList<Integer> temp){
-        if (root == null) return;
+    static void dfs(TreeNode root, int targetSum, List<List<Integer>> res, List<Integer> path){
+        if(root == null) return;
 
-        temp.add(root.val);
-        if (root.left == null && root.right == null && root.val == sum){
-            res.add(new ArrayList<>(temp));
+        path.add(root.val);
+        if(root.left == null && root.right == null && root.val == targetSum){
+            res.add(new ArrayList<>(path));
+            // return;  // we can't just return at this position.
+            // We remove the node in the path after all the children are processed, so that when we switch to another branch, the node will not be double count.
         }
-        helper(root.left, sum - root.val, res, temp);
-        helper(root.right, sum - root.val, res, temp);
 
-        temp.remove(temp.size() - 1);
+        dfs(root.left, targetSum - root.val, res, path);
+        dfs(root.right, targetSum - root.val, res, path);
+        path.remove(path.size() - 1);
     }
 
     public static void main(String[] args) {
