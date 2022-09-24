@@ -22,8 +22,13 @@ Return 3. The paths that sum to 8 are:
 1.  5 -> 3
 2.  5 -> 2 -> 1
 3. -3 -> 11
+*/
+/*
+Approach 1: time: O(N^2) space: O(H)
 
- */
+Approach 2: time: O(N) space: O(N)
+1. Prefix Sum
+*/
 public class Solution {
     static class TreeNode{
         int val;
@@ -34,19 +39,19 @@ public class Solution {
         }
     }
 //因为起始结点不一定是由根结点开始，所以需要对每个结点为起始结点，遍历其左右结点，并且计算其每个结点的累计和
-    static public int pathSum(TreeNode root, int sum) {
-        if (root == null) return 0;
+    static public int pathSum(TreeNode root, int targetSum) {
+        if(root == null) return 0;
 
-        return pathSum(root.left,sum) + pathSum(root.right,sum) + helper(root,sum);
+        return pathSum(root.left, targetSum) + pathSum(root.right, targetSum) + dfs(root, targetSum);
     }
 
-    static public int helper(TreeNode root, int sum){
-        if (root == null) return 0;
-        if (root.val == sum){
-            // 因为结点的值可能是负数，所以需要遍历到叶子结点来判断所有满足的情况
-            return 1 + helper(root.right,sum - root.val) + helper(root.left,sum - root.val);
-        }else {
-            return helper(root.right, sum - root.val) + helper(root.left, sum - root.val);
+    static int dfs(TreeNode root, long targetSum){
+        if(root == null) return 0;
+
+        if(root.val == targetSum){
+            return 1 + dfs(root.left, targetSum - root.val) + dfs(root.right, targetSum - root.val);
+        }else{
+            return dfs(root.left, targetSum - root.val) + dfs(root.right, targetSum - root.val);
         }
     }
 
