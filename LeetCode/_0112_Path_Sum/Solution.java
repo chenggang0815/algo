@@ -1,6 +1,5 @@
 package LeetCode._0112_Path_Sum;
 /*
-路径总和
 112. Path Sum Easy
 
 Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
@@ -19,8 +18,12 @@ Given the below binary tree and sum = 22,
 7    2      1
 
 return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
-
- */
+*/
+/*
+Approach 1
+1. iterate the tree recursively, if the current node is leaf node and current node value = target, return true
+2. if current node == null, which means this path can't meet requirement, return false
+*/
 public class Solution {
     static class TreeNode{
         int val;
@@ -31,8 +34,8 @@ public class Solution {
         }
     }
     // 分别从根结点的左右结点开始遍历，依次加上结点的值，如果结点和等于给定值并且结点为根结点或者叶子结点，则满足条件
-    // time: o(n)
-    // space: o(n)
+    // time: o(N)
+    // space: o(H)
     static public boolean hasPathSum(TreeNode root, int sum) {
         if (root == null) return false;
         if (root.left == null && root.right == null && root.val == sum){
