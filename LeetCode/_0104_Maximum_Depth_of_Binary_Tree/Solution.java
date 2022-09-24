@@ -58,18 +58,19 @@ public class Solution {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()){
-            int count = queue.size();
-            while (count > 0){
-                TreeNode tempNode = queue.poll();
-                if (tempNode.right != null) queue.add(tempNode.right);
-                if (tempNode.left != null) queue.add(tempNode.left);
-                count--;
+            int cnt = queue.size();
+            while (cnt > 0){
+                TreeNode node = queue.poll();
+                if (node.right != null) queue.add(node.right);
+                if (node.left != null) queue.add(node.left);
+                cnt--;
             }
             depth++;
         }
 
-    return depth;
+        return depth;
     }
+
     // bfs - v2
     public int maxDepth3(TreeNode root) {
         if(root == null) return 0;
@@ -91,7 +92,6 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        //Queue<Integer> q = new LinkedList<>();
         TreeNode root = new TreeNode(3);
         TreeNode node1 = new TreeNode(9);
         TreeNode node2 = new TreeNode(20);
