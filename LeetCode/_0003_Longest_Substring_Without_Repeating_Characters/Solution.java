@@ -26,6 +26,7 @@ Explanation: The answer is "abc", with the length of 3.
  */
 
 /*
+Approach 1: HashMap
 总体思路： 用哈希表保存当前滑动窗口窗口的元素（保存每个元素索引）， 如果窗口的下一个元素已经在哈希表中，则将窗口的起点重置为哈希表中重复元素的下一个索引（跳过重复元素）。
 每一次迭代都通过max函数比较选出滑动窗口的最大长度。
 
@@ -33,25 +34,19 @@ start = max(table.get(v) + 1, start)
 
 这段代码是用来规避哈希表查询到在滑动窗口左边的重复字符的。例如，在"tmmzuxt"这个字符串中，遍历到最后一步时，最后一个字符't'和第一个字符't'是相等的。
  如果没有max函数锁定住滑动窗口的左边界，start就会弹回去第一个't'的索引0处，最后输出的最长无重复子串会变成"mmzuxt"。
- */
+
+Approach 2: HashSet
+1. 维护一个hashset，保证hashset里面是连续的没有重复的substring
+2. 如果当前字符不在set里，把当前字符加入set，并且记录set的大小，可能为最大的长度
+3. 如果当前字符在set里，开始缩减窗口，直到把当前字符从set中删除，确保set中没有重复字符
+for example: "abcdaef"
+set =>
+for example: "bcadeafg"
+set => 移动right，扩张窗口，知道当前字符为a，碰到重复字符，[][b][b, c][a, b, c][a, b, c, d][a, b, c, d, e]
+=> 开始缩减窗口,直到把a从set中删除 [a, c, d, e][a, d, e]
+=> 移动right，扩张窗口 [d, e][a, d, e][a, d, e, f],[a, d, e, f, g]
+*/
 public class Solution {
-/*
-"a b c a b"
-i=0 map=[[a,0]] left=0 i-left+1=1
-i=1 map=[[a,0],[b,1]] left=0 i-left+1=2
-i=2 map =[[a,0],[b,1],[c,2] left=0 i-left+1=3
-i=3 map =[[a,3],[b,1],[c,2] left=1 i-left+1=3
-i=4 map =[[a,3],[b,4],[c,2] left=2 i-left+1=3
-
-"a b c b c"
- 0 1 2 3 4
-i=0 map=[[a,0]] left=0 i-left+1=1
-i=1 map=[[a,0],[b,1]] left=0 i-left+1=2
-i=2 map =[[a,0],[b,1],[c,2] left=0 i-left+1=3
-
-i=3 char=b map =[[a,0],[b,3],[c,2] left=2 i-left+1=3
-i=4 map =[[a,3],[b,4],[c,2] left=2 i-left+1=3
- */
     static int longestSubString(String s){
         int res = 0;
         int left = 0;
@@ -69,7 +64,24 @@ i=4 map =[[a,3],[b,4],[c,2] left=2 i-left+1=3
     }
 
     // 09/20/2022
-    public int lengthOfLongestSubstring(String s) {
+    /*
+    拿 abba 举例来说
+          a    b    b    a
+          0    1    2    3
+      i
+     left
+     第一次碰到重复字符，需要尝试缩减窗口 i=2 left=0 当前重复的字母是b，b上一次出现的位置是1，1大于等于left，也就是说b上一次出现的位置在当前窗口中，
+     为了保持当前窗口有效，我们需要把left移动到b上一次出现的位置的后一位，也就是令left=2
+          a    b    b    a
+          0    1    2    3
+                         i
+                  left
+     第二次碰到重复字符，需要尝试缩减窗口， i=3 left=2, 当前重复的字母是a，a上一次出现的位置是0，0小于left，也就是说a上一次出现的位置不在当前窗口中，
+     因为a上一次出现的位置不在当前窗口中，所以不需要移动left的位置，并且不会影响当前窗口的有效性
+
+     综上，我们需要一个判断条件来确定是否需要缩减窗口（也就是向右移动left），=》 if(map.get(s.charAt(i)) >= left)
+     */
+    static public int lengthOfLongestSubstring(String s) {
         if(s.length() == 0) return 0;
 
         HashMap<Character, Integer> map = new HashMap<>();
@@ -92,7 +104,7 @@ i=4 map =[[a,3],[b,4],[c,2] left=2 i-left+1=3
     }
 
     public static void main(String[] args) {
-        System.out.println(longestSubString("abcabefgh"));
+        System.out.println(lengthOfLongestSubstring("pwaca"));
     }
 }
 
