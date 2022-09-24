@@ -1,4 +1,7 @@
 package LeetCode._0111_minimum_depth_of_binary_tree;
+
+import java.util.LinkedList;
+
 /*
 Given a binary tree, find its minimum depth.
 The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
@@ -13,7 +16,10 @@ Output: 5
 */
 /*
 Solution
-1.
+Approach 1. bfs
+
+Approach 2. dfs time: O(n) space: O(H) H is the height of tree
+1. record the depth of current node, if current node is a leaf node, compare it's depth with current minimum depth
 
 */
 public class Solution {
@@ -25,18 +31,74 @@ public class Solution {
             this.val = val;
         }
     }
-    /*
-    时间复杂度：O(N)，其中 N 是树的节点数。对每个节点访问一次。
-    空间复杂度：O(H)，其中 H 是树的高度。空间复杂度主要取决于递归时栈空间的开销，最坏情况下，树呈现链状，空间复杂度为 O(N)。
-    平均情况下树的高度与节点数的对数正相关，空间复杂度为 O(logN)。
-     */
-    static int minDepth(TreeNode root){
+    // approach 1 => bfs
+    public int minDepth1(TreeNode root) {
         if(root == null) return 0;
-        if (root.left == null && root.right == null) return 1;
-        if (root.left == null || root.right == null){
-            return minDepth(root.right) + minDepth(root.left) + 1;
+
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        int depth = 1;
+        while(!queue.isEmpty()){
+            int cnt = queue.size();
+            while(cnt > 0){
+                TreeNode node = queue.poll();
+                if(node.left == null && node.right == null) return depth;
+                if(node.left != null) queue.add(node.left);
+                if(node.right != null) queue.add(node.right);
+                cnt--;
+            }
+            depth++;
         }
-        return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
+
+        return depth;
+    }
+
+    // dfs 1 don't use dfs function
+    public int minDepth2(TreeNode root) {
+        if(root == null) return 0;
+
+        if(root.left == null) return minDepth2(root.right) + 1;
+        if(root.right == null) return minDepth2(root.left) + 1;
+
+        return Math.min(minDepth2(root.left), minDepth2(root.right)) + 1;
+    }
+
+    // dfs 2 dfs function return void
+    int res = Integer.MAX_VALUE;
+    public int minDepth3(TreeNode root) {
+        if(root == null) return 0;
+        if(root.left == null && root.right == null) return 1;
+
+        dfs3(root, 1);
+
+        return res;
+    }
+
+    void dfs3(TreeNode root, int depth){
+        if(root == null) return;
+
+        if(root.left == null && root.right == null){
+            res = Math.min(res, depth);
+            return;
+        }
+
+        dfs3(root.left, depth + 1);
+        dfs3(root.right, depth + 1);
+    }
+
+    // dfs 3 dfs function return integer
+    public int minDepth4(TreeNode root) {
+        if(root == null) return 0;
+
+        return dfs4(root, 1);
+    }
+
+    int dfs4(TreeNode root, int depth){
+        if(root == null) return Integer.MAX_VALUE;
+
+        if(root.left == null && root.right == null) return depth;
+
+        return Math.min(dfs4(root.left, depth + 1), dfs4(root.right, depth + 1));
     }
 
 
