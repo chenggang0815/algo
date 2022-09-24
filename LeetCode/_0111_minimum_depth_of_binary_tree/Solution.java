@@ -112,6 +112,6 @@ public class Solution {
         //node1.right = node2;
         //node2.left = node3;
         //node3.left = node4;
-        System.out.println(minDepth(root));
+        // System.out.println(minDepth1(root));
     }
 }
