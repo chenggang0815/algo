@@ -28,6 +28,9 @@ Approach: Sort + two pointer
 similar question: 3 sum
 time: O(n^2)
 space: O(log(n)). Sorting takes O(log(n)) space
+
+similar question: Maximum Perimeter Triangle from array
+https://www.geeksforgeeks.org/maximum-perimeter-triangle-from-array/
  */
 public class Solution {
     static public int triangleNumber(int[] nums) {
