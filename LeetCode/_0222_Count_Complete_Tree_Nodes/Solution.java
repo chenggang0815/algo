@@ -16,13 +16,13 @@ Design an algorithm that runs in less than O(n) time complexity.
 
 for a complete tree, it can be a full binary tree or not a full binary tree
 1. for full binary tree, it's number of nodes => 2^(depth) - 1
-2. if it is not a full binary tree,
-2. 情况二，分别递归左孩子，和右孩子，递归到某一深度一定会有左孩子或者右孩子为满二叉树，然后依然可以按照情况1来计算
-
+2. if it is not a full binary tree, recursively iterate left and right subtree, it should be full binary tree at some point.
 
 the question is how to check it meet the situation 1 or not? => we can get the max depth of left side and right side, if maxLeftDepth != maxRightDepth => not a full binary tree
 
 time: O(log(N))
+time: It's T(n)=T(n/2)+O(log(n)).
+Only one of the subtree would have difference height in left and right so only one of the subtree would continue to divide. It's O(logn * logn).
 */
 public class Solution {
     static class TreeNode{
@@ -34,71 +34,29 @@ public class Solution {
         }
     }
 
+    public int countNodes(TreeNode root) {
+        if(root == null) return 0;
 
-
-
-    static int countNodes(TreeNode root){
-        if (root == null) return 0;
-
-        int leftDepth = getDepth(root.left);
-        int rightDepth = getDepth(root.right);
-
-        if (leftDepth == rightDepth){ // left tree is a full binary tree, and countNodes for right tree
-            return (1 << leftDepth) + countNodes(root.right);  // 1 << leftDepth - 1 + 1(root)
-        }else{ // right tree is a full binary tree
-            return (1 << rightDepth) + countNodes(root.left);
+        int left = leftDepth(root);
+        int right = rightDepth(root);
+        if(left == right){
+            // 0010 => 1000 left shift
+            return (1 << left) - 1;
         }
 
+        return countNodes(root.left) + countNodes(root.right) + 1;
     }
 
-    static int getDepth(TreeNode root){
-        if (root == null) return 0;
+    int leftDepth(TreeNode root){
+        if(root == null) return 0;
 
-        int res = 0;
-        while (root != null){
-            res++;
-            root = root.left;
-        }
-
-        return res;
+        return leftDepth(root.left) + 1;
     }
 
-    static int countNodes2(TreeNode root){
-        if (root == null) return 0;
+    int rightDepth(TreeNode root){
+        if(root == null) return 0;
 
-        int leftDepth = getLeftDepth(root);
-        int rightDepth = getRightDepth(root);
-
-        if (leftDepth == rightDepth){
-            return (1 << leftDepth) - 1 ;
-        }else{
-            return 1 + countNodes2(root.left) + countNodes2(root.right);
-        }
-
-    }
-
-    static int getLeftDepth(TreeNode root){
-        if (root == null) return 0;
-
-        int res = 0;
-        while (root != null){
-            res++;
-            root = root.left;
-        }
-
-        return res;
-    }
-
-    static int getRightDepth(TreeNode root){
-        if (root == null) return 0;
-
-        int res = 0;
-        while (root != null){
-            res++;
-            root = root.right;
-        }
-
-        return res;
+        return rightDepth(root.right) + 1;
     }
 
     public static void main(String[] args) {
@@ -113,6 +71,6 @@ public class Solution {
         node1.left = node3;
         node1.right = node4;
         node2.left = node5;
-        System.out.println(countNodes(root));
+        //System.out.println(countNodes(root));
     }
 }
