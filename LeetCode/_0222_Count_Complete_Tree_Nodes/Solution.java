@@ -14,11 +14,15 @@ Design an algorithm that runs in less than O(n) time complexity.
  / \   /
 4   5  6
 
-完全二叉树只有两种情况，情况一：就是满二叉树，情况二：最后一层叶子节点没有满。
-对于情况一，可以直接用 2^树深度 - 1 来计算，注意这里根节点深度为1。
-对于情况二，分别递归左孩子，和右孩子，递归到某一深度一定会有左孩子或者右孩子为满二叉树，然后依然可以按照情况1来计算
+for a complete tree, it can be a full binary tree or not a full binary tree
+1. for full binary tree, it's number of nodes => 2^(depth) - 1
+2. if it is not a full binary tree,
+2. 情况二，分别递归左孩子，和右孩子，递归到某一深度一定会有左孩子或者右孩子为满二叉树，然后依然可以按照情况1来计算
 
-time: O(logn * logn)
+
+the question is how to check it meet the situation 1 or not? => we can get the max depth of left side and right side, if maxLeftDepth != maxRightDepth => not a full binary tree
+
+time: O(log(N))
 */
 public class Solution {
     static class TreeNode{
@@ -29,6 +33,9 @@ public class Solution {
             this.val = val;
         }
     }
+
+
+
 
     static int countNodes(TreeNode root){
         if (root == null) return 0;
