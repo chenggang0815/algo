@@ -68,11 +68,7 @@ public class Solution {
         int length = intervals.length;
         if (length <= 1) return intervals;
 
-        Arrays.sort(intervals, new Comparator<int[]>() {
-            public int compare(int[] interval1, int[] interval2) {
-                return interval1[0] - interval2[0];
-            }
-        });
+        Arrays.sort(intervals, (a,b) -> a[0] - b[0]);
 
 
         List<int[]> list = new ArrayList<>();
@@ -94,11 +90,7 @@ public class Solution {
         }
 
         int[][] res = new int[list.size()][2];
-        for(int j = 0; j < list.size(); j++){
-            System.out.println(Arrays.toString(list.get(j)));
-            res[j] = list.get(j);
-
-        }
+        for(int j = 0; j < list.size(); j++) res[j] = list.get(j);
 
         return res;
     }
@@ -111,7 +103,6 @@ public class Solution {
             if(res.get(res.size() - 1)[1] < intervals[i][0]){
                 res.add(intervals[i]);
             }else{
-                res.get(res.size() - 1)[0] = Math.min(res.get(res.size() - 1)[0], intervals[i][0]);
                 res.get(res.size() - 1)[1] = Math.max(res.get(res.size() - 1)[1], intervals[i][1]);
             }
         }
