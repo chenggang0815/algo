@@ -27,7 +27,7 @@ Approach 2: DFS
 3. else the current level is note the first reach, we compare => res.set(depth, max(root.val, res.get(depth)))
 */
 public class Solution {
-    class TreeNode{
+    static class TreeNode{
         TreeNode left;
         TreeNode right;
         int val;

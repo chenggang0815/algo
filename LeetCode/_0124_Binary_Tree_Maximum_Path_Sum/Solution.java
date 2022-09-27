@@ -22,6 +22,16 @@ max sum path = 15 + 20 + 7 => 42
 for the last recursion, we consider node -4
 for node -4 it's left node and right node are null, and we can make the value equal 0
  */
+
+
+
+
+
+
+
+
+
+
 public class Solution {
     class TreeNode{
         int val;
