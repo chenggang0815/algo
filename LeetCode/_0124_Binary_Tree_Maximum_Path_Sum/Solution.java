@@ -21,15 +21,14 @@ max sum path = 15 + 20 + 7 => 42
 
 for the last recursion, we consider node -4
 for node -4 it's left node and right node are null, and we can make the value equal 0
- */
 
+tip:
+Just want to add a explanation about the last two lines.
+0. Each path has a highest node, which is also the lowest common ancestor of all other nodes on the path.
+1. res[0] is the value which recording whether this current root is the highest node of the current path, so we use left + right + node.val.
+2. but to the upper layer(after return statement), we cannot choose both left and right brunches, so we need to select the larger one, so we use max(left, right) + node.val to prune the lower brunch.
 
-
-
-
-
-
-
+*/
 
 
 public class Solution {
@@ -54,9 +53,9 @@ public class Solution {
 
         int left = dfs(root.left, result);
         int right = dfs(root.right, result);
-        left = left < 0 ? 0:left;
-        right = right < 0 ? 0:right;
-        result[0] = Math.max(result[0], root.val + left + right);
+        left = Math.max(left, 0);
+        right = Math.max(right, 0);
+        result[0] = Math.max(result[0], root.val + left + right); // res[0] is the value which recording whether this current root is the highest node of the current path
         /*
         If the current node is at level 2 and you want to go one level up, say level 1,
         you can NOT keep both the left paths and right paths,
