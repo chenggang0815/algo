@@ -64,6 +64,15 @@ index=map.get(10)=2
 list=[51,2,10,63,57]
 
 list中删除最后一个元素，map中删除10对应的映射关系
+
+    // list = [1,2,3,4]
+    // map<int, index>
+    // index = map.get(val) //val=2
+    // list.set(index, lastVal);
+    // list = [1,4,3,4]
+    // list.remove(lastVal) => list=[1,4,3]
+    // map.put(4,1)
+    // map.remove(val)
 */
 public class RandomizedSet {
     Map<Integer, Integer> map;
