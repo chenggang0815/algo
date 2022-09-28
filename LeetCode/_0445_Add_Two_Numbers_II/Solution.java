@@ -32,6 +32,14 @@ Approach 2 => two stack
    head=cur
    => return head;
 
+Input: l1 = [7,2,4,3],
+         l2 = [5,6,4]
+Output: [7,8,0,7]
+// node=7 => 7->null
+// node=0 => 0->7->null
+// node=8 => 8->0->7->null
+// node=8 => 7->8->0->7->null
+
 Approach 3 =>  reverse output
 1. first, don't care about carry
 1 -> 5 -> 4 -> 6
