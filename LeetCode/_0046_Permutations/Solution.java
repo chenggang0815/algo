@@ -67,6 +67,7 @@ public class Solution {
         }
 
         for(int i = 0; i < nums.length; i++){
+            // contains() method requires O(n) time
             if (temp.contains(nums[i])) continue;
             temp.add(nums[i]);
             System.out.println("    递归之前 => " + temp);
