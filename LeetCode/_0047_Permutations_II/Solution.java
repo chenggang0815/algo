@@ -60,6 +60,8 @@ public class Solution {
 
         for (int i = 0; i < nums.length; i++){
             if (flag[i] == 1) continue;
+            // 参考40题的剪枝条件，因为每次i都是从0开始，没法比较当前递归层的index和i的大小，所以只能用f[i - 1]判断前一个元素是不是在同一层被遍历过
+            // flag[i - 1] 表示上一个元素没有被遍历过，当前元素为新的list的第一个元素，这样会造成重复解，所以需要skip
             if (i > 0 && nums[i] == nums[i - 1] && flag[i - 1] == 0) continue;
             //if (i > 0 && nums[i] == nums[i - 1] && flag[i - 1] == 0) break; 用break直接结束整个for循环，停止后面所有递归，所以错误
             flag[i] = 1;

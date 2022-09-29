@@ -80,6 +80,35 @@ public class Solution {
         }
     }
 
+    // 参考47题的解法 用flag数组
+    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        Arrays.sort(candidates);
+        int[] flag = new int[candidates.length];
+        backTracking2(candidates, target, res, new ArrayList<>(), 0, 0, flag);
+
+        return res;
+    }
+
+    void backTracking2(int[] candidates, int target, List<List<Integer>> res, List<Integer> temp,
+                      int sum, int index, int[] flag){
+        if(sum > target) return;
+        if(sum == target){
+            res.add(new ArrayList<>(temp));
+            return;
+        }
+
+        for(int i = index; i < candidates.length; i++){
+            if(i > 0 && candidates[i] == candidates[i - 1] && flag[i - 1] == 0) continue;
+            flag[i] = 1;
+            temp.add(candidates[i]);
+            backTracking2(candidates, target, res, temp, sum + candidates[i], i + 1, flag);
+            flag[i] = 0;
+            temp.remove(temp.size() - 1);
+        }
+
+    }
+
 
     public static void main(String[] args) {
         System.out.println(combinationSum(new int[]{2,5,2,1,20}, 5));
