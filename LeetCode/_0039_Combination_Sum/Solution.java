@@ -64,24 +64,16 @@ All elements of candidates are distinct.
 https://leetcode-cn.com/problems/combination-sum/solution/zu-he-zong-he-by-leetcode-solution/
 */
 public class Solution {
-//    static int sum(List<Integer> track){
-//        int sum = 0;
-//        if (track.size() == 0) return sum;
-//        for (int item : track){
-//            sum += sum;
-//        }
-//
-//        return sum;
-//    }
 
     static void backtrack(List<List<Integer>> res, int[] candidates, int target, List<Integer> track, int sum, int index){
-        if (sum >= target){
-            if (sum == target){
+        if (sum > target) return;
+        if (sum == target){
             res.add(new ArrayList<>(track));
-            }
             return;
         }
 
+        // 可以重复选取当前的数字，但是解集中又不能有重复解
+        // index只能从当前数字以及当前数字的右边开始
         for (int i = index; i < candidates.length; i++){
                 track.add(candidates[i]);
                 backtrack(res, candidates, target, track, sum + candidates[i], i);
