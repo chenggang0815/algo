@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
-78. Subsets Medium
+78. Subsets
 Given a set of distinct integers, nums, return all possible subsets (the power set).
 Note: The solution set must not contain duplicate subsets.
 
@@ -13,9 +13,10 @@ Input: nums = [1,2,3]
 Output:
 [ [3], [1], [2], [1,2,3], [1,3], [2,3], [1,2], [] ]
 
-思路一： 回溯
-1. 没有显示的递归停止目标，每次的list都要加入res
-2. 下一次遍历的起点在当前元素的右边，并且不包括当前元素
+思路一： backtracking
+需要注意的有两点:
+1. 没有显示的递归停止目标，每次的temp list都要加入res
+2. 下一层遍历的起点在当前元素的右边，并且不包括当前元素 => index = i + 1
 
 思路二：
 从前到后（或者从后到前），每次把当前元素加入到现有集合中，作为新增集合
