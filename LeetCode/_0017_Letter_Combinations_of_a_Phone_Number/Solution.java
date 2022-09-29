@@ -29,11 +29,12 @@ public class Solution {
         List<String> res = new ArrayList<>();
         if (digits.length() == 0) return res;
         backtrack(digits, letterMap, res, new StringBuilder(), 0);
+
         return res;
     }
 
     static void backtrack(String digits, String[] letterMap, List<String> res, StringBuilder s, int index){
-        if (index == digits.length()){
+        if (s.length() == digits.length()){
             res.add(s.toString());
             return;
         }
