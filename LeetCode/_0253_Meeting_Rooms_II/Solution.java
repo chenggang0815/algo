@@ -1,4 +1,4 @@
-package Amazon._0253_Meeting_Rooms_II;
+package LeetCode._0253_Meeting_Rooms_II;
 /*
 253. Meeting Rooms II
 Given an array of meeting time intervals intervals where intervals[i] = [starti, endi], return the minimum number of conference rooms required.
@@ -26,7 +26,7 @@ for example [[4,9], [4,17],[9,10]]
 2. similar to question 252, compare intervals[i][1] and intervals[i+1][0]
 3. initialize a new min-heap, sort by the end time
     3.1 add intervals[0] in the heap, heap.size() represent the number of the meeting room
-    3.2 compare heap.peek() and intervals[i] => [4,9] [4,17] => 4 < 9 => need a meeting room, add [4,17] in the queue
+    3.2 compare heap.peek() and intervals[i] => [4,9] [4,17] => 9 > 4 => need a meeting room, add [4,17] in the queue
     3.3 heap.peek() => [4,9]
     3.4 compare [4,9] [9,10] => don't need another room, pop [4,9], add [9,10]
     3.5 return heap.size() = 2
@@ -69,6 +69,10 @@ end       10     20     30
 start < end
 
 
+1. first, sort the array by the start time => [[4,9], [4,17],[9,10]]
+2. initialize a new min-heap, sort by the end time
+3. after sorting by start time, we don't care about start time, every time we compare end time
+    3.1 if the the current element i end time  > peek element j of the queue, which means, start i < end i < start j, we don't need another meeting room, but we need update the heap
 */
 public class Solution {
 
