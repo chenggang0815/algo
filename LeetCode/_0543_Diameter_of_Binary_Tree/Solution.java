@@ -1,7 +1,5 @@
 package LeetCode._0543_Diameter_of_Binary_Tree;
 /*
-
-二叉树的直径
 543. Diameter of Binary Tree  Easy
 Given a binary tree, you need to compute the length of the diameter of the tree.
 The diameter of a binary tree is the length of the longest path between any two nodes in a tree.
@@ -37,6 +35,7 @@ public class Solution {
             preOrder(root.right);
         }
     }
+
     static int maxPath = 0;
     static int Diameter(TreeNode root){
         if (root == null) return 0;
@@ -54,6 +53,22 @@ public class Solution {
         maxPath = Math.max(maxPath, left + right); //对于每个结点都要计算经过它的左右最大路径和
 
         return Math.max(left, right) + 1;
+    }
+
+    // 2022-09-30
+    public int diameterOfBinaryTree(TreeNode root) {
+        if(root == null) return 0;
+
+        int left = height(root.left);
+        int right = height(root.right);
+
+        return Math.max(left + right, Math.max(diameterOfBinaryTree(root.left), diameterOfBinaryTree(root.right)));
+    }
+
+    int height(TreeNode node){
+        if(node == null) return 0;
+
+        return Math.max(height(node.left) + 1, height(node.right) + 1);
     }
 
 
