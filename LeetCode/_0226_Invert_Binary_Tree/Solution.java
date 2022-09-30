@@ -43,6 +43,7 @@ public class Solution {
         TreeNode temp = root.left;
         root.left = root.right;
         root.right = temp;
+
         invertTree2(root.left);
         invertTree2(root.right);
 
