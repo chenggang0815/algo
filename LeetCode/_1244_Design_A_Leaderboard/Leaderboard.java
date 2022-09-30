@@ -1,9 +1,6 @@
 package LeetCode._1244_Design_A_Leaderboard;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /*
 1244. Design A Leaderboard
@@ -46,15 +43,13 @@ Approach 2: hashmap + treeMap
 * for reset() time: O(log(N))
 */
 public class Leaderboard {
-    // map => <id, score>
+    // map<id, score>
+    // treeMap<score, cnt>
     HashMap<Integer, Integer> map;
-
-    // scoreMap => <score, score_cnt>
-    TreeMap<Integer, Integer> scoreMap;
+    TreeMap<Integer, Integer> treeMap;
     public Leaderboard() {
         map = new HashMap<>();
-        // sort by key in descending order
-        scoreMap = new TreeMap<>(Collections.reverseOrder());
+        treeMap = new TreeMap<>();
     }
 
     public void addScore(int playerId, int score) {
@@ -62,29 +57,31 @@ public class Leaderboard {
             int prevScore = map.get(playerId);
             map.put(playerId, prevScore + score);
 
-            if (scoreMap.get(prevScore) - 1 == 0) {
-                scoreMap.remove(prevScore);
-            } else{
-                scoreMap.put(prevScore, scoreMap.get(prevScore) - 1);
-            }
+            treeMap.put(prevScore, treeMap.get(prevScore) - 1);
+            if(treeMap.get(prevScore) == 0) treeMap.remove(prevScore);
 
-            scoreMap.put(prevScore + score, scoreMap.getOrDefault(prevScore + score, 0) + 1);
-        }else{
-            map.put(playerId, score);
-            scoreMap.put(score, scoreMap.getOrDefault(score, 0) + 1);
+            treeMap.put(prevScore + score, treeMap.getOrDefault(prevScore + score, 0) + 1);
+            return;
         }
+
+        map.put(playerId, score);
+        treeMap.put(score, treeMap.getOrDefault(score, 0) + 1);
     }
 
     public int top(int K) {
         int res = 0;
-        for (Map.Entry<Integer, Integer> entry: scoreMap.entrySet()){
-            int cnt = entry.getValue();
-            if (cnt > K){
-                res += K * entry.getKey();
-                break;
-            }else{
-                res += cnt * entry.getKey();
-                K -= cnt;
+        ArrayList<Integer> scores = new ArrayList<>(treeMap.keySet());
+        scores.sort((a, b) -> b - a);
+        while(K > 0){
+            for(int score: scores){
+                int cnt = treeMap.get(score);
+                if(cnt > K){
+                    res += K * score;
+                    return res;
+                }else{
+                    res += cnt * score;
+                    K -= cnt;
+                }
             }
         }
 
@@ -94,10 +91,11 @@ public class Leaderboard {
     public void reset(int playerId) {
         int score = map.get(playerId);
         map.remove(playerId);
-        if (scoreMap.get(score) - 1 == 0){
-            scoreMap.remove(score);
-        }else {
-            scoreMap.put(score, scoreMap.get(score) - 1);
+        int cnt = treeMap.get(score);
+        if(cnt == 1){
+            treeMap.remove(score);
+            return;
         }
+        treeMap.put(score, treeMap.get(score) - 1);
     }
 }
