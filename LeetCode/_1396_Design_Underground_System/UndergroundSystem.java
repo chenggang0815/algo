@@ -24,33 +24,29 @@ You may assume all calls to the checkIn and checkOut methods are consistent.
 If a customer checks in at time t1 then checks out at time t2, then t1 < t2. All events happen in chronological order.
  */
 public class UndergroundSystem {
-    // checkout map => key= start_end value=pair(total_time, cnt)
-    // checkIn map => key=id value=pair(start station, time)
-    HashMap<Integer, Pair<String, Integer>> checkInData;
-    HashMap<String, Pair<Double, Double>> checkOutData;
-
+    // checkout map => <key, pair(total_time, cnt)>
+    // checkIn map => <id, pair(start, time)>
+    HashMap<Integer, Pair<String, Integer>> checkin;
+    HashMap<String, Pair<Double, Double>> info;
     public UndergroundSystem() {
-        checkInData = new HashMap<>();
-        checkOutData = new HashMap<>();
+        checkin = new HashMap<>();
+        info = new HashMap<>();
     }
 
     public void checkIn(int id, String stationName, int t) {
-        checkInData.put(id, new Pair<>(stationName, t));
+        checkin.put(id, new Pair<>(stationName, t));
     }
 
     public void checkOut(int id, String stationName, int t) {
-        Pair<String, Integer> checkInInfo = checkInData.get(id);
-        String checkInStation = checkInInfo.getKey();
-        Integer checkInTime = checkInInfo.getValue();
-
-        String stationKey = checkInStation + "_" + stationName;
-        double time = checkInTime - t;
-        Pair<Double, Double> checkOutInfo = checkOutData.getOrDefault(stationKey, new Pair<>(0.0, 0.0));
-        checkOutData.put(stationKey, new Pair<>(checkOutInfo.getKey() + time, checkOutInfo.getValue() + 1));
+        Pair<String, Integer> pair = checkin.get(id);
+        String key = pair.getKey() + "_" + stationName;
+        double time = t - pair.getValue();
+        Pair<Double, Double> tempPair = info.getOrDefault(key, new Pair<>(0.0, 0.0));
+        info.put(key, new Pair<>(tempPair.getKey() + 1, tempPair.getValue() + time));
     }
 
     public double getAverageTime(String startStation, String endStation) {
-        String stationKey = startStation + "_" + endStation;
-        return checkOutData.get(stationKey).getKey() / checkOutData.get(stationKey).getValue();
+        String key = startStation + "_" + endStation;
+        return info.get(key).getValue() / info.get(key).getKey();
     }
 }
