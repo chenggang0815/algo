@@ -51,6 +51,7 @@ public class Solution {
             // connect tail node of child list and next node of current node
             temp.next = cur.next;
             if (cur.next != null) cur.next.prev = temp;
+
             // connect current node and current child node, set current child node as null
             cur.next = cur.child;
             cur.child.prev = cur;
