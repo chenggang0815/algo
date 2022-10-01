@@ -108,6 +108,9 @@ public class Solution {
         double current_product = x;
         // 在对 N 进行二进制拆分的同时计算答案
         while (N > 0) {
+            // 77 = 1	  0     0	   1	 1	   0	 1
+            //    x^64	 x^32  x^16   x^8	x^4   x^2	x^1
+            //最终结果就是所有二进制位为1的权值之积：x^1 * x^4 * x^8 * x^64 = x^77
             if (N % 2 == 1) ans *= current_product; // 如果 N 二进制表示的最低位为 1，那么需要计入贡献
             // 将贡献不断地平方
             current_product = current_product * current_product;
@@ -122,6 +125,28 @@ public class Solution {
         long N = n;
 
         return N >= 0 ? quickMu2(x, N) : 1.0 / quickMu2(x, -N);
+    }
+
+    // 2022-10-01
+    public double myPow3(double x, int n) {
+        long num = n;
+        if(num < 0){
+            x = 1/x;
+            num = -num;
+        }
+
+        double res = 1.0;
+        double product = x;
+
+        while(num > 0){
+            if(num % 2 == 1) res *= product;
+            product *= product;
+            //n /= 2;
+            // 1001 => 0100 => right shift
+            num = num >> 1;
+        }
+
+        return res;
     }
 
     public static void main(String[] args) {
