@@ -67,6 +67,10 @@ public class Solution {
             }
         }
 */
+        // 1    2   2'  6
+        // pre cur
+        // 1    2'   6
+        // pre cur
         while (cur != null){
             if (cur.val == val){
                 pre.next = cur.next;
