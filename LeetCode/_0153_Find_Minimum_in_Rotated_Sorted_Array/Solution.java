@@ -34,7 +34,7 @@ nums = [5  6  7  8  1  2  3  4]
 1. the most important for binary search is to find the pattern can divided two search space
 2. all the number on the left of the minimum number is bigger than nums[0]
 3. all the number on the right of the minimum number is small than nums[0]
-4. so, we need to find the number which is small than nums[0]
+4. so, we need to find the first number which is small than nums[0]
 if nums[0] < nums[mid] => right = mid
 
 Approach 2: Binary Search
