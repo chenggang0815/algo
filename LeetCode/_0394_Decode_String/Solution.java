@@ -40,7 +40,8 @@ import java.util.Stack;
 具体的做法是，遍历这个栈：
 1. 如果当前的字符为数位，解析出一个数字（连续的多个数位）并进栈
 2. 如果当前的字符为字母或者左括号，直接进栈
-3. 如果当前的字符为右括号，开始出栈，一直到左括号出栈，出栈序列反转后拼接成一个字符串，此时取出栈顶的数字（此时栈顶一定是数字，想想为什么？），就是这个字符串应该出现的次数，我们根据这个次数和字符串构造出新的字符串并进栈
+3. 如果当前的字符为右括号，开始出栈，一直到左括号出栈，出栈序列反转后拼接成一个字符串，此时取出栈顶的数字（此时栈顶一定是数字，想想为什么？），
+   就是这个字符串应该出现的次数，我们根据这个次数和字符串构造出新的字符串并进栈
 
 => 数字存放在数字栈，字符串存放在字符串栈，遇到右括号时候弹出一个数字栈，字母栈弹到左括号为止。就是逆波兰式那种题。
 
@@ -63,14 +64,10 @@ public class Solution {
                 digits = 0;
             }else if (ch == ']'){ // 在当前字符==']'时，需要从栈中取出已有的字符串，拼接多次当前的字符串；然后更新当前字符串
                 StringBuilder temp = strStack.pop();
-                int repeatTimes = intStack.pop();
-                for (int i = 0; i < repeatTimes; i++){
-                    temp.append(cur);
-                }
+                int cnt = intStack.pop();
+                for (int i = 0; i < cnt; i++)temp.append(cur);
                 cur = temp;
-            }else {
-                cur.append(ch);
-            }
+            }else cur.append(ch);
         }
 
         return cur.toString();
