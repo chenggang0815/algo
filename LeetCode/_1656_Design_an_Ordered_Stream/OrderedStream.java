@@ -1,6 +1,7 @@
 package LeetCode._1656_Design_an_Ordered_Stream;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /*
@@ -15,22 +16,22 @@ Implement the OrderedStream class:
     2. String[] insert(int idKey, String value) Inserts the pair (idKey, value) into the stream, then returns the largest possible chunk of currently inserted values that appear next in the order.
 */
 public class OrderedStream {
-    int cur;
-    String[] values;
+    HashMap<Integer, String> map;
+    int index;
+    int n;
     public OrderedStream(int n) {
-        cur = 0;
-        values = new String[n];
+        this.n = n;
+        index = 1;
+        map = new HashMap<>();
     }
 
     public List<String> insert(int idKey, String value) {
+        map.put(idKey, value);
         List<String> res = new ArrayList<>();
-        values[idKey -1] = value;
-        if(cur == idKey - 1){
-            for(int i = cur; i < values.length; i++){
-                if(values[i] != null) {
-                    res.add(values[i]);
-                    cur++;
-                }else break;
+        if(idKey == index){
+            while(index <= n && map.containsKey(index)){
+                res.add(map.get(index));
+                index++;
             }
         }
 
