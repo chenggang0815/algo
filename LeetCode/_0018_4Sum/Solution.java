@@ -90,44 +90,43 @@ target = 0
 所以不可能把所有的a,b,c,d,e...传到twoSum这一层，只能在递归的上层+twoSum返回的left和right
 */
 public class Solution {
-        static public List<List<Integer>> fourSum(int[] nums, int target) {
-            Arrays.sort(nums);
-            return kSum(nums, target, 0, 4);
-        }
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        Arrays.sort(nums);
+        return kSum(nums, target, 0, 4);
+    }
 
-        static public List<List<Integer>> kSum(int[] nums, int target, int start, int k) {
-            List<List<Integer>> res = new ArrayList<>();
-            if (start == nums.length || nums[start] * k > target || target > nums[nums.length - 1] * k)
-                return res;
-            if (k == 2)
-                return twoSum(nums, target, start);
+    List<List<Integer>> kSum(int[] nums, long target, int start, int k) {
+        List<List<Integer>> res = new ArrayList<>();
+        long average_value = target / k;
+        if (start == nums.length || nums[start] > average_value || average_value > nums[nums.length - 1]) return res;
 
-            for (int i = start; i < nums.length; ++i)
-                if (i == start || nums[i - 1] != nums[i])
-                    for (List<Integer> subset : kSum(nums, target - nums[i], i + 1, k - 1)) {
-                        res.add(new ArrayList<>(Arrays.asList(nums[i])));
-                        res.get(res.size() - 1).addAll(subset);
-                    }
+        if (k == 2) return twoSum(nums, target, start);
 
-            return res;
-        }
-
-        static public List<List<Integer>> twoSum(int[] nums, int target, int start) {
-            List<List<Integer>> res = new ArrayList<>();
-            int lo = start, hi = nums.length - 1;
-
-            while (lo < hi) {
-                int currSum = nums[lo] + nums[hi];
-                if (currSum < target || (lo > start && nums[lo] == nums[lo - 1]))
-                    ++lo;
-                else if (currSum > target || (hi < nums.length - 1 && nums[hi] == nums[hi + 1]))
-                    --hi;
-                else
-                    res.add(Arrays.asList(nums[lo++], nums[hi--]));
+        for (int i = start; i < nums.length; i++){
+            if (i == start || nums[i - 1] != nums[i]){
+                for (List<Integer> subset : kSum(nums, target - nums[i], i + 1, k - 1)) {
+                    res.add(new ArrayList<>(Arrays.asList(nums[i])));
+                    res.get(res.size() - 1).addAll(subset);
+                }
             }
-
-            return res;
         }
+
+        return res;
+    }
+
+    List<List<Integer>> twoSum(int[] nums, long target, int start) {
+        List<List<Integer>> res = new ArrayList<>();
+        int left = start;
+        int right = nums.length - 1;
+        while (left < right) {
+            int sum = nums[left] + nums[right];
+            if (sum < target || (left > start && nums[left] == nums[left - 1])) left++;
+            else if (sum > target || (right < nums.length - 1 && nums[right] == nums[right + 1])) right--;
+            else res.add(Arrays.asList(nums[left++], nums[right--]));
+        }
+
+        return res;
+    }
 
     /*
     static List<List<Integer>> fourSum(int[] nums, int target){
@@ -171,7 +170,5 @@ public class Solution {
     public static void main(String[] args) {
         int[] nums = new int[]{1,0,-1,0,-2,2};
         int target = 0;
-        List<List<Integer>> res = fourSum(nums, target);
-        System.out.println(res);
     }
 }
