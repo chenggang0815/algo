@@ -16,28 +16,35 @@ Total amount you can rob = 2 + 9 + 1 = 12.
  */
 public class Solution {
     //T:O(n) S:O(n)
-    static int rob(int[] nums) {
-        int[] dp=new int[nums.length+1];
-        for(int i=1; i<=nums.length; i++) {
-            if(i==1) dp[i]=nums[i-1];
-            else dp[i]=Math.max(dp[i-1], dp[i-2]+nums[i-1]);
+    // dp[i] = max(d[i-1], nums[i] + dp[i - 2])
+    public int rob(int[] nums) {
+        if(nums.length == 1) return nums[0];
+
+        int[] dp = new int[nums.length];
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0], nums[1]);
+        for(int i = 2; i < nums.length; i++){
+            dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
         }
-        return dp[nums.length];
+
+        return dp[nums.length - 1];
     }
 
     //T:O(n) S:O(1)
     static int rob2(int[] nums){
-        int dp_pre=0, dp=nums[0];
-        for(int i=1; i<nums.length; i++) {
-            int tmp=dp;
-            dp=Math.max(dp, dp_pre+nums[i]);
-            dp_pre=tmp;
+        int pre = 0;
+        int cur = nums[0];
+        for(int i = 1; i < nums.length; i++){
+            int temp = cur;
+            cur = Math.max(cur, pre + nums[i]);
+            pre = temp;
         }
-        return dp;
+
+        return cur;
     }
 
     public static void main(String[] args) {
         int[] nums = new int[]{2,7,9,3,1};
-        System.out.println(rob(nums));
+        System.out.println(rob2(nums));
     }
 }
