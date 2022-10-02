@@ -63,7 +63,7 @@ public class Solution {
 
         int res = 0;
         for(int i = 0; i < cnt.length; i++){
-            if(cnt[i] < 0) res -= cnt[i];
+            if(cnt[i] > 0) res += cnt[i];
         }
 
         return res;
