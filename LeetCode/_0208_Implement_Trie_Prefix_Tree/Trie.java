@@ -41,55 +41,50 @@ Trie 树是一个有根的树，其结点具有以下字段：。
 
  */
 public class Trie {
-    class TrieNode{
+    class Node{
+        Node[] next;
         boolean isWord;
-        TrieNode[] next;
-        public TrieNode(){
+        Node(){
+            next = new Node[26];
             isWord = false;
-            next = new TrieNode[26];
         }
     }
 
-     TrieNode root;
-
-    /** Initialize your data structure here. */
+    Node root;
     public Trie() {
-        root = new TrieNode();
+        root = new Node();
     }
 
-    /** Inserts a word into the trie. */
     public void insert(String word) {
-        TrieNode curNode = root;
-        for (char c: word.toCharArray()){
-            if (curNode.next[c - 'a'] == null) curNode.next[c - 'a'] = new TrieNode();
-            curNode = curNode.next[c - 'a'];
+        Node cur = root;
+        for(char ch: word.toCharArray()){
+            if(cur.next[ch - 'a'] == null){
+                cur.next[ch - 'a'] = new Node();
+            }
+            cur = cur.next[ch - 'a'];
         }
-
-        curNode.isWord = true;
+        cur.isWord = true;
     }
 
-    /** Returns if the word is in the trie. */
     public boolean search(String word) {
-        TrieNode curNode = root;
-        for (char c: word.toCharArray()){
-            curNode = curNode.next[c - 'a'];
-            if (curNode == null) return false;
+        Node cur = root;
+        for(char ch: word.toCharArray()){
+            if(cur.next[ch - 'a'] == null) return false;
+            cur = cur.next[ch - 'a'];
         }
 
-        return curNode.isWord;
+        return cur.isWord;
     }
 
-    /** Returns if there is any word in the trie that starts with the given prefix. */
     public boolean startsWith(String prefix) {
-        TrieNode curNode = root;
-        for (char c: prefix.toCharArray()){
-            curNode = curNode.next[c - 'a'];
-            if (curNode == null) return false;
+        Node cur = root;
+        for(char ch: prefix.toCharArray()){
+            if(cur.next[ch - 'a'] == null) return false;
+            cur = cur.next[ch - 'a'];
         }
 
         return true;
     }
-
 
     public static void main(String[] args) {
         Trie trie = new Trie();
