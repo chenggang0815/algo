@@ -83,21 +83,24 @@ size = 4
 public class Solution {
     // Approach 1  time:O(nlog(n))
     public int longestConsecutive1(int[] nums) {
+        // 1 2 3 4 100 101 102
+        // 0 1 1 2
         if(nums.length == 0) return 0;
 
+        int res = 1;
         Arrays.sort(nums);
         int cnt = 1;
-        int maxCnt = 1;
-        for(int i = 0; i < nums.length - 1; i++){
-            if(nums[i] + 1 == nums[i + 1]) cnt++;
-            else if (nums[i] == nums[i + 1]) continue;
-            else{
-                maxCnt = Math.max(cnt, maxCnt);
+        for(int i = 1; i < nums.length; i++){
+            if(nums[i] == nums[i - 1]) continue;
+            else if(nums[i] == nums[i - 1] + 1){
+                cnt++;
+                res = Math.max(res, cnt);
+            }else{
                 cnt = 1;
             }
         }
 
-        return Math.max(cnt, maxCnt);
+        return res;
     }
 
     // Approach 2
