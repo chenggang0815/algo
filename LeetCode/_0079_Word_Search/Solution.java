@@ -216,6 +216,37 @@ public class Solution {
         return res;
 
     }
+
+    // 2022-10-05
+    public boolean exist(char[][] board, String word) {
+        int rows = board.length;
+        int cols = board[0].length;
+        boolean[][] visited = new boolean[rows][cols];
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < cols; j++){
+                if(board[i][j] == word.charAt(0) && dfs(board, i, j, 1, word, visited)){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    boolean dfs(char[][] board, int i, int j, int len, String word, boolean[][] visited){
+        if(i < 0 || i >= board.length || j < 0 || j >= board[0].length || visited[i][j]) return false;
+        if(board[i][j] != word.charAt(len - 1)) return false;
+        if(len == word.length()) return true;
+
+        visited[i][j] = true;
+
+        boolean res = dfs(board, i - 1, j, len + 1, word, visited) || dfs(board, i + 1, j, len + 1, word, visited) || dfs(board, i, j - 1, len + 1, word, visited) || dfs(board, i, j + 1, len + 1, word, visited);
+
+        visited[i][j] = false;
+
+        return res;
+    }
+
     public static void main(String[] args) {
         char[][] board = new char[][]{
                 {'A','B','C','E'},

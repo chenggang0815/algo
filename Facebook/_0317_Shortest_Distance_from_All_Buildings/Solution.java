@@ -63,8 +63,6 @@ public class Solution {
                             one--;
                             currentDistance += d;
                             if(one == 0){
-                                // System.out.print(i + "==" + j + "\n");
-                                //  System.out.print(currentDistance + "\n");
                                 res = Math.min(res, currentDistance);
                             }
                             continue;
