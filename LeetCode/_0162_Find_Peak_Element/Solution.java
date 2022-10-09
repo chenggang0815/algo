@@ -17,6 +17,11 @@ Example 2:
 Input: nums = [1,2,1,3,5,6,4]
 Output: 5
 Explanation: Your function can return either index number 1 where the peak element is 2, or index number 5 where the peak element is 6.
+
+Constraints:
+1 <= nums.length <= 1000
+-231 <= nums[i] <= 231 - 1
+nums[i] != nums[i + 1] for all valid i.
 */
 
 /*
@@ -25,10 +30,7 @@ Explanation: Your function can return either index number 1 where the peak eleme
     1. 如果能找到满足 nums[i] < nums[i + 1] && nums[i + 1] > nums[i + 2] 的元素，return i+1
     2. 如果不能找到，则数组中的最大值作为peek element
 
-思路2 ：线性查找 time:o(n) space:o(1)
-思路1的思路可以等价于 <=> 返回第一个大于下一个元素的元素下标
-
-思路3：二分法-递归 time:o(log(n)) space:o(log(n))
+思路2：二分法-递归 time:o(log(n)) space:o(log(n))
 因为：
 1. 可以将nums数组中的任何给定序列视为交替的升序和降序序列
 2. 以及“可以返回任何一个峰作为结果”的要求，
@@ -114,7 +116,22 @@ public class Solution {
         return left;
     }
 */
-
+    /*
+    * 3 4 3 2 1
+    * 0 1 2 3 4
+    * l=0 r=4 m=2
+    * nums[m]=3 < nums[m-1] => r=1
+    * l=0 r=1 => m=0
+    * 3 <
+    *
+    *
+    * l=0 r=4 m=2
+    * nums[mid] > nums[mid + 1] => r=m=2
+    * l=0 r=2 m=1
+    * nums[mid] > nums[mid + 1] => r=1
+    * l=0 r=1 m=0
+    * nums[mid] < nums[mid+1] => l=m+1=1 => return 1
+    * */
     static int findPeakElement4(int[] nums) {
         int left = 0;
         int right = nums.length - 1;
@@ -131,6 +148,46 @@ public class Solution {
         return left;
     }
 
+   /*
+   2022-10-08
+   以下代码为什么不对？为什么我们只能用nums[mid] > nums[mid + 1] 来判断，而用 nums[mid] > nums[mid - 1] 就会越界
+   因为nums[mid] > nums[mid + 1] =》peek可能在左边 right=mid 我们缩减了右边的边界，就不会出现mid=nums.length-1, mid+1=nums.length的情况了
+   但是nums[mid] > nums[mid - 1] =》peek可能在右边 left=mid
+    */
+    public int findPeakElement5(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] > nums[mid - 1]) {
+                left = mid;
+            } else {
+                right = mid - 1;
+            }
+        }
+
+        return right;
+    }
+    // 2022-10-08
+    public int findPeakElement(int[] nums) {
+        if(nums.length == 1) return 0;
+
+        int len = nums.length;
+        if(nums[0] > nums[1]) return 0;
+        if(nums[len - 1] > nums[len - 2]) return len - 1;
+
+        int left = 1;
+        int right = len - 2;
+        while(left <= right){
+            int mid = left + (right - left) / 2;
+            if(nums[mid] > nums[mid - 1] && nums[mid] > nums[mid + 1]) return mid;
+            // // nums[i] != nums[i + 1] for all valid i
+            else if(nums[mid] < nums[mid - 1]) right = mid - 1;
+            else if (nums[mid] < nums[mid + 1]) left = mid + 1;
+        }
+
+        return -1;
+    }
 
     public static void main(String[] args) {
         System.out.println(findPeakElement4(new int[]{1,2,3,4,5,2,1}));
