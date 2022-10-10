@@ -21,18 +21,18 @@ public class Solution {
     static int findFirst(int[] nums, int target){
         //5 7 7  7  7 8 9
         //      mid
-        int l = 0;
-        int r = nums.length - 1;
+        int left = 0;
+        int right = nums.length - 1;
         int res = -1;
-        while(l <= r){
-            int mid = l + (r - l) / 2;
+        while(left <= right){
+            int mid = left + (right - left) / 2;
             if(nums[mid] > target){
-                r = mid - 1;
+                right = mid - 1;
             }else if(nums[mid] < target){
-                l = mid + 1;
+                left = mid + 1;
             }else{
+                right = mid - 1;
                 res = mid;
-                r = mid - 1;
             }
         }
 
@@ -43,18 +43,18 @@ public class Solution {
         //5 7 7 7 7 8 9 10 11 12 13 14 15
         //0 4 4 4  5 6 target=4
         //     <=4
-        int l = 0;
-        int r = nums.length - 1;
+        int left = 0;
+        int right = nums.length - 1;
         int res = -1;
-        while(l <= r){
-            int mid = l + (r - l) / 2;
+        while(left <= right){
+            int mid = left + (right - left) / 2;
             if(nums[mid] > target){
-                r = mid - 1;
+                right = mid - 1;
             }else if(nums[mid] < target){
-                l = mid + 1;
+                left = mid + 1;
             }else{
+                left = mid + 1;
                 res = mid;
-                l = mid + 1;// 找最后一个等于target的数，当前mid=target所以需要往右找，left=mid+1
             }
         }
 
