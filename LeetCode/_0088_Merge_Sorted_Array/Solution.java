@@ -14,33 +14,52 @@ nums1 = [1,2,3,0,0,0], m = 3
 nums2 = [2,5,6],       n = 3
 Output: [1,2,2,3,5,6]
  */
+
+/*
+Approach 1, time: O(m + n) space: O(1)
+1. use three pointers,
+*/
 public class Solution {
-    //time:o(n)
-    //space:o(n)
+    //time:o(n + m)
+    //space:o(n + m)
     //新建一个数组，两两比较nums1和nums2的前m和n个值。注意：当一个数组比较完m或n个数后，另一个数组剩下的值全部在新数组后
     static void merge(int[] nums1, int m, int[] nums2, int n) {
-        int[] num = new int[m+n];
+        int[] num = new int[m + n];
         int i=0;
         int j=0;
         int index =0;
-        while (i<m&&j<n){
-            if (nums1[i]>nums2[j]){
+        while (i < m && j < n){
+            if (nums1[i] > nums2[j]){
                 num[index++] = nums2[j++];
             }else {
                 num[index++] = nums1[i++];
             }
         }
-        while (i<m){
-            num[index++] = nums1[i++];
+        while (i < m) num[index++] = nums1[i++];
+        while (j < n) num[index++] = nums2[j++];
+
+        for (int k = 0; k < num.length; k++) nums1[k] = num[k];
+
+    }
+    // nums1 => 6 7 9 0 0 0
+    // nums2 => 1 2 8
+    // nums1 => 6 7 6 7 8 9
+    // nums2 => 1 2
+    // 1 2 6 7 8 9
+    public void merge2(int[] nums1, int m, int[] nums2, int n) {
+        int p1 = m - 1;
+        int p2 = n - 1;
+        int p = m + n - 1;
+
+        while(p1 >= 0 && p2 >= 0){
+            if(nums2[p2] > nums1[p1]){
+                nums1[p--] = nums2[p2--];
+            }else{
+                nums1[p--] = nums1[p1--];
+            }
         }
 
-        while (j<n){
-            num[index++] = nums2[j++];
-        }
-
-        for (int ll=0;ll<num.length;ll++){
-            nums1[ll] = num[ll];
-        }
+        while(p2 >= 0) nums1[p--] = nums2[p2--];
     }
     public static void main(String[] args) {
         int[] nums1 = new int[]{1,2,3,0,0,0};
