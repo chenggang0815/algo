@@ -18,7 +18,8 @@ Output: 5
 https://www.youtube.com/watch?v=13m9ZCB8gjw
 */
 /*
-由于需要先知道左右子树的情况，然后决定向上返回什么 => 因此「后序遍历」的思想是很关键
+由于需要先知道左右子树的情况，然后决定向上返回什么 => 因此「后序遍历」的思想是很关键 => left-right-root
+
 
 从根节点遍历，递归向左右子树查询节点信息
 1. 递归终止条件：如果当前节点为空或等于p或q，则返回当前节点
@@ -34,6 +35,23 @@ https://www.youtube.com/watch?v=13m9ZCB8gjw
     3.2 p,q两节点都在root的右子树中，此时的right指向最近公共祖先节点 ；
 4. 当left不为空，right为空 => 与情况3.同理
  */
+
+/*
+case 1
+    root
+    / \
+   p   q
+
+case 2
+     node
+     /  \
+        p
+       / \
+  node1  node2
+          \
+          q
+
+ */
 public class Solution {
     static class TreeNode{
         int val;
@@ -45,14 +63,40 @@ public class Solution {
     }
 
     static public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if(root == null || root == q || root == p) return root;
+        if(root == null || root == p || root == q) return root;
 
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
 
         if(left == null && right == null) return null;
+
         if(left != null && right != null) return root;
-        return left == null ? right : left;
+
+        return left != null ? left : right;
+    }
+
+
+
+    // 2022-10-11
+    // https://www.youtube.com/watch?v=aztbtN7JEg4
+    TreeNode res = null;
+    public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {
+
+        int n = dfs(root, p, q);
+
+        return res;
+    }
+
+    int dfs(TreeNode root, TreeNode p, TreeNode q){
+        if(root == null) return 0;
+
+        int left = dfs(root.left, p, q);
+        int right = dfs(root.right, p, q);
+        int self = (root == p ? 1 : 0) + (root == q ? 1 : 0);
+        int count = left + right + self;
+        if(count == 2 && res == null) res = root;
+
+        return count;
     }
 
     public static void main(String[] args) {
