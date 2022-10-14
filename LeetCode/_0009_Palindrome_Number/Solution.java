@@ -26,6 +26,7 @@ public class Solution {
 
         return true;
     }
+
     // time complexity: O(log10(n))
     // space complexity: O(n)
     static public boolean isPalindrome2(int x) {
@@ -62,16 +63,22 @@ public class Solution {
     temp=0 x=1
     temp=10 x=0 => x==temp/10, so if the last digit is 0, we need return false
     * */
-    static public boolean isPalindrome3(int x){
-        if (x < 0 || x % 10 == 0 && x != 0) return false;
+    // 2022-10-14
+    // 1234321
+    // 123321
+    public boolean isPalindrome(int x) {
+        if(x < 0) return false;
+        // 10, 100, 1000 =>lastHalf=10 x=0
+        if(x % 10 == 0 && x != 0) return false;
 
-        int temp = 0;
-        while (x > temp){
-            temp = temp * 10 + x % 10;
-            x /= 10;
+        int lastHalf = 0;
+        while(x > lastHalf){
+            int digit = x % 10;
+            lastHalf = lastHalf * 10 + digit;
+            x = x / 10;
         }
 
-        return x == temp || x == temp / 10;
+        return lastHalf == x || lastHalf/10 == x;
     }
 
     public static void main(String[] args) {
