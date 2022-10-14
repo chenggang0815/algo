@@ -55,8 +55,6 @@ public class Solution {
             if(len > right - left + 1){
                 left = i - (len - 1) / 2;
                 right = i + len / 2;
-                // left = i - len/2;
-                //  right = i + len/2;
             }
         }
 
