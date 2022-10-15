@@ -42,13 +42,11 @@ public class Solution {
 	所以会导致全局变量在第二次运行的时候还是上次的值 => 不是空的所以在第二次输入的时候自然答案就错了，最后无法提交
     解决方法就是每次手动初始化一下全局变量
     */
-    static List<String> res = new ArrayList<>(); // 使用全局变量，好像会影响leetcode的答案
 
-    static void dfs1(TreeNode root, StringBuilder sb){
-        if (root == null) {
-            //sb.delete(sb.length() - 2, sb.length());
-            return;
-        }
+
+    void dfs1(TreeNode root, List<String> res, StringBuilder sb){
+        if (root == null) return;
+
         sb.append(root.val);
         if (root.left == null && root.right == null){
             res.add(sb.toString());
@@ -62,18 +60,15 @@ public class Solution {
                       => 这也是为什么要写42行的原因
          */
 
-        dfs1(root.left, new StringBuilder(sb).append("->"));
-        dfs1(root.right, new StringBuilder(sb).append("->"));
+        dfs1(root.left, res, new StringBuilder(sb).append("->"));
+        dfs1(root.right, res, new StringBuilder(sb).append("->"));
 
     }
 
+    List<String> binaryTreePaths1(TreeNode root) {
+        List<String> res = new ArrayList<>();
+        dfs1(root,res,  new StringBuilder());
 
-
-    static List<String> binaryTreePaths1(TreeNode root) {
-        res.clear(); // 解决方法就是每次手动初始化一下全局变量
-        StringBuilder sb = new StringBuilder();
-        if (root == null) return res;
-        dfs1(root, sb);
         return res;
     }
 
@@ -144,13 +139,13 @@ public class Solution {
   5
  */
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-        TreeNode node1 = new TreeNode(2);
-        TreeNode node2 = new TreeNode(3);
-        TreeNode node3 = new TreeNode(5);
-        root.left = node1;
-        root.right = node2;
-        node1.right = node3;
-        System.out.println(binaryTreePaths3(root));
+//        TreeNode root = new TreeNode(1);
+//        TreeNode node1 = new TreeNode(2);
+//        TreeNode node2 = new TreeNode(3);
+//        TreeNode node3 = new TreeNode(5);
+//        root.left = node1;
+//        root.right = node2;
+//        node1.right = node3;
+//        System.out.println(binaryTreePaths3(root));
     }
 }
