@@ -32,10 +32,10 @@ public class Solution {
             map.put(inorder[i], i);
         }
 
-        return build(inorder, 0, inorder.length - 1, preorder, 0, map);
+        return build(map, 0, inorder.length - 1, preorder, 0);
     }
 
-    public TreeNode build(int[] inorder, int inorderStart, int inorderEnd, int[] preorder, int preStart, HashMap<Integer, Integer> map){
+    public TreeNode build(HashMap<Integer, Integer> map, int inorderStart, int inorderEnd, int[] preorder, int preStart){
         if (inorderStart > inorderEnd) return null;
 
         TreeNode root = new TreeNode(preorder[preStart]);
@@ -49,8 +49,8 @@ public class Solution {
         //      inorderStart         rootIndex
         // for root.left => preStart = preStart + 1
         // for root.right => preStart = preStart + 1 + rootIndex - inorderStart
-        root.left = build(inorder, inorderStart, rootIndex - 1, preorder, preStart + 1, map);
-        root.right = build(inorder, rootIndex + 1, inorderEnd, preorder, preStart + 1 + rootIndex - inorderStart, map);
+        root.left = build(map, inorderStart, rootIndex - 1, preorder, preStart + 1);
+        root.right = build(map, rootIndex + 1, inorderEnd, preorder, preStart + 1 + rootIndex - inorderStart);
 
         return root;
     }
