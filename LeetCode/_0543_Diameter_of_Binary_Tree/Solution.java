@@ -27,42 +27,32 @@ public class Solution {
             this.val = val;
         }
     }
+    // 2022-10-15
+    public int diameterOfBinaryTree1(TreeNode root) {
+        int[] res = new int[1];
+        dfs(root, res);
 
-    static void preOrder(TreeNode root) {
-        if (root != null) {
-            System.out.println(root.val);
-            preOrder(root.left);
-            preOrder(root.right);
-        }
+        return res[0];
     }
 
-    static int maxPath = 0;
-    static int Diameter(TreeNode root){
-        if (root == null) return 0;
+    int dfs(TreeNode root, int[] res){
+        if(root == null) return 0;
 
-        depth(root);
+        int left = dfs(root.left, res);
+        int right = dfs(root.right, res);
+        res[0] = Math.max(left + right, res[0]);
 
-        return maxPath;
-    }
-
-    static int depth(TreeNode root){
-        if (root == null) return 0;
-
-        int left = depth(root.left);
-        int right = depth(root.right);
-        maxPath = Math.max(maxPath, left + right); //对于每个结点都要计算经过它的左右最大路径和
-
-        return Math.max(left, right) + 1;
+        return 1 + Math.max(left, right);
     }
 
     // 2022-09-30
-    public int diameterOfBinaryTree(TreeNode root) {
+    public int diameterOfBinaryTree2(TreeNode root) {
         if(root == null) return 0;
 
         int left = height(root.left);
         int right = height(root.right);
 
-        return Math.max(left + right, Math.max(diameterOfBinaryTree(root.left), diameterOfBinaryTree(root.right)));
+        return Math.max(left + right, Math.max(diameterOfBinaryTree2(root.left), diameterOfBinaryTree2(root.right)));
     }
 
     int height(TreeNode node){
@@ -88,7 +78,6 @@ public class Solution {
         //preOrder(root);
         //System.out.println(depth(root.right));
         //System.out.println(depth(root.left));
-        System.out.println(Diameter(root));
         //System.out.println(depth(root));
 
 
