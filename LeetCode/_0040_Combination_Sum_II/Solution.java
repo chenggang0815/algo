@@ -90,8 +90,7 @@ public class Solution {
         return res;
     }
 
-    void backTracking2(int[] candidates, int target, List<List<Integer>> res, List<Integer> temp,
-                      int sum, int index, int[] flag){
+    void backTracking2(int[] candidates, int target, List<List<Integer>> res, List<Integer> temp, int sum, int index, int[] flag){
         if(sum > target) return;
         if(sum == target){
             res.add(new ArrayList<>(temp));
