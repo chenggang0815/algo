@@ -37,10 +37,8 @@ public class Solution1 {
     class UnionFind{
         int[] parent;
         public UnionFind(int n){
-            parent = new int[n + 1];
-            for(int i = 0; i <= n; i++){
-                parent[i] = i;
-            }
+            parent = new int[n];
+            for(int i = 0; i < n; i++) parent[i] = i;
         }
 
 //        int findParent(int i){
@@ -54,9 +52,7 @@ public class Solution1 {
         int findParent(int i){
             if (i == parent[i]) return parent[i];
 
-            parent[i] = findParent(parent[i]);
-
-            return parent[i];
+            return findParent(parent[i]);
         }
 
         void merge(int i, int j){
