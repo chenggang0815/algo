@@ -44,6 +44,7 @@ public class Solution {
             this.val = val;
         }
     }
+
     static public String serialize(TreeNode root){
         StringBuilder sb = new StringBuilder();
         buildString(root, sb);

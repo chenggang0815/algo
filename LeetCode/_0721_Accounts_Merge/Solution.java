@@ -1,4 +1,4 @@
-package Facebook._0721_Accounts_Merge;
+package LeetCode._0721_Accounts_Merge;
 import java.util.*;
 /*
 721. Accounts Merge

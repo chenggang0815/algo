@@ -1,4 +1,4 @@
-package Facebook._0286_Walls_and_Gates;
+package LeetCode._0286_Walls_and_Gates;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -25,11 +25,22 @@ Output: [[3,-1,0,1],
 /*
 Solution
 Approach 1: BFS
+time: O(K*M*N)
+space: O(M*N)
+
+Approach 2: BFS
+time: O(M*N)
+space: O(M*N)
+
+Approach 3: BFS
+
+time: O(M*N)
+space: O(M*N)
  */
 public class Solution {
+    // approach 1 => 2359 ms
     public void wallsAndGates(int[][] rooms) {
         int[][] directions = new int[][]{{0,1}, {0,-1}, {-1,0}, {1,0}};
-
         for(int i = 0; i < rooms.length; i++){
             for(int j = 0; j < rooms[0].length; j++){
                 if(rooms[i][j] == 2147483647){
@@ -54,6 +65,53 @@ public class Solution {
                         }
                     }
                 }
+            }
+        }
+    }
+
+    // approach 2 => 174 ms
+    public void wallsAndGates2(int[][] rooms) {
+        int[][] directions = new int[][]{{0,1}, {0,-1}, {-1,0}, {1,0}};
+        Queue<int[]> queue = new LinkedList<>();
+
+        for(int i = 0; i < rooms.length; i++){
+            for(int j = 0; j < rooms[0].length; j++){
+                if(rooms[i][j] == 0) queue.add(new int[]{i, j});
+            }
+        }
+
+        while(!queue.isEmpty()){
+            int[] num = queue.poll();
+            for(int[] direction : directions){
+                int x = num[0] + direction[0];
+                int y = num[1] + direction[1];
+                if(x < 0 || x > rooms.length - 1 || y < 0 || y > rooms[0].length - 1 || rooms[x][y] == -1) continue;
+                if(rooms[x][y] <= rooms[num[0]][num[1]]) continue;
+                rooms[x][y] = rooms[num[0]][num[1]] + 1;
+                queue.add(new int[]{x,y});
+            }
+        }
+    }
+    // approach 3 => 17 ms
+    public void wallsAndGates3(int[][] rooms) {
+        int[][] directions = new int[][]{{0,1}, {0,-1}, {-1,0}, {1,0}};
+        Queue<int[]> queue = new LinkedList<>();
+
+        for(int i = 0; i < rooms.length; i++){
+            for(int j = 0; j < rooms[0].length; j++){
+                if(rooms[i][j] == 0) queue.add(new int[]{i, j});
+            }
+        }
+
+        while(!queue.isEmpty()){
+            int[] num = queue.poll();
+            for(int[] direction : directions){
+                int x = num[0] + direction[0];
+                int y = num[1] + direction[1];
+                if(x < 0 || x > rooms.length - 1 || y < 0 || y > rooms[0].length - 1 || rooms[x][y] != 2147483647) continue;
+                //if(rooms[x][y] <= rooms[num[0]][num[1]]) continue;
+                rooms[x][y] = rooms[num[0]][num[1]] + 1;
+                queue.add(new int[]{x,y});
             }
         }
     }
