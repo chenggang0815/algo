@@ -126,19 +126,11 @@ public class Solution {
 
         Queue<Node> queue = new LinkedList<>();
         queue.offer(new Node("", n, n));
-
         while (!queue.isEmpty()){
-
             Node curNode = queue.poll();
-            if (curNode.left == 0 && curNode.right == 0){
-                res.add(curNode.res);
-            }
-            if (curNode.left > 0){
-                queue.offer(new Node(curNode.res + "(", curNode.left - 1, curNode.right));
-            }
-            if (curNode.right >0 && curNode.left < curNode.right){
-                queue.offer(new Node(curNode.res + ")", curNode.left, curNode.right - 1));
-            }
+            if (curNode.left == 0 && curNode.right == 0) res.add(curNode.res);
+            if (curNode.left > 0) queue.offer(new Node(curNode.res + "(", curNode.left - 1, curNode.right));
+            if (curNode.right >0 && curNode.left < curNode.right) queue.offer(new Node(curNode.res + ")", curNode.left, curNode.right - 1));
         }
 
         return res;
