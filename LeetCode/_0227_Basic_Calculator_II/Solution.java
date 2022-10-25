@@ -77,36 +77,38 @@ Solution: time: O(n) space:O(n)
 */
 public class Solution {
 
-    static int calculate(String s) {
+    // -2-2*2+5/2
+    // each time we meet a sign(+-*/), we find another complete digit
+    // eg: -2=> digit=+0
+    // eg: 2-4*2=> s[i]='-' => digit=+2
+    //             s[i]="*" => digit=-4
+    public int calculate(String s) {
+        int digits = 0;
         char preSign = '+';
         Stack<Integer> stack = new Stack<>();
-        int currentNUmber = 0;
-        for (int i = 0; i < s.length(); i++){
-            if (Character.isDigit(s.charAt(i))){
-                currentNUmber = currentNUmber * 10 + s.charAt(i) - '0';
+
+        for(int i = 0; i < s.length(); i++){
+            if(Character.isDigit(s.charAt(i))){
+                digits = digits * 10 + s.charAt(i) - '0';
             }
+            if(s.charAt(i) == '-' || s.charAt(i) == '+' || s.charAt(i) == '*' || s.charAt(i) == '/' || i == s.length() - 1){
+                if(preSign == '+') stack.push(digits);
+                if(preSign == '-') stack.push(-digits);
+                if(preSign == '*') stack.push(stack.pop() * digits);
+                if(preSign == '/') stack.push(stack.pop() / digits);
 
-            if ((!Character.isDigit(s.charAt(i)) && s.charAt(i) != ' ') || i == s.length() - 1){ // 特殊情况：最后一个位置的字符一定为数字，但是一定要遍历到，
-                if (preSign == '+') stack.push(currentNUmber);
-                else if (preSign == '-') stack.push(-currentNUmber);
-                else if (preSign == '*') stack.push(stack.pop() * currentNUmber);
-                else if (preSign == '/') stack.push(stack.pop() / currentNUmber);
-
-                currentNUmber = 0;
                 preSign = s.charAt(i);
+                digits = 0;
             }
         }
 
         int res = 0;
-        while (!stack.isEmpty()){
-            res += stack.pop();
-        }
-
+        while(!stack.isEmpty()) res += stack.pop();
 
         return res;
     }
 
     public static void main(String[] args) {
-        System.out.println(calculate("3+2*2"));
+        //System.out.println(calculate("3+2*2"));
     }
 }

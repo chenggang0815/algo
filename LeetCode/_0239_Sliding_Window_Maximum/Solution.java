@@ -1,4 +1,4 @@
-package Amazon._0239_Sliding_Window_Maximum;
+package LeetCode._0239_Sliding_Window_Maximum;
 /*
 239. Sliding Window Maximum
 
@@ -23,7 +23,6 @@ Window position                Max
 
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.Queue;
 
 /*
 solution 1: brute force => time:O(n*k) space:O(1)
