@@ -35,37 +35,30 @@ public class Solution {
         List<List<String>> res = new ArrayList<>();
         HashSet<String> set = new HashSet<>(wordList);
         Queue<List<String>> queue = new LinkedList<>();
-
         queue.add(Arrays.asList(beginWord));
         while(!queue.isEmpty()){
             int size = queue.size();
+            // "visited" records all the visited nodes on this level
+            // these words will never be visited again after this level
+            // and should be removed from wordList. This is guarantee by the shortest path.
             HashSet<String> visited = new HashSet<>();
             while(size > 0){
                 List<String> path = queue.poll();
                 String lastWord = path.get(path.size() - 1);
                 List<String> neighborWords = getNeighbor(lastWord, set);
-                //System.out.print(neighborWords + "\n");
                 for(String word: neighborWords){
-                    if(set.contains(word)){
-                        //System.out.print(path.size());
-                        //System.out.print(word + "\n");
-                        List<String> currentPath = new ArrayList<>(path);
-                        currentPath.add(word);
-                        if(word.equals(endWord)) res.add(currentPath);
-                        queue.add(currentPath);
-
-                        visited.add(word);
-                    }
+                    List<String> curPath = new ArrayList<>(path);
+                    curPath.add(word);
+                    if(word.equals(endWord)) res.add(curPath);
+                    queue.add(curPath);
+                    visited.add(word);
                 }
                 size--;
             }
             for(String word: visited) set.remove(word);
         }
 
-        //System.out.print(getNeighbor("hot", set));
-
         return res;
-
     }
 
     List<String> getNeighbor(String word, HashSet<String> set){
@@ -76,7 +69,6 @@ public class Solution {
             for(char c = 'a'; c <= 'z'; c++){
                 ch[i] = c;
                 String neighbor = String.valueOf(ch);
-                //System.out.print(neighbor + "\n");
                 if(set.contains(neighbor)) res.add(neighbor);
             }
             ch[i] = temp;
