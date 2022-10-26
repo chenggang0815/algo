@@ -1,4 +1,4 @@
-package LeetCode._0028_mplement_strStr;
+package LeetCode._0028_Find_the_Index_of_the_First_Occurrence_in_a_String;
 /*
 28. Implement strStr() Easy
 Implement strStr().
@@ -16,9 +16,13 @@ Clarification:
 What should we return when needle is an empty string? This is a great question to ask during an interview.
 For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strstr() and Java's indexOf().
  */
+/*
+1. brute force
+2. use String API startsWith() => return bool/false
+3. KMP algorithm
+*/
 public class Solution {
-    // time complexity: o(n^2)
-    // space complexity:o(n)
+    // time: O(n^2) space:O(n)
     //Runtime: 456 ms, faster than 9.35% of Java online submissions for Implement strStr().
     static public int strStr(String haystack, String needle) {
         if (needle.isEmpty()) return 0;
@@ -52,6 +56,51 @@ public class Solution {
             }
             if (str5.toString().equals(needle)) return i;
         }
+        return -1;
+    }
+
+    //
+    public int strStr3(String haystack, String needle) {
+        StringBuilder sb = new StringBuilder();
+        int i = 0;
+        while(i < haystack.length()){
+            if(haystack.charAt(i) == needle.charAt(0)){
+                String s = haystack.substring(i, haystack.length());
+                if(s.startsWith(needle)) return i;
+                i++;
+            }else{
+                i++;
+            }
+        }
+
+        return -1;
+    }
+
+    // this solution is not correct, consider the example below.
+    // "mississippi"
+    //      ji
+    //  "issip" => we can not just move the the position i and the start search again, because the correct position is j
+    //    "issip"
+
+    public int strStr4(String haystack, String needle) {
+        int index = 0;
+        while(index < haystack.length()){
+            if(haystack.charAt(index) == needle.charAt(0)){
+                int j = 0;
+                int i = index;
+                while(i < haystack.length() && j < needle.length() && haystack.charAt(i) == needle.charAt(j)){
+                    i++;
+                    j++;
+                }
+
+                if(j == needle.length()) return index;
+
+                index = i;
+            }else{
+                index++;
+            }
+        }
+
         return -1;
     }
 
