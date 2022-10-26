@@ -55,6 +55,45 @@ public class Solution {
         return res;
     }
 
+    // [1,2,3,4,3,2]
+    // [1] 1 < 2 => [2] => <1,2>
+    // [2] 2 < 3 => [3] => <2,3>
+    // [3] 3 < 4 => [4] => <3,4>
+    // [4] 4 > 3 => [4,3]
+    // [4,3] 3 > 2 => [4,3,2]
+    // stack=[4,3,2] [1,2,3,4,3,2]
+    // i=8%6=2 nums[i]=3 => the next greater element for 2 is 3,
+    // because this is the second pass, we don't  need to add 3 in the stack to avoid duplicate computation.
+    // 1 2 3 4 3  2 len=6
+    // 0          5
+    // 6 7 8 9 10 11
+    // 6%6        11%6
+    // 0 <= i < 2*len
+    //
+    public int[] nextGreaterElements2(int[] nums) {
+        int[] res = new int[nums.length];
+        Arrays.fill(res, -1);
+
+        Stack<Integer> stack = new Stack<>();
+        for(int i = 0; i < 2 * nums.length; i++){
+            if(i < nums.length){
+                while(!stack.isEmpty() && nums[stack.peek()] < nums[i]){
+                    res[stack.pop()] = nums[i];
+                }
+                stack.push(i);
+            }else{
+                int j = i % nums.length;
+                while(!stack.isEmpty() && nums[stack.peek()] < nums[j]){
+                    res[stack.pop()] = nums[j];
+                }
+                //stack.push(j);
+                // because this is the second pass, we don't  need to add 3 in the stack to avoid duplicate computation.
+            }
+        }
+
+        return res;
+    }
+
     public static void main(String[] args) {
         int[] res = nextGreaterElements(new int[]{1,2,1});
         System.out.println(Arrays.toString(res));
