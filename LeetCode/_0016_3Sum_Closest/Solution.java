@@ -43,40 +43,39 @@ return sum
 */
 public class Solution {
 
-    static int threeSumClosest(int[] nums, int target){
-        int[] temp = new int[]{Integer.MAX_VALUE, Integer.MAX_VALUE};
-        //int res = Integer.MAX_VALUE;
+    // -4 -1 1 2 3 target=1
+    // -4 2 3 sum=1 diff=0
+    // -4 -1 3 sum=-2 diff=3
+    // -4 target= x+-4=1 => x=1-(-4)=5
+    // -4 -1 1 2 3 target=5
+    // res = [sum, Math.abs(sum - target)]
+    public int threeSumClosest(int[] nums, int target) {
+        int[] res = new int[]{Integer.MAX_VALUE, Integer.MAX_VALUE};
         Arrays.sort(nums);
-        for (int i = 0; i < nums.length - 2; i++){
-            twoPointers(nums, i, target, temp);
-            //res = Math.min(temp[0], res);
+        for(int i = 0; i < nums.length - 2; i++){
+            helper(nums, i, res, target);
         }
 
-        return temp[0];
+        return res[0];
     }
 
-    static void twoPointers(int[] nums, int i ,int target, int[] temp){
+    void helper(int[] nums, int i, int[] res, int target){
         int left = i + 1;
         int right = nums.length - 1;
-
-        while (left < right){
-            int sum = nums[left] + nums[right] + nums[i];
-            if (Math.abs(sum - target) < Math.abs(temp[1])) {
-                temp[0] = sum;
-                temp[1] = Math.abs(sum - target);
+        while(left < right){
+            int sum = nums[i] + nums[left] + nums[right];
+            if(Math.abs(sum - target) < res[1]){
+                res[0] = sum;
+                res[1] = Math.abs(sum - target);
             }
-
-            if(sum > target){
-                right--;
-            }else{
-                left++;
-            }
+            if(sum > target) right--;
+            else left++;
         }
     }
 
 
     public static void main(String[] args) {
         int[] nums = new int[]{-4, -1, 1, 2};
-        System.out.println(threeSumClosest(nums, 1));
+        //System.out.println(threeSumClosest(nums, 1));
     }
 }
