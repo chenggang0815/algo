@@ -40,7 +40,7 @@ public class Solution1 {
             parent = new int[n];
             for(int i = 0; i < n; i++) parent[i] = i;
         }
-
+// without path compression
 //        int findParent(int i){
 //            while(i != parent[i]){
 //                i = parent[i];
@@ -48,13 +48,20 @@ public class Solution1 {
 //
 //            return parent[i];
 //        }
-        //
+
+// without path compression
+//        int findParent(int i){
+//            if (i == parent[i]) return parent[i];
+//
+//            return findParent(parent[i]);
+//        }
         int findParent(int i){
-            if (i == parent[i]) return parent[i];
+            if (i == parent[i]) return i;
 
-            return findParent(parent[i]);
+            parent[i] = findParent(parent[i]); // this line is for path compression
+
+            return parent[i];
         }
-
         void merge(int i, int j){
             int p1 = findParent(i);
             int p2 = findParent(j);

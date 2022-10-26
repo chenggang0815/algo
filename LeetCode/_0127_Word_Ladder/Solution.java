@@ -1,6 +1,5 @@
-package Amazon._0127_Word_Ladder;
+package LeetCode._0127_Word_Ladder;
 import java.util.*;
-
 /*
 127. Word Ladder
 
@@ -8,13 +7,16 @@ A transformation sequence from word beginWord to word endWord using a dictionary
 1. Every adjacent pair of words differs by a single letter.
 2. Every si for 1 <= i <= k is in wordList. Note that beginWord does not need to be in wordList.
 3. sk == endWord
-4. Given two words, beginWord and endWord, and a dictionary wordList, return the number of words in the shortest transformation sequence from beginWord to endWord, or 0 if no such sequence exists.
+
+Given two words, beginWord and endWord, and a dictionary wordList,
+return the number of words in the shortest transformation sequence from beginWord to endWord, or 0 if no such sequence exists.
 
 Example 1:
 Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
 Output: 5
 Explanation: One shortest transformation sequence is "hit" -> "hot" -> "dot" -> "dog" -> cog", which is 5 words long.
 */
+
 /*
 Solution:
 Approach 1: BFS
@@ -51,22 +53,21 @@ Algorithm:
 */
 public class Solution {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        HashSet<String> wordSet = new HashSet<>(wordList);
         Queue<String> queue = new LinkedList<>();
-        Set<String> words = new HashSet<>(wordList);
-        //words.remove(beginWord);
+        int res = 0;
         queue.add(beginWord);
-        int level = 0;
         while(!queue.isEmpty()){
             int size = queue.size();
-            level++;
+            res++;
             for(int i = 0; i < size; i++){
-                String currentWord = queue.poll();
-                if(currentWord.equals(endWord)) return level;
-                List<String> neighbors = neighbor(currentWord);
-                for(String neighbor : neighbors){
-                    if(words.contains(neighbor)){
-                        words.remove(neighbor);
-                        queue.add(neighbor);
+                String curWord = queue.poll();
+                if(curWord.equals(endWord)) return res;
+                List<String> nextWords = getNextWords(curWord);
+                for(String nextWord: nextWords){
+                    if(wordSet.contains(nextWord)){
+                        queue.add(nextWord);
+                        wordSet.remove(nextWord);//"hit" ["hot", "dot"]
                     }
                 }
             }
@@ -75,20 +76,20 @@ public class Solution {
         return 0;
     }
 
-    public List<String> neighbor(String word){
-        char[] chars = word.toCharArray();
-        List<String> result = new ArrayList<>();
-        for(int i = 0; i < chars.length; i++){
-            char temp = chars[i];
-            for(char c = 'a'; c <= 'z'; c++){
-                chars[i] = c;
-                String neighbor = new String(chars);
-                result.add(neighbor);
+    List<String> getNextWords(String word){
+        char[] ch = word.toCharArray();
+        List<String> res = new ArrayList<>();
+        for(int i = 0; i < ch.length; i++){
+            char temp = ch[i]; // char[] temp = ch is not correct
+            for(char j = 'a'; j <= 'z'; j++){
+                ch[i] = j;
+                String nextWord = String.valueOf(ch);
+                res.add(nextWord);
             }
-            chars[i] = temp;
+            ch[i] = temp;
         }
 
-        return result;
+        return res;
     }
     public static void main(String[] args) {
 

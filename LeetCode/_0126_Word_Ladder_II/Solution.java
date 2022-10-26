@@ -1,4 +1,4 @@
-package Facebook._0126_Word_Ladder_II;
+package LeetCode._0126_Word_Ladder_II;
 import java.util.*;
 /*
 126. Word Ladder II
@@ -7,7 +7,11 @@ A transformation sequence from word beginWord to word endWord using a dictionary
 Every adjacent pair of words differs by a single letter.
     1. Every si for 1 <= i <= k is in wordList. Note that beginWord does not need to be in wordList.
     2. sk == endWord
-    3. Given two words, beginWord and endWord, and a dictionary wordList, return all the shortest transformation sequences from beginWord to endWord, or an empty list if no such sequence exists. Each sequence should be returned as a list of the words [beginWord, s1, s2, ..., sk].
+
+Given two words, beginWord and endWord, and a dictionary wordList,
+return all the shortest transformation sequences from beginWord to endWord, or an empty list if no such sequence exists.
+
+Each sequence should be returned as a list of the words [beginWord, s1, s2, ..., sk].
 
 Example 1:
 Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"]
