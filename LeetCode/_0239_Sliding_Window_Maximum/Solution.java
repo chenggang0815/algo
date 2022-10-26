@@ -75,15 +75,19 @@ public class Solution {
         int[] res = new int[nums.length - k + 1];
         LinkedList<Integer> deque = new LinkedList<>();
         for (int i = 0; i < nums.length; i++){
-            while (!deque.isEmpty() && nums[deque.peekLast()] <= nums[i]){
-                deque.pollLast();
-            }
+            // make sure all the elements in the deque is decreasing order
+            while (!deque.isEmpty() && nums[deque.peekLast()] <= nums[i]) deque.pollLast();
 
             deque.addLast(i);
+            //    i=2 k=3 [0,1,2]
+            //    => nums[0]>nums[1]>nums[2]>nums[3]
+            //    i=3 k=3 [0,1,2,3]=> we need to pop the first element to maintain k elements in the deque
+            //    i=3 k=3 [1,2,3] => now, nums[1] is the biggest element
             if (i - k >= deque.peekFirst()) deque.pollFirst();
-            if (i + 1 >= k){
-                res[i + 1 - k] = nums[deque.peekFirst()];
-            }
+
+            // let's say k=3 when i reach to 2, which is the k-th number, we should
+            if (i + 1 >= k) res[i + 1 - k] = nums[deque.peekFirst()];
+
         }
 
         return res;
