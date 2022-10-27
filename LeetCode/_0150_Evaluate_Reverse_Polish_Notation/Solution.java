@@ -27,8 +27,7 @@ Explanation: (4 + (13 / 5)) = 6
 逆波兰表达式主要有以下两个优点：
 1. 去掉括号后表达式无歧义，上式即便写成 1 2 + 3 4 + * 也可以依据次序计算出正确结果。
 2. 适合用栈操作运算：遇到数字则入栈；遇到算符则取出栈顶两个数字进行计算，并将结果压入栈中
-
- */
+*/
 
 /*
 “==”比较两个变量本身的值，即两个对象在内存中的首地址。
@@ -56,56 +55,39 @@ String[] s = {"1"};
 而leetcode上tokens里的字符串都是通过 new String("1");方式创建的对象，所以==不相等必须要equals，至于jdk版本，，，，依我看不是jdk的问题
  */
 public class Solution {
-    // Runtime: 4 ms, faster than 92.22% of Java online submissions for Evaluate Reverse Polish Notation.
-    static int evalRPN(String[] tokens) {
-        Stack<Integer> stack = new Stack<>();
+    // ["4","13","5","/","+"]
+    // [4, 13, 5]
+    // "/" => 13/5=2 => [4,2]
+    // "+" => 4+2 => 6
 
-        for (int i = 0; i < tokens.length; i++){
-            String s = tokens[i];
-            if (s.equals("+") || s.equals("-") || s.equals("*") || s.equals("/")){
+    // ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
+    // [10, 6, 9, 3]
+    // "+" => [10, 6, 12]
+    // [10, 6, 12,-11]
+    // "*" => [10, 6, -132]
+    // "/" => 6/-132=0 => [10, 0]
+    // "*" => 10*0 = 0 =>[0]
+    // [0, 17]
+    // "+" => 0 + 17 = 17 => [17]
+    // [17, 5]
+    // "+" => 17 + 5 => 22
+    public int evalRPN(String[] tokens) {
+        Stack<Integer> stack = new Stack<>();
+        for(String token: tokens){
+            if(token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/")){
                 int a = stack.pop();
                 int b = stack.pop();
-                if (s.equals("+")){
-                    stack.push(b + a);
-                }else if (s.equals("-")){
-                    stack.push(b - a);
-                }else if (s.equals("*")){
-                    stack.push(b * a);
-                }else{
-                    stack.push(b / a);
-                }
-            }else stack.push(Integer.valueOf(s));
+                if(token.equals("+")) stack.push(b + a);
+                else if(token.equals("-")) stack.push(b - a);
+                else if(token.equals("*")) stack.push(b * a);
+                else stack.push(b / a);
+            }else stack.push(Integer.valueOf(token));
         }
 
         return stack.pop();
     }
 
-    /*
-        public int evalRPN(String[] tokens) {
-      Stack<String> stack = new Stack<>();
-
-        for (int i = 0; i < tokens.length; i++){
-            if (tokens[i].equals("+") || tokens[i].equals("-") || tokens[i].equals("*") || tokens[i].equals("/")){
-
-                int a = Integer.parseInt(stack.pop());
-                int b = Integer.parseInt(stack.pop());
-                if (tokens[i].equals("+")){
-                    stack.push(String.valueOf(b + a));
-                }else if (tokens[i].equals("-")){
-                    stack.push(String.valueOf(b - a));
-                }else if (tokens[i].equals("*")){
-                    stack.push(String.valueOf(b * a));
-                }else{
-                    stack.push(String.valueOf(b / a));
-                }
-            }else stack.push(tokens[i]);
-        }
-
-        return Integer.parseInt(stack.pop());
-    }
-     */
-
     public static void main(String[] args) {
-        System.out.println(evalRPN(new String[]{"2","1","+","3","*"}));
+        //System.out.println(evalRPN(new String[]{"2","1","+","3","*"}));
     }
 }
