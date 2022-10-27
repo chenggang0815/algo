@@ -1,4 +1,4 @@
-package Amazon._0994_Rotting_Oranges;
+package LeetCode._0994_Rotting_Oranges;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -24,45 +24,71 @@ second recursion => x+1 m=4
 third recursion => x+1 m=5
                 => j+1 m=5
 fourth recursion => x+1 m=6
+
+2.1 bfs
+1. we iterate the matrix, every time we meet a rotten orange, we do a bfs
+2. we use another matrix "steps" to record the current minimum step that the fresh orange need
+3. if we start from another rotten orange, and the current step is lees than value in "steps", we update the value
+4. finally, we need to iterate the "steps" to find the max steps
+
+2.2 bfs
+0. unlike the normal bfs question, instead of start from only one point, we may have multiple start points
+1. since we may have multiple rotten oranges at the beginning
+2. we put all the rotten orange in the queue, as our start points
+3. then we do a bfs for each start points, mark the fresh orange to rotten oranges
+4. until we marked all the fresh oranges that we can reach, the step is the minimum step we need.
+for example:
+2 2 1
+1 1 1
+0 1 1
+
+we have two rotten oranges, we do a bfs for these two rotten oranges respectively.
+step 1:
+2 2 2
+2 2 1
+0 1 1
+step 2:
+2 2 2
+2 2 2
+0 2 1
+step 3:
+2 2 2
+2 2 2
+0 2 2
  */
 public class Solution {
-
+    /*
+2 1 1
+0 1 1
+0 0 1
+    * */
     public int orangesRotting(int[][] grid) {
-        int rows = grid.length;
-        int cols = grid[0].length;
-
-
-        for(int i = 0; i < rows; i++){
-            for(int j = 0; j < cols; j++){
-                if(grid[i][j] == 2){
-                    helper(grid, i, j, 2);
-                }
+        for(int i = 0; i < grid.length; i++){
+            for(int j = 0; j < grid[0].length; j++){
+                if(grid[i][j] == 2) dfs(grid, i, j, 2);
             }
         }
-
-        int minutes = 2;
-        for(int i = 0; i < rows; i++){
-            for(int j = 0; j < cols; j++){
+        int step = 2;
+        for(int i = 0; i < grid.length; i++){
+            for(int j = 0; j < grid[0].length; j++){
                 if(grid[i][j] == 1) return -1;
-                minutes = Math.max(minutes, grid[i][j]);
+                step = Math.max(step, grid[i][j]);
             }
         }
 
-        return minutes - 2;
-
+        return step - 2;
     }
 
+    void dfs(int[][] grid, int i, int j, int step){
+        if(i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == 0) return;
 
-    void helper(int[][] grid, int i, int j, int minutes){
-        if(i < 0 || i >= grid.length || j < 0 || j >= grid[0].length ||
-                grid[i][j] == 0 ||
-                (1 < grid[i][j] && grid[i][j] < minutes)) return;
+        if(1 < grid[i][j] && grid[i][j] < step) return;
 
-        grid[i][j] = minutes;
-        helper(grid, i - 1, j, minutes + 1);
-        helper(grid, i + 1, j, minutes + 1);
-        helper(grid, i, j - 1, minutes + 1);
-        helper(grid, i, j + 1, minutes + 1);
+        grid[i][j] = step;
+        dfs(grid, i - 1, j, step + 1);
+        dfs(grid, i + 1, j, step + 1);
+        dfs(grid, i, j - 1, step + 1);
+        dfs(grid, i, j + 1, step + 1);
     }
 
 /*
@@ -132,55 +158,40 @@ public class Solution {
     }
 
 
-    static int orangesRotting2(int[][] grid) {
-        int fresh = 0;
+    // bfs 2.2
+    int orangesRotting2(int[][] grid) {
+        int freshCnt = 0;
         Queue<int[]> queue = new LinkedList<>();
         for(int i = 0; i < grid.length; i++){
             for(int j = 0; j < grid[0].length; j++){
-                if(grid[i][j] == 1) fresh++;
+                if(grid[i][j] == 1) freshCnt++;
                 if(grid[i][j] == 2) queue.add(new int[]{i, j});
             }
         }
-        if(fresh == 0) return 0;
+        if(freshCnt == 0) return 0;
 
         int res = 0;
+        int[][] directions = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
         while(!queue.isEmpty()){
-            int size = queue.size();
-            boolean flag = false;
-            while(size > 0){
-                int[] index = queue.poll();
-                int i = index[0];
-                int j = index[1];
-                if(i - 1 >=0 && grid[i - 1][j] == 1){
-                    queue.add(new int[]{i - 1, j});
-                    grid[i - 1][j] = 2;
-                    flag = true;
-                    fresh--;
+            int levelSize = queue.size();
+            boolean isMove = false;
+            while(levelSize > 0){
+                int[] cur = queue.poll();
+                for(int[] dir: directions){
+                    int x = cur[0] + dir[0];
+                    int y = cur[1] + dir[1];
+                    if(x < 0 || x >= grid.length || y < 0 || y >= grid[0].length || grid[x][y] != 1) continue;
+                    grid[x][y] = 2;
+                    freshCnt--;
+                    isMove = true;
+                    queue.add(new int[]{x, y});
                 }
-                if(i + 1 < grid.length && grid[i + 1][j] == 1){
-                    queue.add(new int[]{i + 1, j});
-                    grid[i + 1][j] = 2;
-                    flag = true;
-                    fresh--;
-                }
-                if(j - 1 >=0 && grid[i][j - 1] == 1){
-                    queue.add(new int[]{i, j - 1});
-                    grid[i][j - 1] = 2;
-                    flag = true;
-                    fresh--;
-                }
-                if(j + 1 < grid[0].length && grid[i][j + 1] == 1){
-                    queue.add(new int[]{i, j + 1});
-                    grid[i][j + 1] = 2;
-                    flag = true;
-                    fresh--;
-                }
-                size--;
+                levelSize--;
             }
-            if(flag == true) res++;
+            if(isMove) res++;
         }
 
-        if(fresh > 0) return -1;
+        if(freshCnt > 0) return -1;
 
         return res;
     }
@@ -188,6 +199,6 @@ public class Solution {
     public static void main(String[] args) {
         //int[][] nums = new int[][]{{1,2,1},{0,0,2},{2,1,1}};
         int[][] nums = new int[][]{{1,1,2},{1,0,2},{0,0,0}};
-        System.out.println(orangesRotting2(nums));
+        //System.out.println(orangesRotting2(nums));
     }
 }
