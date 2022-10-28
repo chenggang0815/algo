@@ -23,7 +23,7 @@ Output: [[3,-1,0,1],
          [0,-1,3,4]]
 */
 /*
-Solution
+Solution => // similar with question 994. Rotting Oranges
 Approach 1: BFS
 time: O(K*M*N)
 space: O(M*N)
@@ -114,6 +114,35 @@ public class Solution {
                 queue.add(new int[]{x,y});
             }
         }
+    }
+
+    // similar with question 994. Rotting Oranges
+    public void wallsAndGates4(int[][] rooms) {
+        Queue<int[]> queue = new LinkedList<>();
+        for(int i = 0; i < rooms.length; i++){
+            for(int j = 0; j < rooms[0].length; j++){
+                if(rooms[i][j] == 0) queue.add(new int[]{i, j, 0});
+            }
+        }
+        int INF = 2147483647;
+        int[][] directions = new int[][]{{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+        while(!queue.isEmpty()){
+            int levelSize = queue.size();
+            while(levelSize > 0){
+                int[] cur = queue.poll();
+                for(int[] dir: directions){
+                    int x = cur[0] + dir[0];
+                    int y = cur[1] + dir[1];
+                    int step = cur[2] + 1;
+                    if(x < 0 || x >= rooms.length || y < 0 || y >= rooms[0].length) continue;
+                    if(rooms[x][y] == -1 || rooms[x][y] == 0 || rooms[x][y] != INF) continue;
+                    rooms[x][y] = step;
+                    queue.add(new int[]{x, y, step});
+                }
+                levelSize--;
+            }
+        }
+
     }
     public static void main(String[] args) {
 
