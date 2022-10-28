@@ -1,4 +1,4 @@
-package Facebook._0528_Random_Pick_with_Weight;
+package LeetCode._0528_Random_Pick_with_Weight;
 /*
 528. Random Pick with Weight
 You are given a 0-indexed array of positive integers w where w[i] describes the weight of the ith index.
@@ -39,6 +39,7 @@ Approach 1. prefixSum + linear search => time for pickIndex: O(n)
 2.
 w =           [1,   2,  3,   4]
 weight =      0.1  0.2 0.3  0.4
+prefix sum =   0.1  0.3 0.6  1.0
 
 if the random value between 0 and 0.1, account for 0.1 => return 0
 if the random value between 0.1 and 0.3, account for 0.2 => return 1
@@ -58,7 +59,6 @@ Approach 2: prefixSum + binary search => time for pickIndex: O(nlog(n))
 use binary search find the first prefix_sum > 0.35 => prefix_sum[2] = 0.6 > 0.35 => return 2
 */
 public class Solution {
-
     double[] weight; // the default data type of the float point value in java is double, not the float
     public Solution(int[] w) {
         weight = new double[w.length];
