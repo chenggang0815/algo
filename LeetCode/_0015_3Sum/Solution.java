@@ -58,6 +58,19 @@ tips:
 /*
 time: O(nlog(n) + n^2) => O(nlog(n))
 space: O(log(n))  depending on the implementation of the sorting algorithm
+1. we need to conditions to avoid duplicate results
+2. if(i != 0 && nums[i] == nums[i- 1]) continue;
+    consider this example => // -4 -1 -1 0 1 2
+                               i 0  1  2 3 4 5
+   when i = 1, we have [-1,-1,2]
+   when i = 2, we have [-1,-1,2] => duplicate
+3. while(left < right && nums[left] == nums[left + 1]) left++; or while(right > 0 && nums[right] == nums[right - 1]) right--;
+    consider this example => // -2 0 0 2 2
+                                0  1 2 3 4
+    when i=0 left=1 right=4 we have=> [-2,0,2]
+    if we don't avoid duplicate left or right, we may have another [-2,0,2]
+    so we need to move left or right until it doesn't equal the previous value
+
 */
 public class Solution {
     static List<List<Integer>> threeSum(int[] nums) {
@@ -76,6 +89,7 @@ public class Solution {
                 }else{
                     res.add(Arrays.asList(nums[left], nums[right], nums[i]));
                     while(left < right && nums[left] == nums[left + 1]) left++;
+                    // or while(right > 0 && nums[right] == nums[right - 1]) right--;
                     left++;
                     right--;
                 }
