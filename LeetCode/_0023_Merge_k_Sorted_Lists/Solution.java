@@ -58,6 +58,16 @@ public class Solution {
         }
     }
 
+// Approach 1
+    static ListNode mergeKLists1(ListNode[] lists) {
+        ListNode head = new ListNode(Integer.MIN_VALUE);
+        for(ListNode list: lists){
+            head = merge2Lists(head, list);
+        }
+
+        return head.next;
+    }
+
     static ListNode merge2Lists(ListNode head1, ListNode head2){
         ListNode head = new ListNode(1);
         ListNode cur = head;
@@ -72,15 +82,6 @@ public class Solution {
             cur = cur.next;
         }
         cur.next = (head1 == null ? head2 : head1);
-
-        return head.next;
-    }
-// Approach 1
-    static ListNode mergeKLists1(ListNode[] lists) {
-        ListNode head = new ListNode(Integer.MIN_VALUE);
-        for(ListNode list: lists){
-            head = merge2Lists(head, list);
-        }
 
         return head.next;
     }
