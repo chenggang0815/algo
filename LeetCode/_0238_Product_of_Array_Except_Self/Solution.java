@@ -40,34 +40,30 @@ public class Solution {
         left[0] = 1;
         int[] right = new int[nums.length];
         right[nums.length - 1] = 1;
-        for(int i = 1; i < nums.length; i++){
-            left[i] = left[i - 1] * nums[i - 1];
-        }
-        for(int i = nums.length - 2; i >= 0; i--){
-            right[i] = right[i + 1] * nums[i + 1];
-        }
-        int[] answer = new int[nums.length];
-        for(int i = 0; i < nums.length; i++){
-            answer[i] = left[i] * right[i];
-        }
 
-        return answer;
+        for(int i = 1; i < nums.length; i++) left[i] = left[i - 1] * nums[i - 1];
+        for(int i = nums.length - 2; i >= 0; i--) right[i] = right[i + 1] * nums[i + 1];
+
+        int[] res = new int[nums.length];
+        for(int i = 0; i < nums.length; i++) res[i] = left[i] * right[i];
+
+        return res;
     }
 
     // time:o(n) space:o(1)
     static int[] productExceptSelf2(int[] nums) {
-        int[] answer = new int[nums.length];
-        answer[0] = 1;
-        for(int i = 1; i < nums.length; i++){
-            answer[i] = answer[i - 1] * nums[i - 1];
-        }
+        int[] res = new int[nums.length];
+        res[0] = 1;
+        res[nums.length - 1] = 1;
+        for(int i = 1; i < nums.length; i++) res[i] = res[i - 1] * nums[i - 1];
+
         int right = 1;
-        for(int i = nums.length - 1; i >= 0; i--){
-            answer[i] = answer[i] * right;
-            right = right * nums[i];
+        for(int i = nums.length - 2; i >= 0; i--){
+            right *= nums[i + 1];
+            res[i] = res[i] * right;
         }
 
-        return answer;
+        return res;
     }
 
 
