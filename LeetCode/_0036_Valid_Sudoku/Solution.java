@@ -1,7 +1,9 @@
 package LeetCode._0036_Valid_Sudoku;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 /*
 36. 有效的数独
 判断一个 9x9 的数独是否有效。只需要根据以下规则，验证已经填入的数字是否有效即可。
@@ -134,6 +136,23 @@ public class Solution {
     }
 
 
+    static int findFirst(List<Integer> nums, int target){
+        int res = -1;
+        int left = 0;
+        int right = nums.size() - 1;
+        while(left <= right){
+            int mid = left + (right - left) / 2;
+            if(nums.get(mid) > target){
+                res = mid;
+                right = mid - 1;
+            }else{
+                left = mid + 1;
+            }
+        }
+
+        return res == -1 ? -1 : nums.get(res);
+    }
+
     public static void main(String[] args) {
         char[][] board = new char[][]{
                 {'5','3','.','.','7','.','.','.','.'},
@@ -147,7 +166,15 @@ public class Solution {
                 {'.','.','.','.','8','.','.','7','9'}};
         
        // char[][] board1= [['5','3','.','.','7','.','.','.','.'],['6','.','.','1','9','5','.','.','.'],['.','9','8','.','.','.','.','6','.'],['8','.','.','.','6','.','.','.','3'],['4','.','.','8','.','3','.','.','1'],['7','.','.','.','2','.','.','.','6'],['.','6','.','.','.','.','2','8','.'],['.','.','.','4','1','9','.','.','5'],['.','.','.','.','8','.','.','7','9']];
-       System.out.println(isValidSudoku1(board));
+       //System.out.println(isValidSudoku1(board));
+       int[] row = new int[9];
+       row['5' - '0'] = 1;
+       System.out.println(row['5' - '0']);
+       System.out.println(row['4' - '0']);
+       System.out.println('5' - '0');
+
+       List<Integer> nums = Arrays.asList(1,2,4,6,9,13,14,15);
+       System.out.println(findFirst(nums, 2));
 
     }
 }
