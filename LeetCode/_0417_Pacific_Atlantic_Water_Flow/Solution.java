@@ -16,7 +16,6 @@ When we start a traversal at a cell, whatever result we end up with can be appli
 However, when we start from the ocean and work backwards, we already know that every cell we visit must be connected to the ocean.
 
 Approach 2: dfs
-
 */
 public class Solution {
     public List<List<Integer>> pacificAtlantic1(int[][] heights) {
